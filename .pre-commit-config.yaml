@@ -25,3 +25,7 @@ repos:
     rev: v1.3.0
     hooks:
     -   id: dead
+-   repo: https://github.com/econchick/interrogate
+    rev: 1.2.0
+    hooks:
+    -   id: interrogate
