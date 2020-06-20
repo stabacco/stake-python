@@ -9,6 +9,8 @@ import funding
 import product
 import report
 import user
+import trade
+
 from aiohttp_requests import requests
 from dotenv import load_dotenv
 from product import Product
@@ -54,6 +56,7 @@ class _StakeClient:
 
         self.fundings = funding.FundingsClient(self)
         self.products = product.ProductsClient(self)
+        self.trades = trade.TradesClient(self)
 
     @staticmethod
     def _url(endpoint: str) -> str:
@@ -78,6 +81,12 @@ class _StakeClient:
         )
         response.raise_for_status()
         return await response.json()
+
+    async def _delete(self, url, payload: dict=None) -> bool:
+        response = await requests.delete(self._url(url), headers=self.headers, json=payload or {})
+        if response.status > 399:
+            return False
+        return True
 
     async def login(
         self,
@@ -187,6 +196,14 @@ async def main():
         client.products.get("AAPL"),
         client.fundings.list(funding.FundingRequest()),
     )
+
+    buy_apple = await client.trades.buy("AAPL", trade.LimitBuyRequest(limitPrice=300, quantity=1))
+    print(buy_apple)
+
+    import time ; time.sleep(30)
+    # cancel buy
+    cancelbuy= await client.trades.cancel(buy_apple.dwOrderId)
+    print(cancelbuy)
     # print(client.user)
     return fundings, funds_in_flight, equities
 
@@ -196,4 +213,4 @@ if __name__ == "__main__":
     fundings, in_flight, market_status = loop.run_until_complete(main())
     import pprint
 
-    pprint.pprint(fundings)
+    # pprint.pprint(fundings)
