@@ -1,12 +1,14 @@
 import asyncio
 import os
-from typing import Optional, List
+from typing import List
+from typing import Optional
 from urllib.parse import urljoin
 
+import equity
+import funding
+import user
 from aiohttp_requests import requests
 from dotenv import load_dotenv
-
-import user, funding, equity
 
 STAKE_URL = "https://prd-api.stake.com.au/api/"
 
@@ -115,14 +117,14 @@ class _StakeClient:
 
     async def get_marked_data(self, symbols: List[str]) -> Optional[dict]:
 
-            if not symbols:
-                return None
+        if not symbols:
+            return None
 
-            url = self._url(f"quotes/marketData/{'.'.join(symbols)}")
+        url = self._url(f"quotes/marketData/{'.'.join(symbols)}")
 
-            response = await requests.get(url, headers=self.headers)
-            response.raise_for_status()
-            return await response.json()
+        response = await requests.get(url, headers=self.headers)
+        response.raise_for_status()
+        return await response.json()
 
     async def sell_order(self):
         {
@@ -136,11 +138,14 @@ class _StakeClient:
             "comments": "",
         }
 
-    async def download_report(self, request: ):
-        {"dateStart": "2020-05-22T07:20:20.057Z",
-         "dateEnd": "2020-06-22T07:20:20.057Z",
-         "reportFormat": "XLS",
-         "reportName": "OrderTrans"}
+    async def download_report(self, request: report.ReportRequest) -> dict:
+        {
+            "dateStart": "2020-05-22T07:20:20.057Z",
+            "dateEnd": "2020-06-22T07:20:20.057Z",
+            "reportFormat": "XLS",
+            "reportName": "OrderTrans",
+        }
+
 
 async def StakeClient(
     username: Optional[str] = os.getenv("STAKE_USER"),
@@ -166,9 +171,11 @@ async def main():
     client = await StakeClient()
     user = client.user
     print(user.sessionKey)
-    fundings, funds_in_flight, equities = await asyncio.gather(client.get_fundings(),
-                                                     client.get_marked_data(['AAPL']),
-                                                     client.get_market_status())
+    fundings, funds_in_flight, equities = await asyncio.gather(
+        client.get_fundings(),
+        client.get_marked_data(["AAPL"]),
+        client.get_market_status(),
+    )
     # print(client.user)
     return fundings, funds_in_flight, equities
 
@@ -176,4 +183,6 @@ async def main():
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     fundings, in_flight, market_status = loop.run_until_complete(main())
-    import pprint; pprint.pprint(market_status)
+    import pprint
+
+    pprint.pprint(market_status)
