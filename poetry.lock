@@ -187,7 +187,7 @@ python-versions = "*"
 version = "3.0.12"
 
 [[package]]
-category = "main"
+category = "dev"
 description = ""
 name = "gitautopush"
 optional = false
@@ -509,7 +509,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "2461c9b6412c658617d6c671bb02d958b45aecf843f1e14a9970d2522e451e42"
+content-hash = "7ccf9d4cd3f0dfdee832a1ce2e69f898e36a94471e97877e60f0be32e3204c6e"
 python-versions = "^3.7"
 
 [metadata.files]
