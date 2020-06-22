@@ -1,7 +1,6 @@
 from typing import List
 from typing import Optional
 
-import attr
 from pydantic import BaseModel
 
 
@@ -31,13 +30,6 @@ class EquityPosition(BaseModel):
     askPrice: Optional[float] = None
     bidPrice: Optional[float] = None
     returnOnStock: Optional[float] = None
-
-    @classmethod
-    def from_data(cls, **data):
-        filtered_data = {
-            key: value for key, value in data.items() if key in cls.__annotations__
-        }
-        return cls(**filtered_data)
 
 
 class EquityPositions(BaseModel):
