@@ -1,9 +1,12 @@
 import asyncio
 import os
+from typing import Optional, List
 from urllib.parse import urljoin
 
 from aiohttp_requests import requests
 from dotenv import load_dotenv
+
+import user, funding, equity
 
 STAKE_URL = "https://prd-api.stake.com.au/api/"
 
@@ -15,7 +18,7 @@ def today() -> str:
     """returns the date of today
 
     Returns:
-        [type]: [description]
+        [str]: the formatted date
     """
     from arrow import now
 
@@ -30,27 +33,16 @@ def last_year():
     return n.shift(years=-1).format("DD/MM/YYYY")
 
 
-class StakeClient:
+class _StakeClient:
     def __init__(self):
         self.user = None
-
-        self.headers = {
-            "Accept": "application/json",
-            "Host": "prd-api.stake.com.au",
-            "Origin": "https://stake.com.au",
-            "Referer": "https://stake.com.au/dashboard/portfolio",
-            "Sec-Fetch-Dest": "empty",
-            "Sec-Fetch-Mode": "cors",
-            "Sec-Fetch-Site": "same-site",
-            "Content-Type": "application/json",
-        }
 
     @staticmethod
     def _url(endpoint: str) -> str:
         """Generates an url
 
         Args:
-            endpoint (str): the final part of the enpoint 
+            endpoint (str): the final part of the enpoint
 
         Returns:
             str: the full url
@@ -71,59 +63,117 @@ class StakeClient:
             self._url("sessions/createSession"), json=payload
         )
         response.raise_for_status()
-        json_data = await response.json()
-        self.user = json_data
-        self.headers["Stake-Session-Token"] = self.user["sessionKey"]
-        return json_data
 
-    async def get_fundings(self, startDate: str = None, endDate: str = None) -> dict:
-        startDate = startDate or last_year()
-        endDate = endDate or today()
+        user_data = await response.json()
+        self.user = user.User(**user_data)
+
+        self.headers = {
+            "Accept": "application/json",
+            "Host": "prd-api.stake.com.au",
+            "Origin": "https://stake.com.au",
+            "Referer": "https://stake.com.au",
+            "Stake-Session-Token": self.user.sessionKey,
+            "Sec-Fetch-Dest": "empty",
+            "Sec-Fetch-Mode": "cors",
+            "Sec-Fetch-Site": "same-site",
+            "Content-Type": "application/json",
+        }
+        return self.user
+
+    async def get_fundings(
+        self, start_date: str = None, end_date: str = None
+    ) -> List[funding.Funding]:
+        start_date = start_date or last_year()
+        end_date = end_date or today()
+
         url = self._url("utils/activityLog/fundingOnly")
-        payload = {"endDate": endDate, "startDate": startDate}
-        print(payload)
+        payload = {"endDate": end_date, "startDate": start_date}
         response = await requests.post(url, headers=self.headers, json=payload)
+        response.raise_for_status()
+        data = await response.json()
+
+        return [funding.Funding(**d) for d in data]
+
+    async def get_funds_in_flight(self) -> dict:
+        url = self._url("fund/details")
+        response = await requests.get(url, headers=self.headers, json={})
         response.raise_for_status()
         return await response.json()
 
-    async def get_funds_in_flight(self) -> dict:
-
-        url = self._url("/fund/details")
+    async def get_equities(self):
+        url = self._url("users/accounts/equityPositions")
         response = await requests.get(url, headers=self.headers, json={})
         response.raise_for_status()
-        return response.json()
+        data = await response.json()
+        return equity.EquityPositions(**data)
 
-    async def get_equities(self):
-        url = self._url("/users/accounts/equityPositions")
-        response = requests.get(url, headers=self.headers, json={})
+    async def get_market_status(self) -> dict:
+        url = self._url("utils/marketStatus")
+        response = await requests.get(url, headers=self.headers)
         response.raise_for_status()
-        return response.json()
+        return await response.json()
+
+    async def get_marked_data(self, symbols: List[str]) -> Optional[dict]:
+
+            if not symbols:
+                return None
+
+            url = self._url(f"quotes/marketData/{'.'.join(symbols)}")
+
+            response = await requests.get(url, headers=self.headers)
+            response.raise_for_status()
+            return await response.json()
 
     async def sell_order(self):
         {
-    "userId": self.user[],
-    "itemId": "a45b1c39-d1a4-4a90-a388-c34b1257503a",
-    "itemType": "instrument",
-    "orderType": "stop",
-    "quantity": "8.16321243",
-    "stopPrice": "4.9",
-    "limitPrice": "",
-    "comments": ""
-}
+            "userId": self.user.userID,
+            "itemId": "a45b1c39-d1a4-4a90-a388-c34b1257503a",
+            "itemType": "instrument",
+            "orderType": "stop",
+            "quantity": "8.16321243",
+            "stopPrice": "4.9",
+            "limitPrice": "",
+            "comments": "",
+        }
+
+    async def download_report(self, request: ):
+        {"dateStart": "2020-05-22T07:20:20.057Z",
+         "dateEnd": "2020-06-22T07:20:20.057Z",
+         "reportFormat": "XLS",
+         "reportName": "OrderTrans"}
+
+async def StakeClient(
+    username: Optional[str] = os.getenv("STAKE_USER"),
+    password: Optional[str] = os.getenv("STAKE_PASS"),
+) -> _StakeClient:
+    """ Returns a logged in _StakeClient.
+
+    Args:
+        username: the user's username (email)
+        password: the user's password.
+
+    Returns:
+        an instance of the _StakeClient
+
+    """
+    c = _StakeClient()
+    _ = await c.login(username, password)
+    return c
 
 
-def main():
-    loop = asyncio.get_event_loop()
-    client = StakeClient()
-    response = asyncio.run(client.login())
-    print(client.user)
-    response = asyncio.run(client.get_fundings())
-    print(response)
+async def main():
+
+    client = await StakeClient()
+    user = client.user
+    print(user.sessionKey)
+    fundings, funds_in_flight, equities = await asyncio.gather(client.get_fundings(),
+                                                     client.get_marked_data(['AAPL']),
+                                                     client.get_market_status())
     # print(client.user)
-    # asyncio.run(client.get_fundings())
-    # response = loop.run_until_complete(client.get_fundings())
-    # print(client.user)
+    return fundings, funds_in_flight, equities
 
 
 if __name__ == "__main__":
-    main()
+    loop = asyncio.get_event_loop()
+    fundings, in_flight, market_status = loop.run_until_complete(main())
+    import pprint; pprint.pprint(market_status)
