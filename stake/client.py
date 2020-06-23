@@ -6,9 +6,11 @@ from urllib.parse import urljoin
 
 import equity
 import funding
+import report
 import user
 from aiohttp_requests import requests
 from dotenv import load_dotenv
+from product import Product
 
 STAKE_URL = "https://prd-api.stake.com.au/api/"
 
@@ -38,6 +40,16 @@ def last_year():
 class _StakeClient:
     def __init__(self):
         self.user = None
+        self.headers = {
+            "Accept": "application/json",
+            "Host": "prd-api.stake.com.au",
+            "Origin": "https://stake.com.au",
+            "Referer": "https://stake.com.au",
+            "Sec-Fetch-Dest": "empty",
+            "Sec-Fetch-Mode": "cors",
+            "Sec-Fetch-Site": "same-site",
+            "Content-Type": "application/json",
+        }
 
     @staticmethod
     def _url(endpoint: str) -> str:
@@ -49,13 +61,26 @@ class _StakeClient:
         Returns:
             str: the full url
         """
+        print(urljoin(STAKE_URL, endpoint, allow_fragments=True))
         return urljoin(STAKE_URL, endpoint, allow_fragments=True)
+
+    async def _get(self, url: str) -> dict:
+        response = await requests.get(self._url(url), headers=self.headers, json={})
+        response.raise_for_status()
+        return await response.json()
+
+    async def _post(self, url, payload: dict) -> dict:
+        response = await requests.post(
+            self._url(url), headers=self.headers, json=payload
+        )
+        response.raise_for_status()
+        return await response.json()
 
     async def login(
         self,
-        username: str = os.getenv("STAKE_USER"),
-        password: str = os.getenv("STAKE_PASS"),
-    ) -> dict:
+        username: Optional[str] = os.getenv("STAKE_USER"),
+        password: Optional[str] = os.getenv("STAKE_PASS"),
+    ) -> user.User:
         payload = {
             "username": username,
             "password": password,
@@ -69,17 +94,7 @@ class _StakeClient:
         user_data = await response.json()
         self.user = user.User(**user_data)
 
-        self.headers = {
-            "Accept": "application/json",
-            "Host": "prd-api.stake.com.au",
-            "Origin": "https://stake.com.au",
-            "Referer": "https://stake.com.au",
-            "Stake-Session-Token": self.user.sessionKey,
-            "Sec-Fetch-Dest": "empty",
-            "Sec-Fetch-Mode": "cors",
-            "Sec-Fetch-Site": "same-site",
-            "Content-Type": "application/json",
-        }
+        self.headers.update({"Stake-Session-Token": self.user.sessionKey})
         return self.user
 
     async def get_fundings(
@@ -88,43 +103,45 @@ class _StakeClient:
         start_date = start_date or last_year()
         end_date = end_date or today()
 
-        url = self._url("utils/activityLog/fundingOnly")
         payload = {"endDate": end_date, "startDate": start_date}
-        response = await requests.post(url, headers=self.headers, json=payload)
-        response.raise_for_status()
-        data = await response.json()
+        data = await self._post("utils/activityLog/fundingOnly", payload=payload)
 
         return [funding.Funding(**d) for d in data]
 
     async def get_funds_in_flight(self) -> dict:
-        url = self._url("fund/details")
-        response = await requests.get(url, headers=self.headers, json={})
-        response.raise_for_status()
-        return await response.json()
+        return await self._get("fund/details")
 
-    async def get_equities(self):
-        url = self._url("users/accounts/equityPositions")
-        response = await requests.get(url, headers=self.headers, json={})
-        response.raise_for_status()
-        data = await response.json()
+    async def get_equities(self) -> equity.EquityPositions:
+        data = await self._get("users/accounts/equityPositions")
         return equity.EquityPositions(**data)
 
+    async def search_products(self, keywords: List[str]) -> List[Product]:
+        products = await self._get(
+            self._url(
+                f"products/searchProduct?keywords={'+'.join(keywords)}&orderBy=dailyReturn&productType=10&page=1&max=30"
+            )
+        )
+        print(products)
+        return [Product(**product) for product in products["products"]]
+
+    async def get_product(self, symbol: str) -> Optional[Product]:
+        """Returns the matching product"""
+        data = await self._get(f"products/searchProduct?symbol={symbol}&page=1&max=1")
+
+        if not data["products"]:
+            return None
+
+        return Product(**data["products"][0])
+
     async def get_market_status(self) -> dict:
-        url = self._url("utils/marketStatus")
-        response = await requests.get(url, headers=self.headers)
-        response.raise_for_status()
-        return await response.json()
+        return await self._get("utils/marketStatus")
 
     async def get_marked_data(self, symbols: List[str]) -> Optional[dict]:
 
         if not symbols:
             return None
 
-        url = self._url(f"quotes/marketData/{'.'.join(symbols)}")
-
-        response = await requests.get(url, headers=self.headers)
-        response.raise_for_status()
-        return await response.json()
+        return await self._url(f"quotes/marketData/{'.'.join(symbols)}")
 
     async def sell_order(self):
         {
@@ -162,7 +179,7 @@ async def StakeClient(
 
     """
     c = _StakeClient()
-    _ = await c.login(username, password)
+    await c.login(username, password)
     return c
 
 
@@ -172,8 +189,8 @@ async def main():
     user = client.user
     print(user.sessionKey)
     fundings, funds_in_flight, equities = await asyncio.gather(
-        client.get_fundings(),
-        client.get_marked_data(["AAPL"]),
+        client.search_products(["Short", "Index"]),
+        client.get_product("AAPL"),
         client.get_market_status(),
     )
     # print(client.user)
@@ -185,4 +202,4 @@ if __name__ == "__main__":
     fundings, in_flight, market_status = loop.run_until_complete(main())
     import pprint
 
-    pprint.pprint(market_status)
+    pprint.pprint(fundings)

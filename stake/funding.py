@@ -1,9 +1,11 @@
+from datetime import datetime
+
 from pydantic import BaseModel
 
 
 class Funding(BaseModel):
     id: str
-    timestamp: str
+    timestamp: datetime
     orderType: str
     eventType: str
     status: str
