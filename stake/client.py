@@ -6,6 +6,7 @@ from urllib.parse import urljoin
 
 import equity
 import funding
+import product
 import report
 import user
 from aiohttp_requests import requests
@@ -17,24 +18,24 @@ STAKE_URL = "https://prd-api.stake.com.au/api/"
 
 load_dotenv()
 
-
-def today() -> str:
-    """returns the date of today
-
-    Returns:
-        [str]: the formatted date
-    """
-    from arrow import now
-
-    n = now()
-    return n.format("DD/MM/YYYY")
-
-
-def last_year():
-    from arrow import now
-
-    n = now()
-    return n.shift(years=-1).format("DD/MM/YYYY")
+#
+# def today() -> str:
+#     """returns the date of today
+#
+#     Returns:
+#         [str]: the formatted date
+#     """
+#     from arrow import now
+#
+#     n = now()
+#     return n.format("DD/MM/YYYY")
+#
+#
+# def last_year():
+#     from arrow import now
+#
+#     n = now()
+#     return n.shift(years=-1).format("DD/MM/YYYY")
 
 
 class _StakeClient:
@@ -51,6 +52,9 @@ class _StakeClient:
             "Content-Type": "application/json",
         }
 
+        self.fundings = funding.FundingsClient(self)
+        self.products = product.ProductsClient(self)
+
     @staticmethod
     def _url(endpoint: str) -> str:
         """Generates an url
@@ -61,7 +65,6 @@ class _StakeClient:
         Returns:
             str: the full url
         """
-        print(urljoin(STAKE_URL, endpoint, allow_fragments=True))
         return urljoin(STAKE_URL, endpoint, allow_fragments=True)
 
     async def _get(self, url: str) -> dict:
@@ -97,41 +100,32 @@ class _StakeClient:
         self.headers.update({"Stake-Session-Token": self.user.sessionKey})
         return self.user
 
-    async def get_fundings(
-        self, start_date: str = None, end_date: str = None
-    ) -> List[funding.Funding]:
-        start_date = start_date or last_year()
-        end_date = end_date or today()
+    # async def get_fundings(
+    #     self, start_date: str = None, end_date: str = None
+    # ) -> List[funding.Funding]:
+    #     start_date = start_date or last_year()
+    #     end_date = end_date or today()
+    #
+    #     payload = {"endDate": end_date, "startDate": start_date}
+    #     data = await self._post("utils/activityLog/fundingOnly", payload=payload)
+    #
+    #     return [funding.Funding(**d) for d in data]
 
-        payload = {"endDate": end_date, "startDate": start_date}
-        data = await self._post("utils/activityLog/fundingOnly", payload=payload)
-
-        return [funding.Funding(**d) for d in data]
-
-    async def get_funds_in_flight(self) -> dict:
-        return await self._get("fund/details")
+    # async def get_funds_in_flight(self) -> dict:
+    #     return await self._get("fund/details")
 
     async def get_equities(self) -> equity.EquityPositions:
         data = await self._get("users/accounts/equityPositions")
         return equity.EquityPositions(**data)
 
-    async def search_products(self, keywords: List[str]) -> List[Product]:
-        products = await self._get(
-            self._url(
-                f"products/searchProduct?keywords={'+'.join(keywords)}&orderBy=dailyReturn&productType=10&page=1&max=30"
-            )
-        )
-        print(products)
-        return [Product(**product) for product in products["products"]]
-
-    async def get_product(self, symbol: str) -> Optional[Product]:
-        """Returns the matching product"""
-        data = await self._get(f"products/searchProduct?symbol={symbol}&page=1&max=1")
-
-        if not data["products"]:
-            return None
-
-        return Product(**data["products"][0])
+    # async def get_product(self, symbol: str) -> Optional[Product]:
+    #     """Returns the matching product"""
+    #     data = await self._get(f"products/searchProduct?symbol={symbol}&page=1&max=1")
+    #
+    #     if not data["products"]:
+    #         return None
+    #
+    #     return Product(**data["products"][0])
 
     async def get_market_status(self) -> dict:
         return await self._get("utils/marketStatus")
@@ -189,9 +183,9 @@ async def main():
     user = client.user
     print(user.sessionKey)
     fundings, funds_in_flight, equities = await asyncio.gather(
-        client.search_products(["Short", "Index"]),
-        client.get_product("AAPL"),
-        client.get_market_status(),
+        client.products.search(["Technology"]),
+        client.products.get("AAPL"),
+        client.fundings.list(funding.FundingRequest()),
     )
     # print(client.user)
     return fundings, funds_in_flight, equities
