@@ -1,7 +1,6 @@
 import weakref
 from typing import List
 from typing import Optional
-from typing import TYPE_CHECKING
 
 from pydantic import BaseModel
 
