@@ -8,9 +8,8 @@ import equity
 import funding
 import product
 import report
-import user
 import trade
-
+import user
 from aiohttp_requests import requests
 from dotenv import load_dotenv
 from product import Product
@@ -82,11 +81,11 @@ class _StakeClient:
         response.raise_for_status()
         return await response.json()
 
-    async def _delete(self, url, payload: dict=None) -> bool:
-        response = await requests.delete(self._url(url), headers=self.headers, json=payload or {})
-        if response.status > 399:
-            return False
-        return True
+    async def _delete(self, url, payload: dict = None) -> bool:
+        response = await requests.delete(
+            self._url(url), headers=self.headers, json=payload or {}
+        )
+        return response.status <= 399
 
     async def login(
         self,
@@ -190,19 +189,21 @@ async def main():
 
     client = await StakeClient()
     user = client.user
-    print(user.sessionKey)
     fundings, funds_in_flight, equities = await asyncio.gather(
         client.products.search(["Technology"]),
         client.products.get("AAPL"),
         client.fundings.list(funding.FundingRequest()),
     )
 
-    buy_apple = await client.trades.buy("AAPL", trade.LimitBuyRequest(limitPrice=300, quantity=1))
-    print(buy_apple)
+    buy_apple = await client.trades.buy(
+        "AAPL", trade.LimitBuyRequest(limitPrice=300, quantity=1)
+    )
 
-    import time ; time.sleep(30)
+    import time
+
+    time.sleep(30)
     # cancel buy
-    cancelbuy= await client.trades.cancel(buy_apple.dwOrderId)
+    cancelbuy = await client.trades.cancel(buy_apple.dwOrderId)
     print(cancelbuy)
     # print(client.user)
     return fundings, funds_in_flight, equities

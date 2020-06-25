@@ -1,4 +1,5 @@
 import asyncio
+import re
 import weakref
 from datetime import datetime
 from enum import Enum
@@ -10,6 +11,8 @@ from pydantic import BaseModel
 from pydantic import root_validator
 from pydantic import ValidationError
 from pydantic import validator
+
+failed_transaction_regex = re.compile(r"^[0-9]{4}")
 
 
 class OrderType(str, Enum):
@@ -154,24 +157,48 @@ class TradesClient:
         request_dict = request.dict()
         request_dict["userId"] = self._client.user.userID
         request_dict["itemId"] = product.id
+        print(request_dict, self._client._url(url))
         data = await self._client._post(self._client._url(url), request_dict)
         trade = TradeResponse(**data[0])
 
         if not check_success:
             return trade
 
-        # now check if the trade has really happened
+        await self._check_trade_against_transactions(trade)
+
+        return trade
+
+    async def _check_trade_against_transactions(self, trade: TradeResponse) -> None:
+        """ We check the status of the trade by trying to find the matching transaction
+        and inspecting its properties. This should not be needed but there is nothing
+        i can see in the trading response that would help figuring out if the trade request
+        was successful or not.
+
+        Args:
+            trade: the responded trade
+
+        Returns:
+            Nothing
+
+        Raises:
+            RuntimeError if the trade was not successful.
+        """
+
         transactions = await self._client._get("users/accounts/transactions")
+
         if not transactions:
-            raise RuntimeError("The trade did not succeed.")
+            raise RuntimeError(
+                "The trade did not succeed (Reason: no transaction found)."
+            )
 
         # wait for the transaction to be available
         for transaction in transactions:
-            if transaction["orderId"] == trade.dwOrderId:
-                # TODO: so baddd
-                if " Buy Stop price must be >= " in transaction["updatedReason"]:
-                    raise RuntimeError("The trade did not succeed.")
-                return trade
+            if transaction["orderId"] == trade.dwOrderId and re.search(
+                failed_transaction_regex, transaction["updatedReason"]
+            ):
+                raise RuntimeError(
+                    f"The trade did not succeed (Reason: {transaction['updatedReason']}"
+                )
 
     async def buy(
         self, request: Union[MarketBuyRequest, LimitBuyRequest, StopBuyRequest]
