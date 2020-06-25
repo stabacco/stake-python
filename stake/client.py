@@ -2,41 +2,39 @@ import asyncio
 import os
 from typing import List
 from typing import Optional
+from typing import Union
 from urllib.parse import urljoin
 
-import equity
-import funding
-import product
-import report
-import trade
-import user
 from aiohttp_requests import requests
 from dotenv import load_dotenv
-from product import Product
+from pydantic import BaseModel
+
+from stake import equity
+from stake import funding
+from stake import product
+from stake import report
+from stake import trade
+from stake import user
 
 STAKE_URL = "https://prd-api.stake.com.au/api/"
 
-
 load_dotenv()
 
-#
-# def today() -> str:
-#     """returns the date of today
-#
-#     Returns:
-#         [str]: the formatted date
-#     """
-#     from arrow import now
-#
-#     n = now()
-#     return n.format("DD/MM/YYYY")
-#
-#
-# def last_year():
-#     from arrow import now
-#
-#     n = now()
-#     return n.shift(years=-1).format("DD/MM/YYYY")
+__all__ = ["StakeClient", "CredentialsLoginRequest", "SessionTokenLoginRequest"]
+
+
+class CredentialsLoginRequest(BaseModel):
+
+    username: str = os.getenv("STAKE_USER")
+    password: str = os.getenv("STAKE_PASS")
+    rememberMeDays: str = "30"
+
+
+class SessionTokenLoginRequest(BaseModel):
+    """Token based authentication, use this if 2FA is enabled.
+    """
+
+    token: str = os.getenv("STAKE_TOKEN")
 
 
 class _StakeClient:
@@ -70,7 +68,7 @@ class _StakeClient:
         return urljoin(STAKE_URL, endpoint, allow_fragments=True)
 
     async def _get(self, url: str) -> dict:
-        response = await requests.get(self._url(url), headers=self.headers, json={})
+        response = await requests.get(self._url(url), headers=self.headers)
         response.raise_for_status()
         return await response.json()
 
@@ -88,24 +86,19 @@ class _StakeClient:
         return response.status <= 399
 
     async def login(
-        self,
-        username: Optional[str] = os.getenv("STAKE_USER"),
-        password: Optional[str] = os.getenv("STAKE_PASS"),
+        self, loginRequest: Union[CredentialsLoginRequest, SessionTokenLoginRequest]
     ) -> user.User:
-        payload = {
-            "username": username,
-            "password": password,
-            "rememberMeDays": "30",
-        }
-        response = await requests.post(
-            self._url("sessions/createSession"), json=payload
-        )
-        response.raise_for_status()
 
-        user_data = await response.json()
+        if isinstance(loginRequest, CredentialsLoginRequest):
+            data = await self._post(
+                self._url("sessions/createSession"), loginRequest.dict()
+            )
+            self.headers.update({"Stake-Session-Token": data["sessionKey"]})
+        else:
+            self.headers.update({"Stake-Session-Token": loginRequest.token})
+
+        user_data = await self._get(self._url("user/"))
         self.user = user.User(**user_data)
-
-        self.headers.update({"Stake-Session-Token": self.user.sessionKey})
         return self.user
 
     # async def get_fundings(
@@ -143,11 +136,11 @@ class _StakeClient:
         if not symbols:
             return None
 
-        return await self._url(f"quotes/marketData/{'.'.join(symbols)}")
+        return await self._get(self._url(f"quotes/marketData/{'.'.join(symbols)}"))
 
     async def sell_order(self):
         {
-            "userId": self.user.userID,
+            "userId": self.user.userId,
             "itemId": "a45b1c39-d1a4-4a90-a388-c34b1257503a",
             "itemType": "instrument",
             "orderType": "stop",
@@ -167,21 +160,19 @@ class _StakeClient:
 
 
 async def StakeClient(
-    username: Optional[str] = os.getenv("STAKE_USER"),
-    password: Optional[str] = os.getenv("STAKE_PASS"),
+    request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
 ) -> _StakeClient:
     """ Returns a logged in _StakeClient.
 
     Args:
-        username: the user's username (email)
-        password: the user's password.
-
+        request: the login request. credentials or token
     Returns:
         an instance of the _StakeClient
 
     """
     c = _StakeClient()
-    await c.login(username, password)
+    request = request or SessionTokenLoginRequest()
+    await c.login(request)
     return c
 
 
@@ -204,7 +195,6 @@ async def main():
     time.sleep(30)
     # cancel buy
     cancelbuy = await client.trades.cancel(buy_apple.dwOrderId)
-    print(cancelbuy)
     # print(client.user)
     return fundings, funds_in_flight, equities
 

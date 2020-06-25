@@ -1,7 +1,8 @@
 import asyncio
 
 import pytest
-from client import StakeClient
+
+from stake.client import StakeClient
 
 
 @pytest.fixture(scope="session")

@@ -14,6 +14,8 @@ from pydantic import validator
 
 failed_transaction_regex = re.compile(r"^[0-9]{4}")
 
+__all__ = ["MarketBuyRequest", "LimitBuyRequest", "StopBuyRequest", "SellRequest"]
+
 
 class OrderType(str, Enum):
     MARKET: str = "market"
@@ -155,7 +157,7 @@ class TradesClient:
         product = await self._client.products.get(request.symbol)
         assert product
         request_dict = request.dict()
-        request_dict["userId"] = self._client.user.userID
+        request_dict["userId"] = self._client.user.userId
         request_dict["itemId"] = product.id
         print(request_dict, self._client._url(url))
         data = await self._client._post(self._client._url(url), request_dict)

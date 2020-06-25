@@ -8,6 +8,9 @@ from pydantic import BaseModel
 from pydantic import Field
 
 
+__all__ = ["FundingRequest", "Funding"]
+
+
 class FundingRequest(BaseModel):
     """Request to be issued to the fundings endpoint."""
 

@@ -1,6 +1,7 @@
 import pytest
-from trade import LimitBuyRequest
-from trade import StopBuyRequest
+
+from stake.trade import LimitBuyRequest
+from stake.trade import StopBuyRequest
 
 
 @pytest.mark.asyncio
