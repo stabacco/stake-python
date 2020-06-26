@@ -229,5 +229,5 @@ class TradesClient:
         return await self._trade(url, request)
 
     async def sell(self, request: MarketSellRequest) -> TradeResponse:
-        url = self._client.httpClienturl(Url.sell_orders)
+        url = self._client.httpClient.url(Url.sell_orders)
         return await self._trade(url, request)

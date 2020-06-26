@@ -2,8 +2,9 @@ import weakref
 from typing import List
 from typing import Optional
 
-from constant import Url
 from pydantic import BaseModel
+
+from stake.constant import Url
 
 
 class Product(BaseModel):

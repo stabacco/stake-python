@@ -1,5 +1,6 @@
 import asyncio
 import copy
+import json
 from typing import List
 from typing import Optional
 from typing import Union
@@ -18,6 +19,11 @@ class PostmanCollectionInfo(BaseModel):
     description: str = "Stake api collection"
     schema_: str = "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 
+    def dict(self, *args, **kwargs):
+        dict_ = super().dict(*args, **kwargs)
+        dict_["schema"] = dict_.pop("schema_")
+        return dict_
+
 
 class PostmanCollectionRequestHeader(BaseModel):
     key: str
@@ -32,6 +38,11 @@ class PostmanCollectionRequestUrl(BaseModel):
     @property
     def path(self) -> list:
         return self.raw.replace(self.host, "").split("/")
+
+    def dict(self, *args, **kwargs):
+        dict_ = super().dict(*args, **kwargs)
+        dict_["path"] = self.path
+        return dict_
 
 
 class PostmanCollectionRequestBody(BaseModel):
@@ -82,8 +93,7 @@ def event_loop():
 
 @pytest.fixture(scope="session")
 async def test_client():
-    client = await StakeClient()
-    return client
+    return await StakeClient()
 
 
 @pytest.fixture(scope="session")
@@ -91,10 +101,9 @@ async def test_client_fixture_generator():
     client = await StakeClient()
     client.httpClient = RecorderHttpClient()
 
-    with open("./stake-fixtures.json", "w") as f:
-        yield client
-        f.write(client.out_collection)
-    f.close()
+    yield client
+    with open("./stake-fixtures-2.json", "w") as f:
+        f.write(json.dumps(client.httpClient.out_collection.dict(), indent=2))
 
 
 class RecorderHttpClient(HttpClient):
@@ -146,7 +155,7 @@ class RecorderHttpClient(HttpClient):
             name=f"GET {url}", request=request, response=out_response
         )
         if item.name not in [item_.name for item_ in self.out_collection.item]:
-            print(f"APPeNDING ITEM FROM {item.name}:")
+            print(f"APPeNDING ITEM FROM {item.name}")
             self.out_collection.item.append(item)
 
         return out_json
@@ -154,7 +163,7 @@ class RecorderHttpClient(HttpClient):
     @staticmethod
     def obfuscate_headers(headers: Optional[dict]) -> dict:
         obfuscated_headers = headers.copy()
-        obfuscated_headers["Stake-Session-Token"] = "{{$randomUUID}}"
+        obfuscated_headers["Stake-Session-Token"] = "{{Stake-Session-Token}}"
         return obfuscated_headers
 
     @staticmethod
@@ -182,6 +191,7 @@ class RecorderHttpClient(HttpClient):
         is_dict = isinstance(obfuscated_responses, dict)
         if is_dict:
             obfuscated_responses = [obfuscated_responses]
+
         for obfuscated_response in obfuscated_responses:
             for field, field_value in obfuscated_fields.items():
                 if field in obfuscated_response:
@@ -231,7 +241,6 @@ class RecorderHttpClient(HttpClient):
             name=f"POST {url}", request=request, response=out_response
         )
         if item.name not in [item_.name for item_ in self.out_collection.item]:
-            print(f"APPeNDING ITEM FROM {item.name}.")
             self.out_collection.item.append(item)
 
         return out_json
