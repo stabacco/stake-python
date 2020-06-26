@@ -1,5 +1,6 @@
 import asyncio
 import os
+from enum import Enum
 from typing import List
 from typing import Optional
 from typing import Union
@@ -21,6 +22,21 @@ STAKE_URL = "https://prd-api.stake.com.au/api/"
 load_dotenv()
 
 __all__ = ["StakeClient", "CredentialsLoginRequest", "SessionTokenLoginRequest"]
+
+
+class EndPoints(str, Enum):
+    equity_positions: str = "users/accounts/equityPositions"
+    transactions: str = "users/accounts/transactions"
+    orders: str = "users/accounts/orders"
+    cash_available: str = "users/accounts/cashAvailableForWithdrawal"
+    quotes: str = "quotes/marketData/{symbols}"
+    user: str = "user"
+    fundings: str = "utils/activityLog/fundingOnly"
+    fund_details: str = "fund/details"
+    account_balance: str = "cma/getAccountBalance"
+    rate: str = "api/wallet/rate"
+    account_transactions: str = "users/accounts/accountTransactions"  # post
+    market_status: str = "api/utils/marketStatus"
 
 
 class CredentialsLoginRequest(BaseModel):
@@ -86,16 +102,16 @@ class _StakeClient:
         return response.status <= 399
 
     async def login(
-        self, loginRequest: Union[CredentialsLoginRequest, SessionTokenLoginRequest]
+        self, login_request: Union[CredentialsLoginRequest, SessionTokenLoginRequest]
     ) -> user.User:
 
-        if isinstance(loginRequest, CredentialsLoginRequest):
+        if isinstance(login_request, CredentialsLoginRequest):
             data = await self._post(
-                self._url("sessions/createSession"), loginRequest.dict()
+                self._url("sessions/createSession"), login_request.dict()
             )
             self.headers.update({"Stake-Session-Token": data["sessionKey"]})
         else:
-            self.headers.update({"Stake-Session-Token": loginRequest.token})
+            self.headers.update({"Stake-Session-Token": login_request.token})
 
         user_data = await self._get(self._url("user/"))
         self.user = user.User(**user_data)

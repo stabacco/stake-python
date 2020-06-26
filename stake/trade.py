@@ -159,7 +159,6 @@ class TradesClient:
         request_dict = request.dict()
         request_dict["userId"] = self._client.user.userId
         request_dict["itemId"] = product.id
-        print(request_dict, self._client._url(url))
         data = await self._client._post(self._client._url(url), request_dict)
         trade = TradeResponse(**data[0])
 
