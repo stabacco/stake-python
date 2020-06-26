@@ -12,6 +12,7 @@ from pydantic import BaseModel
 
 from stake import equity
 from stake import funding
+from stake import order
 from stake import product
 from stake import report
 from stake import trade
@@ -22,21 +23,6 @@ STAKE_URL = "https://prd-api.stake.com.au/api/"
 load_dotenv()
 
 __all__ = ["StakeClient", "CredentialsLoginRequest", "SessionTokenLoginRequest"]
-
-
-class EndPoints(str, Enum):
-    equity_positions: str = "users/accounts/equityPositions"
-    transactions: str = "users/accounts/transactions"
-    orders: str = "users/accounts/orders"
-    cash_available: str = "users/accounts/cashAvailableForWithdrawal"
-    quotes: str = "quotes/marketData/{symbols}"
-    user: str = "user"
-    fundings: str = "utils/activityLog/fundingOnly"
-    fund_details: str = "fund/details"
-    account_balance: str = "cma/getAccountBalance"
-    rate: str = "api/wallet/rate"
-    account_transactions: str = "users/accounts/accountTransactions"  # post
-    market_status: str = "api/utils/marketStatus"
 
 
 class CredentialsLoginRequest(BaseModel):
@@ -70,6 +56,7 @@ class _StakeClient:
         self.fundings = funding.FundingsClient(self)
         self.products = product.ProductsClient(self)
         self.trades = trade.TradesClient(self)
+        self.orders = order.OrdersClient(self)
 
     @staticmethod
     def _url(endpoint: str) -> str:

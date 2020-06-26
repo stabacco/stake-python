@@ -1,7 +1,11 @@
+import weakref
+from typing import Dict
 from typing import List
 from typing import Optional
 
 from pydantic import BaseModel
+
+from stake.constant import Url
 
 
 class EquityPosition(BaseModel):
@@ -35,3 +39,12 @@ class EquityPosition(BaseModel):
 class EquityPositions(BaseModel):
     equityPositions: List[EquityPosition]
     equityValue: float
+
+
+class EquitiesClient:
+    def __init__(self, client: "_StakeClient"):
+        self._client = weakref.proxy(client)
+
+    async def list(self) -> Dict[EquityPosition]:
+        data = await self._client._get(Url.equity_positions)
+        return {d["symbol"]: EquityPosition(**d) for d in data["equityPositions"]}
