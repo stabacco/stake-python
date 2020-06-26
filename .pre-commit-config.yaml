@@ -29,3 +29,7 @@ repos:
     rev: 1.2.0
     hooks:
     -   id: interrogate
+-   repo: https://github.com/pre-commit/mirrors-isort
+    rev: v4.3.21
+    hooks:
+    - id: isort
