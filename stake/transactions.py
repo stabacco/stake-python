@@ -1,8 +1,11 @@
-from datetime import datetime
+from datetime import datetime, date, timedelta
 from enum import Enum
-from typing import Optional
+from typing import Optional, List
 
 from pydantic import BaseModel
+from constant import Url
+import weakref
+from stake.product import Product
 
 
 class TransactionRecordEnumDirection(str, Enum):
@@ -13,46 +16,32 @@ class TransactionRecordEnumDirection(str, Enum):
 class TransactionRecordRequest(BaseModel):
     to: datetime
     from_: datetime
-    limit: int
+    limit: int = 100
     offset: Optional[int]
     direction: TransactionRecordEnumDirection = TransactionRecordEnumDirection.prev
 
 
 class Transaction(BaseModel):
-    {
-        "accountAmount": 170.83,
-        "accountBalance": 6118.58,
-        "accountType": "LIVE",
-        "comment": "Sell 1 shares of VHT at 170.83 PART fill",
-        "dnb": false,
-        "finTranID": "HB.7724cf49-f006-42cd-8825-c1954344edc5",
-        "finTranTypeID": "SSAL",
-        "feeSec": 0,
-        "feeTaf": 0,
-        "feeBase": 0,
-        "feeXtraShares": 0,
-        "feeExchange": 0,
-        "fillQty": 1,
-        "fillPx": 170.83,
-        "sendCommissionToInteliclear": false,
-        "systemAmount": 0,
-        "tranAmount": 170.83,
-        "tranSource": "EMS",
-        "tranWhen": "2020-02-28T15:04:09.541Z",
-        "wlpAmount": 0,
-        "wlpFinTranTypeID": null,
-        "instrument": {
-            "id": "6ce8fef7-8933-4b8e-9556-e55134797851",
-            "symbol": "VHT",
-            "name": "Health Care Vanguard ETF",
-        },
-        "dividend": null,
-        "dividendTax": null,
-        "mergerAcquisition": null,
-        "positionDelta": null,
-        "orderID": "HB.80e95687-6d88-4f14-8848-b37b9dbfc09d",
-        "orderNo": "HBWU011781",
-    },
+    accountAmount: float
+    accountBalance: float
+    accountType: str
+    comment: str
+    dnb: bool
+    finTranID: str
+    finTranTypeID: str
+    fillQty: float
+    fillPx: float
+    tranAmount: float
+    tranSource: str
+    tranWhen: datetime
+    instrument: dict
+    product: Product
+    dividend: Optional[float]
+    dividendTax: Optional[float]
+    mergerAcquisition: Optional[float]
+    positionDelta: Optional[float]
+    orderID: str  # dwOrderId
+    orderNo: str
 
 
 class TransactionsClient:
@@ -60,10 +49,42 @@ class TransactionsClient:
         self._client = weakref.proxy(client)
 
     async def list(self, request: TransactionRecordRequest) -> List[Transaction]:
-        payload = {
-            "endDate": request.endDate.strftime("%d/%m/%Y"),
-            "startDate": request.startDate.strftime("%d/%m/%Y"),
-        }
-        data = await self._client._post(Url.fundings, payload=payload)
+        """Returns the transactions executed by the user
 
-        return [Funding(**d) for d in data]
+        Args:
+            request (TransactionRecordRequest): specify the from+/to datetimes 
+              for the transaction collection.
+
+        Returns:
+            List[Transaction]: the transactions executed in the time frame.
+        """
+        payload = request.dict()
+
+        # TODO: can this be done in pydantic? 
+        payload.update({
+            "endDate": request["endDate"].strftime("%d/%m/%Y"),
+            "startDate": request["startDate"].strftime("%d/%m/%Y"),
+        })
+
+        data = await self._client._post(Url.account_transactions, payload=payload)
+
+        transactions = []
+        _cached_products = {}
+        for d in data:
+            # this was an instrument, but i don't like it, so i'm swapping it for the product
+            instrument = d.pop["instrument"]
+            product = _cached_products.get(instrument["symbol"])
+            if not product:
+                product = await self._client.products.get(instrument["symbol"])
+            d["product"] = product
+            transactions.append(Transaction(**d))
+        return transactions
+
+
+if __name__ == "__main__":
+    from stake.client import StakeClient
+    import asyncio
+    c = StakeClient()
+    request = TransactionRecordRequest(from_=datetime.today() - timedelta(days=365), to=datetime.today())
+    result = asyncio.run( c.transactions.list(request))
+    print(result)
