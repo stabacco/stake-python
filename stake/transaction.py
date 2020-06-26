@@ -11,6 +11,8 @@ from pydantic import Field
 from stake.constant import Url
 from stake.product import Product
 
+__all__ = ["TransactionRecordRequest"]
+
 
 def last_year() -> datetime:
     """One year ago from today."""

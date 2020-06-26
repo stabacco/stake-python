@@ -63,7 +63,7 @@ class StopBuyRequest(BaseModel):
     orderType: TradeType = TradeType.STOP
 
     @validator("amountCash")
-    def at_least_10(cls, v: float) -> float:
+    def at_least_10(cls, v: float) -> float:  # noqa
 
         if v < 10.0:
             raise ValueError("'amountCash' must be at least '10$'.")
