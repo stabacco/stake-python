@@ -6,6 +6,9 @@ from pydantic import BaseModel
 
 from stake.constant import Url
 
+class ProductSearchByName(BaseModel):
+    """Request used to search for Products by their name or description"""
+    name = str
 
 class Product(BaseModel):
     name: str
@@ -55,23 +58,32 @@ class ProductsClient:
 
         return Product(**data["products"][0])
 
-    async def search(self, keywords: List[str], max_results: int = 30) -> List[Product]:
-        """Searches products by keywords.
-
-        Args:
-            keywords:
-            max_results: number of paginated results.
-
-        Returns:
-            the list of `Product` matching the query
-
-        Examples:
-            technology_products = self.search(["Technology"])
-        """
+    async def search(self, request: ProductSearchByName) -> List[Product]:
         products = await self._client.get(
-            self._client.httpClient.url(
-                f"products/searchProduct?keywords={'+'.join(keywords)}"
-                f"&orderBy=dailyReturn&productType=10&page=1&max={max_results}"
-            )
+            Url.products_search_by_name.format(keyword=request.name)
         )
-        return [Product(**product) for product in products["products"]]
+        print(products)
+        return [Product(**product) for product in products]
+
+
+    # async def search(self, keywords: List[str], max_results: int = 30) -> List[Product]:
+    #     """Searches products by keywords.
+
+    #     Args:
+    #         keywords:
+    #         max_results: number of paginated results.
+
+    #     Returns:
+    #         the list of `Product` matching the query
+
+    #     Examples:
+    #         technology_products = self.search(["Technology"])
+    #     """
+
+    #     products = await self._client.get(
+    #         self._client.httpClient.url(
+    #             f"products/searchProduct?keywords={'+'.join(keywords)}"
+    #             f"&orderBy=dailyReturn&productType=10&page=1&max={max_results}"
+    #         )
+    #     )
+    #     return [Product(**product) for product in products["products"]]
