@@ -5,11 +5,11 @@ import os
 from typing import Optional
 from typing import Union
 
-import postman
 import pytest
 from aiohttp_requests import requests
 from dotenv import load_dotenv
 
+from . import postman
 from stake.client import HttpClient
 from stake.client import StakeClient
 

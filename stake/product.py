@@ -46,7 +46,7 @@ class ProductsClient:
         """Given a symbol it will return the matching product.
 
         Examples:
-            tesla_product = self.list("TSLA")
+            tesla_product = self.get("TSLA")
         """
         data = await self._client.get(Url.symbol.format(symbol=symbol))
 

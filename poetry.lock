@@ -74,6 +74,14 @@ python-versions = ">=3.5.3"
 version = "3.0.1"
 
 [[package]]
+category = "main"
+description = "asyncio_dispatch is a is a signal dispatcher for the asyncio event loop found in Python versions 3.4 and up."
+name = "asyncio-dispatch"
+optional = false
+python-versions = "*"
+version = "1.1.0"
+
+[[package]]
 category = "dev"
 description = "Atomic file writes."
 marker = "sys_platform == \"win32\""
@@ -644,7 +652,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "092014c88402912148f2214499d939a07c713d824eae40dd8eaf29fb638d9561"
+content-hash = "b8441aece5bcb8eabc93f901fbfd3b39b6a8f9ca8bc4831bebfb8bfc814702ce"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -681,6 +689,9 @@ astroid = [
 async-timeout = [
     {file = "async-timeout-3.0.1.tar.gz", hash = "sha256:0c3c816a028d47f659d6ff5c745cb2acf1f966da1fe5c19c77a70282b25f4c5f"},
     {file = "async_timeout-3.0.1-py3-none-any.whl", hash = "sha256:4291ca197d287d274d0b6cb5d6f8f8f82d434ed288f962539ff18cc9012f9ea3"},
+]
+asyncio-dispatch = [
+    {file = "asyncio_dispatch-1.1.0.tar.gz", hash = "sha256:997519deb233a2986aad2d151814e3ea53634845f682589dfdbb612462c75c36"},
 ]
 atomicwrites = [
     {file = "atomicwrites-1.4.0-py2.py3-none-any.whl", hash = "sha256:6d1784dea7c0c8d4a5172b6c620f40b6e4cbfdf96d783691f2e1302a7b88e197"},

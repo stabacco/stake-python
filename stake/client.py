@@ -1,10 +1,12 @@
 import os
+from typing import Optional
 from typing import Union
 from urllib.parse import urljoin
 
 from aiohttp_requests import requests
 from dotenv import load_dotenv
 from pydantic import BaseModel
+from pydantic import Field
 
 from stake import constant
 from stake import equity
@@ -31,6 +33,20 @@ class SessionTokenLoginRequest(BaseModel):
     """Token based authentication, use this if 2FA is enabled."""
 
     token: str = os.getenv("STAKE_TOKEN", "")
+
+
+class Headers(BaseModel):
+    accept: str = Field("application/json", alias="Accept")
+    content_type: str = Field("application/json", alias="Content-Type")
+    stake_session_token: Optional[str] = Field(None, alias="Stake-Session-Token")
+
+    def dict(self, *args, **kwargs):
+        dict_ = super().dict(*args, **kwargs)
+        dict_["content-type"] = dict_.pop("content_type")
+        token = dict_.pop("stake_session_token")
+        if token:
+            dict_["Stake-Session-Token"] = token
+        return dict_
 
 
 class HttpClient:
@@ -73,11 +89,10 @@ class HttpClient:
 class _StakeClient:
     def __init__(self):
         self.user = None
-        self.headers = {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-        }
+
+        self.headers = Headers()
         self.httpClient = HttpClient
+
         self.fundings = funding.FundingsClient(self)
         self.products = product.ProductsClient(self)
         self.trades = trade.TradesClient(self)
@@ -86,26 +101,18 @@ class _StakeClient:
         self.transactions = transaction.TransactionsClient(self)
 
     #
-    # @staticmethod
-    # def url(endpoint: str) -> str:
-    #     """Generates an url.
-    #
-    #     Args:
-    #         endpoint (str): the final part of the enpoint
-    #
-    #     Returns:
-    #         str: the full url
-    #     """
-    #     return urljoin(constant.STAKE_URL, endpoint, allow_fragments=True)
-    #
     async def get(self, url: str) -> dict:
-        return await self.httpClient.get(url, headers=self.headers)
+        return await self.httpClient.get(url, headers=self.headers.dict())
 
     async def post(self, url: str, payload: dict) -> dict:
-        return await self.httpClient.post(url, payload=payload, headers=self.headers)
+        return await self.httpClient.post(
+            url, payload=payload, headers=self.headers.dict()
+        )
 
     async def delete(self, url: str, payload: dict = None) -> bool:
-        return await self.httpClient.delete(url, headers=self.headers, payload=payload)
+        return await self.httpClient.delete(
+            url, headers=self.headers.dict(), payload=payload
+        )
 
     async def login(
         self, login_request: Union[CredentialsLoginRequest, SessionTokenLoginRequest]
@@ -115,11 +122,11 @@ class _StakeClient:
             data = await self.httpClient.post(
                 constant.Url.create_session, payload=login_request.dict()
             )
-            self.headers.update({"Stake-Session-Token": data["sessionKey"]})
+            self.headers.stake_session_token = data["sessionKey"]
         else:
-            self.headers.update({"Stake-Session-Token": login_request.token})
+            self.headers.stake_session_token = login_request.token
 
-        user_data = await self.httpClient.get(constant.Url.user, headers=self.headers)
+        user_data = await self.get(constant.Url.user)
         self.user = user.User(**user_data)
         return self.user
 
