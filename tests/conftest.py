@@ -2,89 +2,18 @@ import asyncio
 import copy
 import json
 import os
-from typing import List
 from typing import Optional
 from typing import Union
 
+import postman
 import pytest
 from aiohttp_requests import requests
 from dotenv import load_dotenv
-from pydantic import BaseModel
 
 from stake.client import HttpClient
 from stake.client import StakeClient
 
 load_dotenv()
-
-
-class PostmanCollectionInfo(BaseModel):
-    _postman_id: str = "f175f235-0eb7-4e9b-b6ee-57de3865612b"
-    name: str
-    description: str = "Stake api collection"
-    schema_: str = "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-
-    def dict(self, *args, **kwargs):
-        dict_ = super().dict(*args, **kwargs)
-        dict_["schema"] = dict_.pop("schema_")
-        return dict_
-
-
-class PostmanCollectionRequestHeader(BaseModel):
-    key: str
-    value: str
-    type: str = "text"
-
-
-class PostmanCollectionRequestUrl(BaseModel):
-    raw: str
-    host: str = "{{url}}"
-
-    @property
-    def path(self) -> list:
-        return self.raw.replace(self.host + "/", "").split("/")
-
-    def dict(self, *args, **kwargs):
-        dict_ = super().dict(*args, **kwargs)
-        dict_["path"] = self.path
-        return dict_
-
-
-class PostmanCollectionRequestBody(BaseModel):
-    mode: str = "raw"
-    raw: str  # json-encoded
-
-
-class PostmanCollectionRequest(BaseModel):
-    name: str
-    method: str
-    header: List[PostmanCollectionRequestHeader]
-    url: PostmanCollectionRequestUrl
-    description: str
-    body: Optional[PostmanCollectionRequestBody]
-
-
-class PostmanCollectionResponse(BaseModel):
-    name: str
-    originalRequest: PostmanCollectionRequest
-    status: str
-    code: int
-    _postman_previewlanguage: str = "json"
-    header: List[PostmanCollectionRequestHeader]
-    cookie: list = []
-    body: str  # json-encoded.
-    variable: list = []  # no variables atm
-    protocolProfileBehavior: dict = {}
-
-
-class PostmanCollectionItem(BaseModel):
-    name: str
-    request: PostmanCollectionRequest
-    response: List[PostmanCollectionResponse]
-
-
-class PostmanCollection(BaseModel):
-    info: PostmanCollectionInfo
-    item: List[PostmanCollectionItem]
 
 
 @pytest.fixture(scope="session")
@@ -110,18 +39,11 @@ async def test_client_fixture_generator():
         f.write(json.dumps(client.httpClient.out_collection.dict(), indent=2))
     # send to postman
 
-    response = await requests.put(
-        f"https://api.getpostman.com/"
-        f"collections/{os.getenv('STAKE_POSTMAN_UNITTEST_COLLECTION_ID')}",
-        headers={
-            "Content-Type": "application/json",
-            "X-Api-Key": os.getenv("STAKE_POSTMAN_MOCK_API_KEY_UNITTEST"),
-        },
-        data=json.dumps({"collection": client.httpClient.out_collection.dict()}),
+    postman.upload_postman_collection(
+        client.httpClient.out_collection,
+        os.getenv("STAKE_POSTMAN_UNITTEST_COLLECTION_ID"),
+        os.getenv("STAKE_POSTMAN_MOCK_API_KEY_UNITTEST"),
     )
-    response.raise_for_status()
-    json_response = await response.json()
-    print(json_response)
 
 
 class RecorderHttpClient(HttpClient):
@@ -129,8 +51,8 @@ class RecorderHttpClient(HttpClient):
     fixtures."""
 
     def __init__(self):
-        self.out_collection = PostmanCollection(
-            info=PostmanCollectionInfo(
+        self.out_collection = postman.PostmanCollection(
+            info=postman.PostmanCollectionInfo(
                 name="unittests", description="Postman unittest collection"
             ),
             item=[],
@@ -145,31 +67,31 @@ class RecorderHttpClient(HttpClient):
         obfuscated_headers = RecorderHttpClient.obfuscate_headers(headers)
         out_json = await response.json()
         obfuscated_response = RecorderHttpClient.obfuscate_response(out_json)
-        request = PostmanCollectionRequest(
+        request = postman.PostmanCollectionRequest(
             name=f"request_{url}",
             description=f"get {url}",
             header=[
-                PostmanCollectionRequestHeader(key=key, value=value)
+                postman.PostmanCollectionRequestHeader(key=key, value=value)
                 for key, value in obfuscated_headers.items()
             ],
             method="GET",
-            url=PostmanCollectionRequestUrl(raw="{{url}}/" + url),
+            url=postman.PostmanCollectionRequestUrl(raw="{{url}}/" + url),
         )
         obfuscated_response_headers = RecorderHttpClient.obfuscate_headers(
             response.headers
         )
-        out_response = PostmanCollectionResponse(
+        out_response = postman.PostmanCollectionResponse(
             originalRequest=request,
             name=f"response {url}",
             status="OK",
             code=response.status,
             body=json.dumps(obfuscated_response),
             header=[
-                PostmanCollectionRequestHeader(key=key, value=value)
+                postman.PostmanCollectionRequestHeader(key=key, value=value)
                 for key, value in obfuscated_response_headers.items()
             ],
         )
-        item = PostmanCollectionItem(
+        item = postman.PostmanCollectionItem(
             name=f"GET {url}", request=request, response=[out_response]
         )
         if item.name not in [item_.name for item_ in self.out_collection.item]:
@@ -231,32 +153,32 @@ class RecorderHttpClient(HttpClient):
         obfuscated_response = RecorderHttpClient.obfuscate_response(out_json)
         import json
 
-        request = PostmanCollectionRequest(
+        request = postman.PostmanCollectionRequest(
             name=f"request_{url}",
             description=f"get {url}",
             header=[
-                PostmanCollectionRequestHeader(key=key, value=value)
+                postman.PostmanCollectionRequestHeader(key=key, value=value)
                 for key, value in obfuscated_headers.items()
             ],
-            body=PostmanCollectionRequestBody(raw=json.dumps(payload)),
+            body=postman.PostmanCollectionRequestBody(raw=json.dumps(payload)),
             method="POST",
-            url=PostmanCollectionRequestUrl(raw="{{url}}/" + url),
+            url=postman.PostmanCollectionRequestUrl(raw="{{url}}/" + url),
         )
         obfuscated_response_headers = RecorderHttpClient.obfuscate_headers(
             response.headers
         )
-        out_response = PostmanCollectionResponse(
+        out_response = postman.PostmanCollectionResponse(
             originalRequest=request,
             name=f"response {url}",
             status="OK",
             code=response.status,
             body=json.dumps(obfuscated_response),
             header=[
-                PostmanCollectionRequestHeader(key=key, value=value)
+                postman.PostmanCollectionRequestHeader(key=key, value=value)
                 for key, value in obfuscated_response_headers.items()
             ],
         )
-        item = PostmanCollectionItem(
+        item = postman.PostmanCollectionItem(
             name=f"POST {url}", request=request, response=[out_response]
         )
         if item.name not in [item_.name for item_ in self.out_collection.item]:
