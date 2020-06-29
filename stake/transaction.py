@@ -1,11 +1,17 @@
-from datetime import datetime, date, timedelta
-from enum import Enum
-from typing import Optional, List
-
-from pydantic import BaseModel
-from constant import Url
 import weakref
+from datetime import datetime
+from datetime import timedelta
+from enum import Enum
+from typing import List
+from typing import Optional
+
+from constant import Url
+from pydantic import BaseModel
+from pydantic import Field
+
 from stake.product import Product
+
+last_year = lambda *_: datetime.today() - timedelta(days=365)
 
 
 class TransactionRecordEnumDirection(str, Enum):
@@ -14,8 +20,10 @@ class TransactionRecordEnumDirection(str, Enum):
 
 
 class TransactionRecordRequest(BaseModel):
-    to: datetime
-    from_: datetime
+    to: datetime = Field(default_factory=datetime.utcnow)
+    from_: datetime = Field(
+        default_factory=lambda *_: datetime.utcnow() - timedelta(days=365)
+    )
     limit: int = 100
     offset: Optional[int]
     direction: TransactionRecordEnumDirection = TransactionRecordEnumDirection.prev
@@ -34,14 +42,14 @@ class Transaction(BaseModel):
     tranAmount: float
     tranSource: str
     tranWhen: datetime
-    instrument: dict
-    product: Product
-    dividend: Optional[float]
-    dividendTax: Optional[float]
+    instrument: Optional[dict]
+    product: Optional[Product]
+    dividend: Optional[dict]
+    # dividendTax: Optional[str]
     mergerAcquisition: Optional[float]
     positionDelta: Optional[float]
     orderID: str  # dwOrderId
-    orderNo: str
+    orderNo: Optional[str]
 
 
 class TransactionsClient:
@@ -49,10 +57,10 @@ class TransactionsClient:
         self._client = weakref.proxy(client)
 
     async def list(self, request: TransactionRecordRequest) -> List[Transaction]:
-        """Returns the transactions executed by the user
+        """Returns the transactions executed by the user.
 
         Args:
-            request (TransactionRecordRequest): specify the from+/to datetimes 
+            request (TransactionRecordRequest): specify the from+/to datetimes
               for the transaction collection.
 
         Returns:
@@ -60,31 +68,27 @@ class TransactionsClient:
         """
         payload = request.dict()
 
-        # TODO: can this be done in pydantic? 
-        payload.update({
-            "endDate": request["endDate"].strftime("%d/%m/%Y"),
-            "startDate": request["startDate"].strftime("%d/%m/%Y"),
-        })
+        # # TODO: can this be done in pydantic?
+        payload.update(
+            {"to": payload["to"].isoformat(), "from": payload.pop("from_").isoformat(),}
+        )
 
-        data = await self._client._post(Url.account_transactions, payload=payload)
+        data = await self._client.post(Url.account_transactions, payload=payload)
 
+        # import pprint
+        # pprint.pprint(data)
         transactions = []
-        _cached_products = {}
+        _cached_products: dict = {}
         for d in data:
             # this was an instrument, but i don't like it, so i'm swapping it for the product
-            instrument = d.pop["instrument"]
+            instrument = d.pop("instrument", None)
+            if not instrument:
+                continue  # TODO: need different types, divident etc...
+                # raise RuntimeError(d)
+
             product = _cached_products.get(instrument["symbol"])
             if not product:
                 product = await self._client.products.get(instrument["symbol"])
             d["product"] = product
             transactions.append(Transaction(**d))
         return transactions
-
-
-if __name__ == "__main__":
-    from stake.client import StakeClient
-    import asyncio
-    c = StakeClient()
-    request = TransactionRecordRequest(from_=datetime.today() - timedelta(days=365), to=datetime.today())
-    result = asyncio.run( c.transactions.list(request))
-    print(result)

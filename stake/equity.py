@@ -46,5 +46,5 @@ class EquitiesClient:
         self._client = weakref.proxy(client)
 
     async def list(self) -> Dict[str, EquityPosition]:
-        data = await self._client._get(Url.equity_positions)
+        data = await self._client.get(Url.equity_positions)
         return {d["symbol"]: EquityPosition(**d) for d in data["equityPositions"]}

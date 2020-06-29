@@ -49,10 +49,10 @@ class FundingsClient:
             "endDate": request.endDate.strftime("%d/%m/%Y"),
             "startDate": request.startDate.strftime("%d/%m/%Y"),
         }
-        data = await self._client._post(Url.fundings, payload=payload)
+        data = await self._client.post(Url.fundings, payload=payload)
 
         return [Funding(**d) for d in data]
 
     async def in_flight(self) -> dict:
         """Returns the funds currently in flight."""
-        return await self._client._get(Url.fund_details)["fundsInFlight"]
+        return await self._client.get(Url.fund_details)["fundsInFlight"]

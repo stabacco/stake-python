@@ -1,8 +1,11 @@
-from pydantic import BaseModel
-from stake.constant import Url
-from typing import List
-import datetime
 import weakref
+from datetime import datetime
+from typing import List
+
+from pydantic import BaseModel
+
+from stake.constant import Url
+
 
 class Order(BaseModel):
     orderNo: str
@@ -30,5 +33,5 @@ class OrdersClient:
         self._client = weakref.proxy(client)
 
     async def list(self) -> List[Order]:
-        data = await self._client._get(Url.orders)
+        data = await self._client.get(Url.orders)
         return [Order(**d) for d in data]

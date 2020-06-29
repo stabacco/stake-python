@@ -46,7 +46,7 @@ class ProductsClient:
         Examples:
             tesla_product = self.list("TSLA")
         """
-        data = await self._client._get(
+        data = await self._client.get(
             f"products/searchProduct?symbol={symbol}&page=1&max=1"
         )
 
@@ -56,7 +56,7 @@ class ProductsClient:
         return Product(**data["products"][0])
 
     async def search(self, keywords: List[str], max_results: int = 30) -> List[Product]:
-        """ Searches products by keywords.
+        """Searches products by keywords.
 
         Args:
             keywords:
@@ -67,10 +67,9 @@ class ProductsClient:
 
         Examples:
             technology_products = self.search(["Technology"])
-
         """
-        products = await self._client._get(
-            self._client._url(
+        products = await self._client.get(
+            self._client.httpClient.url(
                 f"products/searchProduct?keywords={'+'.join(keywords)}"
                 f"&orderBy=dailyReturn&productType=10&page=1&max={max_results}"
             )
