@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "stake"
 version = "0.1.0"
-description = "Stake.com.au unofficial api wrapper"
+description = "stake.com.au unofficial api"
 authors = ["Stefano Tabacco <tabacco.stefano@gmail.com>"]
 license = "Apache License 2.0"
 
