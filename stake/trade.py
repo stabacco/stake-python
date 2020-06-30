@@ -2,12 +2,13 @@ import re
 import weakref
 from datetime import datetime
 from enum import Enum
-from typing import List
 from typing import Optional
 from typing import Union
 
 from pydantic import BaseModel
 from pydantic import validator
+
+from stake.constant import Url
 
 failed_transaction_regex = re.compile(r"^[0-9]{4}")
 
@@ -16,11 +17,11 @@ __all__ = [
     "LimitBuyRequest",
     "StopBuyRequest",
     "LimitSellRequest",
-    "SellRequest",
+    "MarketSellRequest",
 ]
 
 
-class OrderType(str, Enum):
+class TradeType(str, Enum):
     MARKET: str = "market"
     LIMIT: str = "limit"
     STOP: str = "stop"
@@ -37,7 +38,7 @@ class MarketBuyRequest(BaseModel):
     # comments to be added to the trade
     comments: Optional[str]
 
-    orderType: OrderType = OrderType.MARKET
+    orderType: TradeType = TradeType.MARKET
     itemType: str = "instrument"
 
 
@@ -46,7 +47,7 @@ class LimitBuyRequest(BaseModel):
     limitPrice: float
     quantity: int
     comments: Optional[str]
-    orderType: OrderType = OrderType.LIMIT
+    orderType: TradeType = TradeType.LIMIT
     itemType: str = "instrument"
 
 
@@ -56,7 +57,7 @@ class StopBuyRequest(BaseModel):
     price: float  # must be higher than the current one
     comments: Optional[str]
     itemType: str = "instrument"
-    orderType: OrderType = OrderType.STOP
+    orderType: TradeType = TradeType.STOP
 
     @validator("amountCash")
     def at_least_10(cls, v: float) -> float:
@@ -73,28 +74,29 @@ class LimitSellRequest(BaseModel):
     quantity: int
 
     comments: Optional[str]
-    orderType: OrderType = OrderType.LIMIT
+    orderType: TradeType = TradeType.LIMIT
     itemType: str = "instrument"
 
 
 class StopSellRequest(BaseModel):
     symbol: str
     itemType: str = "instrument"
-    orderType: OrderType
+    orderType: TradeType
     quantity: float
     stopPrice: Optional[float]
     limitPrice: Optional[float]
     comments: Optional[str]
 
 
-class SellRequest(BaseModel):
+class MarketSellRequest(BaseModel):
+    """Sell at marked price."""
+
     symbol: str
-    itemType: str = "instrument"
-    orderType: OrderType
     quantity: float
-    stopPrice: Optional[float]
-    limitPrice: Optional[float]
     comments: Optional[str]
+
+    itemType: str = "instrument"
+    orderType: TradeType = TradeType.MARKET
 
 
 class TradeResponse(BaseModel):
@@ -122,30 +124,6 @@ class TradeResponse(BaseModel):
     dwOrderId: str
 
 
-class PendingOrder(BaseModel):
-    """Orders listed in the pending orders page."""
-
-    orderNo: str
-    orderID: str
-    orderCashAmt: float
-    symbol: Optional[str]
-    price: float
-    stopPrice: float
-    side: str
-    orderType: int
-    cumQty: float
-    limitPrice: float
-    createdWhen: datetime
-    orderStatus: int
-    orderQty: int
-    instrumentID: str
-    imageUrl: str
-    instrumentSymbol: str
-    instrumentName: str
-    description: str
-    encodedName: str
-
-
 class TradesClient:
     """This client is used to buy/sell equities."""
 
@@ -159,7 +137,14 @@ class TradesClient:
     async def _trade(
         self,
         url: str,
-        request: Union[MarketBuyRequest, LimitBuyRequest, StopBuyRequest, SellRequest],
+        request: Union[
+            MarketBuyRequest,
+            LimitBuyRequest,
+            StopBuyRequest,
+            LimitSellRequest,
+            StopSellRequest,
+            MarketSellRequest,
+        ],
         check_success: bool = True,
     ) -> TradeResponse:
         """A generic function used to submit a trade, either buy or sell.
@@ -236,19 +221,9 @@ class TradesClient:
         Returns:
             the TradeResponse object
         """
-        url = self._client.httpClient.url("purchaseorders/v2/quickBuy")
+        url = self._client.httpClient.url(Url.quick_buy)
         return await self._trade(url, request)
 
-    async def sell(self, request: SellRequest) -> TradeResponse:
-        url = self._client.httpClienturl("sellorders")
+    async def sell(self, request: MarketSellRequest) -> TradeResponse:
+        url = self._client.httpClienturl(Url.sell_orders)
         return await self._trade(url, request)
-
-    async def cancel(self, orderId: str) -> bool:
-        """cancels a pending order."""
-        return await self._client.delete(f"orders/cancelOrder/{orderId}")
-
-    async def list(self) -> List[PendingOrder]:
-        """List all the pending orders."""
-
-        orders = await self._client.get("users/accounts/orders")
-        return [PendingOrder(**order) for order in orders]

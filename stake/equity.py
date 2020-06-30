@@ -1,5 +1,4 @@
 import weakref
-from typing import Dict
 from typing import List
 from typing import Optional
 
@@ -37,6 +36,9 @@ class EquityPosition(BaseModel):
 
 
 class EquityPositions(BaseModel):
+    """Represents the user's portforlio, with the list of the currently
+    available equities."""
+
     equityPositions: List[EquityPosition]
     equityValue: float
 
@@ -45,6 +47,6 @@ class EquitiesClient:
     def __init__(self, client):
         self._client = weakref.proxy(client)
 
-    async def list(self) -> Dict[str, EquityPosition]:
+    async def list(self) -> EquityPositions:
         data = await self._client.get(Url.equity_positions)
-        return {d["symbol"]: EquityPosition(**d) for d in data["equityPositions"]}
+        return EquityPositions(**data)

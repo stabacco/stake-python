@@ -2,6 +2,7 @@ import weakref
 from typing import List
 from typing import Optional
 
+from constant import Url
 from pydantic import BaseModel
 
 
@@ -46,9 +47,7 @@ class ProductsClient:
         Examples:
             tesla_product = self.list("TSLA")
         """
-        data = await self._client.get(
-            f"products/searchProduct?symbol={symbol}&page=1&max=1"
-        )
+        data = await self._client.get(Url.symbol.format(symbol=symbol))
 
         if not data["products"]:
             return None

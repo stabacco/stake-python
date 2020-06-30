@@ -17,6 +17,10 @@ class Url(str, Enum):
     rate: str = "api/wallet/rate"
     transactions: str = "users/accounts/transactions"
     user: str = "user"
+    quick_buy: str = "purchaseorders/v2/quickBuy"
+    sell_orders: str = "sellorders"
+    cancel_order: str = "orders/cancelOrder/{orderId}"
+    symbol: str = "products/searchProduct?symbol={symbol}&page=1&max=1"
 
 
 STAKE_URL = "https://prd-api.stake.com.au/api/"
