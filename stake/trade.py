@@ -13,15 +13,18 @@ from stake.constant import Url
 failed_transaction_regex = re.compile(r"^[0-9]{4}")
 
 __all__ = [
-    "MarketBuyRequest",
     "LimitBuyRequest",
-    "StopBuyRequest",
     "LimitSellRequest",
+    "MarketBuyRequest",
     "MarketSellRequest",
+    "StopBuyRequest",
+    "StopSellRequest",
 ]
 
 
 class TradeType(str, Enum):
+    """The type of trade that the user is requesting."""
+
     MARKET: str = "market"
     LIMIT: str = "limit"
     STOP: str = "stop"
@@ -33,13 +36,11 @@ class MarketBuyRequest(BaseModel):
 
     # AAPL, MSFT, TSLA etc...
     symbol: str
-    # needed for "market" & stop buy
     price: float
-    # comments to be added to the trade
     comments: Optional[str]
 
-    orderType: TradeType = TradeType.MARKET
     itemType: str = "instrument"
+    orderType: TradeType = TradeType.MARKET
 
 
 class LimitBuyRequest(BaseModel):
@@ -47,8 +48,9 @@ class LimitBuyRequest(BaseModel):
     limitPrice: float
     quantity: int
     comments: Optional[str]
-    orderType: TradeType = TradeType.LIMIT
+
     itemType: str = "instrument"
+    orderType: TradeType = TradeType.LIMIT
 
 
 class StopBuyRequest(BaseModel):
@@ -56,6 +58,7 @@ class StopBuyRequest(BaseModel):
     amountCash: float
     price: float  # must be higher than the current one
     comments: Optional[str]
+
     itemType: str = "instrument"
     orderType: TradeType = TradeType.STOP
 
@@ -72,20 +75,21 @@ class LimitSellRequest(BaseModel):
     symbol: str
     limitPrice: float
     quantity: int
-
     comments: Optional[str]
-    orderType: TradeType = TradeType.LIMIT
+
     itemType: str = "instrument"
+    orderType: TradeType = TradeType.LIMIT
 
 
 class StopSellRequest(BaseModel):
     symbol: str
-    itemType: str = "instrument"
-    orderType: TradeType
     quantity: float
     stopPrice: Optional[float]
     limitPrice: Optional[float]
     comments: Optional[str]
+
+    itemType: str = "instrument"
+    orderType: TradeType
 
 
 class MarketSellRequest(BaseModel):
