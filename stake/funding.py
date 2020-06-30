@@ -41,7 +41,7 @@ class Funding(BaseModel):
 
 
 class FundingsClient:
-    def __init__(self, client: "_StakeClient"):
+    def __init__(self, client):
         self._client = weakref.proxy(client)
 
     async def list(self, request: FundingRequest) -> List[Funding]:

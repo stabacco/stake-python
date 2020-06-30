@@ -25,3 +25,11 @@ async def test_limit_buy(test_client):
         await test_client.trades.buy(
             LimitBuyRequest(symbol="AAPL", limitPrice=400, quantity=100)
         )
+
+
+@pytest.mark.asyncio
+async def test_limit_sell(test_client):
+    with pytest.raises(RuntimeError):
+        await test_client.trades.sell(
+            LimitBuyRequest(symbol="AAPL", limitPrice=400, quantity=100)
+        )

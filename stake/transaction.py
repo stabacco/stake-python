@@ -1,13 +1,20 @@
 import weakref
-from datetime import datetime, timedelta
+from datetime import datetime
+from datetime import timedelta
 from enum import Enum
-from typing import List, Optional
+from typing import List
+from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
+from pydantic import Field
+
 from stake.constant import Url
 from stake.product import Product
 
-last_year = lambda *_: datetime.today() - timedelta(days=365)
+
+def last_year() -> datetime:
+    """One year ago from today."""
+    return datetime.today() - timedelta(days=365)
 
 
 class TransactionRecordEnumDirection(str, Enum):
@@ -49,7 +56,7 @@ class Transaction(BaseModel):
 
 
 class TransactionsClient:
-    def __init__(self, client: "_StakeClient"):
+    def __init__(self, client):
         self._client = weakref.proxy(client)
 
     async def list(self, request: TransactionRecordRequest) -> List[Transaction]:
@@ -66,7 +73,7 @@ class TransactionsClient:
 
         # # TODO: can this be done in pydantic?
         payload.update(
-            {"to": payload["to"].isoformat(), "from": payload.pop("from_").isoformat(),}
+            {"to": payload["to"].isoformat(), "from": payload.pop("from_").isoformat()}
         )
 
         data = await self._client.post(Url.account_transactions, payload=payload)
@@ -76,7 +83,8 @@ class TransactionsClient:
         transactions = []
         _cached_products: dict = {}
         for d in data:
-            # this was an instrument, but i don't like it, so i'm swapping it for the product
+            # this was an instrument, but i don't like it,
+            # so i'm swapping it for the product.
             instrument = d.pop("instrument", None)
             if not instrument:
                 continue  # TODO: need different types, divident etc...

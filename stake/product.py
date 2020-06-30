@@ -37,7 +37,7 @@ class Product(BaseModel):
 
 
 class ProductsClient:
-    def __init__(self, client: "_StakeClient"):
+    def __init__(self, client):
         self._client = weakref.proxy(client)
 
     async def get(self, symbol: str) -> Optional[Product]:

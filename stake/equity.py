@@ -42,7 +42,7 @@ class EquityPositions(BaseModel):
 
 
 class EquitiesClient:
-    def __init__(self, client: "_StakeClient"):
+    def __init__(self, client):
         self._client = weakref.proxy(client)
 
     async def list(self) -> Dict[str, EquityPosition]:

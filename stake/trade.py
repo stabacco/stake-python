@@ -1,4 +1,3 @@
-import asyncio
 import re
 import weakref
 from datetime import datetime
@@ -8,13 +7,17 @@ from typing import Optional
 from typing import Union
 
 from pydantic import BaseModel
-from pydantic import root_validator
-from pydantic import ValidationError
 from pydantic import validator
 
 failed_transaction_regex = re.compile(r"^[0-9]{4}")
 
-__all__ = ["MarketBuyRequest", "LimitBuyRequest", "StopBuyRequest", "SellRequest"]
+__all__ = [
+    "MarketBuyRequest",
+    "LimitBuyRequest",
+    "StopBuyRequest",
+    "LimitSellRequest",
+    "SellRequest",
+]
 
 
 class OrderType(str, Enum):
@@ -62,6 +65,26 @@ class StopBuyRequest(BaseModel):
             raise ValueError("'amountCash' must be at least '10$'.")
 
         return v
+
+
+class LimitSellRequest(BaseModel):
+    symbol: str
+    limitPrice: float
+    quantity: int
+
+    comments: Optional[str]
+    orderType: OrderType = OrderType.LIMIT
+    itemType: str = "instrument"
+
+
+class StopSellRequest(BaseModel):
+    symbol: str
+    itemType: str = "instrument"
+    orderType: OrderType
+    quantity: float
+    stopPrice: Optional[float]
+    limitPrice: Optional[float]
+    comments: Optional[str]
 
 
 class SellRequest(BaseModel):
@@ -126,7 +149,11 @@ class PendingOrder(BaseModel):
 class TradesClient:
     """This client is used to buy/sell equities."""
 
-    def __init__(self, client: "_StakeClient"):
+    def __init__(self, client):
+        """
+        Args:
+            client: an instance of a _StakeClient
+        """
         self._client = weakref.proxy(client)
 
     async def _trade(
