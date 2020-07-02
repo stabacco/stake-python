@@ -5,11 +5,7 @@ from stake import transaction
 
 @pytest.mark.asyncio
 async def test_list_transactions(test_client):
-    request = transaction.TransactionRecordRequest()
+    request = transaction.TransactionRecordRequest(limit=6)
     transactions = await test_client.transactions.list(request)
 
-    import pprint
-
-    for tr in transactions:
-        pprint.pprint(tr.dict())
-    assert len(transactions) == 1
+    assert len(transactions) == 5
