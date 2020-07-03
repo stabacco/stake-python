@@ -1,16 +1,20 @@
 import asyncio
 import copy
 import json
+import os
 from typing import List
 from typing import Optional
 from typing import Union
 
 import pytest
 from aiohttp_requests import requests
+from dotenv import load_dotenv
 from pydantic import BaseModel
 
 from stake.client import HttpClient
 from stake.client import StakeClient
+
+load_dotenv()
 
 
 class PostmanCollectionInfo(BaseModel):
@@ -37,7 +41,7 @@ class PostmanCollectionRequestUrl(BaseModel):
 
     @property
     def path(self) -> list:
-        return self.raw.replace(self.host, "").split("/")
+        return self.raw.replace(self.host + "/", "").split("/")
 
     def dict(self, *args, **kwargs):
         dict_ = super().dict(*args, **kwargs)
@@ -46,7 +50,6 @@ class PostmanCollectionRequestUrl(BaseModel):
 
 
 class PostmanCollectionRequestBody(BaseModel):
-
     mode: str = "raw"
     raw: str  # json-encoded
 
@@ -76,7 +79,7 @@ class PostmanCollectionResponse(BaseModel):
 class PostmanCollectionItem(BaseModel):
     name: str
     request: PostmanCollectionRequest
-    response: PostmanCollectionResponse
+    response: List[PostmanCollectionResponse]
 
 
 class PostmanCollection(BaseModel):
@@ -102,8 +105,23 @@ async def test_client_fixture_generator():
     client.httpClient = RecorderHttpClient()
 
     yield client
+
     with open("./stake-fixtures-2.json", "w") as f:
         f.write(json.dumps(client.httpClient.out_collection.dict(), indent=2))
+    # send to postman
+
+    response = await requests.put(
+        f"https://api.getpostman.com/"
+        f"collections/{os.getenv('STAKE_POSTMAN_UNITTEST_COLLECTION_ID')}",
+        headers={
+            "Content-Type": "application/json",
+            "X-Api-Key": os.getenv("STAKE_POSTMAN_MOCK_API_KEY_UNITTEST"),
+        },
+        data=json.dumps({"collection": client.httpClient.out_collection.dict()}),
+    )
+    response.raise_for_status()
+    json_response = await response.json()
+    print(json_response)
 
 
 class RecorderHttpClient(HttpClient):
@@ -135,7 +153,7 @@ class RecorderHttpClient(HttpClient):
                 for key, value in obfuscated_headers.items()
             ],
             method="GET",
-            url=PostmanCollectionRequestUrl(raw=url),
+            url=PostmanCollectionRequestUrl(raw="{{url}}/" + url),
         )
         obfuscated_response_headers = RecorderHttpClient.obfuscate_headers(
             response.headers
@@ -152,7 +170,7 @@ class RecorderHttpClient(HttpClient):
             ],
         )
         item = PostmanCollectionItem(
-            name=f"GET {url}", request=request, response=out_response
+            name=f"GET {url}", request=request, response=[out_response]
         )
         if item.name not in [item_.name for item_ in self.out_collection.item]:
             print(f"APPeNDING ITEM FROM {item.name}")
@@ -164,6 +182,7 @@ class RecorderHttpClient(HttpClient):
     def obfuscate_headers(headers: Optional[dict]) -> dict:
         obfuscated_headers = headers.copy()
         obfuscated_headers["Stake-Session-Token"] = "{{Stake-Session-Token}}"
+        obfuscated_headers["x-api-key"] = "{{x-api-key}}"
         return obfuscated_headers
 
     @staticmethod
@@ -183,7 +202,7 @@ class RecorderHttpClient(HttpClient):
             "macAccountNumber": "{{$randomBankAccountIban}}",
             "finTranID": "{{$randomUUID}}",
             "orderID": "{{$randomUUID}}",
-            "orderNo": "{{randomProductName}}",
+            "orderNo": "{{$randomProductName}}",
             "dwAccountId": "{{$randomUUID}}",
             "tranWhen": "{{$randomDateRecent}}",
         }
@@ -221,7 +240,7 @@ class RecorderHttpClient(HttpClient):
             ],
             body=PostmanCollectionRequestBody(raw=json.dumps(payload)),
             method="POST",
-            url=PostmanCollectionRequestUrl(raw=url),
+            url=PostmanCollectionRequestUrl(raw="{{url}}/" + url),
         )
         obfuscated_response_headers = RecorderHttpClient.obfuscate_headers(
             response.headers
@@ -238,7 +257,7 @@ class RecorderHttpClient(HttpClient):
             ],
         )
         item = PostmanCollectionItem(
-            name=f"POST {url}", request=request, response=out_response
+            name=f"POST {url}", request=request, response=[out_response]
         )
         if item.name not in [item_.name for item_ in self.out_collection.item]:
             self.out_collection.item.append(item)

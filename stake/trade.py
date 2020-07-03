@@ -110,8 +110,8 @@ class TradeResponse(BaseModel):
     itemId: str
     name: str
     category: str
-    quantity: float
-    amountCash: float
+    quantity: Optional[float]
+    amountCash: Optional[float]
     limitPrice: Optional[float]
     stopPrice: Optional[float]
     effectivePrice: Optional[float]

@@ -75,12 +75,6 @@ class _StakeClient:
         self.user = None
         self.headers = {
             "Accept": "application/json",
-            "Host": "prd-api.stake.com.au",
-            "Origin": constant.STAKE_URL,
-            "Referer": constant.STAKE_URL,
-            "Sec-Fetch-Dest": "empty",
-            "Sec-Fetch-Mode": "cors",
-            "Sec-Fetch-Site": "same-site",
             "Content-Type": "application/json",
         }
         self.httpClient = HttpClient

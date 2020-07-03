@@ -36,6 +36,6 @@ class OrdersClient:
         data = await self._client.get(Url.orders)
         return [Order(**d) for d in data]
 
-    async def cancel(self, order_id: str) -> bool:
+    async def cancel(self, order: Order) -> bool:
         """Cancels a pending order."""
-        return await self._client.delete(Url.cancel_order.format(orderId=order_id))
+        return await self._client.delete(Url.cancel_order.format(orderId=order.orderID))
