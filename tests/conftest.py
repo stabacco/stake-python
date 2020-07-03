@@ -173,7 +173,6 @@ class RecorderHttpClient(HttpClient):
             name=f"GET {url}", request=request, response=[out_response]
         )
         if item.name not in [item_.name for item_ in self.out_collection.item]:
-            print(f"APPeNDING ITEM FROM {item.name}")
             self.out_collection.item.append(item)
 
         return out_json
@@ -205,6 +204,7 @@ class RecorderHttpClient(HttpClient):
             "orderNo": "{{$randomProductName}}",
             "dwAccountId": "{{$randomUUID}}",
             "tranWhen": "{{$randomDateRecent}}",
+            "referenceNumber": "{{$randomBankAccount}}",
         }
         obfuscated_responses = copy.deepcopy(response)
         is_dict = isinstance(obfuscated_responses, dict)
