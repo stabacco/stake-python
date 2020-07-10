@@ -39,10 +39,10 @@ async def test_client_fixture_generator():
         f.write(json.dumps(client.httpClient.out_collection.dict(), indent=2))
     # send to postman
 
-    postman.upload_postman_collection(
+    await postman.upload_postman_collection(
         client.httpClient.out_collection,
-        os.getenv("STAKE_POSTMAN_UNITTEST_COLLECTION_ID"),
-        os.getenv("STAKE_POSTMAN_MOCK_API_KEY_UNITTEST"),
+        os.environ["STAKE_POSTMAN_UNITTEST_COLLECTION_ID"],
+        os.environ["STAKE_POSTMAN_MOCK_API_KEY_UNITTEST"],
     )
 
 

@@ -6,9 +6,20 @@ from pydantic import BaseModel
 
 from stake.constant import Url
 
+
 class ProductSearchByName(BaseModel):
-    """Request used to search for Products by their name or description"""
-    name = str
+    """Request used to search for Products by their name or description."""
+
+    keyword: str
+
+
+class Instrument(BaseModel):
+    encodedName: str
+    imageUrl: str
+    instrumentId: str
+    name: str
+    symbol: str
+
 
 class Product(BaseModel):
     name: str
@@ -58,13 +69,14 @@ class ProductsClient:
 
         return Product(**data["products"][0])
 
-    async def search(self, request: ProductSearchByName) -> List[Product]:
+    async def search(self, request: ProductSearchByName) -> List[Instrument]:
         products = await self._client.get(
-            Url.products_search_by_name.format(keyword=request.name)
+            Url.products_suggestions.format(keyword=request.keyword)
         )
-        print(products)
-        return [Product(**product) for product in products]
+        return [Instrument(**product) for product in products["instruments"]]
 
+    async def product_from_instrument(self, instrument: Instrument) -> Product:
+        return await self.get(instrument.symbol)
 
     # async def search(self, keywords: List[str], max_results: int = 30) -> List[Product]:
     #     """Searches products by keywords.

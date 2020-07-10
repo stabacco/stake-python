@@ -26,29 +26,28 @@ async def test_show_fundings(test_client_fixture_generator):
     request = FundingRequest()
     return await test_client_fixture_generator.fundings.list(request=request)
 
+
 @pytest.mark.asyncio
 async def test_find_products_by_name(test_client_fixture_generator):
     from stake.product import ProductSearchByName
 
-    request = ProductSearchByName(name='techno')
-    products =  await test_client_fixture_generator.products.search(request)
-    assert len(products) == 1
+    request = ProductSearchByName(keyword="techno")
+    products = await test_client_fixture_generator.products.search(request)
+    assert len(products) == 10
 
 
-@pytest.mark.asyncio
-async def test_add_stop_sell_for_every_equity_if_loses_5_percent(
-    test_client_fixture_generator,
-):
-    owned_equities = await test_client_fixture_generator.equities.list()
-    for equity in owned_equities.equityPositions:
-        import pprint
+# @pytest.mark.asyncio
+# async def test_add_stop_sell_for_every_equity_if_loses_5_percent(
+#     test_client_fixture_generator,
+# ):
+#     owned_equities = await test_client_fixture_generator.equities.list()
+#     for equity in owned_equities.equityPositions:
+#         import pprint
 
-        # pprint.pprint(equity.dict())
-        # print(
-        #     equity.name,
-        #     equity.unrealizedPL,
-        #     equity.lastTrade,
-        #     100 * equity.unrealizedPL / equity.marketValue,
-        # )
-
-
+# pprint.pprint(equity.dict())
+# print(
+#     equity.name,
+#     equity.unrealizedPL,
+#     equity.lastTrade,
+#     100 * equity.unrealizedPL / equity.marketValue,
+# )
