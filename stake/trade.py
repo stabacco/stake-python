@@ -36,7 +36,7 @@ class MarketBuyRequest(BaseModel):
 
     # AAPL, MSFT, TSLA etc...
     symbol: str
-    price: float
+    amountCash: float
     comments: Optional[str]
 
     itemType: str = "instrument"
