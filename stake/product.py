@@ -6,6 +6,8 @@ from pydantic import BaseModel
 
 from stake.constant import Url
 
+__all__ = ["ProductSearchByName"]
+
 
 class ProductSearchByName(BaseModel):
     """Request used to search for Products by their name or description."""

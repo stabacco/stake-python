@@ -9,7 +9,7 @@ from pydantic import Field
 
 from stake.constant import Url
 
-__all__ = ["FundingRequest", "Funding"]
+__all__ = ["FundingRequest"]
 
 
 class FundingRequest(BaseModel):

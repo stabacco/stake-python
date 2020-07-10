@@ -11,6 +11,7 @@ from pydantic import Field
 from stake import constant
 from stake import equity
 from stake import funding
+from stake import market
 from stake import order
 from stake import product
 from stake import trade
@@ -99,6 +100,7 @@ class _StakeClient:
         self.orders = order.OrdersClient(self)
         self.equities = equity.EquitiesClient(self)
         self.transactions = transaction.TransactionsClient(self)
+        self.market = market.MarketClient(self)
 
     #
     async def get(self, url: str) -> dict:
