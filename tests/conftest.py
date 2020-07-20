@@ -35,8 +35,6 @@ async def test_client_fixture_generator():
 
     yield client
 
-    with open("./stake-fixtures-2.json", "w") as f:
-        f.write(json.dumps(client.httpClient.out_collection.dict(), indent=2))
     # send to postman
 
     await postman.upload_postman_collection(
@@ -59,7 +57,6 @@ class RecorderHttpClient(HttpClient):
         )
 
     async def get(self, url: str, headers: dict = None) -> dict:
-        import json
 
         response = await requests.get(HttpClient.url(url), headers=headers)
 
@@ -151,7 +148,6 @@ class RecorderHttpClient(HttpClient):
         obfuscated_headers = RecorderHttpClient.obfuscate_headers(headers)
         out_json = await response.json()
         obfuscated_response = RecorderHttpClient.obfuscate_response(out_json)
-        import json
 
         request = postman.PostmanCollectionRequest(
             name=f"request_{url}",

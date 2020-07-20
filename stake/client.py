@@ -23,16 +23,15 @@ __all__ = ["StakeClient", "CredentialsLoginRequest", "SessionTokenLoginRequest"]
 
 
 class CredentialsLoginRequest(BaseModel):
-
-    username: str = os.getenv("STAKE_USER", "")
-    password: str = os.getenv("STAKE_PASS", "")
+    username: str = Field(default_factory=lambda *_: os.getenv("STAKE_USER", ""))
+    password: str = Field(default_factory=lambda *_: os.getenv("STAKE_PASS", ""))
     rememberMeDays: str = "30"
 
 
 class SessionTokenLoginRequest(BaseModel):
     """Token based authentication, use this if 2FA is enabled."""
 
-    token: str = os.getenv("STAKE_TOKEN", "")
+    token: str = Field(default_factory=lambda *_: os.getenv("STAKE_TOKEN", ""))
 
 
 class Headers(BaseModel):

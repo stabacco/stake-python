@@ -1,10 +1,23 @@
 import weakref
 from datetime import datetime
+from enum import Enum
+from enum import IntEnum
 from typing import List
 
 from pydantic import BaseModel
 
 from stake.constant import Url
+
+
+class OrderTypeEnum(IntEnum):
+    MARKET = 1
+    LIMIT = 2
+    STOPLOSS = 3
+
+
+class SideEnum(str, Enum):
+    BUY = "B"
+    SELL = "S"
 
 
 class Order(BaseModel):
@@ -13,8 +26,8 @@ class Order(BaseModel):
     orderCashAmt: float
     price: float
     stopPrice: float
-    side: str
-    orderType: int
+    side: SideEnum
+    orderType: OrderTypeEnum
     cumQty: float
     limitPrice: float
     createdWhen: datetime
@@ -28,6 +41,12 @@ class Order(BaseModel):
     encodedName: str
 
 
+class OrderSearchRequest(BaseModel):
+    symbol: str = None
+    orderType: OrderTypeEnum = None
+    side: SideEnum = None
+
+
 class OrdersClient:
     def __init__(self, client):
         self._client = weakref.proxy(client)
@@ -39,3 +58,7 @@ class OrdersClient:
     async def cancel(self, order: Order) -> bool:
         """Cancels a pending order."""
         return await self._client.delete(Url.cancel_order.format(orderId=order.orderID))
+
+    async def search(self, request: OrderSearchRequest) -> List[Order]:
+        for field in iter(request):
+            print(field)
