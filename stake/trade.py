@@ -23,7 +23,7 @@ __all__ = [
 
 
 class TradeType(str, Enum):
-    """The type of trade that the user is requesting."""
+    """The type of trade the user is requesting."""
 
     MARKET: str = "market"
     LIMIT: str = "limit"
