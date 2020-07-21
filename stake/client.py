@@ -17,6 +17,7 @@ from stake import product
 from stake import trade
 from stake import transaction
 from stake import user
+from stake import watchlist
 
 load_dotenv()
 
@@ -100,6 +101,7 @@ class _StakeClient:
         self.equities = equity.EquitiesClient(self)
         self.transactions = transaction.TransactionsClient(self)
         self.market = market.MarketClient(self)
+        self.watchlist = watchlist.WatchlistClient(self)
 
     #
     async def get(self, url: str) -> dict:

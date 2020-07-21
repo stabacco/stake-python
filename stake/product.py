@@ -80,24 +80,4 @@ class ProductsClient:
     async def product_from_instrument(self, instrument: Instrument) -> Product:
         return await self.get(instrument.symbol)
 
-    # async def search(self, keywords: List[str], max_results: int = 30) -> List[Product]:
-    #     """Searches products by keywords.
-
-    #     Args:
-    #         keywords:
-    #         max_results: number of paginated results.
-
-    #     Returns:
-    #         the list of `Product` matching the query
-
-    #     Examples:
-    #         technology_products = self.search(["Technology"])
-    #     """
-
-    #     products = await self._client.get(
-    #         self._client.httpClient.url(
-    #             f"products/searchProduct?keywords={'+'.join(keywords)}"
-    #             f"&orderBy=dailyReturn&productType=10&page=1&max={max_results}"
-    #         )
-    #     )
-    #     return [Product(**product) for product in products["products"]]
+    #
