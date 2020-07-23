@@ -11,6 +11,9 @@ async def test_add_to_watchlist(test_client_fixture_generator):
     )
     assert added.watching
 
+
+@pytest.mark.asyncio
+async def test_remove_from_watchlist(test_client_fixture_generator):
     removed = await test_client_fixture_generator.watchlist.remove(
         RemoveFromWatchlistRequest(symbol="SPOT")
     )

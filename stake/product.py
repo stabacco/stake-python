@@ -77,7 +77,9 @@ class ProductsClient:
         )
         return [Instrument(**product) for product in products["instruments"]]
 
-    async def product_from_instrument(self, instrument: Instrument) -> Product:
+    async def product_from_instrument(
+        self, instrument: Instrument
+    ) -> Optional[Product]:
         return await self.get(instrument.symbol)
 
     #

@@ -14,11 +14,6 @@ from stake.product import Product
 __all__ = ["TransactionRecordRequest"]
 
 
-def last_year() -> datetime:
-    """One year ago from today."""
-    return datetime.today() - timedelta(days=365)
-
-
 class TransactionRecordEnumDirection(str, Enum):
     prev: str = "prev"
     next_: str = "next"
@@ -79,21 +74,19 @@ class TransactionsClient:
         )
 
         data = await self._client.post(Url.account_transactions, payload=payload)
-
-        # import pprint
-        # pprint.pprint(data)
         transactions = []
         _cached_products: dict = {}
         for d in data:
             # this was an instrument, but i don't like it,
             # so i'm swapping it for the product.
             instrument = d.pop("instrument", None)
+
             if not instrument:
                 continue  # TODO: need different types, divident etc...
-                # raise RuntimeError(d)
 
             product = _cached_products.get(instrument["symbol"])
             if not product:
+                print("getting symbol", instrument["symbol"])
                 product = await self._client.products.get(instrument["symbol"])
             d["product"] = product
             transactions.append(Transaction(**d))
