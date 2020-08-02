@@ -23,6 +23,7 @@ class Url(str, Enum):
     symbol: str = "products/searchProduct?symbol={symbol}&page=1&max=1"
     products_suggestions: str = "products/getProductSuggestions/{keyword}"
     watchlist_modify: str = "instruments/addRemoveInstrumentWatchlist"
+    watchlist: str = "products/productsWatchlist/{userId}"
 
 
 STAKE_URL = "https://prd-api.stake.com.au/api/"

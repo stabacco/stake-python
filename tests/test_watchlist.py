@@ -23,21 +23,7 @@ async def test_remove_from_watchlist(test_client_fixture_generator):
     assert not removed.watching
 
 
-from aioresponses import aioresponses
-
-
-@pytest.fixture
-def mock_aioresponse():
-    with aioresponses() as m:
-        yield m
-
-
 @pytest.mark.asyncio
-async def test_aioresponses(mock_aioresponse):
-    from client import HttpClient
-
-    url = HttpClient.url(Url.account_balance)
-    mock_aioresponse.get(url, payload=dict(foo="bar"))
-
-    data = await HttpClient.get(url)
-    assert data == dict(foo="bar")
+async def test_list_watchlist(test_client_fixture_generator):
+    watched = await test_client_fixture_generator.watchlist.list()
+    assert len(watched) == 3

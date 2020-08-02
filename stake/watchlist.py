@@ -1,10 +1,12 @@
 import weakref
+from datetime import datetime
 from typing import List
 from typing import Union
 
 from pydantic import BaseModel
 
 from stake.constant import Url
+from stake.product import Product
 
 __all__ = ["AddToWatchlistRequest", "RemoveFromWatchlistRequest"]
 
@@ -24,12 +26,23 @@ class WatchlistResponse(BaseModel):
     watching: bool
 
 
+class WatchlistProduct(BaseModel):
+    productWatchlistID: str
+    watchedDate: datetime
+    product: Product
+
+
 class WatchlistClient:
     def __init__(self, client):
         self._client = weakref.proxy(client)
 
-    async def list(self) -> List[WatchlistResponse]:
-        raise NotImplementedError("Not able to get the watchlist yet.")
+    async def list(self) -> List[WatchlistProduct]:
+        print(self._client.user.userId)
+        user_id = self._client.user.userId
+        watchlist = await self._client.get(Url.watchlist.format(userId=user_id))
+        return [
+            WatchlistProduct(**watched) for watched in watchlist["instrumentsWatchList"]
+        ]
 
     async def _modify_watchlist(
         self, request: Union[AddToWatchlistRequest, RemoveFromWatchlistRequest]
@@ -41,9 +54,7 @@ class WatchlistClient:
             "userID": self._client.user.userId,
             "watching": request.watching,
         }
-        print("daaa", data)
         result_data = await self._client.post(Url.watchlist_modify, payload=data)
-        print(result_data)
         return WatchlistResponse(
             symbol=request.symbol, watching=result_data["watching"]
         )
