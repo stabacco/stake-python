@@ -50,6 +50,7 @@ class Transaction(BaseModel):
     positionDelta: Optional[float]
     orderID: str  # dwOrderId
     orderNo: Optional[str]
+    symbol: str
 
 
 class TransactionsClient:
@@ -83,11 +84,14 @@ class TransactionsClient:
 
             if not instrument:
                 continue  # TODO: need different types, divident etc...
+            d["symbol"] = instrument["symbol"]
 
-            product = _cached_products.get(instrument["symbol"])
-            if not product:
-                print("getting symbol", instrument["symbol"])
-                product = await self._client.products.get(instrument["symbol"])
-            d["product"] = product
+            ##
+            # product = _cached_products.get(instrument["symbol"])
+            # if not product:
+            #     # print("getting symbol", instrument["symbol"])
+            #     product = await self._client.products.get(instrument["symbol"])
+            # d["product"] = product
+
             transactions.append(Transaction(**d))
         return transactions
