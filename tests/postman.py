@@ -30,11 +30,11 @@ class PostmanCollectionRequestHeader(BaseModel):
 
 class PostmanCollectionRequestUrl(BaseModel):
     raw: str
-    host: str = "{{url}}"
+    host: List[str] = "{{url}}"
 
     @property
     def path(self) -> list:
-        return self.raw.replace(self.host + "/", "").split("/")
+        return self.raw.replace(self.host[0] + "/", "").split("/")
 
     def dict(self, *args, **kwargs):
         dict_ = super().dict(*args, **kwargs)
@@ -48,7 +48,7 @@ class PostmanCollectionRequestBody(BaseModel):
 
 
 class PostmanCollectionRequest(BaseModel):
-    name: str
+    name: str = None
     method: str
     header: List[PostmanCollectionRequestHeader]
     url: PostmanCollectionRequestUrl
@@ -58,7 +58,7 @@ class PostmanCollectionRequest(BaseModel):
 
 class PostmanCollectionResponse(BaseModel):
     name: str
-    originalRequest: PostmanCollectionRequest
+    originalRequest: PostmanCollectionRequest = None
     status: str
     code: int
     _postman_previewlanguage: str = "json"
@@ -67,10 +67,12 @@ class PostmanCollectionResponse(BaseModel):
     body: str  # json-encoded.
     variable: list = []  # no variables atm
     protocolProfileBehavior: dict = {}
+    id: str = None
 
 
 class PostmanCollectionItem(BaseModel):
     name: str
+    _postman_id: str = None
     request: PostmanCollectionRequest
     response: List[PostmanCollectionResponse]
 
@@ -83,7 +85,6 @@ class PostmanCollection(BaseModel):
 async def upload_postman_collection(
     collection: PostmanCollection, postman_collection_id: str, postman_api_key: str
 ) -> dict:
-
     response = await requests.put(
         f"https://api.getpostman.com/" f"collections/{postman_collection_id}",
         headers={"Content-Type": "application/json", "X-Api-Key": postman_api_key},
@@ -92,3 +93,37 @@ async def upload_postman_collection(
     response.raise_for_status()
     print(f"Updated collection {postman_collection_id}")
     return await response.json()
+
+
+async def get_mocks(postman_api_key: str):
+    response = await requests.get(
+        "https://api.getpostman.com/mocks",
+        headers={"Content-Type": "application/json", "X-Api-Key": postman_api_key},
+    )
+    response.raise_for_status()
+    return await response.json()
+
+
+async def get_collection(postman_api_key, collection_id):
+    url = f"https://api.getpostman.com/collections/{collection_id}"
+
+    payload = {}
+    files = {}
+    headers = {"Content-Type": "application/json", "X-Api-Key": postman_api_key}
+
+    response = await requests.get(url, headers=headers)
+    data = await response.json()
+    return PostmanCollection(**data["collection"])
+
+
+if __name__ == "__main__":
+    import os
+    from dotenv import load_dotenv
+
+    load_dotenv()
+    key = os.getenv("STAKE_POSTMAN_MOCK_API_KEY_UNITTEST")
+    collection_id = os.getenv("STAKE_POSTMAN_UNITTEST_COLLECTION_ID")
+    import asyncio
+
+    collection = asyncio.run(get_collection(key, collection_id))
+    print(collection)
