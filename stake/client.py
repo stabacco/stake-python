@@ -106,7 +106,7 @@ class _StakeClient:
 
     async def delete(self, url: str, payload: dict = None) -> bool:
         return await self.httpClient.delete(
-            url, headers=self.headers.dict(by_alias=Trye), payload=payload
+            url, headers=self.headers.dict(by_alias=True), payload=payload
         )
 
     async def login(

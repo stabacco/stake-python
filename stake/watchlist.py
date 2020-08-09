@@ -37,8 +37,7 @@ class WatchlistClient:
         self._client = weakref.proxy(client)
 
     async def list(self) -> List[WatchlistProduct]:
-        print(self._client.user.userId)
-        user_id = self._client.user.userId
+        user_id = self._client.user.id
         watchlist = await self._client.get(Url.watchlist.format(userId=user_id))
         return [
             WatchlistProduct(**watched) for watched in watchlist["instrumentsWatchList"]
@@ -51,7 +50,7 @@ class WatchlistClient:
         assert product
         data = {
             "instrumentID": product.id,
-            "userID": self._client.user.userId,
+            "userID": self._client.user.id,
             "watching": request.watching,
         }
         result_data = await self._client.post(Url.watchlist_modify, payload=data)

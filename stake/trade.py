@@ -170,7 +170,7 @@ class TradesClient:
         product = await self._client.products.get(request.symbol)
         assert product
         request_dict = request.dict()
-        request_dict["userId"] = self._client.user.userId
+        request_dict["userId"] = self._client.user.id
         request_dict["itemId"] = product.id
         data = await self._client.post(self._client.httpClient.url(url), request_dict)
         trade = TradeResponse(**data[0])

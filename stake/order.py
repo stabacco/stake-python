@@ -42,9 +42,9 @@ class Order(BaseModel):
 
 
 class OrderSearchRequest(BaseModel):
-    symbol: str = None
-    orderType: OrderTypeEnum = None
-    side: SideEnum = None
+    symbol: str
+    orderType: OrderTypeEnum
+    side: SideEnum
 
 
 class OrdersClient:
@@ -59,6 +59,6 @@ class OrdersClient:
         """Cancels a pending order."""
         return await self._client.delete(Url.cancel_order.format(orderId=order.orderID))
 
-    async def search(self, request: OrderSearchRequest) -> List[Order]:
-        for field in iter(request):
-            print(field)
+    # async def search(self, request: OrderSearchRequest) -> List[Order]:
+    #     for field in iter(request):
+    #         print(field)
