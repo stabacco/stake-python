@@ -41,14 +41,6 @@ class Headers(BaseModel):
     content_type: str = Field("application/json", alias="Content-Type")
     stake_session_token: Optional[str] = Field(None, alias="Stake-Session-Token")
 
-    def dict(self, *args, **kwargs):
-        dict_ = super().dict(*args, **kwargs)
-        dict_["content-type"] = dict_.pop("content_type")
-        token = dict_.pop("stake_session_token")
-        if token:
-            dict_["Stake-Session-Token"] = token
-        return dict_
-
 
 class HttpClient:
     """Handles http calls to the Stake API."""
@@ -105,16 +97,16 @@ class _StakeClient:
 
     #
     async def get(self, url: str) -> dict:
-        return await self.httpClient.get(url, headers=self.headers.dict())
+        return await self.httpClient.get(url, headers=self.headers.dict(by_alias=True))
 
     async def post(self, url: str, payload: dict) -> dict:
         return await self.httpClient.post(
-            url, payload=payload, headers=self.headers.dict()
+            url, payload=payload, headers=self.headers.dict(by_alias=True)
         )
 
     async def delete(self, url: str, payload: dict = None) -> bool:
         return await self.httpClient.delete(
-            url, headers=self.headers.dict(), payload=payload
+            url, headers=self.headers.dict(by_alias=Trye), payload=payload
         )
 
     async def login(

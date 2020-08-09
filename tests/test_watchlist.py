@@ -26,4 +26,4 @@ async def test_remove_from_watchlist(test_client_fixture_generator):
 @pytest.mark.asyncio
 async def test_list_watchlist(test_client_fixture_generator):
     watched = await test_client_fixture_generator.watchlist.list()
-    assert len(watched) == 3
+    assert len(watched) == 6

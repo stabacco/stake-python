@@ -16,11 +16,6 @@ class PostmanCollectionInfo(BaseModel):
         alias="schema",
     )
 
-    def dict(self, *args, **kwargs):
-        dict_ = super().dict(*args, **kwargs)
-        dict_["schema"] = dict_.pop("schema_")
-        return dict_
-
 
 class PostmanCollectionRequestHeader(BaseModel):
     key: str
@@ -88,7 +83,7 @@ async def upload_postman_collection(
     response = await requests.put(
         f"https://api.getpostman.com/" f"collections/{postman_collection_id}",
         headers={"Content-Type": "application/json", "X-Api-Key": postman_api_key},
-        data=json.dumps({"collection": collection.dict()}),
+        data=json.dumps({"collection": collection.dict(by_alias=True)}),
     )
     response.raise_for_status()
     print(f"Updated collection {postman_collection_id}")
