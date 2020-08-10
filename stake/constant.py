@@ -5,7 +5,7 @@ class Url(str, Enum):
     """Contains all the visited urls."""
 
     account_balance: str = "cma/getAccountBalance"
-    account_transactions: str = "users/accounts/accountTransactions"  # post
+    account_transactions: str = "users/accounts/accountTransactions"
     cash_available: str = "users/accounts/cashAvailableForWithdrawal"
     create_session: str = "sessions/createSession"
     equity_positions: str = "users/accounts/equityPositions"

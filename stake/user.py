@@ -1,11 +1,9 @@
-from functools import partial
 from typing import Optional
 
-import inflection
+
 from pydantic import BaseModel
 from pydantic.fields import Field
-
-camelcase = partial(inflection.camelize, uppercase_first_letter=False)
+from stake.common import camelcase
 
 
 class User(BaseModel):

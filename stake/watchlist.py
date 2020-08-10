@@ -3,10 +3,11 @@ from datetime import datetime
 from typing import List
 from typing import Union
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from stake.constant import Url
 from stake.product import Product
+from stake.common import camelcase
 
 __all__ = ["AddToWatchlistRequest", "RemoveFromWatchlistRequest"]
 
@@ -27,21 +28,17 @@ class WatchlistResponse(BaseModel):
 
 
 class WatchlistProduct(BaseModel):
-    productWatchlistID: str
-    watchedDate: datetime
+    id: str = Field(alias="productWatchlistID")
+    watched_date: datetime
     product: Product
+    class Config:
+        alias_generator = camelcase
 
 
 class WatchlistClient:
+    
     def __init__(self, client):
         self._client = weakref.proxy(client)
-
-    async def list(self) -> List[WatchlistProduct]:
-        user_id = self._client.user.id
-        watchlist = await self._client.get(Url.watchlist.format(userId=user_id))
-        return [
-            WatchlistProduct(**watched) for watched in watchlist["instrumentsWatchList"]
-        ]
 
     async def _modify_watchlist(
         self, request: Union[AddToWatchlistRequest, RemoveFromWatchlistRequest]
@@ -63,3 +60,9 @@ class WatchlistClient:
 
     async def remove(self, request: RemoveFromWatchlistRequest) -> WatchlistResponse:
         return await self._modify_watchlist(request)
+
+    async def list(self) -> List[WatchlistProduct]:
+        watchlist = await self._client.get(Url.watchlist.format(userId=self._client.user.id))
+        return [
+            WatchlistProduct(**watched) for watched in watchlist["instrumentsWatchList"]
+        ]

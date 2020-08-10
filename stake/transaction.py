@@ -76,7 +76,7 @@ class TransactionsClient:
 
         data = await self._client.post(Url.account_transactions, payload=payload)
         transactions = []
-        _cached_products: dict = {}
+        # _cached_products: dict = {}
         for d in data:
             # this was an instrument, but i don't like it,
             # so i'm swapping it for the product.
