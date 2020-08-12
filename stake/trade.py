@@ -19,6 +19,7 @@ __all__ = [
     "MarketSellRequest",
     "StopBuyRequest",
     "StopSellRequest",
+    "TradeType",
 ]
 
 
@@ -84,12 +85,12 @@ class LimitSellRequest(BaseModel):
 class StopSellRequest(BaseModel):
     symbol: str
     quantity: float
-    stopPrice: Optional[float]
-    limitPrice: Optional[float]
+    stopPrice: float
+    # limitPrice: Optional[float]
     comments: Optional[str]
 
     itemType: str = "instrument"
-    orderType: TradeType
+    orderType: TradeType = TradeType.STOP
 
 
 class MarketSellRequest(BaseModel):

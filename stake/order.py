@@ -8,14 +8,15 @@ from pydantic import BaseModel
 
 from stake.constant import Url
 
+__all__ = ["OrderTypeEnum", "OrderSideEnum"]
 
 class OrderTypeEnum(IntEnum):
     MARKET = 1
     LIMIT = 2
-    STOPLOSS = 3
+    STOP = 3
 
 
-class SideEnum(str, Enum):
+class OrderSideEnum(str, Enum):
     BUY = "B"
     SELL = "S"
 
@@ -26,7 +27,7 @@ class Order(BaseModel):
     orderCashAmt: float
     price: float
     stopPrice: float
-    side: SideEnum
+    side: OrderSideEnum
     orderType: OrderTypeEnum
     cumQty: float
     limitPrice: float
@@ -44,7 +45,7 @@ class Order(BaseModel):
 class OrderSearchRequest(BaseModel):
     symbol: str
     orderType: OrderTypeEnum
-    side: SideEnum
+    side: OrderSideEnum
 
 
 class OrdersClient:

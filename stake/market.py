@@ -4,6 +4,7 @@ from pydantic import BaseModel
 
 from stake.constant import Url
 
+__all__ = ["MarketStatus"]
 
 class MarketStatus(BaseModel):
     current: str

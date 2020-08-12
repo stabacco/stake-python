@@ -1,3 +1,4 @@
+from stake.common import camelcase
 import weakref
 from datetime import date
 from datetime import datetime
@@ -15,8 +16,8 @@ __all__ = ["FundingRequest"]
 class FundingRequest(BaseModel):
     """Request to be issued to the fundings endpoint."""
 
-    endDate: date = Field(default_factory=date.today)
-    startDate: date = Field(
+    end_date: date = Field(default_factory=date.today)
+    start_date: date = Field(
         default_factory=lambda *_: date.today() - timedelta(days=365)
     )
 
@@ -24,20 +25,23 @@ class FundingRequest(BaseModel):
 class Funding(BaseModel):
     id: str
     timestamp: datetime
-    orderType: str
-    eventType: str
+    order_type: str
+    event_type: str
     status: str
     title: str
     amount: str
     description: str
-    currencyFrom: str
-    currencyTo: str
-    spotRate: float
-    totalFee: float
-    amountFrom: float
-    amountTo: float
+    currency_from: str
+    currency_to: str
+    spot_rate: float
+    total_fee: float
+    amount_from: float
+    amount_to: float
     rate: float
-    referenceNumber: str
+    reference_number: str
+
+    class Config:
+        alias_generator = camelcase
 
 
 class FundingsClient:
@@ -46,8 +50,8 @@ class FundingsClient:
 
     async def list(self, request: FundingRequest) -> List[Funding]:
         payload = {
-            "endDate": request.endDate.strftime("%d/%m/%Y"),
-            "startDate": request.startDate.strftime("%d/%m/%Y"),
+            "endDate": request.end_date.strftime("%d/%m/%Y"),
+            "startDate": request.start_date.strftime("%d/%m/%Y"),
         }
         data = await self._client.post(Url.fundings, payload=payload)
 
