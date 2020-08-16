@@ -6,9 +6,8 @@ from typing import Optional
 from typing import Union
 
 import pytest
-from aiohttp import BaseConnector
-from aiohttp import ClientResponse
-from aiohttp import ClientSession
+from aiohttp import ClientResponse, ClientSession
+from aiohttp import TraceConfig
 from aiohttp_requests import requests
 from dotenv import load_dotenv
 
@@ -17,6 +16,25 @@ from stake.client import HttpClient
 from stake.client import StakeClient
 
 load_dotenv()
+
+_function_trace_context={}
+
+async def on_request_start(
+        session, trace_config_ctx, params):
+    global _function_trace_context
+    # print("TRACE---CONTEXT", _function_trace_context)
+    print("Starting request", trace_config_ctx, params)
+
+async def on_request_end(session, trace_config_ctx, params):
+    global _function_trace_context
+    # print("TRACE++++CONTEXT", _function_trace_context)
+    print("Ending request", trace_config_ctx, (params.response._body)
+    )
+    _function_trace_context = {}
+
+trace_config = TraceConfig()
+trace_config.on_request_start.append(on_request_start)
+trace_config.on_request_end.append(on_request_end)
 
 
 @pytest.fixture(scope="session")
@@ -31,19 +49,19 @@ async def test_client():
     return await StakeClient()
 
 
+@pytest.fixture(scope="function")
+async def tracing_client(test_client_fixture_generator, request):
+    test_name = (f"{request.module.__name__}.{request.node.name}")
+    print("Test name ->", test_name)
+    global _function_trace_context
+    _function_trace_context["test_name"] = test_name
+    yield test_client_fixture_generator
+
 @pytest.fixture(scope="session")
 def patch_client_session_response(session_mocker):
-    async def recorder_text(self, *args, **kwargs):
-        print("releasing the shitettttttt", self.__dict__)
-        # return await ClientResponse.text(self, *args, **kwargs)
-
-    async def recording_release(self, *args, **kwargs):
-        data = self.json()
-        print("got data", self)
-        return await ClientResponse.release(self, *args, **kwargs)
-
-    # session_mocker.patch.object(ClientResponse, 'text', recorder_text)
-    session_mocker.patch.object(ClientResponse, "release", recording_release)
+    recording_session = ClientSession(
+        trace_configs=[trace_config])
+    session_mocker.patch.object(requests, "_session", recording_session)
 
 
 @pytest.fixture(scope="session")
@@ -55,11 +73,11 @@ async def test_client_fixture_generator(patch_client_session_response):
 
     # send to postman
 
-    await postman.upload_postman_collection(
-        client.httpClient.out_collection,
-        os.environ["STAKE_POSTMAN_UNITTEST_COLLECTION_ID"],
-        os.environ["STAKE_POSTMAN_MOCK_API_KEY_UNITTEST"],
-    )
+    # await postman.upload_postman_collection(
+    #     client.httpClient.out_collection,
+    #     os.environ["STAKE_POSTMAN_UNITTEST_COLLECTION_ID"],
+    #     os.environ["STAKE_POSTMAN_MOCK_API_KEY_UNITTEST"],
+    # )
 
 
 class RecorderHttpClient(HttpClient):
