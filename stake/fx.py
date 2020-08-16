@@ -6,7 +6,7 @@ from enum import Enum
 from pydantic import BaseModel
 from pydantic.types import UUID
 
-from common import camelcase
+from stake.common import camelcase
 from stake.constant import Url
 
 __all__ = ["FxConversionRequest", "CurrencyEnum"]
