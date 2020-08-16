@@ -5,10 +5,13 @@ from enum import IntEnum
 from typing import List
 
 from pydantic import BaseModel
+from pydantic.types import UUID
 
+from stake.common import camelcase
 from stake.constant import Url
 
 __all__ = ["OrderTypeEnum", "OrderSideEnum"]
+
 
 class OrderTypeEnum(IntEnum):
     MARKET = 1
@@ -22,24 +25,28 @@ class OrderSideEnum(str, Enum):
 
 
 class Order(BaseModel):
-    orderNo: str
-    orderID: str
-    orderCashAmt: float
-    price: float
-    stopPrice: float
+    order_no: str
+    order_id: str
+    order_cash_amt: int
+    symbol: str
+    price: int
+    stop_price: int
     side: OrderSideEnum
-    orderType: OrderTypeEnum
-    cumQty: float
-    limitPrice: float
-    createdWhen: datetime
-    orderStatus: int
-    orderQty: float
-    instrumentID: str
-    imageUrl: str
-    instrumentSymbol: str
-    instrumentName: str
+    order_type: OrderTypeEnum
+    cum_qty: str
+    limit_price: int
+    created_when: datetime
+    order_status: int
+    order_qty: float
     description: str
-    encodedName: str
+    instrument_id: UUID
+    image_url: str
+    instrument_symbol: str
+    instrument_name: str
+    encoded_name: str
+
+    class Config:
+        alias_generator = camelcase
 
 
 class OrderSearchRequest(BaseModel):

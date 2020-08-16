@@ -1,5 +1,4 @@
-"Currency conversion"
-
+"""Currency conversion."""
 import weakref
 from enum import Enum
 
@@ -40,15 +39,15 @@ class FxClient:
     def __init__(self, client):
         self._client = weakref.proxy(client)
 
-    async def convert(self,
-                      currency_conversion_request: FxConversionRequest) -> FxConversion:
+    async def convert(
+        self, currency_conversion_request: FxConversionRequest
+    ) -> FxConversion:
         """Converts from one currency to another."""
 
         payload = {
             "fromCurrency": currency_conversion_request.from_currency,
             "toCurrency": currency_conversion_request.to_currency,
-            "fromAmount": currency_conversion_request.from_amount
+            "fromAmount": currency_conversion_request.from_amount,
         }
-        data = await self._client.post(Url.rate,
-                                       payload=payload)
+        data = await self._client.post(Url.rate, payload=payload)
         return FxConversion(**data)
