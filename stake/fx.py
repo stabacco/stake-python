@@ -9,6 +9,7 @@ from pydantic.types import UUID
 from stake.common import camelcase
 from stake.constant import Url
 
+
 __all__ = ["FxConversionRequest", "CurrencyEnum"]
 
 
