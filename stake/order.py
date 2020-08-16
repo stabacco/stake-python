@@ -4,7 +4,7 @@ from enum import Enum
 from enum import IntEnum
 from typing import List
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from pydantic.types import UUID
 
 from stake.common import camelcase
@@ -26,7 +26,7 @@ class OrderSideEnum(str, Enum):
 
 class Order(BaseModel):
     order_no: str
-    order_id: str
+    order_id: str = Field(alias="orderID")
     order_cash_amt: int
     symbol: str
     price: int
@@ -39,7 +39,7 @@ class Order(BaseModel):
     order_status: int
     order_qty: float
     description: str
-    instrument_id: UUID
+    instrument_id: UUID = Field(alias="instrumentID")
     image_url: str
     instrument_symbol: str
     instrument_name: str
