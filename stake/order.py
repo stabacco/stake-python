@@ -62,7 +62,7 @@ class OrdersClient:
     async def list(self) -> List[Order]:
         data = await self._client.get(Url.orders)
         for d in data:
-            print d["symbol"]
+            print(d["symbol"])
         return [Order(**d) for d in data]
 
     async def cancel(self, order: Order) -> bool:
