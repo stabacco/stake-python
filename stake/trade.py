@@ -6,8 +6,10 @@ from typing import Optional
 from typing import Union
 
 from pydantic import BaseModel
+from pydantic import Field
 from pydantic import validator
 
+from stake.common import camelcase
 from stake.constant import Url
 
 failed_transaction_regex = re.compile(r"^[0-9]{4}")
@@ -86,7 +88,6 @@ class StopSellRequest(BaseModel):
     symbol: str
     quantity: float
     stopPrice: float
-    # limitPrice: Optional[float]
     comments: Optional[str]
 
     itemType: str = "instrument"
@@ -108,25 +109,28 @@ class TradeResponse(BaseModel):
     """The response from a request to buy/sell."""
 
     id: str
-    itemId: str
+    item_id: str
     name: str
     category: str
     quantity: Optional[float]
-    amountCash: Optional[float]
-    limitPrice: Optional[float]
-    stopPrice: Optional[float]
-    effectivePrice: Optional[float]
+    amount_cash: Optional[float]
+    limit_price: Optional[float]
+    stop_price: Optional[float]
+    effective_price: Optional[float]
     commission: Optional[float]
     description: Optional[str]
-    insertedDate: datetime
-    updatedDate: datetime
+    inserted_date: datetime
+    updated_date: datetime
     side: str
     status: Optional[int]
-    orderRejectReason: Optional[str]
-    encodedName: str
-    imageURL: str
+    order_reject_reason: Optional[str]
+    encoded_name: str
+    image_url: str = Field(alias="imageURL")
     symbol: str
-    dwOrderId: str
+    dw_order_id: str
+
+    class Config:
+        alias_generator = camelcase
 
 
 class TradesClient:
@@ -170,20 +174,18 @@ class TradesClient:
         """
         product = await self._client.products.get(request.symbol)
         assert product
-        request_dict = request.dict()
+        request_dict = request.dict(by_alias=True)
         request_dict["userId"] = self._client.user.id
         request_dict["itemId"] = product.id
         data = await self._client.post(self._client.httpClient.url(url), request_dict)
         trade = TradeResponse(**data[0])
 
-        if not check_success:
-            return trade
-
-        await self._check_trade_against_transactions(trade)
+        if check_success:
+            await self._verify_successful_trade(trade)
 
         return trade
 
-    async def _check_trade_against_transactions(self, trade: TradeResponse) -> None:
+    async def _verify_successful_trade(self, trade: TradeResponse) -> None:
         """We check the status of the trade by trying to find the matching
         transaction and inspecting its properties. This should not be needed
         but there is nothing i can see in the trading response that would help
@@ -192,14 +194,11 @@ class TradesClient:
         Args:
             trade: the responded trade
 
-        Returns:
-            Nothing
-
         Raises:
             RuntimeError if the trade was not successful.
         """
 
-        transactions = await self._client.get("users/accounts/transactions")
+        transactions = await self._client.get(Url.transactions)
 
         if not transactions:
             raise RuntimeError(
@@ -208,7 +207,7 @@ class TradesClient:
 
         # wait for the transaction to be available
         for transaction in transactions:
-            if transaction["orderId"] == trade.dwOrderId and re.search(
+            if transaction["orderId"] == trade.dw_order_id and re.search(
                 failed_transaction_regex, transaction["updatedReason"]
             ):
                 raise RuntimeError(

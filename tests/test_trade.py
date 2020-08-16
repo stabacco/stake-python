@@ -23,7 +23,7 @@ async def test_stop_buy(test_client_fixture_generator):
 async def test_limit_buy(test_client_fixture_generator):
     with pytest.raises(RuntimeError):
         await test_client_fixture_generator.trades.buy(
-            LimitBuyRequest(symbol="AAPL", limitPrice=400, quantity=100)
+            LimitBuyRequest(symbol="AAPL", limitPrice=460, quantity=1000)
         )
 
 

@@ -80,6 +80,16 @@ class PostmanCollection(BaseModel):
 async def upload_postman_collection(
     collection: PostmanCollection, postman_collection_id: str, postman_api_key: str
 ) -> dict:
+    print(
+        dict(
+            url=f"https://api.getpostman.com/" f"collections/{postman_collection_id}",
+            headers={"Content-Type": "application/json", "X-Api-Key": postman_api_key},
+            # data=json.dumps({"collection": collection.dict(by_alias=True)}, indent=2),
+        )
+    )
+    with open("/tmp/data.json", "w") as f:
+        json.dump({"collection": collection.dict(by_alias=True)}, f, indent=2)
+
     response = await requests.put(
         f"https://api.getpostman.com/" f"collections/{postman_collection_id}",
         headers={"Content-Type": "application/json", "X-Api-Key": postman_api_key},
@@ -102,8 +112,6 @@ async def get_mocks(postman_api_key: str):
 async def get_collection(postman_api_key, collection_id):
     url = f"https://api.getpostman.com/collections/{collection_id}"
 
-    payload = {}
-    files = {}
     headers = {"Content-Type": "application/json", "X-Api-Key": postman_api_key}
 
     response = await requests.get(url, headers=headers)
@@ -121,4 +129,3 @@ if __name__ == "__main__":
     import asyncio
 
     collection = asyncio.run(get_collection(key, collection_id))
-    print(collection)

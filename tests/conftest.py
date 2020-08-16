@@ -51,12 +51,12 @@ class RecorderHttpClient(HttpClient):
     def __init__(self):
         self.out_collection = postman.PostmanCollection(
             info=postman.PostmanCollectionInfo(
-                name="unittests", description="Postman unittest collection"
+                name="unit-tests", description="Postman unittest collection"
             ),
             item=[],
         )
 
-    async def get(self, url: str, headers: dict = None) -> dict:
+    async def get(self, url, payload: dict, headers: dict = None) -> dict:
 
         response = await requests.get(HttpClient.url(url), headers=headers)
 
@@ -156,7 +156,9 @@ class RecorderHttpClient(HttpClient):
                 postman.PostmanCollectionRequestHeader(key=key, value=value)
                 for key, value in obfuscated_headers.items()
             ],
-            body=postman.PostmanCollectionRequestBody(raw=json.dumps(payload)),
+            body=postman.PostmanCollectionRequestBody(
+                raw=json.dumps(payload, indent=2)
+            ),
             method="POST",
             url=postman.PostmanCollectionRequestUrl(raw="{{url}}/" + url),
         )
@@ -168,7 +170,7 @@ class RecorderHttpClient(HttpClient):
             name=f"response {url}",
             status="OK",
             code=response.status,
-            body=json.dumps(obfuscated_response),
+            body=json.dumps(obfuscated_response, indent=2),
             header=[
                 postman.PostmanCollectionRequestHeader(key=key, value=value)
                 for key, value in obfuscated_response_headers.items()
