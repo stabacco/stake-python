@@ -26,4 +26,4 @@ class Url(str, Enum):
     watchlist: str = "products/productsWatchlist/{userId}"
 
 
-STAKE_URL = "https://prd-api.stake.com.au/api/"
+STAKE_URL = "https://global-prd-api.hellostake.com/api/"

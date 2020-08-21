@@ -1,5 +1,6 @@
 
 from .client import *
+from .fx import *
 from .order import *
 from .funding import *
 from .market import *

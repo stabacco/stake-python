@@ -10,6 +10,7 @@ from pydantic import Field
 
 from stake import constant
 from stake import equity
+from stake import fx
 from stake import funding
 from stake import market
 from stake import order
@@ -86,6 +87,7 @@ class _StakeClient:
         self.headers = Headers()
         self.httpClient = HttpClient
 
+        self.fx = fx.FxClient(self)
         self.fundings = funding.FundingsClient(self)
         self.products = product.ProductsClient(self)
         self.trades = trade.TradesClient(self)
