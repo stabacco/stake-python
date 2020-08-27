@@ -88,6 +88,8 @@ class InvalidLoginException(Exception):
 
 
 class _StakeClient:
+    """The main client to interact with the Stake API."""
+
     def __init__(self):
         self.user = None
 
@@ -106,19 +108,43 @@ class _StakeClient:
         self.watchlist = watchlist.WatchlistClient(self)
 
     async def get(self, url: str, payload: dict = None) -> dict:
+        """Performs an HTTP get operation.
+
+        Args:
+            url (str): the current endpoint
+            payload (dict): The request's body.
+
+        Returns:
+            dict: the json response
+        """
         return await self.httpClient.get(
             url, payload=payload, headers=self.headers.dict(by_alias=True)
         )
-        # return await self.httpClient.get(
-        #     url, headers=self.headers.dict(by_alias=True), payload=payload
-        # )
 
     async def post(self, url: str, payload: dict) -> dict:
+        """Performs an HTTP post operation.
+
+        Args:
+            url (str): the current endpoint
+            payload (dict): The request's body.
+
+        Returns:
+            dict: the json response
+        """
         return await self.httpClient.post(
             url, payload=payload, headers=self.headers.dict(by_alias=True)
         )
 
     async def delete(self, url: str, payload: dict = None) -> bool:
+        """Performs an HTTP delete operation.
+
+        Args:
+            url (str): the current endpoint
+            payload (dict, optional): The request's body. Defaults to None.
+
+        Returns:
+            bool: True if the deletion was successful.
+        """
         return await self.httpClient.delete(
             url, headers=self.headers.dict(by_alias=True), payload=payload
         )
@@ -158,7 +184,7 @@ class _StakeClient:
 async def StakeClient(
     request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
 ) -> _StakeClient:
-    """Returns a logged in _StakeClient.
+    """Returns an authenticated _StakeClient.
 
     Args:
         request: the login request. credentials or token

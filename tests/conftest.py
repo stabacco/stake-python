@@ -6,6 +6,9 @@ from typing import Optional
 from typing import Union
 
 import pytest
+from aiohttp import BaseConnector
+from aiohttp import ClientResponse
+from aiohttp import ClientSession
 from aiohttp_requests import requests
 from dotenv import load_dotenv
 
@@ -29,7 +32,22 @@ async def test_client():
 
 
 @pytest.fixture(scope="session")
-async def test_client_fixture_generator():
+def patch_client_session_response(session_mocker):
+    async def recorder_text(self, *args, **kwargs):
+        print("releasing the shitettttttt", self.__dict__)
+        # return await ClientResponse.text(self, *args, **kwargs)
+
+    async def recording_release(self, *args, **kwargs):
+        data = self.json()
+        print("got data", self)
+        return await ClientResponse.release(self, *args, **kwargs)
+
+    # session_mocker.patch.object(ClientResponse, 'text', recorder_text)
+    session_mocker.patch.object(ClientResponse, "release", recording_release)
+
+
+@pytest.fixture(scope="session")
+async def test_client_fixture_generator(patch_client_session_response):
     client = await StakeClient()
     client.httpClient = RecorderHttpClient()
 
