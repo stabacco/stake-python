@@ -14,7 +14,6 @@ from stake.constant import Url
 
 __all__ = ["FundingRequest"]
 
-
 class FundingRequest(BaseModel):
     """Request to be issued to the fundings endpoint."""
 

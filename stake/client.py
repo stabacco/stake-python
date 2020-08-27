@@ -1,5 +1,5 @@
 import os
-from typing import Optional
+from typing import Optional, Type
 from typing import Union
 from urllib.parse import urljoin
 
@@ -8,7 +8,7 @@ from aiohttp_requests import requests
 from dotenv import load_dotenv
 from pydantic import BaseModel
 from pydantic import Field
-
+from types import TracebackType
 from stake import constant
 from stake import equity
 from stake import funding
@@ -181,6 +181,7 @@ class _StakeClient:
         return self.user
 
 
+
 async def StakeClient(
     request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
 ) -> _StakeClient:
@@ -195,3 +196,20 @@ async def StakeClient(
     request = request or SessionTokenLoginRequest()
     await c.login(request)
     return c
+
+from contextlib import asynccontextmanager
+@asynccontextmanager
+async def StakeSession(
+    request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
+) -> _StakeClient:
+    """Returns an authenticated _StakeClient.
+
+    Args:
+        request: the login request. credentials or token
+    Returns:
+        an instance of the _StakeClient
+    """
+    c = _StakeClient()
+    request = request or SessionTokenLoginRequest()
+    await c.login(request)
+    yield c
