@@ -15,27 +15,25 @@ from . import postman
 from stake.client import HttpClient
 from stake.client import StakeClient
 
+from attr import asdict
 load_dotenv()
-
-_function_trace_context={}
 
 async def on_request_start(
         session, trace_config_ctx, params):
-    global _function_trace_context
-    # print("TRACE---CONTEXT", _function_trace_context)
+    # print("TRACE---CONTEXT", session._current_test_name)
+    print("DDD", asdict(params))
     print("Starting request", trace_config_ctx, params)
 
 async def on_request_end(session, trace_config_ctx, params):
-    global _function_trace_context
-    # print("TRACE++++CONTEXT", _function_trace_context)
-    print("Ending request", trace_config_ctx, (params.response._body)
+    # print("TRACE++++CONTEXT", session._current_test_name)
+    params.response.json()
+    import pprint;pprint.pprint(asdict(params))
+    print("Ending request", trace_config_ctx, (asdict(params))
     )
-    _function_trace_context = {}
 
 trace_config = TraceConfig()
 trace_config.on_request_start.append(on_request_start)
 trace_config.on_request_end.append(on_request_end)
-
 
 @pytest.fixture(scope="session")
 def event_loop():
@@ -43,26 +41,25 @@ def event_loop():
     yield loop
     loop.close()
 
-
-@pytest.fixture(scope="session")
-async def test_client():
-    return await StakeClient()
-
-
 @pytest.fixture(scope="function")
-async def tracing_client(test_client_fixture_generator, request):
-    test_name = (f"{request.module.__name__}.{request.node.name}")
-    print("Test name ->", test_name)
-    global _function_trace_context
-    _function_trace_context["test_name"] = test_name
-    yield test_client_fixture_generator
-
-@pytest.fixture(scope="session")
 def patch_client_session_response(session_mocker):
     recording_session = ClientSession(
         trace_configs=[trace_config])
+    recording_session._current_test_name = "none"
     session_mocker.patch.object(requests, "_session", recording_session)
+    
+@pytest.fixture(scope="function")
+async def test_client(patch_client_session_response):
+    return await StakeClient()
 
+@pytest.fixture()
+async def tracing_client(test_client, request):
+    test_name = (f"{request.module.__name__}.{request.node.name}")
+    print("Test name ->", test_name)
+    # TODO
+    requests._session._current_test_name = test_name
+    yield test_client
+    del requests._session._current_test_name
 
 @pytest.fixture(scope="session")
 async def test_client_fixture_generator(patch_client_session_response):
