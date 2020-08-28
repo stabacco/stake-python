@@ -21,7 +21,7 @@ async def test_invalid_login(test_client_fixture_generator):
 @pytest.mark.asyncio
 async def test_contextmanager(test_client_fixture_generator):
     request = CredentialsLoginRequest(
-        username="tabacco.stefano@gmail.com", password="Stegala73"
+        username="tabacco.stefano@gmail.com", password="Stegala74"
     )
     async with StakeSession(request=request) as client:
         print(client)
