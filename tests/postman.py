@@ -7,7 +7,14 @@ from pydantic import BaseModel
 from pydantic import Field
 
 
-class PostmanCollectionInfo(BaseModel):
+class PostmanBaseModel(BaseModel):
+    def dict(self, *args, **kwargs):
+        """Cleans up all the None values."""
+        d = super().dict(*args, **kwargs)
+        return {k: v for k, v in d.items() if v is not None}
+
+
+class PostmanCollectionInfo(PostmanBaseModel):
     _postman_id: str = "f175f235-0eb7-4e9b-b6ee-57de3865612b"
     name: str
     description: str = "Postman collection"
@@ -17,13 +24,13 @@ class PostmanCollectionInfo(BaseModel):
     )
 
 
-class PostmanCollectionRequestHeader(BaseModel):
+class PostmanCollectionRequestHeader(PostmanBaseModel):
     key: str
     value: str
     type: str = "text"
 
 
-class PostmanCollectionRequestUrl(BaseModel):
+class PostmanCollectionRequestUrl(PostmanBaseModel):
     raw: str
     host: List[str] = "{{url}}"
 
@@ -37,12 +44,12 @@ class PostmanCollectionRequestUrl(BaseModel):
         return dict_
 
 
-class PostmanCollectionRequestBody(BaseModel):
+class PostmanCollectionRequestBody(PostmanBaseModel):
     mode: str = "raw"
     raw: str  # json-encoded
 
 
-class PostmanCollectionRequest(BaseModel):
+class PostmanCollectionRequest(PostmanBaseModel):
     name: str = None
     method: str
     header: List[PostmanCollectionRequestHeader]
@@ -51,7 +58,7 @@ class PostmanCollectionRequest(BaseModel):
     body: Optional[PostmanCollectionRequestBody]
 
 
-class PostmanCollectionResponse(BaseModel):
+class PostmanCollectionResponse(PostmanBaseModel):
     name: str
     originalRequest: PostmanCollectionRequest = None
     status: str
@@ -65,16 +72,20 @@ class PostmanCollectionResponse(BaseModel):
     id: str = None
 
 
-class PostmanCollectionItem(BaseModel):
+class PostmanCollectionItem(PostmanBaseModel):
     name: str
     _postman_id: str = None
-    request: PostmanCollectionRequest
-    response: List[PostmanCollectionResponse]
+    request: Optional[PostmanCollectionRequest]
+    response: Optional[List[PostmanCollectionResponse]]
+    item: Optional[List["PostmanCollectionItem"]]
 
 
-class PostmanCollection(BaseModel):
+class PostmanCollection(PostmanBaseModel):
     info: PostmanCollectionInfo
     item: List[PostmanCollectionItem]
+
+
+PostmanCollectionItem.update_forward_refs()
 
 
 async def upload_postman_collection(
