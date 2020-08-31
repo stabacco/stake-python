@@ -7,9 +7,9 @@ from stake.client import InvalidLoginException, StakeSession
 
 
 @pytest.mark.asyncio
-async def test_invalid_login(test_client_fixture_generator):
+async def test_invalid_login(tracing_client):
     request = CredentialsLoginRequest(
-        username="tabacco.stefano@gmail.com", password="Stegala74"
+        username="unknown@user.com", password="WeirdPassword"
     )
     with pytest.raises(InvalidLoginException):
         await StakeClient(request=request)
@@ -19,7 +19,7 @@ async def test_invalid_login(test_client_fixture_generator):
         await StakeClient(request=request)
 
 @pytest.mark.asyncio
-async def test_contextmanager(test_client_fixture_generator):
+async def test_contextmanager(tracing_client):
     request = CredentialsLoginRequest(
         username="tabacco.stefano@gmail.com", password="Stegala74"
     )
