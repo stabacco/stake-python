@@ -7,7 +7,7 @@ from typing import Union
 
 import pytest
 from aiohttp import ClientSession
-from aiohttp import TraceConfig
+from aiohttp import TraceConfig, TraceRequestStartParams
 from aiohttp_requests import requests
 from attr import asdict
 from attr import has
@@ -26,20 +26,23 @@ async def on_request_start(session, trace_config_ctx, params):
     # print("TRACE---CONTEXT", session._current_test_name)
     # print("DDD", asdict(params))
     trace_config_ctx.request_id = str(uuid.uuid4())
-    raise RuntimeError(dir(params.headers))
+    body=None
+    if params.data:
+        body = params.data._value
     ## POSTMAN
     raw_url = str(params.url.raw_path)
 
     headers = params.headers
     request = postman.PostmanCollectionRequest(
-        name=f"request_{raw_url}",
-        description=f"get {raw_url}",
+        name=f"request_{trace_config_ctx.request_id}",
+        description=f"H {params.method} {trace_config_ctx.request_id} {raw_url}",
         header=[
             postman.PostmanCollectionRequestHeader(key=key, value=value)
             for key, value in headers.items()
         ],
         method=str(params.method),
         url=postman.PostmanCollectionRequestUrl(raw=raw_url, host=[params.url.host]),
+        body=postman.PostmanCollectionRequestBody(raw=body) if body else None,
     )
     trace_config_ctx.request = request
     # POSTMAN
@@ -61,8 +64,8 @@ async def on_request_end(session, trace_config_ctx, params):
     original_request = params.response.request_info
     original_request_url = original_request.url.raw_path
     request = postman.PostmanCollectionRequest(
-        name=f"request_{original_request_url}",
-        description=f"get {original_request_url}",
+        name=f"R request_{trace_config_ctx.request_id}",
+        description=f"R {params.method} {trace_config_ctx.request_id} {raw_url}",
         header=[
             postman.PostmanCollectionRequestHeader(key=key, value=value)
             for key, value in original_request.headers.items()
@@ -75,7 +78,7 @@ async def on_request_end(session, trace_config_ctx, params):
 
     out_response = postman.PostmanCollectionResponse(
         originalRequest=request,
-        name=f"response {raw_url}",
+        name=f"response_{trace_config_ctx.request_id}",
         status="OK",
         code=params.response.status,
         body=json.dumps(response_body),
@@ -119,7 +122,7 @@ async def patch_client_session_response(session_mocker):
 
     recording_session.current_collection_item = recording_session.collection
 
-    session_mocker.patch.object(requests, "_session", recording_session)
+    session_mocker.patch.object(HttpClient, "_session", recording_session)
 
 
 @pytest.fixture(scope="session")
@@ -128,14 +131,15 @@ async def session_tracing_client(patch_client_session_response):
     client = await StakeClient()
     yield client
 
-    data = {"collection": requests._session.collection.dict(by_alias=True)}
+    collection = client.httpClient._session.collection
+    data = {"collection": collection.dict(by_alias=True)}
     with open("collection.json", "w") as f:
         json.dump(data, f, indent=2)
 
     import os
 
     await postman.upload_postman_collection(
-        requests._session.collection,
+        collection,
         os.environ["STAKE_POSTMAN_UNITTEST_COLLECTION_ID"],
         os.environ["STAKE_POSTMAN_MOCK_API_KEY_UNITTEST"],
     )
@@ -145,8 +149,8 @@ async def session_tracing_client(patch_client_session_response):
 async def tracing_client(request, session_tracing_client):
     test_name = f"{request.module.__name__}.{request.node.name}"
     item = postman.PostmanCollectionItem(name=test_name, item=[])
-    requests._session.collection.item.append(item)
-    requests._session.current_collection_item = item
+    session_tracing_client.httpClient._session.collection.item.append(item)
+    session_tracing_client.httpClient._session.current_collection_item = item
     yield session_tracing_client
 
 

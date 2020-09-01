@@ -4,7 +4,7 @@ from typing import Union
 from urllib.parse import urljoin
 
 import aiohttp
-from aiohttp_requests import requests
+# from aiohttp_requests import requests
 from dotenv import load_dotenv
 from pydantic import BaseModel
 from pydantic import Field
@@ -41,11 +41,12 @@ class SessionTokenLoginRequest(BaseModel):
 class Headers(BaseModel):
     accept: str = Field("application/json", alias="Accept")
     content_type: str = Field("application/json", alias="Content-Type")
-    stake_session_token: Optional[str] = Field(None, alias="Stake-Session-Token")
+    stake_session_token: Optional[str] = Field('', alias="Stake-Session-Token")
 
 
 class HttpClient:
     """Handles http calls to the Stake API."""
+    _session = aiohttp.ClientSession(headers=Headers().dict(by_alias=True), raise_for_status=True)
 
     @staticmethod
     def url(endpoint: str) -> str:
@@ -61,7 +62,7 @@ class HttpClient:
 
     @staticmethod
     async def get(url: str, payload: dict = None, headers: dict = None) -> dict:
-        response = await requests.get(
+        response = await HttpClient._session.get(
             HttpClient.url(url), headers=headers, json=payload
         )
         response.raise_for_status()
@@ -69,7 +70,7 @@ class HttpClient:
 
     @staticmethod
     async def post(url: str, payload: dict, headers: dict = None) -> dict:
-        response = await requests.post(
+        response = await HttpClient._session.post(
             HttpClient.url(url), headers=headers, json=payload
         )
         response.raise_for_status()
@@ -77,15 +78,17 @@ class HttpClient:
 
     @staticmethod
     async def delete(url: str, payload: dict = None, headers: dict = None) -> bool:
-        response = await requests.delete(
+        response = await HttpClient._session.delete(
             HttpClient.url(url), headers=headers, json=payload
         )
         return response.status <= 399
 
+    @staticmethod
+    async def close():
+        await HttpClient._session.close()
 
 class InvalidLoginException(Exception):
     pass
-
 
 class _StakeClient:
     """The main client to interact with the Stake API."""
@@ -213,3 +216,4 @@ async def StakeSession(
     request = request or SessionTokenLoginRequest()
     await c.login(request)
     yield c
+    await c.httpClient.close()

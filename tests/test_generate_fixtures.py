@@ -2,12 +2,14 @@ import pytest
 
 
 @pytest.mark.asyncio
-async def test_how_transactions(tracing_client):
+async def test_show_transactions(tracing_client):
     from stake import transaction
 
     request = transaction.TransactionRecordRequest(limit=6)
+    await tracing_client.transactions.list(request)
+    
+    request = transaction.TransactionRecordRequest(limit=7)
     return await tracing_client.transactions.list(request)
-
 
 @pytest.mark.asyncio
 async def test_show_portfolio(tracing_client):
