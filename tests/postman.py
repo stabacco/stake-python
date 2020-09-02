@@ -2,7 +2,8 @@ import json
 from typing import List
 from typing import Optional
 
-from aiohttp_requests import requests
+import aiohttp
+from aiohttp import ClientSession
 from pydantic import BaseModel
 from pydantic import Field
 
@@ -101,21 +102,23 @@ async def upload_postman_collection(
     with open("/tmp/data.json", "w") as f:
         json.dump({"collection": collection.dict(by_alias=True)}, f, indent=2)
 
-    response = await requests.put(
-        f"https://api.getpostman.com/" f"collections/{postman_collection_id}",
-        headers={"Content-Type": "application/json", "X-Api-Key": postman_api_key},
-        data=json.dumps({"collection": collection.dict(by_alias=True)}),
-    )
+    async with aiohttp.ClientSession() as session:
+        response = await session.put(
+            f"https://api.getpostman.com/" f"collections/{postman_collection_id}",
+            headers={"Content-Type": "application/json", "X-Api-Key": postman_api_key},
+            data=json.dumps({"collection": collection.dict(by_alias=True)}),
+        )
     response.raise_for_status()
     print(f"Updated collection {postman_collection_id}")
     return await response.json()
 
 
 async def get_mocks(postman_api_key: str):
-    response = await requests.get(
-        "https://api.getpostman.com/mocks",
-        headers={"Content-Type": "application/json", "X-Api-Key": postman_api_key},
-    )
+    async with aiohttp.ClientSession() as session:
+        response = await session.get(
+            "https://api.getpostman.com/mocks",
+            headers={"Content-Type": "application/json", "X-Api-Key": postman_api_key},
+        )
     response.raise_for_status()
     return await response.json()
 
@@ -125,9 +128,10 @@ async def get_collection(postman_api_key, collection_id):
 
     headers = {"Content-Type": "application/json", "X-Api-Key": postman_api_key}
 
-    response = await requests.get(url, headers=headers)
-    data = await response.json()
-    return PostmanCollection(**data["collection"])
+    async with aiohttp.ClientSession() as session:
+        response = await session.get(url, headers=headers)
+        data = await response.json()
+        return PostmanCollection(**data["collection"])
 
 
 if __name__ == "__main__":

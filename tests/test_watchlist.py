@@ -1,18 +1,16 @@
 import json
-from tests.conftest import tracing_client
 
 import pytest
 
 from stake.constant import Url
 from stake.watchlist import AddToWatchlistRequest
 from stake.watchlist import RemoveFromWatchlistRequest
+from tests.conftest import tracing_client
 
 
 @pytest.mark.asyncio
 async def test_add_to_watchlist(tracing_client):
-    added = await tracing_client.watchlist.add(
-        AddToWatchlistRequest(symbol="SPOT")
-    )
+    added = await tracing_client.watchlist.add(AddToWatchlistRequest(symbol="SPOT"))
     assert added.watching
 
 

@@ -7,10 +7,8 @@ from typing import Union
 
 import pytest
 from aiohttp import ClientSession
-from aiohttp import TraceConfig, TraceRequestStartParams
-from aiohttp_requests import requests
+from aiohttp import TraceConfig
 from attr import asdict
-from attr import has
 from dotenv import load_dotenv
 
 from . import postman
@@ -26,9 +24,9 @@ async def on_request_start(session, trace_config_ctx, params):
     # print("TRACE---CONTEXT", session._current_test_name)
     # print("DDD", asdict(params))
     trace_config_ctx.request_id = str(uuid.uuid4())
-    body=None
-    if params.data:
-        body = params.data._value
+    body = None
+    # if params.data:
+    #     body = params.data._value
     ## POSTMAN
     raw_url = str(params.url.raw_path)
 
@@ -111,7 +109,20 @@ def event_loop():
 
 
 @pytest.fixture(scope="session")
-async def patch_client_session_response(session_mocker):
+def patch_aiohttp(session_mocker):
+    from .patch_aiohttp import TraceRequestStartParams, TraceRequestEndParams
+
+    session_mocker.patch(
+        "aiohttp.tracing.TraceRequestStartParams", new=TraceRequestStartParams
+    )
+    session_mocker.patch(
+        "aiohttp.tracing.TraceRequestEndParams", new=TraceRequestEndParams
+    )
+
+
+@pytest.fixture(scope="session")
+async def patch_client_session_response(session_mocker, patch_aiohttp):
+
     recording_session = ClientSession(trace_configs=[trace_config])
     recording_session.collection = postman.PostmanCollection(
         info=postman.PostmanCollectionInfo(
@@ -121,7 +132,6 @@ async def patch_client_session_response(session_mocker):
     )
 
     recording_session.current_collection_item = recording_session.collection
-
     session_mocker.patch.object(HttpClient, "_session", recording_session)
 
 
@@ -138,11 +148,11 @@ async def session_tracing_client(patch_client_session_response):
 
     import os
 
-    await postman.upload_postman_collection(
-        collection,
-        os.environ["STAKE_POSTMAN_UNITTEST_COLLECTION_ID"],
-        os.environ["STAKE_POSTMAN_MOCK_API_KEY_UNITTEST"],
-    )
+    # await postman.upload_postman_collection(
+    #     collection,
+    #     os.environ["STAKE_POSTMAN_UNITTEST_COLLECTION_ID"],
+    #     os.environ["STAKE_POSTMAN_MOCK_API_KEY_UNITTEST"],
+    # )
 
 
 @pytest.fixture(scope="function")
@@ -184,7 +194,7 @@ class RecorderHttpClient(HttpClient):
 
     async def get(self, url, payload: dict, headers: dict = None) -> dict:
 
-        response = await requests.get(HttpClient.url(url), headers=headers)
+        response = await super.get(*args, **kwargs)
 
         # response.raise_for_status()
         obfuscated_headers = RecorderHttpClient.obfuscate_headers(headers)
@@ -240,6 +250,7 @@ class RecorderHttpClient(HttpClient):
             "userId": "{{$randomUUID}}",
             "username": "{{$randomUserName}}",
             "emailAddress": "{{$randomEmail}}",
+            "password" : "{{$randomPassword}}",
             "dw_id": "{{$randomUUID}}",
             "dw_AccountId": "{{$randomUUID}}",
             "dw_AccountNumber": "{{$randomBankAccountName}}",

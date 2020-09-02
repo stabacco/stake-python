@@ -1,5 +1,5 @@
-"""Checks the market status"""
-
+"""Checks the market status."""
+import logging
 import weakref
 from datetime import datetime
 
@@ -8,7 +8,6 @@ from pydantic import Field
 
 from stake.common import camelcase
 from stake.constant import Url
-import logging
 
 __all__ = ["MarketStatus"]
 

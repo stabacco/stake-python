@@ -1,14 +1,16 @@
 import os
-from typing import Optional, Type
+from types import TracebackType
+from typing import Optional
+from typing import Type
 from typing import Union
 from urllib.parse import urljoin
 
 import aiohttp
-# from aiohttp_requests import requests
 from dotenv import load_dotenv
 from pydantic import BaseModel
 from pydantic import Field
-from types import TracebackType
+
+from stake.common import camelcase
 from stake import constant
 from stake import equity
 from stake import funding
@@ -29,8 +31,11 @@ __all__ = ["StakeClient", "CredentialsLoginRequest", "SessionTokenLoginRequest"]
 class CredentialsLoginRequest(BaseModel):
     username: str = Field(default_factory=lambda *_: os.getenv("STAKE_USER", ""))
     password: str = Field(default_factory=lambda *_: os.getenv("STAKE_PASS", ""))
-    rememberMeDays: str = "30"
+    remember_me_days: int = 30
 
+    class Config:
+        alias_generator = camelcase
+        allow_population_by_field_name=True
 
 class SessionTokenLoginRequest(BaseModel):
     """Token based authentication, use this if 2FA is enabled."""
@@ -41,12 +46,15 @@ class SessionTokenLoginRequest(BaseModel):
 class Headers(BaseModel):
     accept: str = Field("application/json", alias="Accept")
     content_type: str = Field("application/json", alias="Content-Type")
-    stake_session_token: Optional[str] = Field('', alias="Stake-Session-Token")
+    stake_session_token: Optional[str] = Field("", alias="Stake-Session-Token")
 
 
 class HttpClient:
     """Handles http calls to the Stake API."""
-    _session = aiohttp.ClientSession(headers=Headers().dict(by_alias=True), raise_for_status=True)
+
+    _session = aiohttp.ClientSession(
+        headers=Headers().dict(by_alias=True), raise_for_status=True
+    )
 
     @staticmethod
     def url(endpoint: str) -> str:
@@ -87,8 +95,10 @@ class HttpClient:
     async def close():
         await HttpClient._session.close()
 
+
 class InvalidLoginException(Exception):
     pass
+
 
 class _StakeClient:
     """The main client to interact with the Stake API."""
@@ -184,7 +194,6 @@ class _StakeClient:
         return self.user
 
 
-
 async def StakeClient(
     request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
 ) -> _StakeClient:
@@ -200,7 +209,10 @@ async def StakeClient(
     await c.login(request)
     return c
 
+
 from contextlib import asynccontextmanager
+
+
 @asynccontextmanager
 async def StakeSession(
     request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None

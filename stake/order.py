@@ -4,7 +4,8 @@ from enum import Enum
 from enum import IntEnum
 from typing import List
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
+from pydantic import Field
 from pydantic.types import UUID
 
 from stake.common import camelcase
@@ -65,7 +66,9 @@ class OrdersClient:
 
     async def cancel(self, order: Order) -> bool:
         """Cancels a pending order."""
-        return await self._client.delete(Url.cancel_order.format(orderId=order.order_id))
+        return await self._client.delete(
+            Url.cancel_order.format(orderId=order.order_id)
+        )
 
     # async def search(self, request: OrderSearchRequest) -> List[Order]:
     #     for field in iter(request):
