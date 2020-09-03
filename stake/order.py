@@ -1,6 +1,6 @@
 from datetime import datetime
 from enum import IntEnum
-from typing import List
+from typing import List, Union
 
 from pydantic import BaseModel, Field
 from pydantic.types import UUID
@@ -8,7 +8,7 @@ from pydantic.types import UUID
 from stake.common import BaseClient, SideEnum, camelcase
 from stake.constant import Url
 
-__all__ = ["OrderTypeEnum"]
+__all__ = ["OrderTypeEnum", "CancelOrderRequest"]
 
 
 class OrderTypeEnum(IntEnum):
@@ -42,23 +42,32 @@ class Order(BaseModel):
         alias_generator = camelcase
 
 
-class OrderSearchRequest(BaseModel):
-    symbol: str
-    orderType: OrderTypeEnum
-    side: SideEnum
+class CancelOrderRequest(BaseModel):
+    order_id: str
 
 
 class OrdersClient(BaseClient):
+    """This client is in charge of dealing with your pending orders.
+    These are the orders limit/stop etc.. that have not been traded yet.
+    """
     async def list(self) -> List[Order]:
+        """Lists all your pending orders.
+
+        Returns:
+            List[Order]: The list of pending orders.
+        """
         data = await self._client.get(Url.orders)
         return [Order(**d) for d in data]
 
-    async def cancel(self, order: Order) -> bool:
-        """Cancels a pending order."""
+    async def cancel(self, order: Union[Order, CancelOrderRequest]) -> bool:
+        """Cancels a pending order.
+
+        Args:
+            order (Union[Order, CancelOrderRequest])): an order or an order_id
+
+        Returns:
+            bool: True if the deletion was succesful.
+        """
         return await self._client.delete(
             Url.cancel_order.format(orderId=order.order_id)
         )
-
-    # async def search(self, request: OrderSearchRequest) -> List[Order]:
-    #     for field in iter(request):
-    #         print(field)

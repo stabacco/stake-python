@@ -16,6 +16,7 @@ def test_credentials_login_serializing():
         "username": "unknown@user.com",
         "password": "WeirdPassword",
         "rememberMeDays": 15,
+        "otp": None,
     }
 
 

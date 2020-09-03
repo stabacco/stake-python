@@ -38,6 +38,15 @@ class WatchlistClient(BaseClient):
     async def _modify_watchlist(
         self, request: Union[AddToWatchlistRequest, RemoveFromWatchlistRequest]
     ) -> WatchlistResponse:
+        """Adds/remove to the watchlist
+
+        Args:
+            request (Union[AddToWatchlistRequest, RemoveFromWatchlistRequest]): Either an add or 
+            remove request.
+
+        Returns:
+            WatchlistResponse: The result of the watchlist modification
+        """
         product = await self._client.products.get(request.symbol)
         assert product
         data = {
@@ -51,12 +60,33 @@ class WatchlistClient(BaseClient):
         )
 
     async def add(self, request: AddToWatchlistRequest) -> WatchlistResponse:
+        """Adds a symbol to the watchlist.
+
+        Args:
+            request (AddToWatchlistRequest): The request containing the symbol.
+
+        Returns:
+            WatchlistResponse: The result of the watchlist modification.
+        """
         return await self._modify_watchlist(request)
 
     async def remove(self, request: RemoveFromWatchlistRequest) -> WatchlistResponse:
+        """Removes a symbol from the watchlist.
+
+        Args:
+            request (RemoveFromWatchlistRequest): The request containing the symbol
+
+        Returns:
+            WatchlistResponse: The result of the watchlist modification.
+        """
         return await self._modify_watchlist(request)
 
     async def list(self) -> List[WatchlistProduct]:
+        """Lists all the contents of your watchlist.
+
+        Returns:
+            List[WatchlistProduct]: The list of items in your watchlist.
+        """
         watchlist = await self._client.get(
             Url.watchlist.format(userId=self._client.user.id)
         )

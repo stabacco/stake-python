@@ -1,6 +1,6 @@
 # Usage examples
 
-With `stake-python` you can do most of the operations that are available through the web app. 
+With `stake-python` you can do most of the operations that are available through the web app.
 
 
 Here are some examples:
@@ -19,7 +19,7 @@ async def show_portfolio():
 
         for my_equity in my_equities.equity_positions:
             print(my_equity.symbol, my_equity.yearly_return_value)
-        
+
         return my_equities
 
 asyncio.run(show_portfolio())
@@ -91,5 +91,4 @@ async def example_stop_sell():
 
 asyncio.run(example_limit_buy())
 ```
-
 

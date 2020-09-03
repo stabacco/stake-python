@@ -29,7 +29,7 @@ __all__ = ["StakeClient", "CredentialsLoginRequest", "SessionTokenLoginRequest"]
 class CredentialsLoginRequest(BaseModel):
     username: str = Field(default_factory=lambda *_: os.getenv("STAKE_USER", ""))
     password: str = Field(default_factory=lambda *_: os.getenv("STAKE_PASS", ""))
-    otp: int = Field(default=None, description="This is the code for 2FA")
+    otp: int = None # This is the code for 2FA
     remember_me_days: int = 30
 
     class Config:
@@ -53,7 +53,7 @@ class HttpClient:
     """Handles http calls to the Stake API."""
 
     _session = aiohttp.ClientSession
-
+    
     @staticmethod
     def url(endpoint: str) -> str:
         """Generates a stake-api url.
@@ -68,8 +68,7 @@ class HttpClient:
 
     @staticmethod
     async def get(url: str, payload: dict = None, headers: dict = None) -> dict:
-
-        async with HttpClient._session(
+        async with aiohttp.ClientSession(
             headers=Headers().dict(by_alias=True), raise_for_status=True
         ) as session:
             response = await session.get(
@@ -80,7 +79,7 @@ class HttpClient:
 
     @staticmethod
     async def post(url: str, payload: dict, headers: dict = None) -> dict:
-        async with HttpClient._session(
+        async with aiohttp.ClientSession(
             headers=Headers().dict(by_alias=True), raise_for_status=True
         ) as session:
             response = await session.post(
@@ -91,7 +90,7 @@ class HttpClient:
 
     @staticmethod
     async def delete(url: str, payload: dict = None, headers: dict = None) -> bool:
-        async with HttpClient._session(
+        async with aiohttp.ClientSession(
             headers=Headers().dict(by_alias=True), raise_for_status=True
         ) as session:
             response = await session.delete(
@@ -114,7 +113,7 @@ class StakeClient:
     def __init__(
         self, request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
     ):
-        self.user = None
+        self.user: Optional[user.User] = None
 
         self.headers = Headers()
         self.httpClient = HttpClient
