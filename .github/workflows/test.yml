@@ -26,4 +26,4 @@ jobs:
       - name: Run Tests
         env: # Or as an environment variable
           STAKE_TOKEN: ${{ secrets.STAKE_TOKEN }}
-        run: poetry install && poetry run pytest --cov
+        run: poetry install && poetry run pytest --cov=stake
