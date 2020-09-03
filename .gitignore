@@ -141,3 +141,5 @@ cython_debug/
 .history
 
 .env
+
+STAKE.*.json
