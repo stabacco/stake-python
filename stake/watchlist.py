@@ -38,10 +38,10 @@ class WatchlistClient(BaseClient):
     async def _modify_watchlist(
         self, request: Union[AddToWatchlistRequest, RemoveFromWatchlistRequest]
     ) -> WatchlistResponse:
-        """Adds/remove to the watchlist
+        """Adds/remove to the watchlist.
 
         Args:
-            request (Union[AddToWatchlistRequest, RemoveFromWatchlistRequest]): Either an add or 
+            request (Union[AddToWatchlistRequest, RemoveFromWatchlistRequest]): Either an add or
             remove request.
 
         Returns:

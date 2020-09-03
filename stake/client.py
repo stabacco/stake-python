@@ -29,7 +29,7 @@ __all__ = ["StakeClient", "CredentialsLoginRequest", "SessionTokenLoginRequest"]
 class CredentialsLoginRequest(BaseModel):
     username: str = Field(default_factory=lambda *_: os.getenv("STAKE_USER", ""))
     password: str = Field(default_factory=lambda *_: os.getenv("STAKE_PASS", ""))
-    otp: int = None # This is the code for 2FA
+    otp: int = None  # This is the code for 2FA
     remember_me_days: int = 30
 
     class Config:
@@ -53,7 +53,7 @@ class HttpClient:
     """Handles http calls to the Stake API."""
 
     _session = aiohttp.ClientSession
-    
+
     @staticmethod
     def url(endpoint: str) -> str:
         """Generates a stake-api url.

@@ -48,8 +48,10 @@ class CancelOrderRequest(BaseModel):
 
 class OrdersClient(BaseClient):
     """This client is in charge of dealing with your pending orders.
+
     These are the orders limit/stop etc.. that have not been traded yet.
     """
+
     async def list(self) -> List[Order]:
         """Lists all your pending orders.
 
