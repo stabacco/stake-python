@@ -108,6 +108,14 @@ def event_loop():
 
 
 @pytest.fixture(scope="session")
+async def tracing_client():
+
+    client = StakeClient()
+    await client.login(client._login_request)
+    yield client
+
+
+@pytest.fixture(scope="session")
 def patch_aiohttp(session_mocker):
     from .patch_aiohttp import TraceRequestEndParams, TraceRequestStartParams
 
@@ -167,7 +175,7 @@ async def session_tracing_client(patch_client_session_response):
 
 
 @pytest.fixture(scope="function")
-async def tracing_client(request, session_tracing_client):
+async def tracing_client_old(request, session_tracing_client):
     test_name = f"{request.module.__name__}.{request.node.name}"
     item = postman.PostmanCollectionItem(name=test_name, item=[])
     session_tracing_client.httpClient._session.collection.item.append(item)
