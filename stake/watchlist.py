@@ -41,8 +41,8 @@ class WatchlistClient(BaseClient):
         """Adds/remove to the watchlist.
 
         Args:
-            request (Union[AddToWatchlistRequest, RemoveFromWatchlistRequest]): Either an add or
-            remove request.
+            request (Union[AddToWatchlistRequest, RemoveFromWatchlistRequest]):
+                Either an add orremove request.
 
         Returns:
             WatchlistResponse: The result of the watchlist modification
@@ -88,7 +88,7 @@ class WatchlistClient(BaseClient):
             List[WatchlistProduct]: The list of items in your watchlist.
         """
         watchlist = await self._client.get(
-            Url.watchlist.format(userId=self._client.user.id)
+            Url.watchlist.format(userId=self._client.user.id)  # type: ignore
         )
         return [
             WatchlistProduct(**watched) for watched in watchlist["instrumentsWatchList"]

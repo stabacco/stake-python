@@ -2,7 +2,7 @@
 from enum import Enum
 
 from pydantic import BaseModel
-from pydantic.types import UUID
+from pydantic.types import UUID4
 
 from stake.common import BaseClient, camelcase
 from stake.constant import Url
@@ -31,7 +31,7 @@ class FxConversion(BaseModel):
     from_amount: float
     to_amount: float
     rate: float
-    quote: UUID
+    quote: UUID4
 
     class Config:
         alias_generator = camelcase

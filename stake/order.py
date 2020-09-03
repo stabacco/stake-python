@@ -3,7 +3,7 @@ from enum import IntEnum
 from typing import List, Union
 
 from pydantic import BaseModel, Field
-from pydantic.types import UUID
+from pydantic.types import UUID4
 
 from stake.common import BaseClient, SideEnum, camelcase
 from stake.constant import Url
@@ -32,7 +32,7 @@ class Order(BaseModel):
     order_status: int
     order_qty: float
     description: str
-    instrument_id: UUID = Field(alias="instrumentID")
+    instrument_id: UUID4 = Field(alias="instrumentID")
     image_url: str
     instrument_symbol: str
     instrument_name: str
@@ -71,5 +71,5 @@ class OrdersClient(BaseClient):
             bool: True if the deletion was succesful.
         """
         return await self._client.delete(
-            Url.cancel_order.format(orderId=order.order_id)
+            Url.cancel_order.format(orderId=order.order_id)  # type: ignore
         )

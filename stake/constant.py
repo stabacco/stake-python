@@ -2,7 +2,7 @@ from enum import Enum
 
 
 class Url(str, Enum):
-    """Contains all the visited urls."""
+    """Contains all the visited stake urls."""
 
     account_balance: str = "cma/getAccountBalance"
     account_transactions: str = "users/accounts/accountTransactions"

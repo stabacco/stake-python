@@ -3,8 +3,9 @@ from enum import Enum
 from typing import List, Optional
 
 from pydantic import BaseModel, Field
+from pydantic.types import UUID4
 
-from stake.common import BaseClient
+from stake.common import BaseClient, camelcase
 from stake.constant import Url
 from stake.product import Product
 
@@ -25,30 +26,45 @@ class TransactionRecordRequest(BaseModel):
     offset: Optional[int]
     direction: TransactionRecordEnumDirection = TransactionRecordEnumDirection.prev
 
+class Instrument(BaseModel):
+    id: UUID4
+    symbol: str
+    name: str
+
 
 class Transaction(BaseModel):
-    accountAmount: float
-    accountBalance: float
-    accountType: str
+    account_amount: float
+    account_balance: float
+    account_type: str
     comment: str
     dnb: bool
-    finTranID: str
-    finTranTypeID: str
-    fillQty: float
-    fillPx: float
-    tranAmount: float
-    tranSource: str
-    tranWhen: datetime
-    instrument: Optional[dict]
-    product: Optional[Product]
-    dividend: Optional[dict]
-    # dividendTax: Optional[str]
-    mergerAcquisition: Optional[float]
-    positionDelta: Optional[float]
-    orderID: Optional[str]  # dwOrderId
-    orderNo: Optional[str]
-    symbol: str
+    fin_tran_id: str = Field(alias="finTranID")
+    fin_tran_type_id: str = Field(alias="finTranTypeID")
+    fee_sec: float
+    fee_taf: float
+    fee_base: int
+    fee_xtra_shares: int
+    fee_exchange: int
+    fill_qty: float
+    fill_px: float
+    send_commission_to_inteliclear: bool
+    system_amount: int
+    tran_amount: float
+    tran_source: str
+    tran_when: datetime
+    wlp_amount: int
+    wlp_fin_tran_type_id: UUID4 = Field(None, alias="wlpFinTranTypeID")
+    dividend: Optional[float] = None
+    dividend_tax: float = None
+    merger_acquisition: Optional[float] = None
+    position_delta: Optional[float]= None
+    order_id: str = Field(alias="orderID")
+    order_no: str
+    instrument: Optional[Instrument] = None
+    symbol: Optional[str]
 
+    class Config:
+        alias_generator = camelcase
 
 class TransactionsClient(BaseClient):
     async def list(self, request: TransactionRecordRequest) -> List[Transaction]:
@@ -70,21 +86,9 @@ class TransactionsClient(BaseClient):
 
         data = await self._client.post(Url.account_transactions, payload=payload)
         transactions = []
-        # _cached_products: dict = {}
         for d in data:
-            # this was an instrument, but i don't like it,
-            # so i'm swapping it for the product.
-            instrument = d.pop("instrument", None)
-
-            if not instrument:
-                continue  # TODO: need different types, divident etc...
-            d["symbol"] = instrument["symbol"]
-
-            ##
-            # product = _cached_products.get(instrument["symbol"])
-            # if not product:
-            #     # print("getting symbol", instrument["symbol"])
-            #     product = await self._client.products.get(instrument["symbol"])
-            # d["product"] = product
+            print
+            if d.get("instrument"):
+                d["symbol"] = d.get("instrument")["symbol"]
             transactions.append(Transaction(**d))
         return transactions

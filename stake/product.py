@@ -60,7 +60,7 @@ class ProductsClient(BaseClient):
         Examples:
             tesla_product = self.get("TSLA")
         """
-        data = await self._client.get(Url.symbol.format(symbol=symbol))
+        data = await self._client.get(Url.symbol.format(symbol=symbol))  # type: ignore
 
         if not data["products"]:
             return None
@@ -69,7 +69,7 @@ class ProductsClient(BaseClient):
 
     async def search(self, request: ProductSearchByName) -> List[Instrument]:
         products = await self._client.get(
-            Url.products_suggestions.format(keyword=request.keyword)
+            Url.products_suggestions.format(keyword=request.keyword)  # type: ignore
         )
         return [Instrument(**product) for product in products["instruments"]]
 

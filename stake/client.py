@@ -29,7 +29,7 @@ __all__ = ["StakeClient", "CredentialsLoginRequest", "SessionTokenLoginRequest"]
 class CredentialsLoginRequest(BaseModel):
     username: str = Field(default_factory=lambda *_: os.getenv("STAKE_USER", ""))
     password: str = Field(default_factory=lambda *_: os.getenv("STAKE_PASS", ""))
-    otp: int = None  # This is the code for 2FA
+    otp: Optional[int] = None  # This is the code for 2FA
     remember_me_days: int = 30
 
     class Config:
