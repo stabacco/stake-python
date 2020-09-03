@@ -48,14 +48,6 @@ class WatchlistClient(BaseClient):
             WatchlistResponse: The result of the watchlist modification
         """
         product = await self._client.products.get(request.symbol)
-        write_data = [
-            {
-                "url": "{url}" + Url.symbol.format(symbol=request.symbol),
-                "body": product.dict(by_alias=True),
-                "payload": None,
-                "method": "GET",
-            }
-        ]
 
         assert product
         payload = {
@@ -64,18 +56,6 @@ class WatchlistClient(BaseClient):
             "watching": request.watching,
         }
         data = await self._client.post(Url.watchlist_modify, payload=payload)
-
-        write_data.append(
-            {
-                "url": "{url}" + Url.watchlist_modify,
-                "body": data,
-                "payload": payload,
-                "method": "POST",
-            }
-        )
-        import json
-
-        json.dump(write_data, open("cash_available.json", "w"))
 
         return WatchlistResponse(symbol=request.symbol, watching=data["watching"])
 
