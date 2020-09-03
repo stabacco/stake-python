@@ -35,59 +35,79 @@ class MarketBuyRequest(BaseModel):
 
     # AAPL, MSFT, TSLA etc...
     symbol: str
-    amountCash: float
+    amount_cash: float
     comments: Optional[str]
 
-    itemType: str = "instrument"
-    orderType: TradeType = TradeType.MARKET
+    item_type: str = "instrument"
+    order_type: TradeType = TradeType.MARKET
+
+    class Config:
+        alias_generator = camelcase
+        allow_population_by_field_name = True
 
 
 class LimitBuyRequest(BaseModel):
     symbol: str
-    limitPrice: float
+    limit_price: float
     quantity: int
     comments: Optional[str]
 
-    itemType: str = "instrument"
-    orderType: TradeType = TradeType.LIMIT
+    item_type: str = "instrument"
+    order_type: TradeType = TradeType.LIMIT
+
+    class Config:
+        alias_generator = camelcase
+        allow_population_by_field_name = True
 
 
 class StopBuyRequest(BaseModel):
     symbol: str
-    amountCash: float
+    amount_cash: float
     price: float  # must be higher than the current one
     comments: Optional[str]
 
-    itemType: str = "instrument"
-    orderType: TradeType = TradeType.STOP
+    item_type: str = "instrument"
+    order_type: TradeType = TradeType.STOP
 
-    @validator("amountCash")
+    class Config:
+        alias_generator = camelcase
+        allow_population_by_field_name = True
+
+    @validator("amount_cash")
     def at_least_10(cls, v: float) -> float:  # noqa
 
         if v < 10.0:
-            raise ValueError("'amountCash' must be at least '10$'.")
+            raise ValueError("'amount_cash' must be at least '10$'.")
 
         return v
 
 
 class LimitSellRequest(BaseModel):
     symbol: str
-    limitPrice: float
+    limit_price: float
     quantity: int
     comments: Optional[str]
 
-    itemType: str = "instrument"
-    orderType: TradeType = TradeType.LIMIT
+    item_type: str = "instrument"
+    order_type: TradeType = TradeType.LIMIT
+
+    class Config:
+        alias_generator = camelcase
+        allow_population_by_field_name = True
 
 
 class StopSellRequest(BaseModel):
     symbol: str
     quantity: float
-    stopPrice: float
+    stop_price: float
     comments: Optional[str]
 
-    itemType: str = "instrument"
-    orderType: TradeType = TradeType.STOP
+    item_type: str = "instrument"
+    order_type: TradeType = TradeType.STOP
+
+    class Config:
+        alias_generator = camelcase
+        allow_population_by_field_name = True
 
 
 class MarketSellRequest(BaseModel):
@@ -97,8 +117,12 @@ class MarketSellRequest(BaseModel):
     quantity: float
     comments: Optional[str]
 
-    itemType: str = "instrument"
-    orderType: TradeType = TradeType.MARKET
+    item_type: str = "instrument"
+    order_type: TradeType = TradeType.MARKET
+
+    class Config:
+        alias_generator = camelcase
+        allow_population_by_field_name = True
 
 
 class TradeResponse(BaseModel):

@@ -57,5 +57,10 @@ class EquityPositions(BaseModel):
 
 class EquitiesClient(BaseClient):
     async def list(self) -> EquityPositions:
+        """Displays the contents of your portfolio.
+
+        Returns:
+            EquityPositions: The list of your equities.
+        """
         data = await self._client.get(Url.equity_positions)
         return EquityPositions(**data)
