@@ -4,12 +4,15 @@ import json
 import uuid
 from typing import Optional, Union
 
+import pkg_resources
 import pytest
 from aiohttp import ClientSession, TraceConfig
+from aioresponses import aioresponses
 from attr import asdict
 from dotenv import load_dotenv
 
 from stake.client import HttpClient, StakeClient
+from stake.constant import STAKE_URL
 from tests.patch_aiohttp import SharedRequests
 
 from . import postman
@@ -98,6 +101,29 @@ async def on_request_end(session, trace_config_ctx, params):
 trace_config = TraceConfig()
 trace_config.on_request_start.append(on_request_start)
 trace_config.on_request_end.append(on_request_end)
+
+
+@pytest.fixture(scope="session")
+def fixtures():
+    return json.load(
+        open(pkg_resources.resource_filename(__name__, "fixtures/fixtures.json"))
+    )
+
+
+@pytest.fixture
+async def fixtures_response(request, fixtures):
+    with aioresponses() as m:
+        function_name = f"{request.node.module.__name__}.{request.node.name}"
+        mock_datas = fixtures[function_name]
+        for mock_data in mock_datas:
+            method = mock_data.get("method")
+            m.add(
+                mock_data["url"].format(url=STAKE_URL),
+                method=method,
+                body=mock_data["body"],
+                payload=mock_data["payload"],
+            )
+        yield
 
 
 @pytest.fixture(scope="session")

@@ -7,7 +7,6 @@ from pydantic.types import UUID4
 
 from stake.common import BaseClient, camelcase
 from stake.constant import Url
-from stake.product import Product
 
 __all__ = ["TransactionRecordRequest"]
 
@@ -25,6 +24,7 @@ class TransactionRecordRequest(BaseModel):
     limit: int = 100
     offset: Optional[int]
     direction: TransactionRecordEnumDirection = TransactionRecordEnumDirection.prev
+
 
 class Instrument(BaseModel):
     id: UUID4
@@ -57,7 +57,7 @@ class Transaction(BaseModel):
     dividend: Optional[float] = None
     dividend_tax: float = None
     merger_acquisition: Optional[float] = None
-    position_delta: Optional[float]= None
+    position_delta: Optional[float] = None
     order_id: str = Field(alias="orderID")
     order_no: str
     instrument: Optional[Instrument] = None
@@ -65,6 +65,7 @@ class Transaction(BaseModel):
 
     class Config:
         alias_generator = camelcase
+
 
 class TransactionsClient(BaseClient):
     async def list(self, request: TransactionRecordRequest) -> List[Transaction]:
@@ -78,8 +79,6 @@ class TransactionsClient(BaseClient):
             List[Transaction]: the transactions executed in the time frame.
         """
         payload = request.dict()
-
-        # # TODO: can this be done in pydantic?
         payload.update(
             {"to": payload["to"].isoformat(), "from": payload.pop("from_").isoformat()}
         )
@@ -87,7 +86,6 @@ class TransactionsClient(BaseClient):
         data = await self._client.post(Url.account_transactions, payload=payload)
         transactions = []
         for d in data:
-            print
             if d.get("instrument"):
                 d["symbol"] = d.get("instrument")["symbol"]
             transactions.append(Transaction(**d))

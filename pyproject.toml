@@ -23,11 +23,10 @@ pytest-coverage = "^0.0"
 black = {version = "^19.10b0", allow-prereleases = true}
 pytest-mock = "^3.3.0"
 aioresponses = "^0.6.4"
-pytest-factoryboy = "^2.0.3"
 
 [tool.isort]
 profile = "black"
-known_third_party = ["aiohttp", "aioresponses", "attr", "dotenv", "inflection", "multidict", "pydantic", "pytest", "yarl"]
+known_third_party = ["aiohttp", "aioresponses", "attr", "dotenv", "inflection", "multidict", "pkg_resources", "pydantic", "pytest", "yarl"]
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"

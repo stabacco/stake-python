@@ -45,4 +45,13 @@ class FxClient(BaseClient):
         data = await self._client.post(
             Url.rate, payload=currency_conversion_request.dict(by_alias=True)
         )
+        write_data = {
+            "url": "{url}" + Url.rate,
+            "body": currency_conversion_request.dict(by_alias=True),
+            "payload": data,
+        }
+        import json
+
+        json.dump(write_data, open("cash_available.json", "w"))
+
         return FxConversion(**data)

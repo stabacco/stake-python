@@ -1,0 +1,354 @@
+{
+  "tests.test_funding.test_list_fundings": [
+    {
+      "body": {
+        "endDate": "03/09/2020",
+        "startDate": "04/09/2019"
+      },
+      "method": "POST",
+      "url": "{url}utils/activityLog/fundingOnly",
+      "payload": [
+        {
+          "id": "5b6ed892-973e-4e54-99b9-c2e2f741a0ff",
+          "timestamp": "2020-08-18 03:03:06",
+          "orderType": "Poli",
+          "eventType": "Funding",
+          "status": "Completed",
+          "title": "TRANSFER:AUD TO USD",
+          "amount": "AUD $2,100.00",
+          "description": "Poli Transfer: (AUD $2,100.00 to USD $1,499.19;  FX Spot Rate = 0.7209; Ref: 4d134983; USD $14.70 total fee)",
+          "currencyFrom": "AUD",
+          "currencyTo": "USD",
+          "spotRate": 0.7209,
+          "totalFee": 14.7,
+          "amountFrom": 2100.0,
+          "amountTo": 1499.19,
+          "rate": 0.7139,
+          "referenceNumber": "4daa4983"
+        },
+        {
+          "id": "5a6ed892-973e-4e54-99b9-c2e2f741a0ff",
+          "timestamp": "2020-07-22 21:10:31",
+          "orderType": "Poli",
+          "eventType": "Funding",
+          "status": "Completed",
+          "title": "TRANSFER:AUD TO USD",
+          "amount": "AUD $2,100.00",
+          "description": "Poli Transfer: (AUD $2,100.00 to USD $1,483.65;  FX Spot Rate = 0.7135; Ref: 860ef67c; USD $14.70 total fee)",
+          "currencyFrom": "AUD",
+          "currencyTo": "USD",
+          "spotRate": 0.7135,
+          "totalFee": 14.7,
+          "amountFrom": 2100.0,
+          "amountTo": 1483.65,
+          "rate": 0.7065,
+          "referenceNumber": "8aaef67c"
+        }
+      ]
+    }
+  ],
+  "tests.test_funding.test_cash_available": [
+    {
+      "url": "{url}users/accounts/cashAvailableForWithdrawal",
+      "body": null,
+      "method": "GET",
+      "payload": {
+        "cashAvailableForWithdrawal": 551.14,
+        "cashAvailableForTrade": 551.14,
+        "cashBalance": 551.14,
+        "reservedCash": 0.0,
+        "dwCashAvailableForWithdrawal": 551.14,
+        "pendingOrdersAmount": 0.0,
+        "pendingWithdrawals": 0.0,
+        "cardHoldAmount": 0.0,
+        "pendingPoliAmount": 0.0,
+        "cashSettlement": [
+          { "utcTime": "2020-09-04T13:30:00.001Z", "cash": 1729.5 },
+          { "utcTime": "2020-09-08T13:30:00.001Z", "cash": 0.0 },
+          null
+        ]
+      }
+    }
+  ],
+  "tests.test_fx.test_fx_conversion": [
+    {
+      "url": "{url}wallet/rate",
+      "method": "POST",
+      "body": {
+        "fromCurrency": "USD",
+        "toCurrency": "AUD",
+        "fromAmount": 1000.0
+      },
+      "payload": {
+        "fromCurrency": "USD",
+        "toCurrency": "AUD",
+        "fromAmount": 1000,
+        "toAmount": 1361.7,
+        "rate": 1.3617,
+        "quote": "7b1bfe7f-db2c-43e8-ba6d-3359106b6d31"
+      }
+    }
+  ],
+  "tests.test_market_status.test_check_market_status": [
+    {
+      "url": "{url}utils/marketStatus",
+      "body": null,
+      "payload": {
+        "response": {
+          "message": "Pre Market is open",
+          "unixtime": "1599224046.05452",
+          "error": "Success",
+          "status": {
+            "change_at": "09:30:00",
+            "next": "open",
+            "current": "pre"
+          },
+          "elapsedtime": "36",
+          "date": "2020-09-04 08:54:06.0545227-04:00",
+          "versionNumber": "2.56.0"
+        }
+      },
+      "method": "GET"
+    }
+  ],
+  "tests.test_order.test_list_orders": [
+    {
+      "url": "{url}users/accounts/v2/orders",
+      "body": null,
+      "payload": [
+        {
+          "orderNo": "HHHA022841",
+          "orderID": "HH.ad531c09-fd1b-442f-a51b-b63f1473cfc5",
+          "orderCashAmt": 0.0,
+          "symbol": "NIO",
+          "price": 0.0,
+          "stopPrice": 13.0,
+          "side": "S",
+          "orderType": 3,
+          "cumQty": "0.0",
+          "limitPrice": 0.0,
+          "createdWhen": "2020-08-23 12:09:14",
+          "orderStatus": 0,
+          "orderQty": 38.42614,
+          "description": "Stop Order: Sell if price reaches ($13.00)",
+          "instrumentID": "2bde953a-20fb-4755-8bb5-cf7b44af6a8e",
+          "imageUrl": "https://drivewealth.imgix.net/symbols/nio.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
+          "instrumentSymbol": "NIO",
+          "instrumentName": "NIO Inc.",
+          "encodedName": "nio-inc-nio"
+        },
+        {
+          "orderNo": "HHJA134087",
+          "orderID": "HH.e3300f18-910b-4c73-a6b0-878aa3701609",
+          "orderCashAmt": 0.0,
+          "symbol": "VGT",
+          "price": 0.0,
+          "stopPrice": 298.0,
+          "side": "S",
+          "orderType": 3,
+          "cumQty": "0.0",
+          "limitPrice": 0.0,
+          "createdWhen": "2020-08-23 12:09:14",
+          "orderStatus": 0,
+          "orderQty": 4.6546035,
+          "description": "Stop Order: Sell if price reaches ($298.00)",
+          "instrumentID": "3aea5285-a419-412e-96fb-8da3d48df4ef",
+          "imageUrl": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/vgt.png",
+          "instrumentSymbol": "VGT",
+          "instrumentName": "Vanguard Information Technology ETF",
+          "encodedName": "vanguard-information-technology-etf-vgt"
+        },
+        {
+          "orderNo": "HHFB001133",
+          "orderID": "HH.c4c2aae6-e6c3-0000-b027-94c4e749aa64",
+          "orderCashAmt": 0.0,
+          "symbol": "SPOT",
+          "price": 0.0,
+          "stopPrice": 257.0,
+          "side": "S",
+          "orderType": 3,
+          "cumQty": "0.0",
+          "limitPrice": 0.0,
+          "createdWhen": "2020-08-23 12:09:14",
+          "orderStatus": 0,
+          "orderQty": 1.1712801,
+          "description": "Stop Order: Sell if price reaches ($257.00)",
+          "instrumentID": "4ef83d08-bd4e-4f2f-883c-6ec43e85e8f6",
+          "imageUrl": "https://cdn.stake.com.au/us-equity/SPOT.png",
+          "instrumentSymbol": "SPOT",
+          "instrumentName": "Spotify Technology SA",
+          "encodedName": "spotify-technology-sa-spot"
+        }
+      ],
+      "method": "GET"
+    }
+  ],
+  "tests.test_transaction.test_list_transactions": [
+    {
+      "url": "{url}users/accounts/accountTransactions",
+      "body": {
+        "to": "2020-09-03T15:48:44.340597",
+        "limit": 6,
+        "offset": null,
+        "direction": "prev",
+        "from": "2019-09-04T15:48:44.340606"
+      },
+      "payload": [
+        {
+          "accountAmount": -400.0,
+          "accountBalance": 4301.14,
+          "accountType": "LIVE",
+          "comment": "Buy 0.90602278 shares of TSLA at 441.49 FULL fill",
+          "dnb": false,
+          "finTranID": "HI.846b0fc3-6cd3-423f-a0e0-41b34f40e934",
+          "finTranTypeID": "SPUR",
+          "feeSec": 0.0,
+          "feeTaf": 0.0,
+          "feeBase": 0.0,
+          "feeXtraShares": 0.0,
+          "feeExchange": 0.0,
+          "fillQty": 0.90602278,
+          "fillPx": 441.49,
+          "sendCommissionToInteliclear": false,
+          "systemAmount": 0.0,
+          "tranAmount": -400.0,
+          "tranSource": "EMS",
+          "tranWhen": "2020-09-02T19:20:08.982Z",
+          "wlpAmount": 0.0,
+          "wlpFinTranTypeID": null,
+          "instrument": {
+            "id": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
+            "symbol": "TSLA",
+            "name": "Tesla, Inc."
+          },
+          "dividend": null,
+          "dividendTax": null,
+          "mergerAcquisition": null,
+          "positionDelta": null,
+          "orderID": "HI.b9fcb99c-face-42dd-a39b-7dcf328a79e5",
+          "orderNo": "HIAU005399"
+        },
+        {
+          "accountAmount": -130.95,
+          "accountBalance": 3920.19,
+          "accountType": "LIVE",
+          "comment": "Buy 1 shares of AAPL at 130.9495 PART fill",
+          "dnb": false,
+          "finTranID": "HI.8a671bd0-93fe-4952-9711-04e836f67fa0",
+          "finTranTypeID": "SPUR",
+          "feeSec": 0.0,
+          "feeTaf": 0.0,
+          "feeBase": 0.0,
+          "feeXtraShares": 0.0,
+          "feeExchange": 0.0,
+          "fillQty": 1.0,
+          "fillPx": 130.95,
+          "sendCommissionToInteliclear": false,
+          "systemAmount": 0.0,
+          "tranAmount": -130.95,
+          "tranSource": "EMS",
+          "tranWhen": "2020-09-02T19:20:09.285Z",
+          "wlpAmount": 0.0,
+          "wlpFinTranTypeID": null,
+          "instrument": {
+            "id": "a67422af-8504-43df-9e63-7361eb0bd99e",
+            "symbol": "AAPL",
+            "name": "Apple, Inc."
+          },
+          "dividend": null,
+          "dividendTax": null,
+          "mergerAcquisition": null,
+          "positionDelta": null,
+          "orderID": "HI.e1f1b28d-face-4825-8b60-5872f490f3f3",
+          "orderNo": "HIAU005996"
+        },
+
+        {
+          "accountAmount": -137.07,
+          "accountBalance": 3551.14,
+          "accountType": "LIVE",
+          "comment": "Buy 0.84128153 shares of SQ at 162.93 FULL fill",
+          "dnb": false,
+          "finTranID": "HI.a57014f9-b38c-48c9-8088-e1c991b4a859",
+          "finTranTypeID": "SPUR",
+          "feeSec": 0.0,
+          "feeTaf": 0.0,
+          "feeBase": 0.0,
+          "feeXtraShares": 0.0,
+          "feeExchange": 0.0,
+          "fillQty": 0.84128153,
+          "fillPx": 162.93,
+          "sendCommissionToInteliclear": false,
+          "systemAmount": 0.0,
+          "tranAmount": -137.07,
+          "tranSource": "EMS",
+          "tranWhen": "2020-09-02T19:20:09.314Z",
+          "wlpAmount": 0.0,
+          "wlpFinTranTypeID": null,
+          "instrument": {
+            "id": "e17ba627-b47e-4eb1-b17a-7aa1368fd4ed",
+            "symbol": "SQ",
+            "name": "Square, Inc."
+          },
+          "dividend": null,
+          "dividendTax": null,
+          "mergerAcquisition": null,
+          "positionDelta": null,
+          "orderID": "HI.92e9fa07-face-411c-8439-71767fb85da1",
+          "orderNo": "HIKF005009"
+        }
+      ],
+      "method": "POST"
+    }
+  ],
+  "tests.test_watchlist.test_add_to_watchlist": [
+    {
+      "url": "{url}products/searchProduct?symbol=SPOT&page=1&max=1",
+      "body": {
+        "name": "Spotify Technology SA",
+        "symbol": "SPOT",
+        "encodedName": "spotify-technology-sa-spot",
+        "id": "4ef83d08-bd4e-4f2f-883c-6ec43e85e8f6",
+        "dailyReturn": -14.68,
+        "dailyReturnPercentage": -5.31,
+        "monthlyReturn": 0.0,
+        "bought": 3126,
+        "category": "Stock",
+        "childInstruments": [],
+        "currencyID": null,
+        "description": "Spotify Technology SA a Luxembourg-based company, which offers digital music-streaming services. The Company enables users to discover new releases, which includes the latest singles and albums; playlists, which includes ready-made playlists put together by music fans and experts, and over millions of songs so that users can play their favorites, discover new tracks and build a personalized collection. Users can either select Spotify Free, which includes only shuffle play or Spotify Premium, which encompasses a range of features, such as shuffle play, advertisement free, unlimited skips, listen offline, play any track and high quality audio. The Company operates through a number of subsidiaries, including Spotify LTD and is present in over 20 countries.",
+        "inceptionDate": "2018-04-03",
+        "instrumentTags": [],
+        "instrumentTypeID": null,
+        "lastTraded": 261.61,
+        "news": 0,
+        "parentID": null,
+        "period": "YEAR RETURN",
+        "popularity": 64678.0,
+        "productType": "Instrument",
+        "sector": "Technology",
+        "tradeStatus": 1,
+        "urlImage": "https://cdn.stake.com.au/us-equity/SPOT.png",
+        "viewed": 19159,
+        "watched": 3575,
+        "yearlyReturnPercentage": 107.1,
+        "yearlyReturnValue": 142.88
+      },
+      "payload": null,
+      "method": "GET"
+    },
+    {
+      "url": "{url}instruments/addRemoveInstrumentWatchlist",
+      "body": {
+        "instrumentId": "4ef83d08-bd4e-4f2f-883c-6ec43e85e8f6",
+        "watching": true
+      },
+      "payload": {
+        "instrumentID": "4ef83d08-bd4e-4f2f-883c-6ec43e85e8f6",
+        "userID": "38e09b0a-3acc-44cb-bf56-02737d0537ed",
+        "watching": true
+      },
+      "method": "POST"
+    }
+  ]
+}

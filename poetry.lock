@@ -173,33 +173,6 @@ version = "0.3.1"
 
 [[package]]
 category = "dev"
-description = "A versatile test fixtures replacement based on thoughtbot's factory_bot for Ruby."
-name = "factory-boy"
-optional = false
-python-versions = ">=3.5"
-version = "3.0.1"
-
-[package.dependencies]
-Faker = ">=0.7.0"
-
-[package.extras]
-dev = ["coverage", "django", "flake8", "isort", "pillow", "sqlalchemy", "mongoengine", "wheel (>=0.32.0)", "tox", "zest.releaser"]
-doc = ["sphinx", "sphinx-rtd-theme"]
-
-[[package]]
-category = "dev"
-description = "Faker is a Python package that generates fake data for you."
-name = "faker"
-optional = false
-python-versions = ">=3.5"
-version = "4.1.2"
-
-[package.dependencies]
-python-dateutil = ">=2.4"
-text-unidecode = "1.3"
-
-[[package]]
-category = "dev"
 description = "A platform independent file lock."
 name = "filelock"
 optional = false
@@ -539,19 +512,6 @@ pytest-cover = "*"
 
 [[package]]
 category = "dev"
-description = "Factory Boy support for pytest."
-name = "pytest-factoryboy"
-optional = false
-python-versions = "*"
-version = "2.0.3"
-
-[package.dependencies]
-factory_boy = ">=2.10.0"
-inflection = "*"
-pytest = ">=3.3.2"
-
-[[package]]
-category = "dev"
 description = "Thin-wrapper around the mock package for easier use with pytest"
 name = "pytest-mock"
 optional = false
@@ -563,17 +523,6 @@ pytest = ">=5.0"
 
 [package.extras]
 dev = ["pre-commit", "tox", "pytest-asyncio"]
-
-[[package]]
-category = "dev"
-description = "Extensions to the standard Python datetime module"
-name = "python-dateutil"
-optional = false
-python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
-version = "2.8.1"
-
-[package.dependencies]
-six = ">=1.5"
 
 [[package]]
 category = "main"
@@ -635,14 +584,6 @@ name = "six"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 version = "1.15.0"
-
-[[package]]
-category = "dev"
-description = "The most basic Text::Unidecode port"
-name = "text-unidecode"
-optional = false
-python-versions = "*"
-version = "1.3"
 
 [[package]]
 category = "dev"
@@ -741,7 +682,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "c681d6040517ba4c3dbf6f47a7e6c0067e6c246be608c97e633e39b3424888b0"
+content-hash = "5aa239bfaf4143039ab3fbe4f9e4fe699981883d8d9287e4bea0c35928c18498"
 python-versions = "^3.6.1"
 
 [metadata.files]
@@ -846,13 +787,6 @@ dataclasses = [
 distlib = [
     {file = "distlib-0.3.1-py2.py3-none-any.whl", hash = "sha256:8c09de2c67b3e7deef7184574fc060ab8a793e7adbb183d942c389c8b13c52fb"},
     {file = "distlib-0.3.1.zip", hash = "sha256:edf6116872c863e1aa9d5bb7cb5e05a022c519a4594dc703843343a9ddd9bff1"},
-]
-factory-boy = [
-    {file = "factory_boy-3.0.1.tar.gz", hash = "sha256:2ce2f665045d9f15145a6310565fcb8255d52fc6fd867f3b783b3ac3de6cf10e"},
-]
-faker = [
-    {file = "Faker-4.1.2-py3-none-any.whl", hash = "sha256:bc4b8c908dfcd84e4fe5d9fa2e52fbe17546515fb8f126909b98c47badf05658"},
-    {file = "Faker-4.1.2.tar.gz", hash = "sha256:ff188c416864e3f7d8becd8f9ee683a4b4101a2a2d2bcdcb3e84bb1bdd06eaae"},
 ]
 filelock = [
     {file = "filelock-3.0.12-py3-none-any.whl", hash = "sha256:929b7d63ec5b7d6b71b0fa5ac14e030b3f70b75747cef1b10da9b879fef15836"},
@@ -1014,16 +948,9 @@ pytest-coverage = [
     {file = "pytest-coverage-0.0.tar.gz", hash = "sha256:db6af2cbd7e458c7c9fd2b4207cee75258243c8a81cad31a7ee8cfad5be93c05"},
     {file = "pytest_coverage-0.0-py2.py3-none-any.whl", hash = "sha256:dedd084c5e74d8e669355325916dc011539b190355021b037242514dee546368"},
 ]
-pytest-factoryboy = [
-    {file = "pytest-factoryboy-2.0.3.tar.gz", hash = "sha256:ffef3fb7ddec1299d3df0d334846259023f3d1da5ab887ad880139a8253a5a1a"},
-]
 pytest-mock = [
     {file = "pytest-mock-3.3.1.tar.gz", hash = "sha256:a4d6d37329e4a893e77d9ffa89e838dd2b45d5dc099984cf03c703ac8411bb82"},
     {file = "pytest_mock-3.3.1-py3-none-any.whl", hash = "sha256:024e405ad382646318c4281948aadf6fe1135632bea9cc67366ea0c4098ef5f2"},
-]
-python-dateutil = [
-    {file = "python-dateutil-2.8.1.tar.gz", hash = "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"},
-    {file = "python_dateutil-2.8.1-py2.py3-none-any.whl", hash = "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"},
 ]
 python-dotenv = [
     {file = "python-dotenv-0.13.0.tar.gz", hash = "sha256:3b9909bc96b0edc6b01586e1eed05e71174ef4e04c71da5786370cebea53ad74"},
@@ -1093,10 +1020,6 @@ regex = [
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
     {file = "six-1.15.0.tar.gz", hash = "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"},
-]
-text-unidecode = [
-    {file = "text-unidecode-1.3.tar.gz", hash = "sha256:bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"},
-    {file = "text_unidecode-1.3-py2.py3-none-any.whl", hash = "sha256:1311f10e8b895935241623731c2ba64f4c455287888b18189350b67134a822e8"},
 ]
 toml = [
     {file = "toml-0.10.1-py2.py3-none-any.whl", hash = "sha256:bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88"},
