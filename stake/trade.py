@@ -9,6 +9,7 @@ from pydantic import BaseModel
 from pydantic import Field
 from pydantic import validator
 
+from stake.common import BaseClient
 from stake.common import camelcase
 from stake.constant import Url
 
@@ -133,15 +134,8 @@ class TradeResponse(BaseModel):
         alias_generator = camelcase
 
 
-class TradesClient:
+class TradesClient(BaseClient):
     """This client is used to buy/sell equities."""
-
-    def __init__(self, client):
-        """
-        Args:
-            client: an instance of a _StakeClient
-        """
-        self._client = weakref.proxy(client)
 
     async def _trade(
         self,

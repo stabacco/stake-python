@@ -6,6 +6,7 @@ from typing import Union
 from pydantic import BaseModel
 from pydantic import Field
 
+from stake.common import BaseClient
 from stake.common import camelcase
 from stake.constant import Url
 from stake.product import Product
@@ -37,10 +38,7 @@ class WatchlistProduct(BaseModel):
         alias_generator = camelcase
 
 
-class WatchlistClient:
-    def __init__(self, client):
-        self._client = weakref.proxy(client)
-
+class WatchlistClient(BaseClient):
     async def _modify_watchlist(
         self, request: Union[AddToWatchlistRequest, RemoveFromWatchlistRequest]
     ) -> WatchlistResponse:

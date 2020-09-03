@@ -6,7 +6,6 @@ from stake import SessionTokenLoginRequest
 from stake import StakeClient
 from stake.client import HttpClient
 from stake.client import InvalidLoginException
-from stake.client import StakeSession
 from stake.constant import Url
 
 

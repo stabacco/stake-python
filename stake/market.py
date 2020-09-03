@@ -1,11 +1,11 @@
 """Checks the market status."""
-import logging
 import weakref
 from datetime import datetime
 
 from pydantic import BaseModel
 from pydantic import Field
 
+from stake.common import BaseClient
 from stake.common import camelcase
 from stake.constant import Url
 
@@ -34,10 +34,7 @@ class MarketStatus(BaseModel):
         alias_generator = camelcase
 
 
-class MarketClient:
-    def __init__(self, client):
-        self._client = weakref.proxy(client)
-
+class MarketClient(BaseClient):
     async def get(self) -> MarketStatus:
         data = await self._client.get(Url.market_status)
         return MarketStatus(**data["response"])

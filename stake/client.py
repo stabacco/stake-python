@@ -1,8 +1,6 @@
 import os
 from contextlib import asynccontextmanager
-from types import TracebackType
 from typing import Optional
-from typing import Type
 from typing import Union
 from urllib.parse import urljoin
 

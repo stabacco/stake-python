@@ -9,6 +9,7 @@ from typing import Optional
 from pydantic import BaseModel
 from pydantic import Field
 
+from stake.common import BaseClient
 from stake.common import camelcase
 from stake.constant import Url
 
@@ -70,10 +71,7 @@ class CashAvailable(BaseModel):
         alias_generator = camelcase
 
 
-class FundingsClient:
-    def __init__(self, client):
-        self._client = weakref.proxy(client)
-
+class FundingsClient(BaseClient):
     async def list(self, request: FundingRequest) -> List[Funding]:
         payload = {
             "endDate": request.end_date.strftime("%d/%m/%Y"),

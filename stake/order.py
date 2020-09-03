@@ -1,6 +1,5 @@
 import weakref
 from datetime import datetime
-from enum import Enum
 from enum import IntEnum
 from typing import List
 
@@ -9,20 +8,16 @@ from pydantic import Field
 from pydantic.types import UUID
 
 from stake.common import camelcase
+from stake.common import SideEnum
 from stake.constant import Url
 
-__all__ = ["OrderTypeEnum", "OrderSideEnum"]
+__all__ = ["OrderTypeEnum"]
 
 
 class OrderTypeEnum(IntEnum):
     MARKET = 1
     LIMIT = 2
     STOP = 3
-
-
-class OrderSideEnum(str, Enum):
-    BUY = "B"
-    SELL = "S"
 
 
 class Order(BaseModel):
@@ -32,7 +27,7 @@ class Order(BaseModel):
     symbol: str
     price: int
     stop_price: int
-    side: OrderSideEnum
+    side: SideEnum
     order_type: OrderTypeEnum
     cum_qty: str
     limit_price: int
@@ -53,7 +48,7 @@ class Order(BaseModel):
 class OrderSearchRequest(BaseModel):
     symbol: str
     orderType: OrderTypeEnum
-    side: OrderSideEnum
+    side: SideEnum
 
 
 class OrdersClient:

@@ -1,11 +1,7 @@
-import json
-
 import pytest
 
-from stake.constant import Url
 from stake.watchlist import AddToWatchlistRequest
 from stake.watchlist import RemoveFromWatchlistRequest
-from tests.conftest import tracing_client
 
 
 @pytest.mark.asyncio

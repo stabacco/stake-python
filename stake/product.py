@@ -4,6 +4,7 @@ from typing import Optional
 
 from pydantic import BaseModel
 
+from stake.common import BaseClient
 from stake.constant import Url
 
 __all__ = ["ProductSearchByName"]
@@ -54,10 +55,7 @@ class Product(BaseModel):
     yearlyReturnValue: Optional[float]
 
 
-class ProductsClient:
-    def __init__(self, client):
-        self._client = weakref.proxy(client)
-
+class ProductsClient(BaseClient):
     async def get(self, symbol: str) -> Optional[Product]:
         """Given a symbol it will return the matching product.
 

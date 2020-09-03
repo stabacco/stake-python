@@ -8,6 +8,7 @@ from typing import Optional
 from pydantic import BaseModel
 from pydantic import Field
 
+from stake.common import BaseClient
 from stake.constant import Url
 from stake.product import Product
 
@@ -53,10 +54,7 @@ class Transaction(BaseModel):
     symbol: str
 
 
-class TransactionsClient:
-    def __init__(self, client):
-        self._client = weakref.proxy(client)
-
+class TransactionsClient(BaseClient):
     async def list(self, request: TransactionRecordRequest) -> List[Transaction]:
         """Returns the transactions executed by the user.
 
