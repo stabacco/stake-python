@@ -15,6 +15,8 @@ jobs:
         os: [ubuntu-18.04, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
+      env: # Or as an environment variable
+      STAKE_TOKEN: ${{ secrets.STAKE_TOKEN }}
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
