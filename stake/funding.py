@@ -1,5 +1,4 @@
 """Your current fundings."""
-import weakref
 from datetime import date
 from datetime import datetime
 from datetime import timedelta

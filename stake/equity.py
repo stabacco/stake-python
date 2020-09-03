@@ -1,4 +1,3 @@
-import weakref
 from enum import Enum
 from typing import List
 from typing import Optional
@@ -25,7 +24,7 @@ class EquityPosition(BaseModel):
     cost_basis: float
     daily_return_value: float
     encoded_name: str
-    instrument_id: UUID4
+    instrument_id: UUID4 = Field(alias="instrumentID")
     last_trade: float
     market_value: float
     market_price: float = Field(alias="mktPrice")
@@ -35,9 +34,9 @@ class EquityPosition(BaseModel):
     prior_close: float
     side: SideEnum
     symbol: str
-    unrealized_day_pl: float
-    unrealized_day_pl_percent: float
-    unrealized_pl: float
+    unrealized_day_pl: float = Field(alias="unrealizedDayPL")
+    unrealized_day_pl_percent: float = Field(alias="unrealizedDayPLPercent")
+    unrealized_pl: float = Field(alias="unrealizedPL")
     url_image: str
     yearly_return_percentage: float
     yearly_return_value: float

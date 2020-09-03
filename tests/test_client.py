@@ -23,7 +23,7 @@ def test_credentials_login_serializing():
 
 
 @pytest.mark.asyncio
-async def test_credentials_login(tracing_client):
+async def test_credentials_login():
     request = CredentialsLoginRequest(
         username="unknown@user.com", password="WeirdPassword"
     )
@@ -38,18 +38,10 @@ async def test_credentials_login(tracing_client):
             },
         )
         with pytest.raises(InvalidLoginException):
-            await StakeClient(request=request)
+            async with StakeClient(request=request) as client:
+                assert client
 
     request = SessionTokenLoginRequest(token="invalidtoken002")
     with pytest.raises(InvalidLoginException):
-        await StakeClient(request=request)
-
-
-# @pytest.mark.asyncio
-# async def test_contextmanager(tracing_client):
-#     request = CredentialsLoginRequest(
-#         username="tabacco.stefano@gmail.com", password="Stegala73"
-#     )
-#     async with StakeSession(request=request) as client:
-#         assert (client.user.id)
-#         print(client.user.dict())
+        async with StakeClient(request=request) as client:
+            assert client

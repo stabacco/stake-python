@@ -1,4 +1,3 @@
-import weakref
 from datetime import datetime
 from enum import IntEnum
 from typing import List
@@ -7,6 +6,7 @@ from pydantic import BaseModel
 from pydantic import Field
 from pydantic.types import UUID
 
+from stake.common import BaseClient
 from stake.common import camelcase
 from stake.common import SideEnum
 from stake.constant import Url
@@ -51,10 +51,7 @@ class OrderSearchRequest(BaseModel):
     side: SideEnum
 
 
-class OrdersClient:
-    def __init__(self, client):
-        self._client = weakref.proxy(client)
-
+class OrdersClient(BaseClient):
     async def list(self) -> List[Order]:
         data = await self._client.get(Url.orders)
         return [Order(**d) for d in data]

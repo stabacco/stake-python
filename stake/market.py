@@ -1,5 +1,4 @@
 """Checks the market status."""
-import weakref
 from datetime import datetime
 
 from pydantic import BaseModel

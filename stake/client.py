@@ -100,10 +100,12 @@ class InvalidLoginException(Exception):
     pass
 
 
-class _StakeClient:
+class StakeClient:
     """The main client to interact with the Stake API."""
 
-    def __init__(self):
+    def __init__(
+        self, request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
+    ):
         self.user = None
 
         self.headers = Headers()
@@ -119,6 +121,8 @@ class _StakeClient:
         self.trades = trade.TradesClient(self)
         self.transactions = transaction.TransactionsClient(self)
         self.watchlist = watchlist.WatchlistClient(self)
+
+        self._login_request = request or SessionTokenLoginRequest()
 
     async def get(self, url: str, payload: dict = None) -> dict:
         """Performs an HTTP get operation.
@@ -193,36 +197,43 @@ class _StakeClient:
         self.user = user.User(**user_data)
         return self.user
 
+    async def __aenter__(self):
+        await self.login(self._login_request)
+        return self
 
-async def StakeClient(
-    request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
-) -> _StakeClient:
-    """Returns an authenticated _StakeClient.
-
-    Args:
-        request: the login request. credentials or token
-    Returns:
-        an instance of the _StakeClient
-    """
-    c = _StakeClient()
-    request = request or SessionTokenLoginRequest()
-    await c.login(request)
-    return c
+    async def __aexit__(self, exc_type, exc, tb):
+        await self.httpClient.close()
 
 
-@asynccontextmanager
-async def StakeSession(
-    request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
-) -> _StakeClient:
-    """Returns an authenticated _StakeClient.
+# async def StakeClient(
+#     request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
+# ) -> _StakeClient:
+#     """Returns an authenticated _StakeClient.
 
-    Args:
-        request: the login request. credentials or token
-    Returns:
-        an instance of the _StakeClient
-    """
-    c = _StakeClient()
-    request = request or SessionTokenLoginRequest()
-    await c.login(request)
-    yield c
-    await c.httpClient.close()
+#     Args:
+#         request: the login request. credentials or token
+#     Returns:
+#         an instance of the _StakeClient
+#     """
+#     c = _StakeClient()
+#     request = request or SessionTokenLoginRequest()
+#     await c.login(request)
+#     return c
+
+
+# @asynccontextmanager
+# async def StakeSession(
+#     request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
+# ) -> _StakeClient:
+#     """Returns an authenticated _StakeClient.
+
+#     Args:
+#         request: the login request. credentials or token
+#     Returns:
+#         an instance of the _StakeClient
+#     """
+#     c = _StakeClient()
+#     request = request or SessionTokenLoginRequest()
+#     await c.login(request)
+#     yield c
+#     await c.httpClient.close()

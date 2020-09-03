@@ -1,5 +1,4 @@
 """Currency conversion."""
-import weakref
 from enum import Enum
 
 from pydantic import BaseModel

@@ -1,4 +1,3 @@
-import weakref
 from typing import List
 from typing import Optional
 
@@ -79,5 +78,3 @@ class ProductsClient(BaseClient):
         self, instrument: Instrument
     ) -> Optional[Product]:
         return await self.get(instrument.symbol)
-
-    #

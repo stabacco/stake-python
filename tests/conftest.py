@@ -143,7 +143,8 @@ async def patch_client_session_response(session_mocker, patch_aiohttp):
 @pytest.fixture(scope="session")
 async def session_tracing_client(patch_client_session_response):
 
-    client = await StakeClient()
+    client = StakeClient()
+    await client.login(client._login_request)
     yield client
 
     collection = client.httpClient._session.collection
