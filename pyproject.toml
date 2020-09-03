@@ -33,3 +33,7 @@ build-backend = "poetry.masonry.api"
 packages = [
     { include = "stake",  from="." },
 ]
+
+[tool.isort]
+profile = "black"
+known_third_party = ["aiohttp", "aioresponses", "attr", "dotenv", "inflection", "multidict", "pydantic", "pytest", "yarl"]

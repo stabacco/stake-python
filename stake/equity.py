@@ -1,14 +1,9 @@
 from enum import Enum
-from typing import List
-from typing import Optional
+from typing import List, Optional
 
-from pydantic import BaseModel
-from pydantic import Field
-from pydantic import UUID4
+from pydantic import UUID4, BaseModel, Field
 
-from stake.common import BaseClient
-from stake.common import camelcase
-from stake.common import SideEnum
+from stake.common import BaseClient, SideEnum, camelcase
 from stake.constant import Url
 
 

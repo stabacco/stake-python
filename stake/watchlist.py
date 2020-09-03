@@ -1,12 +1,9 @@
 from datetime import datetime
-from typing import List
-from typing import Union
+from typing import List, Union
 
-from pydantic import BaseModel
-from pydantic import Field
+from pydantic import BaseModel, Field
 
-from stake.common import BaseClient
-from stake.common import camelcase
+from stake.common import BaseClient, camelcase
 from stake.constant import Url
 from stake.product import Product
 

@@ -17,14 +17,14 @@ repos:
     rev: v0.780
     hooks:
     -   id: mypy
--   repo: https://github.com/asottile/reorder_python_imports
-    rev: v2.3.0
+-   repo: https://github.com/PyCQA/isort
+    rev: 5.5.0
     hooks:
-    -   id: reorder-python-imports
--   repo: https://github.com/asottile/dead
-    rev: v1.3.0
+    -   id: isort
+-   repo: https://github.com/asottile/seed-isort-config
+    rev: v2.2.0
     hooks:
-    -   id: dead
+    -   id: seed-isort-config
 -   repo: https://github.com/econchick/interrogate
     rev: 1.2.0
     hooks:

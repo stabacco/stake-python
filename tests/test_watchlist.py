@@ -1,7 +1,6 @@
 import pytest
 
-from stake.watchlist import AddToWatchlistRequest
-from stake.watchlist import RemoveFromWatchlistRequest
+from stake.watchlist import AddToWatchlistRequest, RemoveFromWatchlistRequest
 
 
 @pytest.mark.asyncio
@@ -21,5 +20,4 @@ async def test_remove_from_watchlist(tracing_client):
 @pytest.mark.asyncio
 async def test_list_watchlist(tracing_client):
     watched = await tracing_client.watchlist.list()
-    print(len(watched))
-    assert len(watched) == 6
+    assert len(watched) == 7

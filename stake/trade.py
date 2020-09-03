@@ -1,15 +1,11 @@
 import re
 from datetime import datetime
 from enum import Enum
-from typing import Optional
-from typing import Union
+from typing import Optional, Union
 
-from pydantic import BaseModel
-from pydantic import Field
-from pydantic import validator
+from pydantic import BaseModel, Field, validator
 
-from stake.common import BaseClient
-from stake.common import camelcase
+from stake.common import BaseClient, camelcase
 from stake.constant import Url
 
 failed_transaction_regex = re.compile(r"^[0-9]{4}")

@@ -1,11 +1,9 @@
 import json
-from typing import List
-from typing import Optional
+from typing import List, Optional
 
 import aiohttp
 from aiohttp import ClientSession
-from pydantic import BaseModel
-from pydantic import Field
+from pydantic import BaseModel, Field
 
 
 class PostmanBaseModel(BaseModel):
@@ -136,6 +134,7 @@ async def get_collection(postman_api_key, collection_id):
 
 if __name__ == "__main__":
     import os
+
     from dotenv import load_dotenv
 
     load_dotenv()

@@ -1,11 +1,9 @@
 """Checks the market status."""
 from datetime import datetime
 
-from pydantic import BaseModel
-from pydantic import Field
+from pydantic import BaseModel, Field
 
-from stake.common import BaseClient
-from stake.common import camelcase
+from stake.common import BaseClient, camelcase
 from stake.constant import Url
 
 __all__ = ["MarketStatus"]

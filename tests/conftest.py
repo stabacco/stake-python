@@ -2,19 +2,17 @@ import asyncio
 import copy
 import json
 import uuid
-from typing import Optional
-from typing import Union
+from typing import Optional, Union
 
 import pytest
-from aiohttp import ClientSession
-from aiohttp import TraceConfig
+from aiohttp import ClientSession, TraceConfig
 from attr import asdict
 from dotenv import load_dotenv
 
-from . import postman
-from stake.client import HttpClient
-from stake.client import StakeClient
+from stake.client import HttpClient, StakeClient
 from tests.patch_aiohttp import SharedRequests
+
+from . import postman
 
 load_dotenv()
 
@@ -111,7 +109,7 @@ def event_loop():
 
 @pytest.fixture(scope="session")
 def patch_aiohttp(session_mocker):
-    from .patch_aiohttp import TraceRequestStartParams, TraceRequestEndParams
+    from .patch_aiohttp import TraceRequestEndParams, TraceRequestStartParams
 
     session_mocker.patch(
         "aiohttp.tracing.TraceRequestStartParams", new=TraceRequestStartParams
@@ -123,11 +121,12 @@ def patch_aiohttp(session_mocker):
 
 @pytest.fixture(scope="session")
 async def patch_client_session_response(session_mocker, patch_aiohttp):
-    from .patch_aiohttp import ClientRequest
+    from .patch_aiohttp import ClientRequest, ClientResponse
 
     recording_session = ClientSession(
         # trace_configs=[trace_config],
-        request_class=ClientRequest
+        request_class=ClientRequest,
+        response_class=ClientResponse,
     )
     recording_session.collection = postman.PostmanCollection(
         info=postman.PostmanCollectionInfo(
@@ -152,17 +151,19 @@ async def session_tracing_client(patch_client_session_response):
     with open("collection.json", "w") as f:
         json.dump(data, f, indent=2)
 
+    # pprint.pprint(SharedRequests._shared_state)
+    # for uid, data in SharedRequests._shared_state.items():
+    #     print(uid)
+    #     print(await data["request"].as_postman_request(uid))
+    #     print(await data["response"].as_postman_response(data['request'], uid))
+    import os
     import pprint
 
-    pprint.pprint(SharedRequests._shared_state)
-
-    import os
-
-    # await postman.upload_postman_collection(
-    #     collection,
-    #     os.environ["STAKE_POSTMAN_UNITTEST_COLLECTION_ID"],
-    #     os.environ["STAKE_POSTMAN_MOCK_API_KEY_UNITTEST"],
-    # )
+    await postman.upload_postman_collection(
+        collection,
+        os.environ["STAKE_POSTMAN_UNITTEST_COLLECTION_ID"],
+        os.environ["STAKE_POSTMAN_MOCK_API_KEY_UNITTEST"],
+    )
 
 
 @pytest.fixture(scope="function")

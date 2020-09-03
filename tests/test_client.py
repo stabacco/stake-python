@@ -1,11 +1,8 @@
 import pytest
 from aioresponses import aioresponses
 
-from stake import CredentialsLoginRequest
-from stake import SessionTokenLoginRequest
-from stake import StakeClient
-from stake.client import HttpClient
-from stake.client import InvalidLoginException
+from stake import CredentialsLoginRequest, SessionTokenLoginRequest, StakeClient
+from stake.client import HttpClient, InvalidLoginException
 from stake.constant import Url
 
 

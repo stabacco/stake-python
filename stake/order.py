@@ -2,13 +2,10 @@ from datetime import datetime
 from enum import IntEnum
 from typing import List
 
-from pydantic import BaseModel
-from pydantic import Field
+from pydantic import BaseModel, Field
 from pydantic.types import UUID
 
-from stake.common import BaseClient
-from stake.common import camelcase
-from stake.common import SideEnum
+from stake.common import BaseClient, SideEnum, camelcase
 from stake.constant import Url
 
 __all__ = ["OrderTypeEnum"]

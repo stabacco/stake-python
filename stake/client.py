@@ -1,25 +1,24 @@
 import os
-from contextlib import asynccontextmanager
-from typing import Optional
-from typing import Union
+from typing import Optional, Union
 from urllib.parse import urljoin
 
 import aiohttp
 from dotenv import load_dotenv
-from pydantic import BaseModel
-from pydantic import Field
+from pydantic import BaseModel, Field
 
-from stake import constant
-from stake import equity
-from stake import funding
-from stake import fx
-from stake import market
-from stake import order
-from stake import product
-from stake import trade
-from stake import transaction
-from stake import user
-from stake import watchlist
+from stake import (
+    constant,
+    equity,
+    funding,
+    fx,
+    market,
+    order,
+    product,
+    trade,
+    transaction,
+    user,
+    watchlist,
+)
 from stake.common import camelcase
 
 load_dotenv()
@@ -30,6 +29,7 @@ __all__ = ["StakeClient", "CredentialsLoginRequest", "SessionTokenLoginRequest"]
 class CredentialsLoginRequest(BaseModel):
     username: str = Field(default_factory=lambda *_: os.getenv("STAKE_USER", ""))
     password: str = Field(default_factory=lambda *_: os.getenv("STAKE_PASS", ""))
+    otp: int = Field(default=None, description="This is the code for 2FA")
     remember_me_days: int = 30
 
     class Config:
@@ -52,9 +52,7 @@ class Headers(BaseModel):
 class HttpClient:
     """Handles http calls to the Stake API."""
 
-    _session = aiohttp.ClientSession(
-        headers=Headers().dict(by_alias=True), raise_for_status=True
-    )
+    _session = aiohttp.ClientSession
 
     @staticmethod
     def url(endpoint: str) -> str:
@@ -70,30 +68,40 @@ class HttpClient:
 
     @staticmethod
     async def get(url: str, payload: dict = None, headers: dict = None) -> dict:
-        response = await HttpClient._session.get(
-            HttpClient.url(url), headers=headers, json=payload
-        )
-        response.raise_for_status()
-        return await response.json()
+
+        async with HttpClient._session(
+            headers=Headers().dict(by_alias=True), raise_for_status=True
+        ) as session:
+            response = await session.get(
+                HttpClient.url(url), headers=headers, json=payload
+            )
+            response.raise_for_status()
+            return await response.json()
 
     @staticmethod
     async def post(url: str, payload: dict, headers: dict = None) -> dict:
-        response = await HttpClient._session.post(
-            HttpClient.url(url), headers=headers, json=payload
-        )
-        response.raise_for_status()
-        return await response.json()
+        async with HttpClient._session(
+            headers=Headers().dict(by_alias=True), raise_for_status=True
+        ) as session:
+            response = await session.post(
+                HttpClient.url(url), headers=headers, json=payload
+            )
+            response.raise_for_status()
+            return await response.json()
 
     @staticmethod
     async def delete(url: str, payload: dict = None, headers: dict = None) -> bool:
-        response = await HttpClient._session.delete(
-            HttpClient.url(url), headers=headers, json=payload
-        )
-        return response.status <= 399
+        async with HttpClient._session(
+            headers=Headers().dict(by_alias=True), raise_for_status=True
+        ) as session:
+            response = await session.delete(
+                HttpClient.url(url), headers=headers, json=payload
+            )
+            return response.status <= 399
 
-    @staticmethod
-    async def close():
-        await HttpClient._session.close()
+    # @staticmethod
+    # async def close():
+    #     await HttpClient._session.close()
 
 
 class InvalidLoginException(Exception):
@@ -202,7 +210,8 @@ class StakeClient:
         return self
 
     async def __aexit__(self, exc_type, exc, tb):
-        await self.httpClient.close()
+        # await self.httpClient.close()
+        pass
 
 
 # async def StakeClient(

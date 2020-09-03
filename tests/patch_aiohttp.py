@@ -1,10 +1,10 @@
 import attr
 from aiohttp import ClientResponse
 from aiohttp.client_reqrep import ClientRequest as BaseClientRequest
+from aiohttp.client_reqrep import ClientResponse as BaseClientResponse
 from aiohttp.payload import JsonPayload
 from multidict import CIMultiDict
-from pydantic import BaseModel
-from pydantic import fields
+from pydantic import BaseModel, fields
 from yarl import URL
 
 
@@ -40,16 +40,24 @@ class ClientRequest(BaseClientRequest):
         uid = uuid.uuid4()
         response = await super().send(conn)
         SharedRequests._shared_state[str(uid)] = {
-            "request": self.as_postman_request(uid),
+            "request": self,
             "response": response,
         }
+        response._uid = uid
+        response._request = self
         return response
 
-    def as_postman_request(self, uid):
+    async def as_postman_request(self, uid):
         from . import postman
 
-        print("ttttt", type(self.body), bool(self.body), self.body)
-        postman.PostmanCollectionRequest(
+        # raise RuntimeError(self.body, bool(self.body))
+        body = None
+        if self.body != (b"",):
+            body = postman.PostmanCollectionRequestBody(
+                raw=self.body._value if self.body else ""
+            )
+
+        return postman.PostmanCollectionRequest(
             name=f"request_{uid}",
             description=f"H {self.method} {uid}",
             header=[
@@ -60,7 +68,45 @@ class ClientRequest(BaseClientRequest):
             url=postman.PostmanCollectionRequestUrl(
                 raw=str(self.url.raw_path), host=[self.host]
             ),
-            body=postman.PostmanCollectionRequestBody(
-                raw=self.body._value if self.body else ""
-            ),
+            body=body,
         )
+
+
+class ClientResponse(BaseClientResponse):
+    async def as_postman_response(self):
+        from . import postman
+
+        req = await self._request.as_postman_request(self._uid)
+        # req = req.dict(by_alias=True)
+        response = postman.PostmanCollectionResponse(
+            originalRequest=req,
+            name=f"response_{self._uid}",
+            url=postman.PostmanCollectionRequestUrl(
+                raw=str(self.url.raw_path), host=[self.host]
+            ),
+            status="OK",  # TODO
+            code=self.status,
+            body=await self.text(),
+            header=[
+                postman.PostmanCollectionRequestHeader(key=key, value=value)
+                for key, value in self.headers.items()
+            ],
+        )
+        item = postman.PostmanCollectionItem(
+            name=f"{self.method} {self.url.raw_path}", request=req, response=[response],
+        )
+        print("Appending item", item)
+        self._session.current_collection_item.item.append(item)
+
+        return response
+
+    async def json(self):
+        result = await super().json()
+        await self.as_postman_response()
+        return result
+
+    # def release(self):
+    #     raise RuntimeError("this called")
+    #     result = super().release()
+    #     self.as_postman_response()
+    #     return result
