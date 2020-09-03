@@ -92,6 +92,5 @@ class TransactionsClient:
             #     # print("getting symbol", instrument["symbol"])
             #     product = await self._client.products.get(instrument["symbol"])
             # d["product"] = product
-            print("DDDD", d)
             transactions.append(Transaction(**d))
         return transactions

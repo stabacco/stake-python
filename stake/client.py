@@ -1,4 +1,5 @@
 import os
+from contextlib import asynccontextmanager
 from types import TracebackType
 from typing import Optional
 from typing import Type
@@ -10,7 +11,6 @@ from dotenv import load_dotenv
 from pydantic import BaseModel
 from pydantic import Field
 
-from stake.common import camelcase
 from stake import constant
 from stake import equity
 from stake import funding
@@ -22,6 +22,7 @@ from stake import trade
 from stake import transaction
 from stake import user
 from stake import watchlist
+from stake.common import camelcase
 
 load_dotenv()
 
@@ -35,7 +36,8 @@ class CredentialsLoginRequest(BaseModel):
 
     class Config:
         alias_generator = camelcase
-        allow_population_by_field_name=True
+        allow_population_by_field_name = True
+
 
 class SessionTokenLoginRequest(BaseModel):
     """Token based authentication, use this if 2FA is enabled."""
@@ -208,9 +210,6 @@ async def StakeClient(
     request = request or SessionTokenLoginRequest()
     await c.login(request)
     return c
-
-
-from contextlib import asynccontextmanager
 
 
 @asynccontextmanager

@@ -20,3 +20,4 @@ class User(BaseModel):
 
     class Config:
         alias_generator = camelcase
+        allow_population_by_field_name = True

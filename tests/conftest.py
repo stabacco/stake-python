@@ -14,6 +14,7 @@ from dotenv import load_dotenv
 from . import postman
 from stake.client import HttpClient
 from stake.client import StakeClient
+from tests.patch_aiohttp import SharedRequests
 
 load_dotenv()
 
@@ -122,8 +123,12 @@ def patch_aiohttp(session_mocker):
 
 @pytest.fixture(scope="session")
 async def patch_client_session_response(session_mocker, patch_aiohttp):
+    from .patch_aiohttp import ClientRequest
 
-    recording_session = ClientSession(trace_configs=[trace_config])
+    recording_session = ClientSession(
+        # trace_configs=[trace_config],
+        request_class=ClientRequest
+    )
     recording_session.collection = postman.PostmanCollection(
         info=postman.PostmanCollectionInfo(
             name="unit-tests", description="Postman example collection"
@@ -145,6 +150,10 @@ async def session_tracing_client(patch_client_session_response):
     data = {"collection": collection.dict(by_alias=True)}
     with open("collection.json", "w") as f:
         json.dump(data, f, indent=2)
+
+    import pprint
+
+    pprint.pprint(SharedRequests._shared_state)
 
     import os
 
@@ -250,7 +259,7 @@ class RecorderHttpClient(HttpClient):
             "userId": "{{$randomUUID}}",
             "username": "{{$randomUserName}}",
             "emailAddress": "{{$randomEmail}}",
-            "password" : "{{$randomPassword}}",
+            "password": "{{$randomPassword}}",
             "dw_id": "{{$randomUUID}}",
             "dw_AccountId": "{{$randomUUID}}",
             "dw_AccountNumber": "{{$randomBankAccountName}}",
