@@ -1,4 +1,54 @@
 {
+  "user": [
+    {
+      "url": "{url}user",
+      "method": "GET",
+      "body": null,
+      "payload": {
+        "userId": "71476694-9b64-4381-94a0-df66d7059489",
+        "username": null,
+        "emailAddress": "jon@doe.com.au",
+        "dw_id": null,
+        "dw_AccountId": null,
+        "dw_AccountNumber": "STDR990999",
+        "macAccountNumber": null,
+        "status": "KYC_PENDING",
+        "macStatus": "BASIC_USER",
+        "dwStatus": "KYC_APPROVED",
+        "truliooStatus": "APPROVED",
+        "truliooStatusWithWatchlist": null,
+        "firstName": "Jon",
+        "lastName": "Doe",
+        "phoneNumber": "04144000000",
+        "signUpPhase": 0,
+        "ackSignedWhen": "2019-11-21T02:37Z",
+        "createdDate": 1574303699770,
+        "stakeApprovedDate": null,
+        "accountType": "INDIVIDUAL",
+        "masterAccountId": null,
+        "referralCode": "jondoe683",
+        "referredByCode": null,
+        "regionIdentifier": "AUS",
+        "assetSummary": null,
+        "fundingStatistics": null,
+        "tradingStatistics": null,
+        "w8File": [],
+        "emailVerified": true,
+        "hasFunded": true,
+        "hasTraded": true,
+        "rewardJourneyTimestamp": null,
+        "rewardJourneyStatus": null,
+        "userProfile": {
+          "residentialAddress": null,
+          "postalAddress": null
+        },
+        "ledgerBalance": 0,
+        "investorAccreditations": null,
+        "canTradeOnUnsettledFunds": true,
+        "mfaenabled": false
+      }
+    }
+  ],
   "tests.test_funding.test_list_fundings": [
     {
       "body": {
@@ -411,12 +461,12 @@
   ],
   "tests.test_watchlist.test_list_watchlist": [
     {
-      "url": "{url}products/productsWatchlist/38e09b0a-3acc-44cb-bf56-02737d0537ed",
+      "url": "{url}products/productsWatchlist/71476694-9b64-4381-94a0-df66d7059489",
       "body": null,
       "payload": {
         "instrumentsWatchList": [
           {
-            "productWatchlistID": "7bc2c5bf-fb37-478d-bd71-580c0b9db5c9",
+            "productWatchlistID": "71476694-9b64-4381-94a0-df66d7059489",
             "product": {
               "id": "297ad833-cfcc-4980-acd9-3bdccee780d5",
               "instrumentTypeID": null,
@@ -450,7 +500,7 @@
             "watchedDate": "2019-11-21 20:04:09.76"
           },
           {
-            "productWatchlistID": "7bc2c5bf-fb37-478d-bd71-580c0b9db5c9",
+            "productWatchlistID": "71476694-9b64-4381-94a0-df66d7059489",
             "product": {
               "id": "69038234-efbd-4b8e-9ad9-b73a7bac01fa",
               "instrumentTypeID": null,
@@ -484,7 +534,7 @@
             "watchedDate": "2019-11-21 20:04:09.76"
           },
           {
-            "productWatchlistID": "7bc2c5bf-fb37-478d-bd71-580c0b9db5c9",
+            "productWatchlistID": "71476694-9b64-4381-94a0-df66d7059489",
             "product": {
               "id": "93184616-9756-4501-8f2b-37e583b4e1ae",
               "instrumentTypeID": null,
@@ -518,7 +568,7 @@
             "watchedDate": "2019-11-21 20:04:09.76"
           },
           {
-            "productWatchlistID": "7bc2c5bf-fb37-478d-bd71-580c0b9db5c9",
+            "productWatchlistID": "71476694-9b64-4381-94a0-df66d7059489",
             "product": {
               "id": "d2d6cd94-afa0-4cfa-beeb-d550d4f60492",
               "instrumentTypeID": null,
@@ -552,7 +602,7 @@
             "watchedDate": "2019-11-21 20:04:09.76"
           },
           {
-            "productWatchlistID": "7bc2c5bf-fb37-478d-bd71-580c0b9db5c9",
+            "productWatchlistID": "71476694-9b64-4381-94a0-df66d7059489",
             "product": {
               "id": "daa33d22-9f16-4092-9ace-d4cd097a5db2",
               "instrumentTypeID": null,
@@ -586,7 +636,7 @@
             "watchedDate": "2019-11-21 20:04:09.76"
           },
           {
-            "productWatchlistID": "7bc2c5bf-fb37-478d-bd71-580c0b9db5c9",
+            "productWatchlistID": "71476694-9b64-4381-94a0-df66d7059489",
             "product": {
               "id": "e1b87483-0da9-4e35-b914-d8bba9b2741a",
               "instrumentTypeID": null,
@@ -624,5 +674,4 @@
       "method": "GET"
     }
   ]
-
 }

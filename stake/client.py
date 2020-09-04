@@ -71,6 +71,7 @@ class HttpClient:
         async with aiohttp.ClientSession(
             headers=Headers().dict(by_alias=True), raise_for_status=True
         ) as session:
+            print("UUUU", HttpClient.url(url))
             response = await session.get(
                 HttpClient.url(url), headers=headers, json=payload
             )

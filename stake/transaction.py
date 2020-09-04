@@ -55,7 +55,7 @@ class Transaction(BaseModel):
     wlp_amount: int
     wlp_fin_tran_type_id: UUID4 = Field(None, alias="wlpFinTranTypeID")
     dividend: Optional[float] = None
-    dividend_tax: float = None
+    dividend_tax: Optional[float] = None
     merger_acquisition: Optional[float] = None
     position_delta: Optional[float] = None
     order_id: str = Field(alias="orderID")

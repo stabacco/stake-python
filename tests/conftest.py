@@ -111,19 +111,31 @@ def fixtures():
 
 
 @pytest.fixture
-async def fixtures_response(request, fixtures):
+async def tracing_client(request, fixtures):
     with aioresponses() as m:
         function_name = f"{request.node.module.__name__}.{request.node.name}"
         mock_datas = fixtures[function_name]
         for mock_data in mock_datas:
-            method = mock_data.get("method")
             m.add(
                 mock_data["url"].format(url=STAKE_URL),
-                method=method,
+                method=mock_data.get("method"),
                 body=mock_data["body"],
                 payload=mock_data["payload"],
             )
-        yield
+        mock_data = fixtures["user"][0]
+        print(
+            "--------------------------------------DDD",
+            mock_data["url"].format(url=STAKE_URL),
+        )
+        m.add(
+            mock_data["url"].format(url=STAKE_URL),
+            method=mock_data.get("method"),
+            body=mock_data["body"],
+            payload=mock_data["payload"],
+        )
+        client = StakeClient()
+        await client.login(client._login_request)
+        yield client
 
 
 @pytest.fixture(scope="session")
@@ -133,12 +145,12 @@ def event_loop():
     loop.close()
 
 
-@pytest.fixture(scope="session")
-async def tracing_client():
+# @pytest.fixture(scope="session")
+# async def tracing_client():
 
-    client = StakeClient()
-    await client.login(client._login_request)
-    yield client
+#     client = StakeClient()
+#     await client.login(client._login_request)
+#     yield client
 
 
 @pytest.fixture(scope="session")

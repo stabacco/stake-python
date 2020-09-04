@@ -4,7 +4,7 @@ from stake import FxConversionRequest
 
 
 @pytest.mark.asyncio
-async def test_fx_conversion(tracing_client, fixtures_response):
+async def test_fx_conversion(tracing_client):
     request = FxConversionRequest(
         from_currency="USD", to_currency="AUD", from_amount=1000.0
     )

@@ -2,7 +2,7 @@ import pytest
 
 
 @pytest.mark.asyncio
-async def test_list_orders(tracing_client, fixtures_response):
+async def test_list_orders(tracing_client):
     orders = await tracing_client.orders.list()
     import itertools
 
