@@ -1,5 +1,5 @@
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 from enum import Enum
 from typing import Optional, Union
 
@@ -7,6 +7,7 @@ from pydantic import BaseModel, Field, validator
 
 from stake.common import BaseClient, camelcase
 from stake.constant import Url
+from stake.transaction import TransactionRecordRequest
 
 failed_transaction_regex = re.compile(r"^[0-9]{4}")
 
@@ -128,26 +129,26 @@ class MarketSellRequest(BaseModel):
 class TradeResponse(BaseModel):
     """The response from a request to buy/sell."""
 
-    id: str
-    item_id: str
-    name: str
-    category: str
-    quantity: Optional[float]
     amount_cash: Optional[float]
-    limit_price: Optional[float]
-    stop_price: Optional[float]
-    effective_price: Optional[float]
+    category: str
     commission: Optional[float]
     description: Optional[str]
+    dw_order_id: str
+    effective_price: Optional[float]
+    encoded_name: str
+    id: str
+    image_url: str = Field(alias="imageURL")
     inserted_date: datetime
-    updated_date: datetime
+    item_id: str
+    limit_price: Optional[float]
+    name: str
+    order_reject_reason: Optional[str]
+    quantity: Optional[float]
     side: str
     status: Optional[int]
-    order_reject_reason: Optional[str]
-    encoded_name: str
-    image_url: str = Field(alias="imageURL")
+    stop_price: Optional[float]
     symbol: str
-    dw_order_id: str
+    updated_date: datetime
 
     class Config:
         alias_generator = camelcase
@@ -211,7 +212,10 @@ class TradesClient(BaseClient):
             RuntimeError if the trade was not successful.
         """
 
-        transactions = await self._client.get(Url.transactions)
+        latest_transactions_request = TransactionRecordRequest(
+            from_=datetime.utcnow() - timedelta(minutes=10), limit=5
+        )
+        transactions = self._client.transactions.list(latest_transactions_request)
 
         if not transactions:
             raise RuntimeError(
@@ -220,8 +224,8 @@ class TradesClient(BaseClient):
 
         # wait for the transaction to be available
         for transaction in transactions:
-            if transaction["orderId"] == trade.dw_order_id and re.search(
-                failed_transaction_regex, transaction["updatedReason"]
+            if transaction.order_id == trade.dw_order_id and re.search(
+                failed_transaction_regex, transaction.updated_reason
             ):
                 raise RuntimeError(
                     f"The trade did not succeed (Reason: {transaction['updatedReason']}"

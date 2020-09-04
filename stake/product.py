@@ -1,8 +1,11 @@
-from typing import List, Optional
+from datetime import datetime
+from typing import Any, List, Optional
 
 from pydantic import BaseModel
+from pydantic.fields import Field
+from pydantic.types import UUID4
 
-from stake.common import BaseClient
+from stake.common import BaseClient, camelcase
 from stake.constant import Url
 
 __all__ = ["ProductSearchByName"]
@@ -15,42 +18,48 @@ class ProductSearchByName(BaseModel):
 
 
 class Instrument(BaseModel):
-    encodedName: str
-    imageUrl: str
-    instrumentId: str
+    encoded_name: str
+    image_url: str
+    instrument_id: str
     name: str
     symbol: str
+
+    class Config:
+        alias_generator = camelcase
 
 
 class Product(BaseModel):
-    name: str
+    id: UUID4
+    instrument_type_id: Optional[str] = Field(None, alias="instrumentTypeID")
     symbol: str
-    encodedName: str
-    id: str
-    dailyReturn: float
-    dailyReturnPercentage: float
-    monthlyReturn: float
-    bought: int
-    category: str
-    childInstruments: list
-    currencyID: Optional[str]
     description: str
-    inceptionDate: Optional[str]
-    instrumentTags: list
-    instrumentTypeID: Optional[str]
-    lastTraded: float
-    news: int
-    parentID: Optional[str]
-    period: str
-    popularity: float
-    productType: str
-    sector: Optional[str]
-    tradeStatus: int
-    urlImage: str
-    viewed: int
+    category: str
+    currency_id: Optional[str] = Field(None, alias="currencyID")
+    url_image: str
+    sector: str
+    parent_id: Optional[str] = Field(None, alias="parentID")
+    name: str
+    daily_return: float
+    daily_return_percentage: float
+    last_traded: float
+    monthly_return: int
+    yearly_return_percentage: float
+    yearly_return_value: float
+    popularity: int
     watched: int
-    yearlyReturnPercentage: Optional[float]
-    yearlyReturnValue: Optional[float]
+    news: int
+    bought: int
+    viewed: int
+    product_type: str
+    trade_status: int
+    encoded_name: str
+    period: str
+    inception_date: Optional[str]
+    instrument_tags: List[Any]
+    child_instruments: List[Instrument]
+
+    class Config:
+        alias_generator = camelcase
 
 
 class ProductsClient(BaseClient):

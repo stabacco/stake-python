@@ -25,6 +25,8 @@ load_dotenv()
 
 __all__ = ["StakeClient", "CredentialsLoginRequest", "SessionTokenLoginRequest"]
 
+global test_name
+
 
 class CredentialsLoginRequest(BaseModel):
     username: str = Field(default_factory=lambda *_: os.getenv("STAKE_USER", ""))
@@ -54,6 +56,8 @@ class HttpClient:
 
     _session = aiohttp.ClientSession
 
+    state = []  # TODO: deleteme
+
     @staticmethod
     def url(endpoint: str) -> str:
         """Generates a stake-api url.
@@ -64,6 +68,7 @@ class HttpClient:
         Returns:
             str: the full url
         """
+        print("eeeee", endpoint)
         return urljoin(constant.STAKE_URL, endpoint, allow_fragments=True)
 
     @staticmethod
@@ -71,12 +76,28 @@ class HttpClient:
         async with aiohttp.ClientSession(
             headers=Headers().dict(by_alias=True), raise_for_status=True
         ) as session:
-            print("UUUU", HttpClient.url(url))
             response = await session.get(
                 HttpClient.url(url), headers=headers, json=payload
             )
-            response.raise_for_status()
-            return await response.json()
+            # response.raise_for_status()
+            result = await response.json()
+            print("UUUUUUUUUUURRRLLL", url)
+            ##
+            write_data = {
+                "url": "{url}" + (url),
+                "body": payload,
+                "payload": result,
+                "method": "GET",
+            }
+
+            import json
+
+            global test_name
+            HttpClient.state.append(write_data)
+
+            # json.dump(write_data, open("cash_available.json", "a"))
+            ##
+            return result
 
     @staticmethod
     async def post(url: str, payload: dict, headers: dict = None) -> dict:
@@ -86,8 +107,24 @@ class HttpClient:
             response = await session.post(
                 HttpClient.url(url), headers=headers, json=payload
             )
-            response.raise_for_status()
-            return await response.json()
+            global test_name
+            # response.raise_for_status()
+            result = await response.json()
+            ##
+            write_data = {
+                "url": "{url}" + (url),
+                "body": payload,
+                "payload": result,
+                "method": "POST",
+            }
+            import json
+
+            HttpClient.state.append(write_data)
+
+            # json.dump(write_data, open(f"cash_available.json", "a"))
+            ##
+
+            return result
 
     @staticmethod
     async def delete(url: str, payload: dict = None, headers: dict = None) -> bool:
@@ -192,6 +229,7 @@ class StakeClient:
                 data = await self.httpClient.post(
                     constant.Url.create_session, payload=login_request.dict()
                 )
+                print("DDDDD", data)
                 self.headers.stake_session_token = data["sessionKey"]
             except aiohttp.client_exceptions.ClientResponseError as error:
                 raise InvalidLoginException("Invalid Login Credentials") from error
@@ -202,6 +240,7 @@ class StakeClient:
             user_data = await self.get(constant.Url.user)
         except aiohttp.client_exceptions.ClientResponseError as error:
             raise InvalidLoginException("Invalid Session Token") from error
+
         self.user = user.User(**user_data)
         return self.user
 

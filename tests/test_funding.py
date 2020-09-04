@@ -12,7 +12,7 @@ from stake.funding import FundingRequest
 @pytest.mark.asyncio
 async def test_list_fundings(tracing_client):
     fundings = await tracing_client.fundings.list(FundingRequest())
-    assert len(fundings) == 2
+    assert len(fundings) == 11
 
 
 @pytest.mark.asyncio

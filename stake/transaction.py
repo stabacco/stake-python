@@ -37,31 +37,32 @@ class Transaction(BaseModel):
     account_balance: float
     account_type: str
     comment: str
+    dividend_tax: Optional[float] = None
+    dividend: Optional[float] = None
     dnb: bool
-    fin_tran_id: str = Field(alias="finTranID")
-    fin_tran_type_id: str = Field(alias="finTranTypeID")
+    fee_base: int
+    fee_exchange: int
     fee_sec: float
     fee_taf: float
-    fee_base: int
     fee_xtra_shares: int
-    fee_exchange: int
-    fill_qty: float
     fill_px: float
+    fill_qty: float
+    fin_tran_id: str = Field(alias="finTranID")
+    fin_tran_type_id: str = Field(alias="finTranTypeID")
+    instrument: Optional[Instrument] = None
+    merger_acquisition: Optional[float] = None
+    order_id: str = Field(alias="orderID")
+    order_no: str
+    position_delta: Optional[float] = None
     send_commission_to_inteliclear: bool
+    symbol: Optional[str]
     system_amount: int
     tran_amount: float
     tran_source: str
     tran_when: datetime
+    updated_reason: Optional[str]
     wlp_amount: int
     wlp_fin_tran_type_id: UUID4 = Field(None, alias="wlpFinTranTypeID")
-    dividend: Optional[float] = None
-    dividend_tax: Optional[float] = None
-    merger_acquisition: Optional[float] = None
-    position_delta: Optional[float] = None
-    order_id: str = Field(alias="orderID")
-    order_no: str
-    instrument: Optional[Instrument] = None
-    symbol: Optional[str]
 
     class Config:
         alias_generator = camelcase

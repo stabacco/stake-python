@@ -21,23 +21,23 @@ def test_credentials_login_serializing():
 
 
 @pytest.mark.asyncio
-async def test_credentials_login():
+async def test_credentials_login(tracing_client):
     request = CredentialsLoginRequest(
         username="unknown@user.com", password="WeirdPassword"
     )
-    with aioresponses() as m:
-        m.post(
-            HttpClient.url(Url.create_session),
-            payload=request.dict(by_alias=True),
-            status=400,
-            body={
-                "error_description": "Invalid username or password",
-                "error": "invalid_grant",
-            },
-        )
-        with pytest.raises(InvalidLoginException):
-            async with StakeClient(request=request) as client:
-                assert client
+    # with aioresponses() as m:
+    #     m.post(
+    #         HttpClient.url(Url.create_session),
+    #         payload=request.dict(by_alias=True),
+    #         status=400,
+    #         body={
+    #             "error_description": "Invalid username or password",
+    #             "error": "invalid_grant",
+    #         },
+    #     )
+    with pytest.raises(InvalidLoginException):
+        async with StakeClient(request=request) as client:
+            assert client
 
     request = SessionTokenLoginRequest(token="invalidtoken002")
     with pytest.raises(InvalidLoginException):

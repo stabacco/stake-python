@@ -1,6 +1,7 @@
 import asyncio
 import copy
 import json
+import os
 import uuid
 from typing import Optional, Union
 
@@ -20,6 +21,8 @@ from . import postman
 load_dotenv()
 
 from yarl import URL
+
+test_name = None
 
 
 async def on_request_start(session, trace_config_ctx, params):
@@ -112,30 +115,41 @@ def fixtures():
 
 @pytest.fixture
 async def tracing_client(request, fixtures):
-    with aioresponses() as m:
-        function_name = f"{request.node.module.__name__}.{request.node.name}"
-        mock_datas = fixtures[function_name]
-        for mock_data in mock_datas:
-            m.add(
-                mock_data["url"].format(url=STAKE_URL),
-                method=mock_data.get("method"),
-                body=mock_data["body"],
-                payload=mock_data["payload"],
+    HttpClient.state = []
+    function_name = f"{request.node.module.__name__}.{request.node.name}"
+    filename = pkg_resources.resource_filename(
+        __name__, f"fixtures/{function_name}.json"
+    )
+    if os.path.exists(filename):
+        fixts = json.load(open(filename))
+        with aioresponses() as m:
+            mock_datas = fixts[function_name]
+            assert mock_datas
+            for mock_data in mock_datas:
+                m.add(
+                    mock_data["url"].format(url=STAKE_URL),
+                    method=mock_data.get("method"),
+                    body=mock_data["body"],
+                    payload=mock_data["payload"],
+                )
+                print(mock_data)
+            # mock_data = fixtures["user"][0]
+            # m.add(
+            #     mock_data["url"].format(url=STAKE_URL),
+            #     method=mock_data.get("method"),
+            #     body=mock_data["body"],
+            #     payload=mock_data["payload"],
+            # )
+            async with StakeClient() as client:
+                yield client
+
+    else:
+        async with StakeClient() as client:
+            yield client
+            json.dump(
+                {function_name: client.httpClient.state},
+                open(f"tests/fixtures/{function_name}.json", "w"),
             )
-        mock_data = fixtures["user"][0]
-        print(
-            "--------------------------------------DDD",
-            mock_data["url"].format(url=STAKE_URL),
-        )
-        m.add(
-            mock_data["url"].format(url=STAKE_URL),
-            method=mock_data.get("method"),
-            body=mock_data["body"],
-            payload=mock_data["payload"],
-        )
-        client = StakeClient()
-        await client.login(client._login_request)
-        yield client
 
 
 @pytest.fixture(scope="session")
