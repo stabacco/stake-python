@@ -1,0 +1,147 @@
+{
+    "tests.test_trade.test_stop_buy": [
+        {
+            "url": "{url}user",
+            "body": null,
+            "payload": {
+                "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+                "username": "zachary04",
+                "emailAddress": "ellen70@bates-williams.com",
+                "dw_id": "6fa19d46-6a94-427d-af84-ea0fc7154f27",
+                "dw_AccountId": "87a0eabf-f068-4ae1-9e95-6a7dc4e14589",
+                "dw_AccountNumber": "f6-4351689F",
+                "macAccountNumber": "L4-2572575L",
+                "status": "KYC_PENDING",
+                "macStatus": "BASIC_USER",
+                "dwStatus": "KYC_APPROVED",
+                "truliooStatus": "APPROVED",
+                "truliooStatusWithWatchlist": null,
+                "firstName": "Adrian",
+                "lastName": "Bartlett",
+                "phoneNumber": "001-901-153-0005x9797",
+                "signUpPhase": 0,
+                "ackSignedWhen": "2020-02-27",
+                "createdDate": 1574303699770,
+                "stakeApprovedDate": null,
+                "accountType": "INDIVIDUAL",
+                "masterAccountId": null,
+                "referralCode": "T1-0871495l",
+                "referredByCode": null,
+                "regionIdentifier": "AUS",
+                "assetSummary": null,
+                "fundingStatistics": null,
+                "tradingStatistics": null,
+                "w8File": [],
+                "emailVerified": true,
+                "hasFunded": true,
+                "hasTraded": true,
+                "rewardJourneyTimestamp": null,
+                "rewardJourneyStatus": null,
+                "userProfile": {
+                    "residentialAddress": null,
+                    "postalAddress": null
+                },
+                "ledgerBalance": 0,
+                "investorAccreditations": null,
+                "canTradeOnUnsettledFunds": true,
+                "mfaenabled": false
+            },
+            "method": "GET"
+        },
+        {
+            "url": "{url}products/searchProduct?symbol=AMD&page=1&max=1",
+            "body": null,
+            "payload": {
+                "products": [
+                    {
+                        "id": "1de9ea66-70d3-4a1f-8735-df5ef7697fb9",
+                        "instrumentTypeID": null,
+                        "symbol": "AMD",
+                        "description": "Advanced Micro Devices, Inc. is a global semiconductor company. The Company is engaged in offering x86 microprocessors, as standalone devices or as incorporated into an accelerated processing unit (APU), chipsets, discrete graphics processing units (GPUs) and professional graphics, and server and embedded processors and semi-custom System-on-Chip (SoC) products and technology for game consoles. The Company's segments include the Computing and Graphics segment, and the Enterprise, Embedded and Semi-Custom segment. The Computing and Graphics segment primarily includes desktop and notebook processors and chipsets, discrete GPUs and professional graphics. The Enterprise, Embedded and Semi-Custom segment primarily includes server and embedded processors, semi-custom SoC products, development services, technology for game consoles and licensing portions of its intellectual property portfolio.",
+                        "category": "Stock",
+                        "currencyID": "USD",
+                        "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/amd.png",
+                        "sector": "Technology",
+                        "parentID": null,
+                        "name": "Advanced Micro Devices, Inc.",
+                        "dailyReturn": -0.22,
+                        "dailyReturnPercentage": -0.27,
+                        "lastTraded": 82.32,
+                        "monthlyReturn": 0.0,
+                        "yearlyReturnPercentage": 168.89,
+                        "yearlyReturnValue": 51.51,
+                        "popularity": 25582.0,
+                        "watched": 7542,
+                        "news": 0,
+                        "bought": 17055,
+                        "viewed": 68647,
+                        "productType": "Instrument",
+                        "tradeStatus": 1,
+                        "encodedName": "advanced-micro-devices-inc-amd",
+                        "period": "YEAR RETURN",
+                        "inceptionDate": "1980-03-17",
+                        "instrumentTags": [],
+                        "childInstruments": []
+                    }
+                ]
+            },
+            "method": "GET"
+        },
+        {
+            "url": "{url}purchaseorders/v2/quickBuy",
+            "body": {
+                "symbol": "AMD",
+                "amountCash": 10.0,
+                "price": 10.0,
+                "comments": null,
+                "itemType": "instrument",
+                "orderType": "stop",
+                "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+                "itemId": "e9bb06e1-0981-4584-8cf4-18ee9296dcbe"
+            },
+            "payload": [
+                {
+                    "id": "1de9ea66-70d3-4a1f-8735-df5ef7697fb9",
+                    "itemId": "e9bb06e1-0981-4584-8cf4-18ee9296dcbe",
+                    "name": "Advanced Micro Devices, Inc.",
+                    "category": "stop",
+                    "quantity": 0,
+                    "lastPx": null,
+                    "lastQty": null,
+                    "leavesQty": null,
+                    "allocatedQty": null,
+                    "amountCash": 0,
+                    "limitPrice": null,
+                    "stopPrice": null,
+                    "effectivePrice": null,
+                    "autoStop": null,
+                    "commission": 0,
+                    "grossTradeAmount": null,
+                    "description": null,
+                    "insertedDate": 1599539294835,
+                    "updatedDate": 1599539294835,
+                    "side": "B",
+                    "status": 0,
+                    "orderRejectReason": null,
+                    "encodedName": "advanced-micro-devices-inc-amd",
+                    "imageURL": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/amd.png",
+                    "symbol": "AMD",
+                    "dwOrderId": "HI.03499e1d-35a4-48d8-af41-08afb1f0504d"
+                }
+            ],
+            "method": "POST"
+        },
+        {
+            "url": "{url}users/accounts/accountTransactions",
+            "body": {
+                "to": "2020-09-08T04:28:17.053980",
+                "limit": 5,
+                "offset": null,
+                "direction": "prev",
+                "from": "2020-09-08T04:18:17.053926"
+            },
+            "payload": [],
+            "method": "POST"
+        }
+    ]
+}

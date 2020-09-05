@@ -1,0 +1,72 @@
+{
+    "tests.test_market_status.test_check_market_status": [
+        {
+            "url": "{url}user",
+            "body": null,
+            "payload": {
+                "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+                "username": "zachary04",
+                "emailAddress": "ellen70@bates-williams.com",
+                "dw_id": "6fa19d46-6a94-427d-af84-ea0fc7154f27",
+                "dw_AccountId": "87a0eabf-f068-4ae1-9e95-6a7dc4e14589",
+                "dw_AccountNumber": "f6-4351689F",
+                "macAccountNumber": "L4-2572575L",
+                "status": "KYC_PENDING",
+                "macStatus": "BASIC_USER",
+                "dwStatus": "KYC_APPROVED",
+                "truliooStatus": "APPROVED",
+                "truliooStatusWithWatchlist": null,
+                "firstName": "Adrian",
+                "lastName": "Bartlett",
+                "phoneNumber": "001-901-153-0005x9797",
+                "signUpPhase": 0,
+                "ackSignedWhen": "2020-02-27",
+                "createdDate": 1574303699770,
+                "stakeApprovedDate": null,
+                "accountType": "INDIVIDUAL",
+                "masterAccountId": null,
+                "referralCode": "T1-0871495l",
+                "referredByCode": null,
+                "regionIdentifier": "AUS",
+                "assetSummary": null,
+                "fundingStatistics": null,
+                "tradingStatistics": null,
+                "w8File": [],
+                "emailVerified": true,
+                "hasFunded": true,
+                "hasTraded": true,
+                "rewardJourneyTimestamp": null,
+                "rewardJourneyStatus": null,
+                "userProfile": {
+                    "residentialAddress": null,
+                    "postalAddress": null
+                },
+                "ledgerBalance": 0,
+                "investorAccreditations": null,
+                "canTradeOnUnsettledFunds": true,
+                "mfaenabled": false
+            },
+            "method": "GET"
+        },
+        {
+            "url": "{url}utils/marketStatus",
+            "body": null,
+            "payload": {
+                "response": {
+                    "message": "Market is open Monday through Friday 9:30AM to 4:00PM EST",
+                    "unixtime": "1599539234.55074",
+                    "error": "Success",
+                    "status": {
+                        "change_at": "08:00:00",
+                        "next": "pre",
+                        "current": "close"
+                    },
+                    "elapsedtime": "0",
+                    "date": "2020-09-08 00:27:14.5507360-04:00",
+                    "versionNumber": "2.56.0"
+                }
+            },
+            "method": "GET"
+        }
+    ]
+}

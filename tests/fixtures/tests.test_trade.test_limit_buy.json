@@ -1,0 +1,147 @@
+{
+    "tests.test_trade.test_limit_buy": [
+        {
+            "url": "{url}user",
+            "body": null,
+            "payload": {
+                "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+                "username": "zachary04",
+                "emailAddress": "ellen70@bates-williams.com",
+                "dw_id": "6fa19d46-6a94-427d-af84-ea0fc7154f27",
+                "dw_AccountId": "87a0eabf-f068-4ae1-9e95-6a7dc4e14589",
+                "dw_AccountNumber": "f6-4351689F",
+                "macAccountNumber": "L4-2572575L",
+                "status": "KYC_PENDING",
+                "macStatus": "BASIC_USER",
+                "dwStatus": "KYC_APPROVED",
+                "truliooStatus": "APPROVED",
+                "truliooStatusWithWatchlist": null,
+                "firstName": "Adrian",
+                "lastName": "Bartlett",
+                "phoneNumber": "001-901-153-0005x9797",
+                "signUpPhase": 0,
+                "ackSignedWhen": "2020-02-27",
+                "createdDate": 1574303699770,
+                "stakeApprovedDate": null,
+                "accountType": "INDIVIDUAL",
+                "masterAccountId": null,
+                "referralCode": "T1-0871495l",
+                "referredByCode": null,
+                "regionIdentifier": "AUS",
+                "assetSummary": null,
+                "fundingStatistics": null,
+                "tradingStatistics": null,
+                "w8File": [],
+                "emailVerified": true,
+                "hasFunded": true,
+                "hasTraded": true,
+                "rewardJourneyTimestamp": null,
+                "rewardJourneyStatus": null,
+                "userProfile": {
+                    "residentialAddress": null,
+                    "postalAddress": null
+                },
+                "ledgerBalance": 0,
+                "investorAccreditations": null,
+                "canTradeOnUnsettledFunds": true,
+                "mfaenabled": false
+            },
+            "method": "GET"
+        },
+        {
+            "url": "{url}products/searchProduct?symbol=AAPL&page=1&max=1",
+            "body": null,
+            "payload": {
+                "products": [
+                    {
+                        "id": "1de9ea66-70d3-4a1f-8735-df5ef7697fb9",
+                        "instrumentTypeID": null,
+                        "symbol": "AAPL",
+                        "description": "Apple Inc. designs, manufactures and markets mobile communication and media devices, personal computers and portable digital music players. The Company sells a range of related software, services, accessories, networking solutions, and third-party digital content and applications. The Company's segments include the Americas, Europe, Greater China, Japan and Rest of Asia Pacific. The Americas segment includes both North and South America. The Europe segment includes European countries, India, the Middle East and Africa. The Greater China segment includes China, Hong Kong and Taiwan. The Rest of Asia Pacific segment includes Australia and the Asian countries not included in the Company's other operating segments. Its products and services include iPhone, iPad, Mac, iPod, Apple Watch, Apple TV, a portfolio of consumer and professional software applications, iPhone OS (iOS), OS X and watchOS operating systems, iCloud, Apple Pay and a range of accessory, service and support offerings.",
+                        "category": "Stock",
+                        "currencyID": "USD",
+                        "urlImage": "https://cdn.stake.com.au/us-equity/AAPL.png",
+                        "sector": "Technology",
+                        "parentID": null,
+                        "name": "Apple, Inc.",
+                        "dailyReturn": 0.86,
+                        "dailyReturnPercentage": 0.71,
+                        "lastTraded": 121.74,
+                        "monthlyReturn": 0.0,
+                        "yearlyReturnPercentage": 128.15,
+                        "yearlyReturnValue": 67.94,
+                        "popularity": 86383.0,
+                        "watched": 16743,
+                        "news": 0,
+                        "bought": 41212,
+                        "viewed": 107080,
+                        "productType": "Instrument",
+                        "tradeStatus": 1,
+                        "encodedName": "apple-inc-aapl",
+                        "period": "YEAR RETURN",
+                        "inceptionDate": "1980-12-12",
+                        "instrumentTags": [],
+                        "childInstruments": []
+                    }
+                ]
+            },
+            "method": "GET"
+        },
+        {
+            "url": "{url}purchaseorders/v2/quickBuy",
+            "body": {
+                "symbol": "AAPL",
+                "limitPrice": 460.0,
+                "quantity": 1000,
+                "comments": null,
+                "itemType": "instrument",
+                "orderType": "limit",
+                "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+                "itemId": "a67422af-8504-43df-9e63-7361eb0bd99e"
+            },
+            "payload": [
+                {
+                    "id": "1de9ea66-70d3-4a1f-8735-df5ef7697fb9",
+                    "itemId": "a67422af-8504-43df-9e63-7361eb0bd99e",
+                    "name": "Apple, Inc.",
+                    "category": "limit",
+                    "quantity": 0,
+                    "lastPx": null,
+                    "lastQty": null,
+                    "leavesQty": null,
+                    "allocatedQty": null,
+                    "amountCash": 0,
+                    "limitPrice": null,
+                    "stopPrice": null,
+                    "effectivePrice": null,
+                    "autoStop": null,
+                    "commission": 0,
+                    "grossTradeAmount": null,
+                    "description": null,
+                    "insertedDate": 1599539299207,
+                    "updatedDate": 1599539299207,
+                    "side": "B",
+                    "status": 0,
+                    "orderRejectReason": null,
+                    "encodedName": "apple-inc-aapl",
+                    "imageURL": "https://cdn.stake.com.au/us-equity/AAPL.png",
+                    "symbol": "AAPL",
+                    "dwOrderId": "HI.c1f0510e-3b4b-4677-9e51-007298e6d944"
+                }
+            ],
+            "method": "POST"
+        },
+        {
+            "url": "{url}users/accounts/accountTransactions",
+            "body": {
+                "to": "2020-09-08T04:28:21.827356",
+                "limit": 5,
+                "offset": null,
+                "direction": "prev",
+                "from": "2020-09-08T04:18:21.827341"
+            },
+            "payload": [],
+            "method": "POST"
+        }
+    ]
+}
