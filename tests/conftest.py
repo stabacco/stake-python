@@ -1,5 +1,4 @@
 import asyncio
-import stake
 import json
 import os
 
@@ -9,6 +8,7 @@ import pytest
 from aioresponses import aioresponses
 from dotenv import load_dotenv
 
+import stake
 from stake.client import HttpClient, StakeClient
 from stake.constant import STAKE_URL
 
@@ -37,21 +37,20 @@ class RecordingHttpClient(HttpClient):
                 "method": "GET",
             }
 
-            RecordingHttpClient.state.append(write_data)
+            RecordingHttpClient.state.append(RecordingHttpClient.redacted(write_data))
 
             return result
 
     @staticmethod
     async def post(url: str, payload: dict, headers: dict = None) -> dict:
         async with aiohttp.ClientSession(
-                headers=headers, raise_for_status=True
+            headers=headers, raise_for_status=True
         ) as session:
             response = await session.post(
                 RecordingHttpClient.url(url), headers=headers, json=payload
             )
-            # response.raise_for_status()
             result = await response.json()
-            ##
+
             write_data = {
                 "url": "{url}" + url,
                 "body": payload,
@@ -59,12 +58,50 @@ class RecordingHttpClient(HttpClient):
                 "method": "POST",
             }
 
-            RecordingHttpClient.state.append(write_data)
-
-            # json.dump(write_data, open(f"cash_available.json", "a"))
-            ##
+            RecordingHttpClient.state.append(RecordingHttpClient.redacted(write_data))
 
             return result
+
+    @staticmethod
+    def redacted(result):
+        from faker import Faker
+
+        fake = Faker()
+        fake.seed_instance(1234)
+
+        payload = result["payload"]
+        if not payload:
+            return result
+
+        obfuscated_fields = {
+            "firstName": fake.first_name(),
+            "lastName": fake.last_name(),
+            "phoneNumber": fake.phone_number(),
+            "ackSignedWhen": "{{$randomDateRecent}}",
+            "referralCode": "{{$randomUserName}}",
+            "userId": "{{$randomUUID}}",
+            "username": "{{$randomUserName}}",
+            "emailAddress": "{{$randomEmail}}",
+            "password": "{{$randomPassword}}",
+            "dw_id": "{{$randomUUID}}",
+            "dw_AccountId": "{{$randomUUID}}",
+            "dw_AccountNumber": "{{$randomBankAccountName}}",
+            "macAccountNumber": "{{$randomBankAccountIban}}",
+            "finTranID": "{{$randomUUID}}",
+            "orderID": "{{$randomUUID}}",
+            "orderNo": "{{$randomProductName}}",
+            "dwAccountId": "{{$randomUUID}}",
+            "tranWhen": "{{$randomDateRecent}}",
+            "referenceNumber": "{{$randomBankAccount}}",
+        }
+
+        for field in payload:
+            if field in obfuscated_fields:
+                payload[field] = obfuscated_fields[field]
+
+        result["payload"] = payload
+        return result
+
 
 @pytest.fixture
 async def tracing_client(request, mocker):
@@ -95,6 +132,7 @@ async def tracing_client(request, mocker):
             json.dump(
                 {function_name: client.httpClient.state},
                 open(f"tests/fixtures/{function_name}.json", "w"),
+                indent=2,
             )
 
 
