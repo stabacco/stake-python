@@ -1,20 +1,19 @@
-
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](<https://github.com/pre-commit/pre-commit>)
 ![Coverage](coverage.svg)
 
-Stake
-======
-**Stake** is an unofficial Python client for the [Stake](https://www.stake.com.au) trading platform.
+# Stake
+
+**Stake** is an unofficial Python client for the [Stake](<https://www.stake.com.au>) trading platform.
 
 This library wraps the current Stake RPC api and allows common trade operations, such as submitting buy/sell requests, checking your portfolio etc...
 
 Please note that, at the current stage, the Stake client is asynchronous.
 
-
 ## Installation
-```$
+
+~~~$
 pip install stake
-```
+~~~
 
 ## Quickstart
 
@@ -28,7 +27,8 @@ You can retrieve one of these `Stake-Session-Token` by using the developer tools
 They are usually valid for 30 days and seem to get refreshed before expiry so you should be good to use them directly.
 
 If you already have an existing token you can pass it on to the `StakeClient` as such:
-```python
+
+~~~python
 
 from stake import StakeClient, SessionTokenLoginRequest, CredentialsLoginRequest
 import asyncio
@@ -40,11 +40,10 @@ async def print_user():
         print(stake_session.headers.stake_session_token)
 
 asyncio.run(print_user())
-```
+~~~
 
 > **_NOTE:_**  The default value of the token is read from the `STAKE_TOKEN` environment variable. If you have that env-var set you should be able to just use:
-`async with StakeClient() as stake_session: ...`
-
+> `async with StakeClient() as stake_session: ...`
 
 ## Login with your credentials
 
@@ -52,7 +51,7 @@ If you prefer to pass in your username/password credentials to login instead, it
 
 ### If you do not have two-factor authentication enabled:
 
-```python
+~~~python
 
 from stake import StakeClient, SessionTokenLoginRequest, CredentialsLoginRequest
 import asyncio
@@ -67,29 +66,28 @@ async def print_user():
         print(stake_session.headers.stake_session_token)
 
 asyncio.run(print_user())
-```
+~~~
 
 ### If you have two-factor authentication enabled:
 
 In this case you need to have your phone around, get the current code from the authenticator app and add it to the `CredentialsLoginRequest` as such:
-```python
+
+~~~python
     login_request = CredentialsLoginRequest(username="youruser@name.com",password="yoursecretpassword",
         otp="Your-authenticator-app-code")
-```
+~~~
 
 Obviously, this can become a bit inconvenient, since you will need to provide the otp code every time you instantiate a new `StakeClient` instance. Therefore, you could probably authenticate once with your credentials, retrieve the session token from the headers(`stake_session.headers.stake_session_token`), and store it in the `STAKE_TOKEN` env-var for subsequent usages.
 
 ## Examples
 
-
 With `stake-python` you can do most of the operations that are available through the web app.
-
 
 Here are some examples:
 
 ### Display the contents of your portfolio
 
-```python
+~~~python
 from stake import StakeClient, SessionTokenLoginRequest, CredentialsLoginRequest
 import asyncio
 
@@ -105,10 +103,11 @@ async def show_portfolio():
         return my_equities
 
 asyncio.run(show_portfolio())
-```
+~~~
 
 Which will return something like:
-```
+
+~~~
 AAPL 80.48
 ADBE 251.35
 GOOG 559.89
@@ -126,14 +125,14 @@ TQQQ 115.82
 TSLA 402.37
 VGT 130.08
 ZM 331.1
-```
+~~~
 
 ### Buy/Sell shares
 
 You can send buy/sell orders to the platform quite easily by just issuing trade requests.
 Please check the `stake.trade` module for more details.
 
-```python
+~~~python
 
 async def example_limit_buy():
     symbol = "UNKN" # should be the equity symbol, for ex: AAPL, TSLA, GOOGL
@@ -143,12 +142,11 @@ async def example_limit_buy():
         )
 
 asyncio.run(example_limit_buy())
-```
+~~~
 
 To perform multiple requests at once you can use an `asyncio.gather` operation to run all the buy trades in parallel.
 
-
-```python
+~~~python
 
 async def example_stop_sell():
     """THis example will add a stop sell request for one of your equities"""
@@ -170,16 +168,18 @@ async def example_stop_sell():
         )
 
 asyncio.run(example_limit_buy())
-```
+~~~
 
 ## Contributors
 
 ### Contributors on GitHub
-* [Contributors](https://github.com/stabacco/stake-python/graphs/contributors)
 
+* [Contributors](<https://github.com/stabacco/stake-python/graphs/contributors>)
 
 ## License
-* see [LICENSE](https://github.com/stabacco/stake-python/blob/master/LICENSE.md) file
+
+* see [LICENSE](<https://github.com/stabacco/stake-python/blob/master/LICENSE.md>) file
 
 ## Contact
-* Created by [Stefano Tabacco](https://github.com/stabacco)
+
+* Created by [Stefano Tabacco](<https://github.com/stabacco>)
