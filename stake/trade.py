@@ -189,9 +189,10 @@ class TradesClient(BaseClient):
         product = await self._client.products.get(request.symbol)
         assert product
         request_dict = request.dict(by_alias=True)
-        request_dict["userId"] = self._client.user.id
-        request_dict["itemId"] = product.id
-        data = await self._client.post(self._client.httpClient.url(url), request_dict)
+        request_dict["orderType"] = request_dict["orderType"].value
+        request_dict["userId"] = str(self._client.user.id)
+        request_dict["itemId"] = str(product.id)
+        data = await self._client.post(url, request_dict)
         trade = TradeResponse(**data[0])
 
         if check_success:
@@ -215,7 +216,7 @@ class TradesClient(BaseClient):
         latest_transactions_request = TransactionRecordRequest(
             from_=datetime.utcnow() - timedelta(minutes=10), limit=5
         )
-        transactions = self._client.transactions.list(latest_transactions_request)
+        transactions = await self._client.transactions.list(latest_transactions_request)
 
         if not transactions:
             raise RuntimeError(
@@ -234,7 +235,7 @@ class TradesClient(BaseClient):
     async def buy(
         self, request: Union[MarketBuyRequest, LimitBuyRequest, StopBuyRequest]
     ) -> TradeResponse:
-        """
+        """Creates an order to buy equities.
 
         Args:
             request: the buy request
@@ -242,9 +243,15 @@ class TradesClient(BaseClient):
         Returns:
             the TradeResponse object
         """
-        url = self._client.httpClient.url(Url.quick_buy)
-        return await self._trade(url, request)
+        return await self._trade(Url.quick_buy, request)
 
     async def sell(self, request: MarketSellRequest) -> TradeResponse:
-        url = self._client.httpClient.url(Url.sell_orders)
-        return await self._trade(url, request)
+        """Creates an order to sell equities.
+
+        Args:
+            request: the sell request
+
+        Returns:
+            the TradeResponse object
+        """
+        return await self._trade(Url.sell_orders, request)

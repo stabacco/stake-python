@@ -56,8 +56,6 @@ class HttpClient:
 
     _session = aiohttp.ClientSession
 
-    state = []  # TODO: deleteme
-
     @staticmethod
     def url(endpoint: str) -> str:
         """Generates a stake-api url.
@@ -68,68 +66,32 @@ class HttpClient:
         Returns:
             str: the full url
         """
-        print("eeeee", endpoint)
         return urljoin(constant.STAKE_URL, endpoint, allow_fragments=True)
 
     @staticmethod
     async def get(url: str, payload: dict = None, headers: dict = None) -> dict:
         async with aiohttp.ClientSession(
-            headers=Headers().dict(by_alias=True), raise_for_status=True
+                headers=headers, raise_for_status=True
         ) as session:
             response = await session.get(
                 HttpClient.url(url), headers=headers, json=payload
             )
-            # response.raise_for_status()
-            result = await response.json()
-            print("UUUUUUUUUUURRRLLL", url)
-            ##
-            write_data = {
-                "url": "{url}" + (url),
-                "body": payload,
-                "payload": result,
-                "method": "GET",
-            }
-
-            import json
-
-            global test_name
-            HttpClient.state.append(write_data)
-
-            # json.dump(write_data, open("cash_available.json", "a"))
-            ##
-            return result
+            return await response.json()
 
     @staticmethod
     async def post(url: str, payload: dict, headers: dict = None) -> dict:
         async with aiohttp.ClientSession(
-            headers=Headers().dict(by_alias=True), raise_for_status=True
+                headers=headers, raise_for_status=True
         ) as session:
             response = await session.post(
                 HttpClient.url(url), headers=headers, json=payload
             )
-            global test_name
-            # response.raise_for_status()
-            result = await response.json()
-            ##
-            write_data = {
-                "url": "{url}" + (url),
-                "body": payload,
-                "payload": result,
-                "method": "POST",
-            }
-            import json
-
-            HttpClient.state.append(write_data)
-
-            # json.dump(write_data, open(f"cash_available.json", "a"))
-            ##
-
-            return result
+            return await response.json()
 
     @staticmethod
     async def delete(url: str, payload: dict = None, headers: dict = None) -> bool:
         async with aiohttp.ClientSession(
-            headers=Headers().dict(by_alias=True), raise_for_status=True
+                headers=headers, raise_for_status=True
         ) as session:
             response = await session.delete(
                 HttpClient.url(url), headers=headers, json=payload
@@ -149,7 +111,8 @@ class StakeClient:
     """The main client to interact with the Stake API."""
 
     def __init__(
-        self, request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
+            self,
+            request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
     ):
         self.user: Optional[user.User] = None
 
@@ -212,7 +175,8 @@ class StakeClient:
         )
 
     async def login(
-        self, login_request: Union[CredentialsLoginRequest, SessionTokenLoginRequest]
+            self,
+            login_request: Union[CredentialsLoginRequest, SessionTokenLoginRequest]
     ) -> user.User:
         """Authenticates to the stake api.
 
@@ -226,16 +190,15 @@ class StakeClient:
         """
         if isinstance(login_request, CredentialsLoginRequest):
             try:
-                data = await self.httpClient.post(
+                data = await self.post(
                     constant.Url.create_session, payload=login_request.dict()
                 )
-                print("DDDDD", data)
+
                 self.headers.stake_session_token = data["sessionKey"]
             except aiohttp.client_exceptions.ClientResponseError as error:
                 raise InvalidLoginException("Invalid Login Credentials") from error
         else:
             self.headers.stake_session_token = login_request.token
-
         try:
             user_data = await self.get(constant.Url.user)
         except aiohttp.client_exceptions.ClientResponseError as error:
@@ -251,7 +214,6 @@ class StakeClient:
     async def __aexit__(self, exc_type, exc, tb):
         # await self.httpClient.close()
         pass
-
 
 # async def StakeClient(
 #     request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None

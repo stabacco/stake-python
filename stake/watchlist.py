@@ -51,8 +51,8 @@ class WatchlistClient(BaseClient):
 
         assert product
         payload = {
-            "instrumentID": product.id,
-            "userID": self._client.user.id,
+            "instrumentID": str(product.id),
+            "userID": str(self._client.user.id),
             "watching": request.watching,
         }
         data = await self._client.post(Url.watchlist_modify, payload=payload)

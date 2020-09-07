@@ -21,7 +21,7 @@ def test_credentials_login_serializing():
 
 
 @pytest.mark.asyncio
-async def test_credentials_login(tracing_client):
+async def test_credentials_login():
     request = CredentialsLoginRequest(
         username="unknown@user.com", password="WeirdPassword"
     )

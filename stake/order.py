@@ -3,7 +3,6 @@ from enum import IntEnum
 from typing import List, Union
 
 from pydantic import BaseModel, Field
-from pydantic.types import UUID4
 
 from stake.common import BaseClient, SideEnum, camelcase
 from stake.constant import Url
@@ -32,7 +31,7 @@ class Order(BaseModel):
     order_status: int
     order_qty: float
     description: str
-    instrument_id: UUID4 = Field(alias="instrumentID")
+    instrument_id: str = Field(alias="instrumentID")
     image_url: str
     instrument_symbol: str
     instrument_name: str
