@@ -14,7 +14,7 @@ async def test_stop_buy(tracing_client):
     # price too low.
     with pytest.raises(RuntimeError):
         await tracing_client.trades.buy(
-            StopBuyRequest(symbol="AAPL", price=10, amountCash=10)
+            StopBuyRequest(symbol="AMD", price=10, amountCash=10)
         )
 
 

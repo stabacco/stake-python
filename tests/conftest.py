@@ -1,6 +1,7 @@
 import asyncio
 import json
 import os
+from copy import deepcopy
 
 import aiohttp
 import pkg_resources
@@ -8,7 +9,6 @@ import pytest
 from aioresponses import aioresponses
 from dotenv import load_dotenv
 
-import stake
 from stake.client import HttpClient, StakeClient
 from stake.constant import STAKE_URL
 
@@ -50,7 +50,6 @@ class RecordingHttpClient(HttpClient):
                 RecordingHttpClient.url(url), headers=headers, json=payload
             )
             result = await response.json()
-
             write_data = {
                 "url": "{url}" + url,
                 "body": payload,
@@ -64,6 +63,8 @@ class RecordingHttpClient(HttpClient):
 
     @staticmethod
     def redacted(result):
+        return result
+        out = deepcopy(result)
         from faker import Faker
 
         fake = Faker()
@@ -77,30 +78,36 @@ class RecordingHttpClient(HttpClient):
             "firstName": fake.first_name(),
             "lastName": fake.last_name(),
             "phoneNumber": fake.phone_number(),
-            "ackSignedWhen": "{{$randomDateRecent}}",
-            "referralCode": "{{$randomUserName}}",
-            "userId": "{{$randomUUID}}",
-            "username": "{{$randomUserName}}",
-            "emailAddress": "{{$randomEmail}}",
-            "password": "{{$randomPassword}}",
-            "dw_id": "{{$randomUUID}}",
-            "dw_AccountId": "{{$randomUUID}}",
-            "dw_AccountNumber": "{{$randomBankAccountName}}",
-            "macAccountNumber": "{{$randomBankAccountIban}}",
-            "finTranID": "{{$randomUUID}}",
-            "orderID": "{{$randomUUID}}",
-            "orderNo": "{{$randomProductName}}",
-            "dwAccountId": "{{$randomUUID}}",
-            "tranWhen": "{{$randomDateRecent}}",
-            "referenceNumber": "{{$randomBankAccount}}",
+            "ackSignedWhen": str(fake.date_this_decade()),
+            "referralCode": fake.pystr_format(),
+            "userId": fake.uuid4(),
+            "username": fake.simple_profile()["username"],
+            "emailAddress": fake.email(),
+            "password": fake.password(),
+            "dw_id": fake.uuid4(),
+            "dw_AccountId": fake.uuid4(),
+            "dw_AccountNumber": fake.pystr_format(),
+            "macAccountNumber": fake.pystr_format(),
+            "finTranID": fake.uuid4(),
+            "orderID": fake.uuid4(),
+            "orderNo": fake.pystr_format(),
+            "dwAccountId": fake.uuid4(),
+            "tranWhen": str(fake.date_this_decade()),
+            "referenceNumber": fake.pystr_format(),
         }
 
-        for field in payload:
-            if field in obfuscated_fields:
-                payload[field] = obfuscated_fields[field]
-
-        result["payload"] = payload
-        return result
+        if isinstance(payload, list):
+            for load in payload:
+                for field in load:
+                    if field in obfuscated_fields:
+                        load[field] = obfuscated_fields[field]
+        else:
+            for field in payload:
+                if field in obfuscated_fields:
+                    payload[field] = obfuscated_fields[field]
+        print("PPPPP", payload)
+        out["payload"] = payload
+        return out
 
 
 @pytest.fixture
@@ -132,7 +139,7 @@ async def tracing_client(request, mocker):
             json.dump(
                 {function_name: client.httpClient.state},
                 open(f"tests/fixtures/{function_name}.json", "w"),
-                indent=2,
+                indent=4,
             )
 
 

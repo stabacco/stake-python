@@ -71,7 +71,7 @@ class HttpClient:
     @staticmethod
     async def get(url: str, payload: dict = None, headers: dict = None) -> dict:
         async with aiohttp.ClientSession(
-                headers=headers, raise_for_status=True
+            headers=headers, raise_for_status=True
         ) as session:
             response = await session.get(
                 HttpClient.url(url), headers=headers, json=payload
@@ -81,7 +81,7 @@ class HttpClient:
     @staticmethod
     async def post(url: str, payload: dict, headers: dict = None) -> dict:
         async with aiohttp.ClientSession(
-                headers=headers, raise_for_status=True
+            headers=headers, raise_for_status=True
         ) as session:
             response = await session.post(
                 HttpClient.url(url), headers=headers, json=payload
@@ -91,7 +91,7 @@ class HttpClient:
     @staticmethod
     async def delete(url: str, payload: dict = None, headers: dict = None) -> bool:
         async with aiohttp.ClientSession(
-                headers=headers, raise_for_status=True
+            headers=headers, raise_for_status=True
         ) as session:
             response = await session.delete(
                 HttpClient.url(url), headers=headers, json=payload
@@ -111,8 +111,7 @@ class StakeClient:
     """The main client to interact with the Stake API."""
 
     def __init__(
-            self,
-            request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
+        self, request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
     ):
         self.user: Optional[user.User] = None
 
@@ -175,8 +174,7 @@ class StakeClient:
         )
 
     async def login(
-            self,
-            login_request: Union[CredentialsLoginRequest, SessionTokenLoginRequest]
+        self, login_request: Union[CredentialsLoginRequest, SessionTokenLoginRequest]
     ) -> user.User:
         """Authenticates to the stake api.
 
@@ -214,6 +212,7 @@ class StakeClient:
     async def __aexit__(self, exc_type, exc, tb):
         # await self.httpClient.close()
         pass
+
 
 # async def StakeClient(
 #     request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
