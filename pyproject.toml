@@ -1,6 +1,9 @@
 [tool.poetry]
 name = "stake"
-version = "0.1.1"
+version = "0.1.2"
+readme = "README.md"
+homepage = "https://github.com/stabacco/stake-python"
+repository = "https://github.com/stabacco/stake-python"
 description = "Unofficial https://stake.com.au API wrapper."
 authors = ["Stefano Tabacco <tabacco.stefano@gmail.com>"]
 license = "Apache-2.0"
