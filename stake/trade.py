@@ -168,7 +168,7 @@ class TradesClient(BaseClient):
             StopSellRequest,
             MarketSellRequest,
         ],
-        check_success: bool = True,
+        check_success: bool = False,
     ) -> TradeResponse:
         """A generic function used to submit a trade, either buy or sell.
 
@@ -196,7 +196,7 @@ class TradesClient(BaseClient):
         trade = TradeResponse(**data[0])
 
         if check_success:
-            await self._verify_successful_trade(trade)
+                await self._verify_successful_trade(trade)
 
         return trade
 
@@ -214,24 +214,24 @@ class TradesClient(BaseClient):
         """
 
         latest_transactions_request = TransactionRecordRequest(
-            from_=datetime.utcnow() - timedelta(minutes=10), limit=5
+            from_=datetime.utcnow() - timedelta(minutes=5), limit=100
         )
         transactions = await self._client.transactions.list(latest_transactions_request)
 
-        if not transactions:
-            raise RuntimeError(
-                "The trade did not succeed (Reason: no transaction found)."
-            )
-
         # wait for the transaction to be available
         for transaction in transactions:
-            if transaction.order_id == trade.dw_order_id and re.search(
+            if transaction.order_id == trade.dw_order_id: 
+                if re.search(
                 failed_transaction_regex, transaction.updated_reason
             ):
-                raise RuntimeError(
-                    f"The trade did not succeed (Reason: {transaction['updatedReason']}"
-                )
+                    raise RuntimeError(
+                        f"The trade did not succeed (Reason: {transaction['updatedReason']}"
+                    )
+                else:
+                    return
+        # if we have not found a transaction, then we can check the orders
 
+    
     async def buy(
         self, request: Union[MarketBuyRequest, LimitBuyRequest, StopBuyRequest]
     ) -> TradeResponse:
