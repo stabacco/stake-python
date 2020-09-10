@@ -1,7 +1,6 @@
 name: CI
 
 on:
-  pull_request:
   push:
     branches: [master]
 
@@ -9,11 +8,7 @@ jobs:
   ci:
     strategy:
       fail-fast: false
-      matrix:
-        python-version: [3.7]
-        poetry-version: [1.0.10]
-        os: [ubuntu-18.04, macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
