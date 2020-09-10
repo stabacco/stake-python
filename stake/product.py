@@ -35,7 +35,7 @@ class Product(BaseModel):
     category: str
     currency_id: Optional[str] = Field(None, alias="currencyID")
     url_image: str
-    sector: str
+    sector: Optional[str] = None
     parent_id: Optional[str] = Field(None, alias="parentID")
     name: str
     daily_return: float
