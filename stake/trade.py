@@ -1,5 +1,5 @@
 import re
-from datetime import datetime, timedelta
+from datetime import datetime
 from enum import Enum
 from typing import Optional, Union
 
@@ -7,7 +7,6 @@ from pydantic import BaseModel, Field, validator
 
 from stake.common import BaseClient, camelcase
 from stake.constant import Url
-from stake.transaction import TransactionRecordRequest
 
 failed_transaction_regex = re.compile(r"^[0-9]{4}")
 
@@ -168,7 +167,7 @@ class TradesClient(BaseClient):
             StopSellRequest,
             MarketSellRequest,
         ],
-        check_success: bool = False,
+        check_success: bool = True,
     ) -> TradeResponse:
         """A generic function used to submit a trade, either buy or sell.
 
@@ -196,7 +195,7 @@ class TradesClient(BaseClient):
         trade = TradeResponse(**data[0])
 
         if check_success:
-                await self._verify_successful_trade(trade)
+            await self._verify_successful_trade(trade)
 
         return trade
 
@@ -213,25 +212,26 @@ class TradesClient(BaseClient):
             RuntimeError if the trade was not successful.
         """
 
-        latest_transactions_request = TransactionRecordRequest(
-            from_=datetime.utcnow() - timedelta(minutes=5), limit=100
-        )
-        transactions = await self._client.transactions.list(latest_transactions_request)
+        transactions = await self._client.get("users/accounts/transactions")
+
+        if not transactions:
+            raise RuntimeError(
+                "The trade did not succeed (Reason: no transaction found)."
+            )
 
         # wait for the transaction to be available
         for transaction in transactions:
-            if transaction.order_id == trade.dw_order_id: 
-                if re.search(
-                failed_transaction_regex, transaction.updated_reason
-            ):
+            if transaction["orderId"] == trade.dw_order_id:
+                if re.search(failed_transaction_regex, transaction["updatedReason"]):
                     raise RuntimeError(
-                        f"The trade did not succeed (Reason: {transaction['updatedReason']}"
+                        "The trade did not succeed "
+                        f"(Reason: {transaction['updatedReason']}"
                     )
                 else:
                     return
-        # if we have not found a transaction, then we can check the orders
 
-    
+        raise RuntimeError("Could not find a matching transaction.")
+
     async def buy(
         self, request: Union[MarketBuyRequest, LimitBuyRequest, StopBuyRequest]
     ) -> TradeResponse:

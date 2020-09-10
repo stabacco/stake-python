@@ -1,6 +1,7 @@
 import pytest
 
-from stake.trade import LimitBuyRequest, StopBuyRequest
+from stake.order import CancelOrderRequest
+from stake.trade import LimitBuyRequest, MarketBuyRequest, StopBuyRequest
 
 
 @pytest.mark.asyncio
@@ -32,3 +33,15 @@ async def test_limit_sell(tracing_client):
         await tracing_client.trades.sell(
             LimitBuyRequest(symbol="AAPL", limitPrice=400, quantity=100)
         )
+
+
+@pytest.mark.skip(reason="This will actually perform a trade")
+async def test_successful_trade(tracing_client):
+    request_to_buy = MarketBuyRequest(
+        symbol="TSLA", amount_cash=20, comment="from cloud"
+    )
+    trade = await tracing_client.trades.buy(request_to_buy)
+    assert trade
+
+    # cancel the order
+    await tracing_client.orders.cancel(CancelOrderRequest(order_id=trade.dw_order_id))
