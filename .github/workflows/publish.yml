@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
       - uses: actions/setup-python@v2
         with:
           python-version: 3.7
@@ -19,4 +22,4 @@ jobs:
         with:
           poetry-version: 1.0.10
       - name: Publish python package
-        run: poetry build && poetry publish -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }}
+        run: poetry version ${{ steps.vars.outputs.tag }} && poetry build && poetry publish -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }}
