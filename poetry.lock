@@ -623,7 +623,7 @@ description = "Small utility to define version string for Poetry-style Python pr
 name = "single-version"
 optional = false
 python-versions = ">=3.6,<4.0"
-version = "1.2.2"
+version = "1.3.0"
 
 [package.dependencies]
 first = ">=2.0,<3.0"
@@ -746,6 +746,7 @@ testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
 content-hash = "55c8d069cdde4c6914431ca2cb0f842bbdf6f9b08d393a697e4d04f8428b66ff"
+lock-version = "1.0"
 python-versions = "^3.6.1"
 
 [metadata.files]
@@ -1100,8 +1101,8 @@ regex = [
     {file = "ruamel.yaml.clib-0.2.2.tar.gz", hash = "sha256:2d24bd98af676f4990c4d715bcdc2a60b19c56a3fb3a763164d2d8ca0e806ba7"},
 ]
 single-version = [
-    {file = "single-version-1.2.2.tar.gz", hash = "sha256:d8e98c3a363af7f4843d62693eef22bcfda923414cfca1ee1c6b8d55c840d3c2"},
-    {file = "single_version-1.2.2-py3-none-any.whl", hash = "sha256:c944f0779dd214c2abebf36b107c6ebb747ce6b4c7457055953b413feef137fe"},
+    {file = "single-version-1.3.0.tar.gz", hash = "sha256:cbcd08a3348a45cd98501fb5dc3af8c96306514f05492e47f11d8d3ebe828c1f"},
+    {file = "single_version-1.3.0-py3-none-any.whl", hash = "sha256:f87e1ac5cecfbce17c315e7dfd73833958b08c2a44c7e76072890fc525208931"},
 ]
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
