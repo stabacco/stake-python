@@ -66,6 +66,19 @@ class CashAvailable(BaseModel):
         alias_generator = camelcase
 
 
+class FundsInFlight(BaseModel):
+    type: str
+    insert_date_time: str
+    estimated_arrival_time: str
+    estimated_arrival_time_us: str = Field(alias="estimatedArrivalTimeUS")
+    transaction_type: str
+    to_amount: float
+    from_amount: float
+
+    class Config:
+        alias_generator = camelcase
+
+
 class FundingsClient(BaseClient):
     async def list(self, request: FundingRequest) -> List[Funding]:
         payload = {
@@ -76,9 +89,13 @@ class FundingsClient(BaseClient):
 
         return [Funding(**d) for d in data]
 
-    async def in_flight(self) -> dict:
+    async def in_flight(self) -> List[FundsInFlight]:
         """Returns the funds currently in flight."""
-        return await self._client.get(Url.fund_details)["fundsInFlight"]
+        data = await self._client.get(Url.fund_details)
+        data = data.get("fundsInFlight")
+        if not data:
+            return []
+        return [FundsInFlight(**d) for d in data]
 
     async def cash_available(self) -> CashAvailable:
         data = await self._client.get(Url.cash_available)

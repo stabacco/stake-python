@@ -176,7 +176,7 @@ async def tracing_client(request, mocker):
     else:
         async with StakeClient() as client:
             yield client
-            state = deepcopy(client.httpClient.state)
+            state = deepcopy(client.http_client.state)
             RecordingHttpClient.user_id = str(client.user.id)
             state = RecordingHttpClient.redacted(state)
             json.dump(

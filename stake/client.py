@@ -112,7 +112,7 @@ class StakeClient:
         self.user: Optional[user.User] = None
 
         self.headers = Headers()
-        self.httpClient = HttpClient
+        self.http_client = HttpClient
 
         # register all the clients
         self.equities = equity.EquitiesClient(self)
@@ -137,7 +137,7 @@ class StakeClient:
         Returns:
             dict: the json response
         """
-        return await self.httpClient.get(
+        return await self.http_client.get(
             url, payload=payload, headers=self.headers.dict(by_alias=True)
         )
 
@@ -151,7 +151,7 @@ class StakeClient:
         Returns:
             dict: the json response
         """
-        return await self.httpClient.post(
+        return await self.http_client.post(
             url, payload=payload, headers=self.headers.dict(by_alias=True)
         )
 
@@ -165,7 +165,7 @@ class StakeClient:
         Returns:
             bool: True if the deletion was successful.
         """
-        return await self.httpClient.delete(
+        return await self.http_client.delete(
             url, headers=self.headers.dict(by_alias=True), payload=payload
         )
 
