@@ -13,4 +13,4 @@ from .trade import *
 from .transaction import *
 from .watchlist import *
 
-__version__ = get_version("awesome_name", Path(__file__).parent.parent)
+__version__ = get_version("stake", Path(__file__).parent.parent)

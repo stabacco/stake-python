@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "stake"
-version = "0.1.4"
+version = "0.2.0"
 readme = "README.md"
 homepage = "https://github.com/stabacco/stake-python"
 repository = "https://github.com/stabacco/stake-python"
@@ -18,8 +18,6 @@ aiohttp = "^3.6.2"
 single-version = "^1.2.2"
 
 [tool.poetry.dev-dependencies]
-pylint = "^2.5.3"
-gitautopush = "^0.4.1"
 pytest = "^5.4.3"
 pytest-asyncio = "^0.14.0"
 pre-commit-hooks = "^3.1.0"
