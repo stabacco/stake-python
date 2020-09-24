@@ -33,8 +33,8 @@ class EquityPosition(BaseModel):
     unrealized_day_pl_percent: float = Field(alias="unrealizedDayPLPercent")
     unrealized_pl: float = Field(alias="unrealizedPL")
     url_image: str
-    yearly_return_percentage: float
-    yearly_return_value: float
+    yearly_return_percentage: Optional[float] = None
+    yearly_return_value: Optional[float] = None
     ask_price: Optional[float] = None
     bid_price: Optional[float] = None
     return_on_stock: Optional[float] = None
