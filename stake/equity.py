@@ -15,7 +15,7 @@ class EquityCategory(str, Enum):
 class EquityPosition(BaseModel):
     available_for_trading_qty: float
     average_price: float = Field(alias="avgPrice")
-    category: EquityCategory
+    category: Optional[EquityCategory] = None
     cost_basis: float
     daily_return_value: float
     encoded_name: str
