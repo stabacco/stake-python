@@ -28,3 +28,4 @@ jobs:
         with:
           commit_message: Auto-commit updated pyproject.toml
           file_pattern: pyproject.toml
+          branch: master # Make sure all releases happen from the master branch.
