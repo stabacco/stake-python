@@ -29,11 +29,11 @@ jobs:
         run: poetry install && poetry run pytest --cov=stake && poetry run coverage-badge -f -o coverage.svg
       - name: Upload coverage
         uses: actions/upload-artifact@v2
+        if: ${{ matrix.os == 'ubuntu-18.04' }}
         with:
           name: coverage
-          path: .coverage
+          path: .coverage.svg
       - name: Auto commit coverage badge
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Auto-commit updated coverage badge
-          file_pattern: coverage.svg
+      - uses: EndBug/add-and-commit@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
