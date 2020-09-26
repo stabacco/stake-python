@@ -23,3 +23,5 @@ jobs:
           poetry-version: 1.0.10
       - name: Publish python package
         run: poetry version ${{ steps.vars.outputs.tag }} && poetry build && poetry publish -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }}
+      - name: Commit pyproject.toml
+        run: git add pyproject.toml && git commit -m "Updated after release" && git push
