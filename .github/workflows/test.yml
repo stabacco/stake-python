@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.7, 3.8]
+        python-version: [3.6, 3.7, 3.8]
         poetry-version: [1.0.10]
         os: [ubuntu-18.04, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
@@ -26,4 +26,14 @@ jobs:
       - name: Run Tests
         env: # Or as an environment variable
           STAKE_TOKEN: ${{ secrets.STAKE_TOKEN }}
-        run: poetry install && poetry run pytest --cov=stake
+        run: poetry install && poetry run pytest --cov=stake && poetry run coverage-badge -f -o coverage.svg
+      - name: Upload coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: .coverage
+      - name: Auto commit coverage badge
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Auto-commit updated coverage badge
+          file_pattern: coverage.svg
