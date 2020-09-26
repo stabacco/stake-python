@@ -34,6 +34,6 @@ jobs:
           name: coverage
           path: coverage.svg
       - name: Auto commit coverage badge
-        uses: EndBug/add-and-commit@v5
+        uses: EndBug/add-and-commit@v4.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
