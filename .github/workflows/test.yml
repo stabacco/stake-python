@@ -32,8 +32,8 @@ jobs:
         if: ${{ matrix.os == 'ubuntu-18.04' }}
         with:
           name: coverage
-          path: .coverage.svg
+          path: coverage.svg
       - name: Auto commit coverage badge
-      - uses: EndBug/add-and-commit@v5
+        uses: EndBug/add-and-commit@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
