@@ -23,7 +23,8 @@ jobs:
           poetry-version: 1.0.10
       - name: Publish python package
         run: poetry version ${{ steps.vars.outputs.tag }} && poetry build # && poetry publish -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }}
-      - name: Commit pyproject.toml
-        run: git add pyproject.toml && git commit -m "Updated after release" && git push
+      - name: Auto commit pyproject.toml
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: Auto-commit updated pyproject.toml
+          file_pattern: pyproject.toml
