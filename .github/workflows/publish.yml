@@ -23,3 +23,8 @@ jobs:
           poetry-version: 1.0.10
       - name: Publish python package
         run: poetry version ${{ steps.vars.outputs.tag }} && poetry build  && poetry publish -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }}
+      - name: Auto commit pyproject.toml
+        uses: EndBug/add-and-commit@v4.4.0
+        add: pyproject.toml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
