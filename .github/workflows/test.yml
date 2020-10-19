@@ -39,6 +39,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
+        if: ${{ matrix.os == 'ubuntu-18.04' }}
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           coverage-reports: coverage.xml
