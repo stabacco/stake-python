@@ -26,14 +26,21 @@ jobs:
       - name: Run Tests
         env: # Or as an environment variable
           STAKE_TOKEN: ${{ secrets.STAKE_TOKEN }}
-        run: poetry install && poetry run pytest --cov=stake && poetry run coverage-badge -f -o coverage.svg
+        run: poetry install && poetry run pytest --cov=stake --cov-report=xml && poetry run coverage-badge -f -o coverage.svg
       - name: Upload coverage
         uses: actions/upload-artifact@v2
-        if: ${{ matrix.os == 'ubuntu-18.04' }}
+        if: ${{ matrix.os == 'ubuntu-18.04' && matrix.python-version == 3.7 }}
         with:
           name: coverage
           path: coverage.svg
       - name: Auto commit coverage badge
+        if: ${{ matrix.os == 'ubuntu-18.04' && matrix.python-version == 3.7 }}
         uses: EndBug/add-and-commit@v4.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@master
+        if: ${{ matrix.os == 'ubuntu-18.04' && matrix.python-version == 3.7 }}
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: coverage.xml
