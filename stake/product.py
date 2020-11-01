@@ -42,8 +42,8 @@ class Product(BaseModel):
     daily_return_percentage: float
     last_traded: float
     monthly_return: int
-    yearly_return_percentage: float
-    yearly_return_value: float
+    yearly_return_percentage: Optional[float] = None
+    yearly_return_value: Optional[float] = None
     popularity: int
     watched: int
     news: int
