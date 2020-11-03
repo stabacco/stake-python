@@ -33,7 +33,7 @@ If you already have an existing token you can pass it on to the `StakeClient` as
 from stake import StakeClient, SessionTokenLoginRequest, CredentialsLoginRequest
 import asyncio
 
-login_request = SessionTokenLoginRequest(token="secrettoken")
+login_request = SessionTokenLoginRequest()
 async def print_user():
     async with StakeClient(login_request) as stake_session:
         print(stake_session.user.first_name)
