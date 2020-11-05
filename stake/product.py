@@ -32,7 +32,7 @@ class Product(BaseModel):
     instrument_type_id: Optional[str] = Field(None, alias="instrumentTypeID")
     symbol: str
     description: str
-    category: Optional[float] = None
+    category: Optional[str] = None
     currency_id: Optional[str] = Field(None, alias="currencyID")
     url_image: str
     sector: Optional[str] = None

@@ -27,7 +27,7 @@ description = "Mock out requests made by ClientSession from aiohttp package"
 name = "aioresponses"
 optional = false
 python-versions = "*"
-version = "0.6.4"
+version = "0.7.1"
 
 [package.dependencies]
 aiohttp = ">=2.0.0,<4.0.0"
@@ -656,7 +656,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["pytest (>=3.5,<3.7.3 || >3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "jaraco.test (>=3.2.0)", "jaraco.itertools", "func-timeout", "pytest-black (>=0.3.7)", "pytest-mypy"]
 
 [metadata]
-content-hash = "ec9d83ef5dde71273be9c816cd04bbd2168f04d71fdb8521505e6535647f5e2e"
+content-hash = "64d5dd141696d9eef94c608f8fc592964b81ae0302f4acadd7076c327333a4a1"
 python-versions = "^3.6.1"
 
 [metadata.files]
@@ -696,8 +696,8 @@ aiohttp = [
     {file = "aiohttp-3.7.2.tar.gz", hash = "sha256:c6da1af59841e6d43255d386a2c4bfb59c0a3b262bdb24325cc969d211be6070"},
 ]
 aioresponses = [
-    {file = "aioresponses-0.6.4-py2.py3-none-any.whl", hash = "sha256:8e8b430aeddbacd25f4d94bfe11a46bc88a47be689df12c423e62cb86652ba3b"},
-    {file = "aioresponses-0.6.4.tar.gz", hash = "sha256:4397ca736238a1ada8c7f47e557dda05e9ecfdd467b9f6b83871efd365af7e9f"},
+    {file = "aioresponses-0.7.1-py2.py3-none-any.whl", hash = "sha256:88eeb32256ef0af57450647277d3118ce8005682f06f27b23c5e2f8fcc0384b9"},
+    {file = "aioresponses-0.7.1.tar.gz", hash = "sha256:f65bba2be1e9a4997ee166bc0161a50be0fef7350ad09e6afdb2adccf74dfefe"},
 ]
 appdirs = [
     {file = "appdirs-1.4.4-py2.py3-none-any.whl", hash = "sha256:a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128"},
