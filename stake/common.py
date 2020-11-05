@@ -8,6 +8,7 @@ camelcase = partial(inflection.camelize, uppercase_first_letter=False)
 
 __all__ = ["SideEnum"]
 
+
 class SideEnum(str, Enum):
     BUY = "B"
     SELL = "S"
