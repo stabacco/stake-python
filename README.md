@@ -22,9 +22,9 @@ In order to successfully issue requests to the Stake platform you will need to a
 
 ## Using an existing Session-Token
 
-You can retrieve one of these `Stake-Session-Token` by using the developer tools in your browser for example and inspecting some of the request headers sent to some of the `https://global-prd-api.hellostake.com/` host.
+You can retrieve one of these `Stake-Session-Token` by using the developer tools in your browser (Network tab) and inspecting some of the request headers sent to some of the `https://global-prd-api.hellostake.com/` host. (For example, click on the wishlist of dashboard links to see some session-token authenticated requests)
 
-They are usually valid for 30 days and seem to get refreshed before expiry so you should be good to use them directly.
+They are usually valid for 30 days (be sure to enable that checkbox on login) and seem to get refreshed before expiry so you should be good to use them directly.
 
 If you already have an existing token you can pass it on to the `StakeClient` as such:
 
@@ -46,6 +46,8 @@ asyncio.run(print_user())
 > `async with StakeClient() as stake_session: ...`
 
 ## Login with your credentials
+
+> **_NOTE:_**  On November 2020 the Stake website introduced a *reCAPTCHA* protection on their api, therefore logging in through credentials is currently not working. Please log in using the *Session-Token* as described in previous section.
 
 If you prefer to pass in your username/password credentials to login instead, it's easy to do:
 
@@ -88,18 +90,16 @@ Here are some examples:
 ### Display the contents of your portfolio
 
 ~~~python
-from stake import StakeClient, SessionTokenLoginRequest, CredentialsLoginRequest
+import stake
 import asyncio
 
 
 async def show_portfolio():
     # here the client will use the STAKE_TOKEN env var for authenticating
-    async with StakeClient() as stake_session:
+    async with stake.StakeClient() as stake_session:
         my_equities = await stake_session.equities.list()
-
         for my_equity in my_equities.equity_positions:
             print(my_equity.symbol, my_equity.yearly_return_value)
-
         return my_equities
 
 asyncio.run(show_portfolio())
@@ -134,11 +134,14 @@ Please check the `stake.trade` module for more details.
 
 ~~~python
 
+import asyncio
+import stake
+
 async def example_limit_buy():
     symbol = "UNKN" # should be the equity symbol, for ex: AAPL, TSLA, GOOGL
-    async with StakeClient() as stake_session:
-        return trades.buy(
-            LimitBuyRequest(symbol=symbol, limitPrice=10, quantity=1000)
+    async with stake.StakeClient() as stake_session:
+        return await stake_session.trades.buy(
+            stake.LimitBuyRequest(symbol=symbol, limitPrice=10, quantity=1000)
         )
 
 asyncio.run(example_limit_buy())
@@ -148,26 +151,23 @@ To perform multiple requests at once you can use an `asyncio.gather` operation t
 
 ~~~python
 
+import asyncio
+import stake
+
 async def example_stop_sell():
     """THis example will add a stop sell request for one of your equities"""
-    my_equities = await show_portfolio()
-
-    symbol = "T.SLA" # mispelt on purpose so that no trade actually happens, should be TSLA.
-    tsla_equity = [equity for equity in my_equities.equity_positions if equity.symbol == symbol]
-
-
-    stop_sell_request = stake.StopSellRequest(symbol=tsla_equity.symbol,
+    async with stake.StakeClient() as stake_session:
+        my_equities = await stake_session.equities.list()
+        symbol = "TSLA" # mispelt on purpose so that no trade actually happens, should be TSLA.
+        tsla_equity = [equity for equity in my_equities.equity_positions if equity.symbol == symbol][0]
+        stop_price = round(tsla_equity.market_price - 0.025 * tsla_equity.market_price)
+        stop_sell_request = stake.StopSellRequest(symbol=tsla_equity.symbol,
                                                   stopPrice=stop_price,
                                                   comment="My stop sell.",
-                                                  quantity=current_equity.available_for_trading_qty)
-        result = await stake_client.trades.sell(request=stop_sell_request)
-    symbol = "UNKN" # should be the equity symbol, for ex: AAPL, TSLA, GOOGL
-    async with StakeClient() as stake_session:
-        return trades.buy(
-            LimitBuyRequest(symbol=symbol, limitPrice=10, quantity=1000)
-        )
+                                                  quantity=tsla_equity.available_for_trading_qty)
+        return await stake_session.trades.sell(request=stop_sell_request)
 
-asyncio.run(example_limit_buy())
+asyncio.run(example_stop_sell())
 ~~~
 
 ## Contributors
