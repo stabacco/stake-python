@@ -3,7 +3,7 @@ from enum import Enum
 from typing import List, Optional
 
 from pydantic import BaseModel, Field
-from pydantic.types import UUID4
+from pydantic.types import UUID, UUID4
 
 from stake.common import BaseClient, camelcase
 from stake.constant import Url
@@ -21,7 +21,7 @@ class TransactionRecordRequest(BaseModel):
     from_: datetime = Field(
         default_factory=lambda *_: datetime.utcnow() - timedelta(days=365)
     )
-    limit: int = 100
+    limit: int = 1000
     offset: Optional[int]
     direction: TransactionRecordEnumDirection = TransactionRecordEnumDirection.prev
 
@@ -37,8 +37,8 @@ class Transaction(BaseModel):
     account_balance: float
     account_type: str
     comment: str
-    dividend_tax: Optional[float] = None
-    dividend: Optional[float] = None
+    dividend_tax: Optional[dict] = None
+    dividend: Optional[dict] = None
     dnb: bool
     fee_base: int
     fee_exchange: int
@@ -51,8 +51,8 @@ class Transaction(BaseModel):
     fin_tran_type_id: str = Field(alias="finTranTypeID")
     instrument: Optional[Instrument] = None
     merger_acquisition: Optional[float] = None
-    order_id: str = Field(alias="orderID")
-    order_no: str
+    order_id: Optional[str] = Field(None, alias="orderID")
+    order_no: Optional[str] = None
     position_delta: Optional[float] = None
     send_commission_to_inteliclear: bool
     symbol: Optional[str]
@@ -62,7 +62,7 @@ class Transaction(BaseModel):
     tran_when: datetime
     updated_reason: Optional[str]
     wlp_amount: int
-    wlp_fin_tran_type_id: UUID4 = Field(None, alias="wlpFinTranTypeID")
+    wlp_fin_tran_type_id: UUID = Field(None, alias="wlpFinTranTypeID")
 
     class Config:
         alias_generator = camelcase
