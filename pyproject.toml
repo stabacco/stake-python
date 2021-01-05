@@ -24,7 +24,7 @@ pre-commit-hooks = "^3.1.0"
 pre-commit = "^2.5.1"
 pytest-coverage = "^0.0"
 black = {version = "^19.10b0", allow-prereleases = true}
-pytest-mock = "^3.3.0"
+pytest-mock = "^3.5.0"
 aioresponses = "0.7.1"
 faker = "^4.14.0"
 coverage-badge = "^1.0.1"
