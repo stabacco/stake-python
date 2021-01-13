@@ -26,7 +26,7 @@ pytest-coverage = "^0.0"
 black = {version = "^19.10b0", allow-prereleases = true}
 pytest-mock = "^3.3.0"
 aioresponses = "0.7.1"
-faker = "^4.14.0"
+faker = "^5.5.1"
 coverage-badge = "^1.0.1"
 
 [tool.isort]
