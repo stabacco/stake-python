@@ -54,8 +54,6 @@ class Headers(BaseModel):
 class HttpClient:
     """Handles http calls to the Stake API."""
 
-    _session = aiohttp.ClientSession
-
     @staticmethod
     def url(endpoint: str) -> str:
         """Generates a stake api url.
