@@ -50,7 +50,7 @@ class Product(BaseModel):
     bought: int
     viewed: int
     product_type: str
-    trade_status: int
+    trade_status: Optional[int]
     encoded_name: str
     period: str
     inception_date: Optional[str]
