@@ -49,7 +49,7 @@
             "method": "GET"
         },
         {
-            "url": "{url}users/accounts/equityPositions",
+            "url": "{url}users/accounts/v2/equityPositions",
             "body": null,
             "payload": {
                 "equityPositions": [
