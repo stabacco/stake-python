@@ -11,7 +11,7 @@ keywords = ["stake","trading","stocks","financial","python"]
 
 [tool.poetry.dependencies]
 python = "^3.6.1"
-python-dotenv = "^0.13.0"
+python-dotenv = ">=0.13,<0.18"
 pydantic = "^1.5.1"
 inflection = "^0.5.0"
 aiohttp = "3.7.4"
