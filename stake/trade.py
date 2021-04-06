@@ -185,9 +185,10 @@ class TradesClient(BaseClient):
         Raises:
             RuntimeError
         """
-        product = await self._client.products.get(request.symbol)
-        assert product
         request_dict = request.dict(by_alias=True)
+        product = await self._client.products.get(request_dict.pop("symbol"))
+        assert product
+
         request_dict["orderType"] = request_dict["orderType"].value
         request_dict["userId"] = str(self._client.user.id)
         request_dict["itemId"] = str(product.id)
@@ -220,7 +221,7 @@ class TradesClient(BaseClient):
             )
 
         # wait for the transaction to be available
-        for transaction in transactions:
+        for transaction in transactions["transactions"]:
             if transaction["orderId"] == trade.dw_order_id:
                 if re.search(failed_transaction_regex, transaction["updatedReason"]):
                     raise RuntimeError(

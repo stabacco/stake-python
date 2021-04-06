@@ -154,11 +154,10 @@ To perform multiple requests at once you can use an `asyncio.gather` operation t
 import asyncio
 import stake
 
-async def example_stop_sell():
+async def example_stop_sell(symbol='TSLA'):
     """THis example will add a stop sell request for one of your equities"""
     async with stake.StakeClient() as stake_session:
         my_equities = await stake_session.equities.list()
-        symbol = "TSLA" # mispelt on purpose so that no trade actually happens, should be TSLA.
         tsla_equity = [equity for equity in my_equities.equity_positions if equity.symbol == symbol][0]
         stop_price = round(tsla_equity.market_price - 0.025 * tsla_equity.market_price)
         stop_sell_request = stake.StopSellRequest(symbol=tsla_equity.symbol,
@@ -167,7 +166,7 @@ async def example_stop_sell():
                                                   quantity=tsla_equity.available_for_trading_qty)
         return await stake_session.trades.sell(request=stop_sell_request)
 
-asyncio.run(example_stop_sell())
+asyncio.run(example_stop_sell('MSFT'))
 ~~~
 
 ## Contributors
