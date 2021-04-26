@@ -7,16 +7,21 @@ optional = false
 python-versions = ">=3.6"
 
 [package.dependencies]
-async-timeout = ">=3.0,<4.0"
+async_timeout = ">=3.0,<4.0"
 attrs = ">=17.3.0"
 chardet = ">=2.0,<4.0"
 idna-ssl = {version = ">=1.0", markers = "python_version < \"3.7\""}
 multidict = ">=4.5,<7.0"
-typing-extensions = ">=3.6.5"
+typing_extensions = ">=3.6.5"
 yarl = ">=1.0,<2.0"
 
 [package.extras]
 speedups = ["aiodns", "brotlipy", "cchardet"]
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "aioresponses"
@@ -29,6 +34,11 @@ python-versions = "*"
 [package.dependencies]
 aiohttp = ">=2.0.0,<4.0.0"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "appdirs"
 version = "1.4.4"
@@ -36,6 +46,11 @@ description = "A small Python module for determining appropriate platform-specif
 category = "dev"
 optional = false
 python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "async-timeout"
@@ -45,6 +60,11 @@ category = "main"
 optional = false
 python-versions = ">=3.5.3"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "atomicwrites"
 version = "1.4.0"
@@ -52,6 +72,11 @@ description = "Atomic file writes."
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "attrs"
@@ -66,6 +91,11 @@ dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", 
 docs = ["furo", "sphinx", "zope.interface"]
 tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface"]
 tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "black"
@@ -87,6 +117,11 @@ typed-ast = ">=1.4.0"
 [package.extras]
 d = ["aiohttp (>=3.3.2)", "aiohttp-cors"]
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "cfgv"
 version = "3.2.0"
@@ -94,6 +129,11 @@ description = "Validate configuration and produce human readable error messages.
 category = "dev"
 optional = false
 python-versions = ">=3.6.1"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "chardet"
@@ -103,6 +143,11 @@ category = "main"
 optional = false
 python-versions = "*"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "click"
 version = "7.1.2"
@@ -111,6 +156,11 @@ category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "colorama"
 version = "0.4.4"
@@ -118,6 +168,11 @@ description = "Cross-platform colored terminal text."
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "coverage"
@@ -130,6 +185,11 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
 [package.extras]
 toml = ["toml"]
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "coverage-badge"
 version = "1.0.1"
@@ -137,6 +197,11 @@ description = "Generate coverage badges for Coverage.py."
 category = "dev"
 optional = false
 python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "dataclasses"
@@ -146,6 +211,11 @@ category = "main"
 optional = false
 python-versions = ">=3.6, <3.7"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "distlib"
 version = "0.3.1"
@@ -153,6 +223,11 @@ description = "Distribution utilities"
 category = "dev"
 optional = false
 python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "faker"
@@ -166,6 +241,11 @@ python-versions = ">=3.5"
 python-dateutil = ">=2.4"
 text-unidecode = "1.3"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "filelock"
 version = "3.0.12"
@@ -173,6 +253,11 @@ description = "A platform independent file lock."
 category = "dev"
 optional = false
 python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "identify"
@@ -185,6 +270,11 @@ python-versions = ">=3.6.1"
 [package.extras]
 license = ["editdistance-s"]
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "idna"
 version = "3.1"
@@ -192,6 +282,11 @@ description = "Internationalized Domain Names in Applications (IDNA)"
 category = "main"
 optional = false
 python-versions = ">=3.4"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "idna-ssl"
@@ -203,6 +298,11 @@ python-versions = "*"
 
 [package.dependencies]
 idna = ">=2.0"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "importlib-metadata"
@@ -219,6 +319,11 @@ zipp = ">=0.5"
 docs = ["sphinx", "rst.linker"]
 testing = ["packaging", "pep517", "unittest2", "importlib-resources (>=1.3)"]
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "importlib-resources"
 version = "5.1.2"
@@ -234,6 +339,11 @@ zipp = {version = ">=0.4", markers = "python_version < \"3.8\""}
 docs = ["sphinx", "jaraco.packaging (>=8.2)", "rst.linker (>=1.9)"]
 testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "pytest-enabler", "pytest-black (>=0.3.7)", "pytest-mypy"]
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "inflection"
 version = "0.5.1"
@@ -241,6 +351,11 @@ description = "A port of Ruby on Rails inflector to Python"
 category = "main"
 optional = false
 python-versions = ">=3.5"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "iniconfig"
@@ -250,6 +365,11 @@ category = "dev"
 optional = false
 python-versions = "*"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "multidict"
 version = "5.1.0"
@@ -258,6 +378,11 @@ category = "main"
 optional = false
 python-versions = ">=3.6"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "nodeenv"
 version = "1.5.0"
@@ -265,6 +390,11 @@ description = "Node.js virtual environment builder"
 category = "dev"
 optional = false
 python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "packaging"
@@ -277,6 +407,11 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 [package.dependencies]
 pyparsing = ">=2.0.2"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "pathspec"
 version = "0.8.1"
@@ -284,6 +419,11 @@ description = "Utility library for gitignore style pattern matching of file path
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "pluggy"
@@ -298,6 +438,11 @@ importlib-metadata = {version = ">=0.12", markers = "python_version < \"3.8\""}
 
 [package.extras]
 dev = ["pre-commit", "tox"]
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "pre-commit"
@@ -317,6 +462,11 @@ pyyaml = ">=5.1"
 toml = "*"
 virtualenv = ">=20.0.8"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "pre-commit-hooks"
 version = "3.4.0"
@@ -329,6 +479,11 @@ python-versions = ">=3.6.1"
 "ruamel.yaml" = ">=0.15"
 toml = "*"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "py"
 version = "1.10.0"
@@ -336,6 +491,11 @@ description = "library with cross-python path, ini-parsing, io, code, log facili
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "pydantic"
@@ -353,6 +513,11 @@ typing-extensions = ">=3.7.4.3"
 dotenv = ["python-dotenv (>=0.10.4)"]
 email = ["email-validator (>=1.0.3)"]
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "pyparsing"
 version = "2.4.7"
@@ -360,6 +525,11 @@ description = "Python parsing module"
 category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "pytest"
@@ -383,6 +553,11 @@ toml = "*"
 [package.extras]
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "pytest-asyncio"
 version = "0.14.0"
@@ -396,6 +571,11 @@ pytest = ">=5.4.0"
 
 [package.extras]
 testing = ["async-generator (>=1.3)", "coverage", "hypothesis (>=5.7.1)"]
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "pytest-cov"
@@ -412,6 +592,11 @@ pytest = ">=4.6"
 [package.extras]
 testing = ["fields", "hunter", "process-tests (==2.0.2)", "six", "pytest-xdist", "virtualenv"]
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "pytest-cover"
 version = "3.0.0"
@@ -422,6 +607,11 @@ python-versions = "*"
 
 [package.dependencies]
 pytest-cov = ">=2.0"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "pytest-coverage"
@@ -434,19 +624,29 @@ python-versions = "*"
 [package.dependencies]
 pytest-cover = "*"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "pytest-mock"
-version = "3.5.1"
+version = "3.6.0"
 description = "Thin-wrapper around the mock package for easier use with pytest"
 category = "dev"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.6"
 
 [package.dependencies]
 pytest = ">=5.0"
 
 [package.extras]
 dev = ["pre-commit", "tox", "pytest-asyncio"]
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "python-dateutil"
@@ -459,6 +659,11 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 [package.dependencies]
 six = ">=1.5"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "python-dotenv"
 version = "0.13.0"
@@ -470,6 +675,11 @@ python-versions = "*"
 [package.extras]
 cli = ["click (>=5.0)"]
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "pyyaml"
 version = "5.4.1"
@@ -478,6 +688,11 @@ category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "regex"
 version = "2021.4.4"
@@ -485,6 +700,11 @@ description = "Alternative regular expression module, to replace re."
 category = "dev"
 optional = false
 python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "ruamel.yaml"
@@ -501,6 +721,11 @@ python-versions = ">=3"
 docs = ["ryd"]
 jinja2 = ["ruamel.yaml.jinja2 (>=0.2)"]
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "ruamel.yaml.clib"
 version = "0.2.2"
@@ -508,6 +733,11 @@ description = "C version of reader, parser and emitter for ruamel.yaml derived f
 category = "dev"
 optional = false
 python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "single-version"
@@ -520,6 +750,11 @@ python-versions = ">=3.6,<4.0"
 [package.dependencies]
 importlib_metadata = {version = ">=2.0,<3.0", markers = "python_version < \"3.8\""}
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "six"
 version = "1.15.0"
@@ -527,6 +762,11 @@ description = "Python 2 and 3 compatibility utilities"
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "text-unidecode"
@@ -536,6 +776,11 @@ category = "dev"
 optional = false
 python-versions = "*"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "toml"
 version = "0.10.2"
@@ -543,6 +788,11 @@ description = "Python Library for Tom's Obvious, Minimal Language"
 category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "typed-ast"
@@ -552,6 +802,11 @@ category = "dev"
 optional = false
 python-versions = "*"
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "typing-extensions"
 version = "3.7.4.3"
@@ -559,6 +814,11 @@ description = "Backported and Experimental Type Hints for Python 3.5+"
 category = "main"
 optional = false
 python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "virtualenv"
@@ -580,6 +840,11 @@ six = ">=1.9.0,<2"
 docs = ["proselint (>=0.10.2)", "sphinx (>=3)", "sphinx-argparse (>=0.2.5)", "sphinx-rtd-theme (>=0.4.3)", "towncrier (>=19.9.0rc1)"]
 testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", "pytest (>=4)", "pytest-env (>=0.6.2)", "pytest-freezegun (>=0.4.1)", "pytest-mock (>=2)", "pytest-randomly (>=1)", "pytest-timeout (>=1)", "packaging (>=20.0)", "xonsh (>=0.9.16)"]
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [[package]]
 name = "yarl"
 version = "1.6.3"
@@ -591,7 +856,12 @@ python-versions = ">=3.6"
 [package.dependencies]
 idna = ">=2.0"
 multidict = ">=4.0"
-typing-extensions = {version = ">=3.7.4", markers = "python_version < \"3.8\""}
+typing_extensions = {version = ">=3.7.4", markers = "python_version < \"3.8\""}
+
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
 
 [[package]]
 name = "zipp"
@@ -605,10 +875,15 @@ python-versions = ">=3.6"
 docs = ["sphinx", "jaraco.packaging (>=8.2)", "rst.linker (>=1.9)"]
 testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "pytest-enabler", "jaraco.itertools", "func-timeout", "pytest-black (>=0.3.7)", "pytest-mypy"]
 
+[package.source]
+type = "legacy"
+url = "https://pypi.python.org/simple"
+reference = "8d1f"
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6.1"
-content-hash = "c7338c31b77000aa876bf1851313c05321f36377e032f0cb395f53b291fb96c3"
+content-hash = "7c64f3945d817ab186d503f6fc565a7d791cf59562af66321d04ec51b8062739"
 
 [metadata.files]
 aiohttp = [
@@ -907,8 +1182,8 @@ pytest-coverage = [
     {file = "pytest_coverage-0.0-py2.py3-none-any.whl", hash = "sha256:dedd084c5e74d8e669355325916dc011539b190355021b037242514dee546368"},
 ]
 pytest-mock = [
-    {file = "pytest-mock-3.5.1.tar.gz", hash = "sha256:a1e2aba6af9560d313c642dae7e00a2a12b022b80301d9d7fc8ec6858e1dd9fc"},
-    {file = "pytest_mock-3.5.1-py3-none-any.whl", hash = "sha256:379b391cfad22422ea2e252bdfc008edd08509029bcde3c25b2c0bd741e0424e"},
+    {file = "pytest-mock-3.6.0.tar.gz", hash = "sha256:f7c3d42d6287f4e45846c8231c31902b6fa2bea98735af413a43da4cf5b727f1"},
+    {file = "pytest_mock-3.6.0-py3-none-any.whl", hash = "sha256:952139a535b5b48ac0bb2f90b5dd36b67c7e1ba92601f3a8012678c4bd7f0bcc"},
 ]
 python-dateutil = [
     {file = "python-dateutil-2.8.1.tar.gz", hash = "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"},
