@@ -19,7 +19,7 @@ class EquityPosition(BaseModel):
     cost_basis: float
     daily_return_value: float
     encoded_name: str
-    instrument_id: Union[UUID1, UUID4] = Field(alias="instrumentID")
+    instrument_id: Union[UUID4, UUID1] = Field(alias="instrumentID")
     last_trade: float
     market_value: float
     market_price: float = Field(alias="mktPrice")
