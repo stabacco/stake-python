@@ -1,7 +1,8 @@
 from enum import Enum
-from typing import List, Optional, Union
+from typing import List, Optional
+from uuid import UUID
 
-from pydantic import UUID1, UUID4, BaseModel, Field
+from pydantic import BaseModel, Field
 
 from stake.common import BaseClient, SideEnum, camelcase
 from stake.constant import Url
@@ -19,7 +20,7 @@ class EquityPosition(BaseModel):
     cost_basis: float
     daily_return_value: float
     encoded_name: str
-    instrument_id: Union[UUID4, UUID1] = Field(alias="instrumentID")
+    instrument_id: UUID = Field(alias="instrumentID")
     last_trade: float
     market_value: float
     market_price: float = Field(alias="mktPrice")
