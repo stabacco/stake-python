@@ -78,6 +78,10 @@ class HttpClient:
 
     @staticmethod
     async def post(url: str, payload: dict, headers: dict = None) -> dict:
+
+        print("posting to ", url)
+        print("payload", payload)
+
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
@@ -135,6 +139,7 @@ class StakeClient:
         Returns:
             dict: the json response
         """
+
         return await self.http_client.get(
             url, payload=payload, headers=self.headers.dict(by_alias=True)
         )
@@ -149,6 +154,7 @@ class StakeClient:
         Returns:
             dict: the json response
         """
+
         return await self.http_client.post(
             url, payload=payload, headers=self.headers.dict(by_alias=True)
         )
