@@ -79,9 +79,6 @@ class HttpClient:
     @staticmethod
     async def post(url: str, payload: dict, headers: dict = None) -> dict:
 
-        print("posting to ", url)
-        print("payload", payload)
-
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
