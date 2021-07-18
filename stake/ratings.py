@@ -1,7 +1,6 @@
 from typing import List, Optional
 
 import pydantic
-from pydantic import BaseModel
 
 from stake.common import BaseClient, camelcase
 from stake.constant import Url
@@ -9,7 +8,7 @@ from stake.constant import Url
 __all__ = ["RatingsRequest"]
 
 
-class RatingsRequest(BaseModel):
+class RatingsRequest(pydantic.BaseModel):
     """Request for retrieving the ratings for the given symbols."""
 
     symbols: List[str]
@@ -18,7 +17,7 @@ class RatingsRequest(BaseModel):
 
 class Rating(pydantic.BaseModel):
     id: Optional[str] = None
-    ticker: Optional[str] = None
+    symbol: Optional[str] = pydantic.Field(alias="ticker")
     exchange: Optional[str] = None
     name: Optional[str] = None
     analyst: Optional[str] = None
@@ -55,4 +54,8 @@ class RatingsClient(BaseClient):
                 symbols=",".join(request.symbols), limit=request.limit
             )  # type: ignore
         )
-        return [Rating(**d) for d in data]
+
+        if data == {"message": "No data returned"}:
+            return []
+
+        return [Rating(**d) for d in data["ratings"]]

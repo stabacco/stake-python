@@ -14,6 +14,7 @@ from stake import (
     market,
     order,
     product,
+    ratings,
     trade,
     transaction,
     user,
@@ -123,6 +124,7 @@ class StakeClient:
         self.trades = trade.TradesClient(self)
         self.transactions = transaction.TransactionsClient(self)
         self.watchlist = watchlist.WatchlistClient(self)
+        self.ratings = ratings.RatingsClient(self)
 
         self._login_request = request or SessionTokenLoginRequest()
 

@@ -1,4 +1,0 @@
-https://global-prd-api.hellostake.com/api/quotes/marketData/TSLA
-
-
- {"marketDataList":[{"symbol":"TSLA","ask":558.17,"bid":557.92,"lastTrade":558.0,"priorClose":521.85,"close":0.0}]}
