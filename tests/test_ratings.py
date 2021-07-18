@@ -1,3 +1,5 @@
+import datetime
+
 import pytest
 
 from stake import RatingsRequest
@@ -9,6 +11,10 @@ async def test_list_ratings(tracing_client):
     ratings = await tracing_client.ratings.list(request)
     assert len(ratings) == 4
     assert ratings[0].symbol in ("AAPL", "MSFT")
+    assert ratings[0].rating_current == "Buy"
+    assert ratings[0].updated == datetime.datetime(
+        2021, 7, 16, 11, 40, 23, tzinfo=datetime.timezone.utc
+    )
 
 
 @pytest.mark.asyncio

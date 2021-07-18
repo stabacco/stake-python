@@ -1,8 +1,9 @@
+from datetime import datetime
 from typing import List, Optional
 
 import pydantic
 
-from stake.common import BaseClient, camelcase
+from stake.common import BaseClient
 from stake.constant import Url
 
 __all__ = ["RatingsRequest"]
@@ -25,7 +26,7 @@ class Rating(pydantic.BaseModel):
     url: Optional[str] = None
     importance: Optional[int] = None
     notes: Optional[str] = None
-    updated: Optional[int] = None
+    updated: Optional[datetime] = None
     action_pt: Optional[str] = None
     action_company: Optional[str] = None
     rating_current: Optional[str] = None
@@ -35,9 +36,6 @@ class Rating(pydantic.BaseModel):
     url_calendar: Optional[str] = None
     url_news: Optional[str] = None
     analyst_name: Optional[str] = None
-
-    class Config:
-        alias_generator = camelcase
 
 
 class RatingsClient(BaseClient):
