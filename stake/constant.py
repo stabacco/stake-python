@@ -24,6 +24,7 @@ class Url(str, Enum):
     products_suggestions: str = "products/getProductSuggestions/{keyword}"
     watchlist_modify: str = "instruments/addRemoveInstrumentWatchlist"
     watchlist: str = "products/productsWatchlist/{userId}"
+    ratings: str = "data/calendar/ratings?tickers={symbols}&pageSize={limit}"
 
 
 STAKE_URL = "https://global-prd-api.hellostake.com/api/"

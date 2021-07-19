@@ -1,0 +1,68 @@
+{
+    "tests.test_ratings.test_list_ratings_unknown": [
+        {
+            "url": "{url}user",
+            "body": null,
+            "payload": {
+                "canTradeOnUnsettledFunds": false,
+                "cpfValue": null,
+                "emailVerified": true,
+                "hasFunded": true,
+                "hasTraded": true,
+                "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+                "username": "rita19",
+                "emailAddress": "torresbenjamin@gmail.com",
+                "dw_id": "d7e334d1-f89e-419b-9284-2cbee628a67a",
+                "dw_AccountId": "d7e334d1-f89e-419b-9284-2cbee628a67a",
+                "dw_AccountNumber": "w4-1267174s",
+                "macAccountNumber": "H1-7641957H",
+                "status": "KYC_APPROVED",
+                "macStatus": "BASIC_USER",
+                "dwStatus": "KYC_APPROVED",
+                "truliooStatus": "APPROVED",
+                "truliooStatusWithWatchlist": null,
+                "firstName": "Tammy",
+                "lastName": "Alexander",
+                "phoneNumber": "9011530005",
+                "signUpPhase": 0,
+                "ackSignedWhen": "2021-05-18",
+                "createdDate": 1574303699770,
+                "stakeApprovedDate": null,
+                "accountType": "INDIVIDUAL",
+                "masterAccountId": null,
+                "referralCode": "L7-2127933N",
+                "referredByCode": null,
+                "regionIdentifier": "AUS",
+                "assetSummary": null,
+                "fundingStatistics": null,
+                "tradingStatistics": null,
+                "w8File": [],
+                "rewardJourneyTimestamp": null,
+                "rewardJourneyStatus": null,
+                "userProfile": {
+                    "residentialAddress": null,
+                    "postalAddress": null
+                },
+                "ledgerBalance": 0,
+                "investorAccreditations": null,
+                "proscoreStatus": null,
+                "fxSpeed": "Regular",
+                "facilitaStatus": null,
+                "dateOfBirth": null,
+                "upToDateDetails2021": "NO_REQUIREMENTS",
+                "stakeKycStatus": "KYC_APPROVED",
+                "awxMigrationDocsRequired": null,
+                "mfaenabled": false
+            },
+            "method": "GET"
+        },
+        {
+            "url": "{url}data/calendar/ratings?tickers=NOTEXIST&pageSize=4",
+            "body": null,
+            "payload": {
+                "message": "No data returned"
+            },
+            "method": "GET"
+        }
+    ]
+}

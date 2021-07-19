@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "stake"
-version = "0.2.2"
+version = "0.3.0"
 readme = "README.md"
 homepage = "https://github.com/stabacco/stake-python"
 repository = "https://github.com/stabacco/stake-python"

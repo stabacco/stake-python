@@ -1,8 +1,12 @@
 import weakref
 from enum import Enum
 from functools import partial
+from typing import TYPE_CHECKING
 
 import inflection
+
+if TYPE_CHECKING:
+    from stake.client import StakeClient
 
 camelcase = partial(inflection.camelize, uppercase_first_letter=False)
 
@@ -16,5 +20,5 @@ class SideEnum(str, Enum):
 
 class BaseClient:
     # flake8: noqa
-    def __init__(self, client: "stake._StakeClient"):  # type: ignore
+    def __init__(self, client: "StakeClient"):
         self._client = weakref.proxy(client)

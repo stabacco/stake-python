@@ -10,6 +10,7 @@ from .fx import *
 from .market import *
 from .order import *
 from .product import *
+from .ratings import *
 from .trade import *
 from .transaction import *
 from .watchlist import *
