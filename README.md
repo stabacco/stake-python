@@ -47,8 +47,6 @@ asyncio.run(print_user())
 
 ## Login with your credentials
 
-> **_NOTE:_**  On November 2020 the Stake website introduced a *reCAPTCHA* protection on their api, therefore logging in through credentials is currently not working. Please log in using the *Session-Token* as described in previous section.
-
 If you prefer to pass in your username/password credentials to login instead, it's easy to do:
 
 ### If you do not have two-factor authentication enabled:
@@ -62,12 +60,12 @@ login_request = CredentialsLoginRequest(
     username="youruser@name.com", # os.getenv("STAKE_USER") by default
     password="yoursecretpassword") # os.getenv("STAKE_PASS") by default
 
-async def print_user():
-    async with StakeClient(login_request) as stake_session:
+async def print_user(request: CredentialsLoginRequest):
+    async with StakeClient(request) as stake_session:
         print(stake_session.user.first_name)
         print(stake_session.headers.stake_session_token)
 
-asyncio.run(print_user())
+asyncio.run(print_user(login_request))
 ~~~
 
 ### If you have two-factor authentication enabled:

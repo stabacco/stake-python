@@ -32,8 +32,11 @@ global test_name
 class CredentialsLoginRequest(BaseModel):
     username: str = Field(default_factory=lambda *_: os.getenv("STAKE_USER", ""))
     password: str = Field(default_factory=lambda *_: os.getenv("STAKE_PASS", ""))
-    otp: Optional[int] = None  # This is the code for 2FA
+    otp: Optional[str] = None  # This is the code for 2FA
     remember_me_days: int = 30
+    platform_type: str = Field(
+        default_factory=lambda *_: os.getenv("STAKE_PLATFORM_TYPE", "WEB_f5K2x3")
+    )  # Note: find this in the login page
 
     class Config:
         alias_generator = camelcase
@@ -188,7 +191,8 @@ class StakeClient:
         if isinstance(login_request, CredentialsLoginRequest):
             try:
                 data = await self.post(
-                    constant.Url.create_session, payload=login_request.dict()
+                    constant.Url.create_session,
+                    payload=login_request.dict(by_alias=True),
                 )
 
                 self.headers.stake_session_token = data["sessionKey"]
