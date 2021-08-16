@@ -7,7 +7,7 @@ class Url(str, Enum):
     account_balance: str = "cma/getAccountBalance"
     account_transactions: str = "users/accounts/accountTransactions"
     cash_available: str = "users/accounts/cashAvailableForWithdrawal"
-    create_session: str = "sessions/createSession"
+    create_session: str = "sessions/v2/createSession"
     equity_positions: str = "users/accounts/v2/equityPositions"
     fund_details: str = "fund/details"
     fundings: str = "utils/activityLog/fundingOnly"

@@ -13,6 +13,7 @@ def test_credentials_login_serializing():
     assert request.dict(by_alias=True) == {
         "username": "unknown@user.com",
         "password": "WeirdPassword",
+        "platformType": "WEB_f5K2x3",
         "rememberMeDays": 15,
         "otp": None,
     }
