@@ -37,6 +37,12 @@ class Rating(pydantic.BaseModel):
     url_news: Optional[str] = None
     analyst_name: Optional[str] = None
 
+    @pydantic.validator("pt_prior", "rating_prior", pre=True)
+    def pt_prior_blank_string(value, field):
+        if value == "":
+            return None
+        return value
+
 
 class RatingsClient(BaseClient):
     """This client is in charge listing the experts' ratings for symbols."""
