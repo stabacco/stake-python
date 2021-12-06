@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from enum import Enum
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 from pydantic import BaseModel, Field
 from pydantic.types import UUID, UUID4
@@ -50,7 +50,7 @@ class Transaction(BaseModel):
     fin_tran_id: str = Field(alias="finTranID")
     fin_tran_type_id: str = Field(alias="finTranTypeID")
     instrument: Optional[Instrument] = None
-    merger_acquisition: Optional[float] = None
+    merger_acquisition: Optional[Dict] = None
     order_id: Optional[str] = Field(None, alias="orderID")
     order_no: Optional[str] = None
     position_delta: Optional[float] = None
