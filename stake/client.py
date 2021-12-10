@@ -1,5 +1,5 @@
 import os
-from typing import Optional, Union
+from typing import Optional, Type, Union
 from urllib.parse import urljoin
 
 import aiohttp
@@ -58,8 +58,12 @@ class Headers(BaseModel):
 class HttpClient:
     """Handles http calls to the Stake API."""
 
-    @staticmethod
-    def url(endpoint: str) -> str:
+    def __init__(
+        self, exchange: Union[Type[constant.NYSE], Type[constant.ASX]] = constant.NYSE
+    ) -> None:
+        self.exchange = exchange
+
+    def url(self, endpoint: str,) -> str:
         """Generates a stake api url.
 
         Args:
@@ -68,36 +72,31 @@ class HttpClient:
         Returns:
             str: the full url
         """
-        return urljoin(constant.STAKE_URL, endpoint, allow_fragments=True)
+        return urljoin(self.exchange.base_url, endpoint, allow_fragments=True)
 
-    @staticmethod
-    async def get(url: str, payload: dict = None, headers: dict = None) -> dict:
+    async def get(self, url: str, payload: dict = None, headers: dict = None) -> dict:
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
-            response = await session.get(
-                HttpClient.url(url), headers=headers, json=payload
-            )
+            response = await session.get(self.url(url), headers=headers, json=payload)
             return await response.json()
 
-    @staticmethod
-    async def post(url: str, payload: dict, headers: dict = None) -> dict:
+    async def post(self, url: str, payload: dict, headers: dict = None) -> dict:
 
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
-            response = await session.post(
-                HttpClient.url(url), headers=headers, json=payload
-            )
+            response = await session.post(self.url(url), headers=headers, json=payload)
             return await response.json()
 
-    @staticmethod
-    async def delete(url: str, payload: dict = None, headers: dict = None) -> bool:
+    async def delete(
+        self, url: str, payload: dict = None, headers: dict = None
+    ) -> bool:
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
             response = await session.delete(
-                HttpClient.url(url), headers=headers, json=payload
+                self.url(url), headers=headers, json=payload
             )
             return response.status <= 399
 
@@ -110,12 +109,15 @@ class StakeClient:
     """The main client to interact with the Stake API."""
 
     def __init__(
-        self, request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
+        self,
+        request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None,
+        exchange: Union[Type[constant.NYSE], Type[constant.ASX]] = constant.NYSE,
     ):
         self.user: Optional[user.User] = None
+        self.exchange: Union[Type[constant.NYSE], Type[constant.ASX]] = exchange()
 
         self.headers = Headers()
-        self.http_client = HttpClient
+        self.http_client = HttpClient(exchange=self.exchange)
 
         # register all the clients
         self.equities = equity.EquitiesClient(self)
@@ -191,7 +193,7 @@ class StakeClient:
         if isinstance(login_request, CredentialsLoginRequest):
             try:
                 data = await self.post(
-                    constant.Url.create_session,
+                    constant.NYSERoutes.create_session,
                     payload=login_request.dict(by_alias=True),
                 )
 
@@ -201,7 +203,7 @@ class StakeClient:
         else:
             self.headers.stake_session_token = login_request.token
         try:
-            user_data = await self.get(constant.Url.user)
+            user_data = await self.get(constant.NYSERoutes.user)
         except aiohttp.client_exceptions.ClientResponseError as error:
             raise InvalidLoginException("Invalid Session Token") from error
 

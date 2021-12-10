@@ -6,7 +6,6 @@ from pydantic import BaseModel, Field
 from pydantic.types import UUID, UUID4
 
 from stake.common import BaseClient, camelcase
-from stake.constant import Url
 
 __all__ = ["TransactionRecordRequest"]
 
@@ -84,7 +83,9 @@ class TransactionsClient(BaseClient):
             {"to": payload["to"].isoformat(), "from": payload.pop("from_").isoformat()}
         )
 
-        data = await self._client.post(Url.account_transactions, payload=payload)
+        data = await self._client.post(
+            self._client.exchange.routes.account_transactions, payload=payload
+        )
         transactions = []
         for d in data:
             if d.get("instrument"):

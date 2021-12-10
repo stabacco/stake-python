@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from pydantic.types import UUID4
 
 from stake.common import BaseClient, camelcase
-from stake.constant import Url
+from stake.constant import NYSERoutes
 
 __all__ = ["FxConversionRequest", "CurrencyEnum"]
 
@@ -43,6 +43,6 @@ class FxClient(BaseClient):
     ) -> FxConversion:
         """Converts from one currency to another."""
         data = await self._client.post(
-            Url.rate, payload=currency_conversion_request.dict(by_alias=True)
+            NYSERoutes.rate, payload=currency_conversion_request.dict(by_alias=True)
         )
         return FxConversion(**data)

@@ -1,7 +1,10 @@
 from enum import Enum
+from typing import Type
+
+import pydantic
 
 
-class Url(str, Enum):
+class NYSERoutes(str, Enum):
     """Contains all the visited stake urls."""
 
     account_balance: str = "cma/getAccountBalance"
@@ -28,3 +31,13 @@ class Url(str, Enum):
 
 
 STAKE_URL = "https://global-prd-api.hellostake.com/api/"
+
+
+class NYSE(pydantic.BaseModel):
+    base_url: str = STAKE_URL
+    routes: Type[NYSERoutes] = NYSERoutes
+
+
+class ASX(pydantic.BaseModel):
+    base_url: str = "https://api.asx.com.au/"
+    routes: NYSERoutes

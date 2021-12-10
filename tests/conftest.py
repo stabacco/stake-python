@@ -23,14 +23,11 @@ class RecordingHttpClient(HttpClient):
     fake_user_id: str = "7c9bbfae-0000-47b7-0000-0e66d868c2cf"
     user_id: Optional[str] = None
 
-    @staticmethod
-    async def get(url: str, payload: dict = None, headers: dict = None) -> dict:
+    async def get(self, url: str, payload: dict = None, headers: dict = None) -> dict:
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
-            response = await session.get(
-                RecordingHttpClient.url(url), headers=headers, json=payload
-            )
+            response = await session.get(self.url(url), headers=headers, json=payload)
             result = await response.json()
 
             ##
@@ -48,36 +45,31 @@ class RecordingHttpClient(HttpClient):
 
             return result
 
-    @staticmethod
-    async def post(url: str, payload: dict, headers: dict = None) -> dict:
+    async def post(self, url: str, payload: dict, headers: dict = None) -> dict:
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
-            response = await session.post(
-                RecordingHttpClient.url(url), headers=headers, json=payload
-            )
+            response = await session.post(self.url(url), headers=headers, json=payload)
             result = await response.json()
             write_data = {
-                "url": "{url}"
-                + url.replace(
-                    str(RecordingHttpClient.user_id), RecordingHttpClient.fake_user_id
-                ),
+                "url": "{url}" + url.replace(str(self.user_id), self.fake_user_id),
                 "body": payload,
                 "payload": result,
                 "method": "POST",
             }
 
-            RecordingHttpClient.state.append(write_data)
+            self.state.append(write_data)
 
             return result
 
-    @staticmethod
-    async def delete(url: str, payload: dict = None, headers: dict = None) -> bool:
+    async def delete(
+        self, url: str, payload: dict = None, headers: dict = None
+    ) -> bool:
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
             response = await session.delete(
-                HttpClient.url(url), headers=headers, json=payload
+                self.url(url), headers=headers, json=payload
             )
             result = await response.json()
             write_data = {
@@ -87,7 +79,7 @@ class RecordingHttpClient(HttpClient):
                 "method": "DELETE",
             }
 
-            RecordingHttpClient.state.append(write_data)
+            self.state.append(write_data)
 
             return response.status <= 399
 

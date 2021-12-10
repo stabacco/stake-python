@@ -6,7 +6,7 @@ from typing import Optional, Union
 from pydantic import BaseModel, Field, validator
 
 from stake.common import BaseClient, camelcase
-from stake.constant import Url
+from stake.constant import NYSERoutes
 
 failed_transaction_regex = re.compile(r"^[0-9]{4}")
 
@@ -244,7 +244,7 @@ class TradesClient(BaseClient):
         Returns:
             the TradeResponse object
         """
-        return await self._trade(Url.quick_buy, request)
+        return await self._trade(NYSERoutes.quick_buy, request)
 
     async def sell(self, request: MarketSellRequest) -> TradeResponse:
         """Creates an order to sell equities.
@@ -255,4 +255,4 @@ class TradesClient(BaseClient):
         Returns:
             the TradeResponse object
         """
-        return await self._trade(Url.sell_orders, request)
+        return await self._trade(NYSERoutes.sell_orders, request)

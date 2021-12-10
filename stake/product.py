@@ -5,7 +5,6 @@ from pydantic.fields import Field
 from pydantic.types import UUID4
 
 from stake.common import BaseClient, camelcase
-from stake.constant import Url
 
 __all__ = ["ProductSearchByName"]
 
@@ -68,7 +67,9 @@ class ProductsClient(BaseClient):
         Examples:
             tesla_product = self.get("TSLA")
         """
-        data = await self._client.get(Url.symbol.format(symbol=symbol))  # type: ignore
+        data = await self._client.get(
+            self._client.exchange.routes.symbol.format(symbol=symbol)
+        )  # noqa: E501
 
         if not data["products"]:
             return None
@@ -77,7 +78,9 @@ class ProductsClient(BaseClient):
 
     async def search(self, request: ProductSearchByName) -> List[Instrument]:
         products = await self._client.get(
-            Url.products_suggestions.format(keyword=request.keyword)  # type: ignore
+            self._client.exchange.routes.products_suggestions.format(
+                keyword=request.keyword
+            )
         )
         return [Instrument(**product) for product in products["instruments"]]
 

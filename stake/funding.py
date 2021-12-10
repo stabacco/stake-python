@@ -6,7 +6,6 @@ from pydantic import BaseModel, Field
 from pydantic.types import UUID4
 
 from stake.common import BaseClient, camelcase
-from stake.constant import Url
 
 __all__ = ["FundingRequest"]
 
@@ -85,18 +84,20 @@ class FundingsClient(BaseClient):
             "endDate": request.end_date.strftime("%d/%m/%Y"),
             "startDate": request.start_date.strftime("%d/%m/%Y"),
         }
-        data = await self._client.post(Url.fundings, payload=payload)
+        data = await self._client.post(
+            self._client.exchange.routes.fundings, payload=payload
+        )
 
         return [Funding(**d) for d in data]
 
     async def in_flight(self) -> List[FundsInFlight]:
         """Returns the funds currently in flight."""
-        data = await self._client.get(Url.fund_details)
+        data = await self._client.get(self._client.exchange.routes.fund_details)
         data = data.get("fundsInFlight")
         if not data:
             return []
         return [FundsInFlight(**d) for d in data]
 
     async def cash_available(self) -> CashAvailable:
-        data = await self._client.get(Url.cash_available)
+        data = await self._client.get(self._client.exchange.routes.cash_available)
         return CashAvailable(**data)
