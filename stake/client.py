@@ -72,9 +72,11 @@ class HttpClient:
         Returns:
             str: the full url
         """
-        return urljoin(self.exchange.base_url, endpoint, allow_fragments=True)
+        print("CURERN", endpoint.value)
+        return endpoint.value #  urljoin( endpoint, allow_fragments=True)
 
     async def get(self, url: str, payload: dict = None, headers: dict = None) -> dict:
+        print("UUUU", self.url(url))
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
@@ -144,6 +146,7 @@ class StakeClient:
             dict: the json response
         """
 
+        print("ZZZZ", self.exchange.base_url)
         return await self.http_client.get(
             url, payload=payload, headers=self.headers.dict(by_alias=True)
         )

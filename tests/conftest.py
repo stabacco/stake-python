@@ -25,7 +25,7 @@ class RecordingHttpClient(HttpClient):
 
     async def get(self, url: str, payload: dict = None, headers: dict = None) -> dict:
         async with aiohttp.ClientSession(
-            headers=headers, raise_for_status=True
+            headers=headers, raise_for_status=True,trust_env=True
         ) as session:
             response = await session.get(self.url(url), headers=headers, json=payload)
             result = await response.json()
@@ -143,9 +143,10 @@ class RecordingHttpClient(HttpClient):
 
 
 @pytest.fixture
-async def tracing_client(request, mocker):
+async def tracing_client(request, mocker, exchange_arg):
     mocker.patch("stake.client.HttpClient", new=RecordingHttpClient)
     RecordingHttpClient.state = []
+    
     function_name = f"{request.node.module.__name__}.{request.node.name}"
     filename = pkg_resources.resource_filename(
         __name__, f"fixtures/{function_name}.json"
@@ -157,16 +158,16 @@ async def tracing_client(request, mocker):
             assert mock_datas
             for mock_data in mock_datas:
                 m.add(
-                    mock_data["url"].format(url=STAKE_URL),
+                    mock_data["url"].format(url=exchange_arg().base_url),
                     method=mock_data.get("method"),
                     body=mock_data["body"],
                     payload=mock_data["payload"],
                 )
-            async with StakeClient() as client:
+            async with StakeClient(exchange=exchange_arg) as client:
                 yield client
 
     else:
-        async with StakeClient() as client:
+        async with StakeClient(exchange=exchange_arg) as client:
             yield client
             state = deepcopy(client.http_client.state)
             RecordingHttpClient.user_id = str(client.user.id)

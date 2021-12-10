@@ -84,6 +84,7 @@ class FundingsClient(BaseClient):
             "endDate": request.end_date.strftime("%d/%m/%Y"),
             "startDate": request.start_date.strftime("%d/%m/%Y"),
         }
+
         data = await self._client.post(
             self._client.exchange.routes.fundings, payload=payload
         )
