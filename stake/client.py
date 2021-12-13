@@ -1,6 +1,5 @@
 import os
 from typing import Optional, Type, Union
-from urllib.parse import urljoin
 
 import aiohttp
 from dotenv import load_dotenv
@@ -58,12 +57,8 @@ class Headers(BaseModel):
 class HttpClient:
     """Handles http calls to the Stake API."""
 
-    def __init__(
-        self, exchange: Union[Type[constant.NYSE], Type[constant.ASX]] = constant.NYSE
-    ) -> None:
-        self.exchange = exchange
-
-    def url(self, endpoint: str,) -> str:
+    @staticmethod
+    def url(endpoint: str) -> str:
         """Generates a stake api url.
 
         Args:
@@ -72,33 +67,36 @@ class HttpClient:
         Returns:
             str: the full url
         """
-        print("CURERN", endpoint.value)
-        return endpoint.value #  urljoin( endpoint, allow_fragments=True)
+        return endpoint
 
-    async def get(self, url: str, payload: dict = None, headers: dict = None) -> dict:
-        print("UUUU", self.url(url))
+    @staticmethod
+    async def get(url: str, payload: dict = None, headers: dict = None) -> dict:
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
-            response = await session.get(self.url(url), headers=headers, json=payload)
+            response = await session.get(
+                HttpClient.url(url), headers=headers, json=payload
+            )
             return await response.json()
 
-    async def post(self, url: str, payload: dict, headers: dict = None) -> dict:
+    @staticmethod
+    async def post(url: str, payload: dict, headers: dict = None) -> dict:
 
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
-            response = await session.post(self.url(url), headers=headers, json=payload)
+            response = await session.post(
+                HttpClient.url(url), headers=headers, json=payload
+            )
             return await response.json()
 
-    async def delete(
-        self, url: str, payload: dict = None, headers: dict = None
-    ) -> bool:
+    @staticmethod
+    async def delete(url: str, payload: dict = None, headers: dict = None) -> bool:
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
             response = await session.delete(
-                self.url(url), headers=headers, json=payload
+                HttpClient.url(url), headers=headers, json=payload
             )
             return response.status <= 399
 
@@ -113,13 +111,13 @@ class StakeClient:
     def __init__(
         self,
         request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None,
-        exchange: Union[Type[constant.NYSE], Type[constant.ASX]] = constant.NYSE,
+        exchange: Type[constant.NYSE] = constant.NYSE,
     ):
         self.user: Optional[user.User] = None
-        self.exchange: Union[Type[constant.NYSE], Type[constant.ASX]] = exchange()
+        self.exchange: Type[constant.NYSE] = exchange()
 
         self.headers = Headers()
-        self.http_client = HttpClient(exchange=self.exchange)
+        self.http_client = HttpClient
 
         # register all the clients
         self.equities = equity.EquitiesClient(self)
@@ -146,7 +144,6 @@ class StakeClient:
             dict: the json response
         """
 
-        print("ZZZZ", self.exchange.base_url)
         return await self.http_client.get(
             url, payload=payload, headers=self.headers.dict(by_alias=True)
         )
@@ -196,7 +193,7 @@ class StakeClient:
         if isinstance(login_request, CredentialsLoginRequest):
             try:
                 data = await self.post(
-                    constant.NYSERoutes.create_session,
+                    constant.NYSERoutes.create_session.value,
                     payload=login_request.dict(by_alias=True),
                 )
 
@@ -206,7 +203,7 @@ class StakeClient:
         else:
             self.headers.stake_session_token = login_request.token
         try:
-            user_data = await self.get(constant.NYSERoutes.user)
+            user_data = await self.get(constant.NYSERoutes.user.value)
         except aiohttp.client_exceptions.ClientResponseError as error:
             raise InvalidLoginException("Invalid Session Token") from error
 

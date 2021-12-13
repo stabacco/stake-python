@@ -1,10 +1,8 @@
 import pytest
-from stake.constant import ASX, NYSE
 
 from stake.funding import FundingRequest
 
 
-@pytest.mark.parametrize("exchange_arg", [ASX])
 @pytest.mark.asyncio
 async def test_list_fundings(tracing_client):
     fundings = await tracing_client.fundings.list(FundingRequest())

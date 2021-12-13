@@ -23,11 +23,14 @@ class RecordingHttpClient(HttpClient):
     fake_user_id: str = "7c9bbfae-0000-47b7-0000-0e66d868c2cf"
     user_id: Optional[str] = None
 
-    async def get(self, url: str, payload: dict = None, headers: dict = None) -> dict:
+    @staticmethod
+    async def get(url: str, payload: dict = None, headers: dict = None) -> dict:
         async with aiohttp.ClientSession(
-            headers=headers, raise_for_status=True,trust_env=True
+            headers=headers, raise_for_status=True
         ) as session:
-            response = await session.get(self.url(url), headers=headers, json=payload)
+            response = await session.get(
+                RecordingHttpClient.url(url), headers=headers, json=payload
+            )
             result = await response.json()
 
             ##
@@ -45,31 +48,36 @@ class RecordingHttpClient(HttpClient):
 
             return result
 
-    async def post(self, url: str, payload: dict, headers: dict = None) -> dict:
+    @staticmethod
+    async def post(url: str, payload: dict, headers: dict = None) -> dict:
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
-            response = await session.post(self.url(url), headers=headers, json=payload)
+            response = await session.post(
+                RecordingHttpClient.url(url), headers=headers, json=payload
+            )
             result = await response.json()
             write_data = {
-                "url": "{url}" + url.replace(str(self.user_id), self.fake_user_id),
+                "url": "{url}"
+                + url.replace(
+                    str(RecordingHttpClient.user_id), RecordingHttpClient.fake_user_id
+                ),
                 "body": payload,
                 "payload": result,
                 "method": "POST",
             }
 
-            self.state.append(write_data)
+            RecordingHttpClient.state.append(write_data)
 
             return result
 
-    async def delete(
-        self, url: str, payload: dict = None, headers: dict = None
-    ) -> bool:
+    @staticmethod
+    async def delete(url: str, payload: dict = None, headers: dict = None) -> bool:
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
             response = await session.delete(
-                self.url(url), headers=headers, json=payload
+                HttpClient.url(url), headers=headers, json=payload
             )
             result = await response.json()
             write_data = {
@@ -79,7 +87,7 @@ class RecordingHttpClient(HttpClient):
                 "method": "DELETE",
             }
 
-            self.state.append(write_data)
+            RecordingHttpClient.state.append(write_data)
 
             return response.status <= 399
 
@@ -143,10 +151,9 @@ class RecordingHttpClient(HttpClient):
 
 
 @pytest.fixture
-async def tracing_client(request, mocker, exchange_arg):
+async def tracing_client(request, mocker):
     mocker.patch("stake.client.HttpClient", new=RecordingHttpClient)
     RecordingHttpClient.state = []
-    
     function_name = f"{request.node.module.__name__}.{request.node.name}"
     filename = pkg_resources.resource_filename(
         __name__, f"fixtures/{function_name}.json"
@@ -158,16 +165,16 @@ async def tracing_client(request, mocker, exchange_arg):
             assert mock_datas
             for mock_data in mock_datas:
                 m.add(
-                    mock_data["url"].format(url=exchange_arg().base_url),
+                    mock_data["url"].format(url=STAKE_URL),
                     method=mock_data.get("method"),
                     body=mock_data["body"],
                     payload=mock_data["payload"],
                 )
-            async with StakeClient(exchange=exchange_arg) as client:
+            async with StakeClient() as client:
                 yield client
 
     else:
-        async with StakeClient(exchange=exchange_arg) as client:
+        async with StakeClient() as client:
             yield client
             state = deepcopy(client.http_client.state)
             RecordingHttpClient.user_id = str(client.user.id)

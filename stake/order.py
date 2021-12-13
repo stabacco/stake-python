@@ -56,7 +56,7 @@ class OrdersClient(BaseClient):
         Returns:
             List[Order]: The list of pending orders.
         """
-        data = await self._client.get(self._client.exchange.routes.orders)
+        data = await self._client.get(self._client.exchange.routes.orders.value)
         return [Order(**d) for d in data]
 
     async def cancel(self, order: Union[Order, CancelOrderRequest]) -> bool:
@@ -69,7 +69,7 @@ class OrdersClient(BaseClient):
             bool: True if the deletion was succesful.
         """
         return await self._client.delete(
-            self._client.exchange.routes.cancel_order.format(
+            self._client.exchange.routes.cancel_order.value.format(
                 orderId=order.order_id
             )  # noqa: E501
         )

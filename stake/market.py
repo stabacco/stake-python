@@ -32,7 +32,7 @@ class MarketStatus(BaseModel):
 
 class MarketClient(BaseClient):
     async def get(self) -> MarketStatus:
-        data = await self._client.get(self._client.exchange.routes.market_status)
+        data = await self._client.get(self._client.exchange.routes.market_status.value)
         return MarketStatus(**data["response"])
 
     async def is_open(self) -> bool:

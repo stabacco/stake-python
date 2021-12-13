@@ -26,16 +26,12 @@ async def test_find_products_by_name(tracing_client):
 async def test_product_serializer():
 
     async with aiohttp.ClientSession(raise_for_status=True) as session:
-        http_client = HttpClient(exchange=NYSE())
-        await session.get(
-            http_client.url(http_client.exchange.routes.symbol.format(symbol="MSFT"))
-        )
+        http_client = HttpClient()
+        await session.get(http_client.url(NYSE().routes.symbol.format(symbol="MSFT")))
 
         async def _get_symbol(symbol):
             response = await session.get(
-                http_client.url(
-                    http_client.exchange.routes.symbol.format(symbol=symbol)
-                )
+                http_client.url(NYSE().routes.symbol.format(symbol=symbol))
             )
             return await response.json()
 

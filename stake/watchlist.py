@@ -56,7 +56,7 @@ class WatchlistClient(BaseClient):
             "watching": request.watching,
         }
         data = await self._client.post(
-            self._client.exchange.routes.watchlist_modify, payload=payload
+            self._client.exchange.routes.watchlist_modify.value, payload=payload
         )
 
         return WatchlistResponse(symbol=request.symbol, watching=data["watching"])
@@ -90,8 +90,9 @@ class WatchlistClient(BaseClient):
             List[WatchlistProduct]: The list of items in your watchlist.
         """
         watchlist = await self._client.get(
-            NYSERoutes.watchlist.format(userId=self._client.user.id)  # type: ignore
+            NYSERoutes.watchlist.value.format(userId=self._client.user.id)  # type: ignore
         )
+        print(watchlist)
         return [
             WatchlistProduct(**watched) for watched in watchlist["instrumentsWatchList"]
         ]
