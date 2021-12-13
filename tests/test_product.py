@@ -27,11 +27,13 @@ async def test_product_serializer():
 
     async with aiohttp.ClientSession(raise_for_status=True) as session:
         http_client = HttpClient()
-        await session.get(http_client.url(NYSE().routes.symbol.format(symbol="MSFT")))
+        await session.get(
+            http_client.url(NYSE().url_for("symbol").format(symbol="MSFT"))
+        )
 
         async def _get_symbol(symbol):
             response = await session.get(
-                http_client.url(NYSE().routes.symbol.format(symbol=symbol))
+                http_client.url(NYSE().url_for("symbol").format(symbol=symbol))
             )
             return await response.json()
 

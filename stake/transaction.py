@@ -84,7 +84,7 @@ class TransactionsClient(BaseClient):
         )
 
         data = await self._client.post(
-            self._client.exchange.routes.account_transactions.value, payload=payload
+            self._client.exchange.url_for("account_transactions"), payload=payload
         )
         transactions = []
         for d in data:

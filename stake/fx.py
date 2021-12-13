@@ -42,7 +42,7 @@ class FxClient(BaseClient):
     ) -> FxConversion:
         """Converts from one currency to another."""
         data = await self._client.post(
-            self._client.exchange.routes.rate.value,
+            self._client.exchange.url_for("rate"),
             payload=currency_conversion_request.dict(by_alias=True),
         )
         return FxConversion(**data)

@@ -68,7 +68,7 @@ class ProductsClient(BaseClient):
             tesla_product = self.get("TSLA")
         """
         data = await self._client.get(
-            self._client.exchange.routes.symbol.value.format(symbol=symbol)
+            self._client.exchange.url_for("symbol").format(symbol=symbol)
         )  # noqa: E501
 
         if not data["products"]:
@@ -78,7 +78,7 @@ class ProductsClient(BaseClient):
 
     async def search(self, request: ProductSearchByName) -> List[Instrument]:
         products = await self._client.get(
-            self._client.exchange.routes.products_suggestions.value.format(
+            self._client.exchange.url_for("products_suggestions").format(
                 keyword=request.keyword
             )
         )

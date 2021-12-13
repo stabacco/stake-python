@@ -86,19 +86,19 @@ class FundingsClient(BaseClient):
         }
 
         data = await self._client.post(
-            self._client.exchange.routes.fundings.value, payload=payload
+            self._client.exchange.url_for("fundings"), payload=payload
         )
 
         return [Funding(**d) for d in data]
 
     async def in_flight(self) -> List[FundsInFlight]:
         """Returns the funds currently in flight."""
-        data = await self._client.get(self._client.exchange.routes.fund_details.value)
+        data = await self._client.get(self._client.exchange.url_for("fund_details"))
         data = data.get("fundsInFlight")
         if not data:
             return []
         return [FundsInFlight(**d) for d in data]
 
     async def cash_available(self) -> CashAvailable:
-        data = await self._client.get(self._client.exchange.routes.cash_available.value)
+        data = await self._client.get(self._client.exchange.url_for("cash_available"))
         return CashAvailable(**data)

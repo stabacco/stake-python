@@ -4,7 +4,6 @@ from typing import List, Optional
 import pydantic
 
 from stake.common import BaseClient
-from stake.constant import NYSERoutes
 
 __all__ = ["RatingsRequest"]
 
@@ -54,7 +53,7 @@ class RatingsClient(BaseClient):
             List[Rating]: The list of ratings.
         """
         data = await self._client.get(
-            NYSERoutes.ratings.format(
+            self._client.exchange.url_for("ratings").format(
                 symbols=",".join(request.symbols), limit=request.limit
             )  # type: ignore
         )

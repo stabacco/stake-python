@@ -62,7 +62,5 @@ class EquitiesClient(BaseClient):
         Returns:
             EquityPositions: The list of your equities.
         """
-        data = await self._client.get(
-            self._client.exchange.routes.equity_positions.value
-        )
+        data = await self._client.get(self._client.exchange.url_for("equity_positions"))
         return EquityPositions(**data)

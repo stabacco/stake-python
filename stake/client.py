@@ -114,7 +114,7 @@ class StakeClient:
         exchange: Type[constant.NYSE] = constant.NYSE,
     ):
         self.user: Optional[user.User] = None
-        self.exchange: Type[constant.NYSE] = exchange()
+        self.exchange = exchange()
 
         self.headers = Headers()
         self.http_client = HttpClient
@@ -193,7 +193,7 @@ class StakeClient:
         if isinstance(login_request, CredentialsLoginRequest):
             try:
                 data = await self.post(
-                    constant.NYSERoutes.create_session.value,
+                    self.exchange.url_for("user"),
                     payload=login_request.dict(by_alias=True),
                 )
 
@@ -203,7 +203,7 @@ class StakeClient:
         else:
             self.headers.stake_session_token = login_request.token
         try:
-            user_data = await self.get(constant.NYSERoutes.user.value)
+            user_data = await self.get(self.exchange.url_for("user"))
         except aiohttp.client_exceptions.ClientResponseError as error:
             raise InvalidLoginException("Invalid Session Token") from error
 

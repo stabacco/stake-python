@@ -213,7 +213,7 @@ class TradesClient(BaseClient):
         """
 
         transactions = await self._client.get(
-            self._client.exchange.routes.transactions.value
+            self._client.exchange.url_for("transactions")
         )
 
         if not transactions:
@@ -245,7 +245,7 @@ class TradesClient(BaseClient):
         Returns:
             the TradeResponse object
         """
-        return await self._trade(self._client.exchange.routes.quick_buy.value, request)
+        return await self._trade(self._client.exchange.url_for("quick_buy"), request)
 
     async def sell(self, request: MarketSellRequest) -> TradeResponse:
         """Creates an order to sell equities.
@@ -256,6 +256,4 @@ class TradesClient(BaseClient):
         Returns:
             the TradeResponse object
         """
-        return await self._trade(
-            self._client.exchange.routes.sell_orders.value, request
-        )
+        return await self._trade(self._client.exchange.url_for("sell_orders"), request)
