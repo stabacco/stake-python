@@ -12,12 +12,10 @@ __all__ = ["AddToWatchlistRequest", "RemoveFromWatchlistRequest"]
 
 class AddToWatchlistRequest(BaseModel):
     symbol: str
-    watching: bool = True
 
 
 class RemoveFromWatchlistRequest(BaseModel):
     symbol: str
-    watching: bool = False
 
 
 class WatchlistResponse(BaseModel):
@@ -53,7 +51,6 @@ class WatchlistClient(BaseClient):
         payload = {
             "instrumentID": str(product.id),
             "userID": str(self._client.user.id),
-            "watching": request.watching,
         }
         data = await self._client.post(Url.watchlist_modify, payload=payload)
 
