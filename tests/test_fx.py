@@ -3,6 +3,7 @@ import pytest
 from stake import FxConversionRequest
 
 
+@pytest.mark.vcr()
 @pytest.mark.asyncio
 async def test_fx_conversion(tracing_client):
     request = FxConversionRequest(

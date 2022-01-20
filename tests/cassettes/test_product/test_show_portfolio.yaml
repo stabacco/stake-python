@@ -1,0 +1,97 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://global-prd-api.hellostake.com/api/user
+  response:
+    body:
+      string: '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+        true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+        "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
+        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
+        "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
+        "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+        null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
+        "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
+        "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+        null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
+        "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+        null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+        null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+        "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+        "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+        "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+        null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
+    headers: {}
+    status:
+      code: 200
+      message: OK
+    url: https://global-prd-api.hellostake.com/api/user
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://global-prd-api.hellostake.com/api/users/accounts/v2/equityPositions
+  response:
+    body:
+      string: '{"equityPositions": [{"unrealizedDayPLPercent": "-0.26", "symbol":
+        "COP", "encodedName": "conocophillips-cop", "unrealizedDayPL": "-1.37", "instrumentID":
+        "6b4f77d9-5617-4885-8377-ebc211d32bf7", "openQty": "5.94106463", "priorClose":
+        "87.51", "avgPrice": "84.16", "side": "B", "costBasis": "5E+2", "mktPrice":
+        "87.28", "marketValue": "518.54", "unrealizedPL": "18.54", "availableForTradingQty":
+        "5.94106463", "name": "ConocoPhillips", "category": "Stock", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/cop.png",
+        "bidPrice": null, "askPrice": null, "returnOnStock": null, "lastTrade": 87.28,
+        "dailyReturnValue": -0.23, "yearlyReturnValue": 26.11, "yearlyReturnPercentage":
+        79.93, "period": "YEAR RETURN", "exchange": null}, {"unrealizedDayPLPercent":
+        "-3.48", "symbol": "TQQQ", "encodedName": "proshares-ultrapro-qqq-etf-tqqq",
+        "unrealizedDayPL": "-228.98", "instrumentID": "63698af7-e71e-4424-9ce7-d34b70fbe260",
+        "openQty": "98.69975468", "priorClose": "66.69", "avgPrice": "81.05", "side":
+        "B", "costBasis": "7999.62", "mktPrice": "64.37", "marketValue": "6353.3",
+        "unrealizedPL": "-1646.32", "availableForTradingQty": "98.69975468", "name":
+        "ProShares UltraPro QQQ ETF", "category": "ETF", "urlImage": "https://drivewealth.imgix.net/symbols/tqqq.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
+        "bidPrice": null, "askPrice": null, "returnOnStock": null, "lastTrade": 64.37,
+        "dailyReturnValue": -2.32, "yearlyReturnValue": 50.24, "yearlyReturnPercentage":
+        142.0, "period": "YEAR RETURN", "exchange": null}, {"unrealizedDayPLPercent":
+        "-1.39", "symbol": "VGT", "encodedName": "vanguard-information-technology-etf-vgt",
+        "unrealizedDayPL": "-143.70", "instrumentID": "3aea5285-a419-412e-96fb-8da3d48df4ef",
+        "openQty": "24.39724507", "priorClose": "422.41", "avgPrice": "455.76", "side":
+        "B", "costBasis": "11119.33", "mktPrice": "416.52", "marketValue": "10161.94",
+        "unrealizedPL": "-957.39", "availableForTradingQty": "24.39724507", "name":
+        "Vanguard Information Technology ETF", "category": "ETF", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/vgt.png",
+        "bidPrice": null, "askPrice": null, "returnOnStock": null, "lastTrade": 416.52,
+        "dailyReturnValue": -5.89, "yearlyReturnValue": 123.43, "yearlyReturnPercentage":
+        53.91, "period": "YEAR RETURN", "exchange": null}, {"unrealizedDayPLPercent":
+        "-1.12", "symbol": "VOOG", "encodedName": "sp-500-growth-vanguard-voog", "unrealizedDayPL":
+        "-10.63", "instrumentID": "4a428222-6d3f-48c5-9660-0001ee5bc4d3", "openQty":
+        "3.38466745", "priorClose": "279.66", "avgPrice": "295.45", "side": "B", "costBasis":
+        "1E+3", "mktPrice": "276.52", "marketValue": "935.93", "unrealizedPL": "-64.07",
+        "availableForTradingQty": "3.38466745", "name": "S&P 500 Growth Vanguard",
+        "category": "ETF", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/voog.png",
+        "bidPrice": null, "askPrice": null, "returnOnStock": null, "lastTrade": 276.52,
+        "dailyReturnValue": -3.14, "yearlyReturnValue": 66.68, "yearlyReturnPercentage":
+        41.26, "period": "YEAR RETURN", "exchange": null}, {"unrealizedDayPLPercent":
+        "0.08", "symbol": "VXUS", "encodedName": "total-international-stock-vanguard-etf-vxus",
+        "unrealizedDayPL": "2.76", "instrumentID": "bb224235-59bb-4d0c-b728-e2e18c0d72f5",
+        "openQty": "55.10091309", "priorClose": "63.13", "avgPrice": "63.52", "side":
+        "B", "costBasis": "3.5E+3", "mktPrice": "63.18", "marketValue": "3481.28",
+        "unrealizedPL": "-18.72", "availableForTradingQty": "55.10091309", "name":
+        "Total International Stock Vanguard ETF", "category": "ETF", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/vxus.png",
+        "bidPrice": null, "askPrice": null, "returnOnStock": null, "lastTrade": 63.18,
+        "dailyReturnValue": 0.05, "yearlyReturnValue": 16.88, "yearlyReturnPercentage":
+        37.82, "period": "YEAR RETURN", "exchange": null}], "equityValue": 21450.99,
+        "pricesOnly": false}'
+    headers: {}
+    status:
+      code: 200
+      message: OK
+    url: https://global-prd-api.hellostake.com/api/users/accounts/v2/equityPositions
+version: 1

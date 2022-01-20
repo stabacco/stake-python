@@ -1,0 +1,89 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://global-prd-api.hellostake.com/api/user
+  response:
+    body:
+      string: '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+        true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+        "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
+        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
+        "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
+        "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+        null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
+        "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
+        "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+        null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
+        "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+        null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+        null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+        "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+        "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+        "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+        null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
+    headers: {}
+    status:
+      code: 200
+      message: OK
+    url: https://global-prd-api.hellostake.com/api/user
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=SPOT&page=1&max=1
+  response:
+    body:
+      string: '{"products": [{"id": "b738ff53-b576-4f09-822e-91128def0560", "instrumentTypeID":
+        null, "symbol": "SPOT", "description": "Spotify Technology SA a Luxembourg-based
+        company, which offers digital music-streaming services. The Company enables
+        users to discover new releases, which includes the latest singles and albums;
+        playlists, which includes ready-made playlists put together by music fans
+        and experts, and over millions of songs so that users can play their favorites,
+        discover new tracks and build a personalized collection. Users can either
+        select Spotify Free, which includes only shuffle play or Spotify Premium,
+        which encompasses a range of features, such as shuffle play, advertisement
+        free, unlimited skips, listen offline, play any track and high quality audio.
+        The Company operates through a number of subsidiaries, including Spotify LTD
+        and is present in over 20 countries.", "category": "Stock", "currencyID":
+        null, "urlImage": "https://drivewealth.imgix.net/symbols/spot.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
+        "sector": null, "name": "Spotify Technology SA", "dailyReturn": -3.32, "dailyReturnPercentage":
+        -1.57, "lastTraded": 207.55, "monthlyReturn": 0.0, "yearlyReturnPercentage":
+        92.8, "yearlyReturnValue": 131.68, "popularity": 9470.0, "watched": 8075,
+        "news": 0, "bought": 9479, "viewed": 23400, "productType": "Instrument", "exchange":
+        null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "spotify-technology-sa-spot",
+        "period": "YEAR RETURN", "inceptionDate": 1522713600000, "instrumentTags":
+        [], "childInstruments": []}]}'
+    headers: {}
+    status:
+      code: 200
+      message: OK
+    url: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=SPOT&page=1&max=1
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://global-prd-api.hellostake.com/api/instruments/addRemoveInstrumentWatchlist
+  response:
+    body:
+      string: '{"instrumentId": "4ef83d08-bd4e-4f2f-883c-6ec43e85e8f6", "watching":
+        true}'
+    headers: {}
+    status:
+      code: 202
+      message: Accepted
+    url: https://global-prd-api.hellostake.com/api/instruments/addRemoveInstrumentWatchlist
+version: 1

@@ -1,4 +1,5 @@
 from datetime import datetime
+from string import Template
 from typing import List, Optional
 
 import pydantic
@@ -39,9 +40,7 @@ class Rating(pydantic.BaseModel):
 
     @pydantic.validator("pt_prior", "rating_prior", pre=True)
     def pt_prior_blank_string(value, field):
-        if value == "":
-            return None
-        return value
+        return None if value == "" else value
 
 
 class RatingsClient(BaseClient):
@@ -54,9 +53,9 @@ class RatingsClient(BaseClient):
             List[Rating]: The list of ratings.
         """
         data = await self._client.get(
-            Url.ratings.format(
-                symbols=",".join(request.symbols), limit=request.limit
-            )  # type: ignore
+            Template(Url.ratings.value).substitute(
+                symbols=",".join(request.symbols), limit=request.limit,
+            )
         )
 
         if data == {"message": "No data returned"}:
