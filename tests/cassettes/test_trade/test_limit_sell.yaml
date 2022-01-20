@@ -27,41 +27,7 @@ interactions:
         "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
         "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
         null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '1187'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:11 GMT
-      Via:
-      - 1.1 0e61cdf08a154ac7d647c2dc742467a6.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 5B0q25Thw4snXONOdRTkNfZ99zRUStfPZbJ6_tGWdHT9qzuaYdmreg==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - aebcc565-a2d6-4450-bf62-70974db551c8
-      x-amz-apigw-id:
-      - MPcyxGmVSwMFejQ=
-      x-amzn-Remapped-Content-Length:
-      - '1187'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:11 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 61a7613c-8e48-4afc-b7b3-ec2fb4a23394
+    headers: {}
     status:
       code: 200
       message: OK
@@ -77,7 +43,7 @@ interactions:
     uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=AAPL&page=1&max=1
   response:
     body:
-      string: '{"products": [{"id": "8983341d-ceb3-4fca-8b79-8b1c29447f4f", "instrumentTypeID":
+      string: '{"products": [{"id": "3cc01718-9c37-4de3-8f1c-b7aa2b758974", "instrumentTypeID":
         null, "symbol": "AAPL", "description": "Apple Inc. designs, manufactures and
         markets mobile communication and media devices, personal computers and portable
         digital music players. The Company sells a range of related software, services,
@@ -96,45 +62,11 @@ interactions:
         "sector": "Technology", "name": "Apple, Inc.", "dailyReturn": -3.21, "dailyReturnPercentage":
         -1.89, "lastTraded": 166.59, "monthlyReturn": 0.0, "yearlyReturnPercentage":
         71.05, "yearlyReturnValue": 50.3, "popularity": 1967.0, "watched": 50595,
-        "news": 0, "bought": 172962, "viewed": 175200, "productType": "Instrument",
+        "news": 0, "bought": 172965, "viewed": 175200, "productType": "Instrument",
         "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "apple-inc-aapl",
         "period": "YEAR RETURN", "inceptionDate": 345427200000, "instrumentTags":
         [], "childInstruments": []}]}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '1711'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:11 GMT
-      Via:
-      - 1.1 35202ecfee8e63e178de36be1b541f0e.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - BpifNvTmlD-GVHhulieJoPoJFwIjvXszUJJoXDoVd5OaKvUP4656pQ==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - df6f446f-67cb-4335-ace0-d7900ef356d8
-      x-amz-apigw-id:
-      - MPcy4GyVSwMFV3g=
-      x-amzn-Remapped-Content-Length:
-      - '1711'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:11 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - b0cc2a68-5a8b-42ce-807e-0f8976b3e587
+    headers: {}
     status:
       code: 200
       message: OK
@@ -150,50 +82,16 @@ interactions:
     uri: https://global-prd-api.hellostake.com/api/sellorders
   response:
     body:
-      string: '[{"id": "5b588f91-5d74-4688-815d-eaef750f3b12", "itemId": "a67422af-8504-43df-9e63-7361eb0bd99e",
+      string: '[{"id": "172b1d72-bdfd-40e8-a5a5-add224ee69d7", "itemId": "a67422af-8504-43df-9e63-7361eb0bd99e",
         "name": "Apple, Inc.", "quantity": 100.0, "lastPx": null, "lastQty": null,
         "leavesQty": null, "allocatedQty": null, "amountCash": 0.0, "limitPrice":
         null, "stopPrice": null, "effectivePrice": null, "autoStop": null, "commission":
-        0.0, "grossTradeAmount": null, "description": null, "insertedDate": 1642676651998,
-        "updatedDate": 1642676651998, "side": "SELL", "orderRejectReason": null, "orderRejectReasonStake":
+        0.0, "grossTradeAmount": null, "description": null, "insertedDate": 1642680658129,
+        "updatedDate": 1642680658129, "side": "SELL", "orderRejectReason": null, "orderRejectReasonStake":
         null, "errorCode": null, "encodedName": "apple-inc-aapl", "imageURL": "https://drivewealth.imgix.net/symbols/aapl.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
         "symbol": "AAPL", "dwOrderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "orderStatus": "NEW", "type": "LIMIT", "status": 0, "category": "limit"}]'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '757'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:12 GMT
-      Via:
-      - 1.1 7bbccbab99aa927533c5da8ccfb22e02.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - lFDEPAOkSuwtXEks8HJiWE0cxsRbUfZtUOHoUqd_Epyn3I3wl8wx4g==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - 0c63283d-b5c0-48f1-8751-85d3b55b4f82
-      x-amz-apigw-id:
-      - MPcy5F4wSwMFmOg=
-      x-amzn-Remapped-Content-Length:
-      - '757'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:11 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 36ddb8bc-e3ce-44ce-9632-ca4260a8bde4
+        "orderStatus": "NEW", "type": "LIMIT", "category": "limit", "status": 0}]'
+    headers: {}
     status:
       code: 200
       message: OK
@@ -213,11 +111,11 @@ interactions:
         "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
         "8", "orderType": "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B",
         "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient
-        funds. JASU028223 accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity=
+        funds. JAZQ027598 accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity=
         460000 commission=0 sumRestingNotional=0 sumRestingComission=0 ordersInStreet=",
         "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
         "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
-        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:10.242Z",
+        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T12:10:56.373Z",
         "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
         "orderNo": "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8",
         "orderType": "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen":
@@ -225,22 +123,21 @@ interactions:
         ask + 5 cents. bid:128.27 ask:128.27", "commission": 0.0, "executedWhen":
         null, "isoTimeRestingOrderExpires": "2022-04-20T20:00:00.000Z", "limitPrice":
         0.0, "stopPrice": 10.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
-        "Standard Commission", "updatedWhen": "2022-01-20T11:04:07.394Z", "realizedPL":
+        "Standard Commission", "updatedWhen": "2022-01-20T12:10:53.290Z", "realizedPL":
         null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
-        "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
-        "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S", "createdWhen": "2021-11-25
-        19:16:51", "updatedReason": "0105 Order quantity exceeds quantity available
-        for sale.  Cannot SELL SHORT. null", "commission": 0.0, "executedWhen": null,
-        "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z", "limitPrice": 400.0,
-        "stopPrice": 0.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
-        "Standard Commission", "updatedWhen": "2022-01-19T23:47:50.372Z", "realizedPL":
-        null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
-        "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
-        "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B", "createdWhen":
-        "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient funds. JASU028125
-        accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity= 460000 commission=0
-        sumRestingNotional=0 sumRestingComission=0 ordersInStreet=", "commission":
-        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+        "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8", "orderType":
+        "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen": "2021-11-25
+        19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo ask + 5 cents.
+        bid:128.27 ask:128.27", "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires":
+        "2022-04-20T20:00:00.000Z", "limitPrice": 0.0, "stopPrice": 10.0, "cancelledWhen":
+        null, "executedPrice": null, "commissionDesc": "Standard Commission", "updatedWhen":
+        "2022-01-20T11:04:07.394Z", "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+        "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+        "8", "orderType": "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B",
+        "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient
+        funds. JASU028125 accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity=
+        460000 commission=0 sumRestingNotional=0 sumRestingComission=0 ordersInStreet=",
+        "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
         "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
         null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-19T23:47:48.890Z",
         "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
@@ -260,48 +157,39 @@ interactions:
         null, "commissionDesc": "Standard Commission", "updatedWhen": null, "realizedPL":
         null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
         "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
-        "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S", "createdWhen": "2021-11-25
-        19:16:51", "updatedReason": "0105 Order quantity exceeds quantity available
-        for sale.  Cannot SELL SHORT. null", "commission": 0.0, "executedWhen": null,
-        "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z", "limitPrice": 400.0,
-        "stopPrice": 0.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
-        "Standard Commission", "updatedWhen": "2022-01-20T11:04:12.559Z", "realizedPL":
-        null}]}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '4277'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:13 GMT
-      Via:
-      - 1.1 7fe70ef74e6a71dc6fcd4b1b62861ffc.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - Xa1yVykwwyVoZXJ6H7sJ3Iv9QuH1_XalGPTe6o0lDw7p6XcAgFy4ng==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - dba71132-69a0-42fe-a26b-41a9bd29c6e6
-      x-amz-apigw-id:
-      - MPczCGP4SwMFuLA=
-      x-amzn-Remapped-Content-Length:
-      - '4277'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:12 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - dcfa6e75-7d8d-452c-9024-d94a79d70640
+        "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B", "createdWhen":
+        "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient funds. JASU028223
+        accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity= 460000 commission=0
+        sumRestingNotional=0 sumRestingComission=0 ordersInStreet=", "commission":
+        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+        "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:10.242Z",
+        "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+        "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+        "8", "orderType": "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S",
+        "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0105 Order quantity
+        exceeds quantity available for sale.  Cannot SELL SHORT. null", "commission":
+        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+        "limitPrice": 400.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-19T23:47:50.372Z",
+        "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+        "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+        "8", "orderType": "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S",
+        "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0105 Order quantity
+        exceeds quantity available for sale.  Cannot SELL SHORT. null", "commission":
+        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+        "limitPrice": 400.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:12.559Z",
+        "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+        "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+        "8", "orderType": "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S",
+        "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0105 Order quantity
+        exceeds quantity available for sale.  Cannot SELL SHORT. null", "commission":
+        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+        "limitPrice": 400.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T12:10:58.304Z",
+        "realizedPL": null}]}'
+    headers: {}
     status:
       code: 200
       message: OK

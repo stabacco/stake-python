@@ -27,41 +27,7 @@ interactions:
         "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
         "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
         null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '1187'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:13:16 GMT
-      Via:
-      - 1.1 df166554184adf2da43f53000107ac74.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - nNvjs643qeQM6UsPPE65mivEh616sZHl3dOOvSd2MWmIOmHFuK-_gA==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - 2704d76d-17a8-44cb-9aef-c0472e583816
-      x-amz-apigw-id:
-      - MPeH3HZzSwMF0Bw=
-      x-amzn-Remapped-Content-Length:
-      - '1187'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:13:15 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - f5c266a6-8cda-48e2-9058-7e558ac67e0f
+    headers: {}
     status:
       code: 200
       message: OK
@@ -77,7 +43,7 @@ interactions:
     uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=SPOT&page=1&max=1
   response:
     body:
-      string: '{"products": [{"id": "432226b8-1e35-42e0-ab18-1b026c7d8c31", "instrumentTypeID":
+      string: '{"products": [{"id": "93b3755d-0e2d-4d83-8f3b-ddd52cefaeee", "instrumentTypeID":
         null, "symbol": "SPOT", "description": "Spotify Technology SA a Luxembourg-based
         company, which offers digital music-streaming services. The Company enables
         users to discover new releases, which includes the latest singles and albums;
@@ -93,45 +59,11 @@ interactions:
         "sector": null, "name": "Spotify Technology SA", "dailyReturn": -3.32, "dailyReturnPercentage":
         -1.57, "lastTraded": 207.55, "monthlyReturn": 0.0, "yearlyReturnPercentage":
         92.8, "yearlyReturnValue": 131.68, "popularity": 9470.0, "watched": 8075,
-        "news": 0, "bought": 9478, "viewed": 23400, "productType": "Instrument", "exchange":
+        "news": 0, "bought": 9479, "viewed": 23400, "productType": "Instrument", "exchange":
         null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "spotify-technology-sa-spot",
         "period": "YEAR RETURN", "inceptionDate": 1522713600000, "instrumentTags":
         [], "childInstruments": []}]}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '1491'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:13:16 GMT
-      Via:
-      - 1.1 2a6cd2383f2f70d74f5acfbb719135b8.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - bspatzDwV9lEgp8QixfJJtSSo4FR8aOwCGir103o2d01PsXwISp0cw==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - 0696b5df-b932-41bf-82c0-818ff6670045
-      x-amz-apigw-id:
-      - MPeH-HQxSwMFsyg=
-      x-amzn-Remapped-Content-Length:
-      - '1491'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:13:16 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 19f7fa3c-4dc4-4d46-8364-042826f17595
+    headers: {}
     status:
       code: 200
       message: OK
@@ -149,41 +81,7 @@ interactions:
     body:
       string: '{"instrumentId": "4ef83d08-bd4e-4f2f-883c-6ec43e85e8f6", "watching":
         false}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '72'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:13:16 GMT
-      Via:
-      - 1.1 1d79c793a8ae16fbcc3957bd18e4b392.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - JK0QrNghi4j4hmCWMXsk_IQVgMpLhpXjqH3Z0ydOxBrd1gRYw7gA5A==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - fe3ab219-dd4f-4b43-9f73-87019a9247ad
-      x-amz-apigw-id:
-      - MPeH_GqgywMF1pw=
-      x-amzn-Remapped-Content-Length:
-      - '72'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:13:16 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 00001193-4649-4eae-b4e4-bfbf075f0e2a
+    headers: {}
     status:
       code: 202
       message: Accepted

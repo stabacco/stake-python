@@ -13,7 +13,7 @@ class Url(str, Enum):
     fundings: str = "utils/activityLog/fundingOnly"
     market_status: str = "utils/marketStatus"
     orders: str = "users/accounts/v2/orders"
-    quotes: str = ("quotes/marketData/${symbols}")
+    quotes: str = "quotes/marketData/${symbols}"
     rate: str = "wallet/rate"
     transactions: str = "users/accounts/transactions"
     user: str = "user"

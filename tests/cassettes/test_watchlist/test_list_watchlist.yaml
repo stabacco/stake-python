@@ -27,41 +27,7 @@ interactions:
         "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
         "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
         null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '1187'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:13:17 GMT
-      Via:
-      - 1.1 3468af8a053b0ff241626aed87444af8.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 7LPcaEY03CB7m-2XZfflmNjTuBHZ8h0VJx7zMi0nrFvlpTcD1akLGw==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - 0b3b6e5f-48f2-4121-ab62-5118d2a907c6
-      x-amz-apigw-id:
-      - MPeICEtMSwMFsYQ=
-      x-amzn-Remapped-Content-Length:
-      - '1187'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:13:16 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - afacd8ac-7bb6-4276-89d5-c101ddd3f990
+    headers: {}
     status:
       code: 200
       message: OK
@@ -78,7 +44,7 @@ interactions:
   response:
     body:
       string: '{"instrumentsWatchList": [{"productWatchlistID": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
-        "product": {"id": "f5be1dde-13f0-4722-838a-fcb3bb1704c9", "instrumentTypeID":
+        "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
         null, "symbol": "VMW", "description": "VMware, Inc. is an information technology
         (IT) company. The Company is engaged in development and application of virtualization
         technologies with x86 server-based computing, separating application software
@@ -101,7 +67,7 @@ interactions:
         "period": "YEAR RETURN", "inceptionDate": 1187136000000, "instrumentTags":
         ["Cloud Computing", "Applications", "Technology", "Software", "Data Storage"],
         "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID":
-        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product": {"id": "f5be1dde-13f0-4722-838a-fcb3bb1704c9",
+        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5",
         "instrumentTypeID": null, "symbol": "TWLO", "description": "Twilio Inc. offers
         Cloud Communications Platform, which enables developers to build, scale and
         operate real-time communications within software applications. The Company''s
@@ -124,7 +90,7 @@ interactions:
         "period": "YEAR RETURN", "inceptionDate": 1466640000000, "instrumentTags":
         ["Cloud Computing", "Applications", "Software", "Internet", "Telecommunications"],
         "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID":
-        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product": {"id": "f5be1dde-13f0-4722-838a-fcb3bb1704c9",
+        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5",
         "instrumentTypeID": null, "symbol": "ATVI", "description": "Activision Blizzard,
         Inc. is a developer and publisher of interactive entertainment content and
         services. The Company develops and distributes content and services on video
@@ -149,7 +115,7 @@ interactions:
         751507200000, "instrumentTags": ["Entertainment", "Digital Media", "Internet",
         "Gaming"], "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"},
         {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product":
-        {"id": "f5be1dde-13f0-4722-838a-fcb3bb1704c9", "instrumentTypeID": null, "symbol":
+        {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID": null, "symbol":
         "LI", "description": "Li Auto Inc is a China-based holding company engaged
         in design, development, manufacturing and sales of smart electric sport utility
         vehicles (SUVs). The Company\u2019s primary product is the SUVs under its
@@ -166,7 +132,7 @@ interactions:
         "period": "YEAR RETURN", "inceptionDate": null, "instrumentTags": ["Vehicle",
         "China", "Electric", "Renewable Energy", "Electric Cars"], "childInstruments":
         []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "product": {"id": "f5be1dde-13f0-4722-838a-fcb3bb1704c9", "instrumentTypeID":
+        "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
         null, "symbol": "PEAK", "description": "Healthpeak Properties, Inc., formerly
         HCP, Inc., is a diversified real estate investment trust, which invests in
         real estate serving the healthcare industry in the United States. The Company
@@ -189,7 +155,7 @@ interactions:
         563068800000, "instrumentTags": ["Laboratories", "Real Estate", "Healthcare",
         "Medical", "Investment"], "childInstruments": []}, "watchedDate": "2019-11-21
         20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "product": {"id": "f5be1dde-13f0-4722-838a-fcb3bb1704c9", "instrumentTypeID":
+        "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
         null, "symbol": "MGNX", "description": "MacroGenics, Inc. is a clinical-stage
         biopharmaceutical company focused on discovering and developing monoclonal
         antibody-based therapeutics for the treatment of cancer, as well as various
@@ -212,7 +178,7 @@ interactions:
         "period": "YEAR RETURN", "inceptionDate": 1381449600000, "instrumentTags":
         ["Therapeutics", "Research", "Biomedical", "Pharmaceuticals"], "childInstruments":
         []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "product": {"id": "f5be1dde-13f0-4722-838a-fcb3bb1704c9", "instrumentTypeID":
+        "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
         null, "symbol": "VIXY", "description": "The investment seeks to provide investment
         results (before fees and expenses) that match the performance of the S&P 500
         VIX Short-Term Futures Index. The fund intends to obtain exposure to its index
@@ -231,7 +197,7 @@ interactions:
         "vix-shortterm-futures-proshares-vixy", "period": "YEAR RETURN", "inceptionDate":
         1294099200000, "instrumentTags": ["Short Term", "VIX", "Futures", "ETF", "Short"],
         "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID":
-        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product": {"id": "f5be1dde-13f0-4722-838a-fcb3bb1704c9",
+        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5",
         "instrumentTypeID": null, "symbol": "DOCU", "description": "DocuSign Inc offers
         DocuSign Agreement Cloud, a software suite for automating the agreement process.
         It includes DocuSign eSignature, an electronic signature solution that allows
@@ -255,7 +221,7 @@ interactions:
         "period": "YEAR RETURN", "inceptionDate": null, "instrumentTags": ["Cloud
         Computing", "Digital Media", "Cloud", "Software"], "childInstruments": []},
         "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "product": {"id": "f5be1dde-13f0-4722-838a-fcb3bb1704c9", "instrumentTypeID":
+        "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
         null, "symbol": "TEAM", "description": "Atlassian Corporation Plc is a holding
         company. The Company offers a range of team collaboration products. The Company
         offers products, including JIRA, Confluence, HipChat, Bitbucket and JIRA Service
@@ -279,7 +245,7 @@ interactions:
         1449619200000, "instrumentTags": ["Computers", "Disruptors", "Asia Pacific",
         "Software", "Australia"], "childInstruments": []}, "watchedDate": "2019-11-21
         20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "product": {"id": "f5be1dde-13f0-4722-838a-fcb3bb1704c9", "instrumentTypeID":
+        "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
         null, "symbol": "MSFT", "description": "Microsoft Corporation is a technology
         company. The Company develops, licenses, and supports a range of software
         products, services and devices. The Company''s segments include Productivity
@@ -302,39 +268,7 @@ interactions:
         "microsoft-corporation-msft", "period": "YEAR RETURN", "inceptionDate": 511056000000,
         "instrumentTags": ["Cloud Computing", "Applications", "Technology", "Software",
         "Bill Gates"], "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"}]}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '17553'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:13:17 GMT
-      Via:
-      - 1.1 0cd8fe15d9bdb168de9cd5f22954d220.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 0TuIWGtLl76wtA-mgFnQ8iLeVaTmCq-vn9tpqHjFf_rwlw6HmnFWYg==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - 584670b2-6c84-42ee-afd8-e7d9b7ad0cec
-      x-amz-apigw-id:
-      - MPeIKEpkSwMFcWA=
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:13:17 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 9c40c322-c916-4c06-b848-1794f6e11022
+    headers: {}
     status:
       code: 200
       message: OK

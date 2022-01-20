@@ -27,41 +27,7 @@ interactions:
         "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
         "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
         null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '1187'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:05 GMT
-      Via:
-      - 1.1 d3f1182213e75f053a9e7404f079d540.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - Z1_u3-M_dnOLtI6B1_8-0FxWXsuIr6gaaErlQCn3TGXTZAaIyYQCzg==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - 82338c23-1f11-422d-bb12-6137a8072c31
-      x-amz-apigw-id:
-      - MPcx2FvkywMFb9A=
-      x-amzn-Remapped-Content-Length:
-      - '1187'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:05 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 9de527b9-fbfb-4e93-9fab-6a559aa7c689
+    headers: {}
     status:
       code: 200
       message: OK
@@ -77,7 +43,7 @@ interactions:
     uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=AMD&page=1&max=1
   response:
     body:
-      string: '{"products": [{"id": "78b9c268-3ea3-4767-897c-456ac1c948fa", "instrumentTypeID":
+      string: '{"products": [{"id": "c6477745-9bd3-4200-b409-49056ee810ca", "instrumentTypeID":
         null, "symbol": "AMD", "description": "Advanced Micro Devices, Inc. is a global
         semiconductor company. The Company is engaged in offering x86 microprocessors,
         as standalone devices or as incorporated into an accelerated processing unit
@@ -94,45 +60,11 @@ interactions:
         "sector": "Technology", "name": "Advanced Micro Devices, Inc.", "dailyReturn":
         -3.41, "dailyReturnPercentage": -2.58, "lastTraded": 128.52, "monthlyReturn":
         0.0, "yearlyReturnPercentage": 73.05, "yearlyReturnValue": 33.15, "popularity":
-        800.0, "watched": 20790, "news": 0, "bought": 52421, "viewed": 95400, "productType":
+        800.0, "watched": 20790, "news": 0, "bought": 52423, "viewed": 95400, "productType":
         "Instrument", "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName":
         "advanced-micro-devices-inc-amd", "period": "YEAR RETURN", "inceptionDate":
         322099200000, "instrumentTags": [], "childInstruments": []}]}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '1626'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:05 GMT
-      Via:
-      - 1.1 c8a7df1b4956aa390fe495730eb3c9f4.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - HXCaw9SSjxafyYrJxeMXyuuJastAhxuujVyhQeuowRBBS_OqFgGHEQ==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - fcb324b4-37d9-4c42-bb5d-b9c1d053f15d
-      x-amz-apigw-id:
-      - MPcx8GbqywMFj2Q=
-      x-amzn-Remapped-Content-Length:
-      - '1626'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:05 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - c9fbc754-50c4-4521-ab62-a95ef5e0a5ac
+    headers: {}
     status:
       code: 200
       message: OK
@@ -148,51 +80,17 @@ interactions:
     uri: https://global-prd-api.hellostake.com/api/purchaseorders/v2/quickBuy
   response:
     body:
-      string: '[{"id": "4ab19d35-07c5-4205-9162-96a2c7645e36", "itemId": "e9bb06e1-0981-4584-8cf4-18ee9296dcbe",
+      string: '[{"id": "0c2582b9-1c12-42d2-b53c-ed249a352bae", "itemId": "e9bb06e1-0981-4584-8cf4-18ee9296dcbe",
         "name": "Advanced Micro Devices, Inc.", "quantity": null, "lastPx": null,
         "lastQty": null, "leavesQty": null, "allocatedQty": null, "amountCash": 10.0,
         "limitPrice": null, "stopPrice": null, "effectivePrice": null, "autoStop":
         0.0, "commission": 0.0, "grossTradeAmount": null, "description": null, "insertedDate":
-        1642676646096, "updatedDate": 1642676646096, "side": "BUY", "orderRejectReason":
+        1642680652083, "updatedDate": 1642680652083, "side": "BUY", "orderRejectReason":
         null, "orderRejectReasonStake": null, "errorCode": null, "encodedName": "advanced-micro-devices-inc-amd",
         "imageURL": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/amd.png",
         "symbol": "AMD", "dwOrderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
         "orderStatus": "NEW", "type": "STOP", "status": 0, "category": "stop"}]'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '763'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:07 GMT
-      Via:
-      - 1.1 9d6e86f5b232838ca6f2f480892525b2.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - dK86jF1Fi4OoIpWXYisi-kdtLPpHOO0M7b9z8GLjVRA3dMsAG97W-Q==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - 9d936d9e-0665-4eae-ac9d-e45362a69726
-      x-amz-apigw-id:
-      - MPcx-HogSwMFrqg=
-      x-amzn-Remapped-Content-Length:
-      - '763'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:06 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 91d8f40c-f0c4-4d10-ab3b-7a6b94fbd4ae
+    headers: {}
     status:
       code: 200
       message: OK
@@ -215,14 +113,21 @@ interactions:
         ask + 5 cents. bid:128.27 ask:128.27", "commission": 0.0, "executedWhen":
         null, "isoTimeRestingOrderExpires": "2022-04-20T20:00:00.000Z", "limitPrice":
         0.0, "stopPrice": 10.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
-        "Standard Commission", "updatedWhen": "2022-01-20T11:04:07.394Z", "realizedPL":
+        "Standard Commission", "updatedWhen": "2022-01-20T12:10:53.290Z", "realizedPL":
         null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
-        "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
-        "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B", "createdWhen":
-        "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient funds. JASU028125
-        accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity= 460000 commission=0
-        sumRestingNotional=0 sumRestingComission=0 ordersInStreet=", "commission":
-        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+        "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8", "orderType":
+        "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen": "2021-11-25
+        19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo ask + 5 cents.
+        bid:128.27 ask:128.27", "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires":
+        "2022-04-20T20:00:00.000Z", "limitPrice": 0.0, "stopPrice": 10.0, "cancelledWhen":
+        null, "executedPrice": null, "commissionDesc": "Standard Commission", "updatedWhen":
+        "2022-01-20T11:04:07.394Z", "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+        "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+        "8", "orderType": "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B",
+        "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient
+        funds. JASU028125 accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity=
+        460000 commission=0 sumRestingNotional=0 sumRestingComission=0 ordersInStreet=",
+        "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
         "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
         null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-19T23:47:48.890Z",
         "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
@@ -248,42 +153,25 @@ interactions:
         "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z", "limitPrice": 400.0,
         "stopPrice": 0.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
         "Standard Commission", "updatedWhen": "2022-01-19T23:47:50.372Z", "realizedPL":
-        null}]}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '2987'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:08 GMT
-      Via:
-      - 1.1 59304f445e251c540e46633ed3dd4f64.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - YKf9LDQOVz4lZIrUDfqoin9_9g7_cMWXd70eA423CxnJaxlbnB72Ng==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - 3108fecc-e1e9-4cec-ab7d-f6b560895832
-      x-amz-apigw-id:
-      - MPcyPFucywMFwOA=
-      x-amzn-Remapped-Content-Length:
-      - '2987'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:07 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 7b024ad4-7143-44ef-b3b2-8c999c72c6fc
+        null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
+        "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
+        "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B", "createdWhen":
+        "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient funds. JASU028223
+        accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity= 460000 commission=0
+        sumRestingNotional=0 sumRestingComission=0 ordersInStreet=", "commission":
+        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+        "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:10.242Z",
+        "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+        "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+        "8", "orderType": "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S",
+        "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0105 Order quantity
+        exceeds quantity available for sale.  Cannot SELL SHORT. null", "commission":
+        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+        "limitPrice": 400.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:12.559Z",
+        "realizedPL": null}]}'
+    headers: {}
     status:
       code: 200
       message: OK

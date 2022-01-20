@@ -27,41 +27,7 @@ interactions:
         "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
         "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
         null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '1187'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:08 GMT
-      Via:
-      - 1.1 b96ad58427ffff8b9d3959350f8c9f16.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - YGTUoNu9mZ2Y9_dE6Gl08hsgWd6wgbcGnYz4y0tkhVoLjLx1OKvaRQ==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - ba4b7e0f-a935-4c1b-b681-85fa185ca258
-      x-amz-apigw-id:
-      - MPcyUFXjSwMFrqQ=
-      x-amzn-Remapped-Content-Length:
-      - '1187'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:08 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 4ffd9a34-957e-4d28-b9b6-4413af30f0d5
+    headers: {}
     status:
       code: 200
       message: OK
@@ -77,7 +43,7 @@ interactions:
     uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=AAPL&page=1&max=1
   response:
     body:
-      string: '{"products": [{"id": "bbd51c96-8749-4467-9fd1-73bbf14c50ce", "instrumentTypeID":
+      string: '{"products": [{"id": "379224d8-3679-439b-b30e-221da5b8d957", "instrumentTypeID":
         null, "symbol": "AAPL", "description": "Apple Inc. designs, manufactures and
         markets mobile communication and media devices, personal computers and portable
         digital music players. The Company sells a range of related software, services,
@@ -96,45 +62,11 @@ interactions:
         "sector": "Technology", "name": "Apple, Inc.", "dailyReturn": -3.21, "dailyReturnPercentage":
         -1.89, "lastTraded": 166.59, "monthlyReturn": 0.0, "yearlyReturnPercentage":
         71.05, "yearlyReturnValue": 50.3, "popularity": 1967.0, "watched": 50595,
-        "news": 0, "bought": 172962, "viewed": 175200, "productType": "Instrument",
+        "news": 0, "bought": 172965, "viewed": 175200, "productType": "Instrument",
         "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "apple-inc-aapl",
         "period": "YEAR RETURN", "inceptionDate": 345427200000, "instrumentTags":
         [], "childInstruments": []}]}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '1711'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:08 GMT
-      Via:
-      - 1.1 c8a7df1b4956aa390fe495730eb3c9f4.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - JvwRVJXxfGvAhSdBbgGJCF7sCB-CPq6ZPRasuOVdvoHEJglorx1irQ==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - 617a7ff3-68c0-444a-9433-fab63c43dd99
-      x-amz-apigw-id:
-      - MPcyaGVxSwMFRSg=
-      x-amzn-Remapped-Content-Length:
-      - '1711'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:08 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 4d7ec66e-9b84-4479-b28b-68b2267b8e35
+    headers: {}
     status:
       code: 200
       message: OK
@@ -150,50 +82,16 @@ interactions:
     uri: https://global-prd-api.hellostake.com/api/purchaseorders/v2/quickBuy
   response:
     body:
-      string: '[{"id": "8332f664-1929-4fc1-b5db-56f26cd1227c", "itemId": "a67422af-8504-43df-9e63-7361eb0bd99e",
+      string: '[{"id": "29f24937-e47f-4cdd-8a5a-61fb4e05e07a", "itemId": "a67422af-8504-43df-9e63-7361eb0bd99e",
         "name": "Apple, Inc.", "quantity": 1000.0, "lastPx": null, "lastQty": null,
         "leavesQty": null, "allocatedQty": null, "amountCash": 0.0, "limitPrice":
         null, "stopPrice": null, "effectivePrice": null, "autoStop": 0.0, "commission":
-        0.0, "grossTradeAmount": null, "description": null, "insertedDate": 1642676649025,
-        "updatedDate": 1642676649025, "side": "BUY", "orderRejectReason": null, "orderRejectReasonStake":
+        0.0, "grossTradeAmount": null, "description": null, "insertedDate": 1642680654984,
+        "updatedDate": 1642680654984, "side": "BUY", "orderRejectReason": null, "orderRejectReasonStake":
         null, "errorCode": null, "encodedName": "apple-inc-aapl", "imageURL": "https://drivewealth.imgix.net/symbols/aapl.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
         "symbol": "AAPL", "dwOrderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "orderStatus": "NEW", "type": "LIMIT", "status": 0, "category": "limit"}]'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '757'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:10 GMT
-      Via:
-      - 1.1 9d6e86f5b232838ca6f2f480892525b2.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - XujbBMpwYI5vuVL0CsE6l3xz9ZF9sxp1siYFlfg2blymgnaiXwe2pg==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - 703cc138-5e4c-4cfd-9aca-1374234f164d
-      x-amz-apigw-id:
-      - MPcybG5lywMFjAw=
-      x-amzn-Remapped-Content-Length:
-      - '757'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:08 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 6e0ee43f-6bd3-464e-bde4-13c7e15ae4ed
+        "orderStatus": "NEW", "type": "LIMIT", "category": "limit", "status": 0}]'
+    headers: {}
     status:
       code: 200
       message: OK
@@ -213,11 +111,11 @@ interactions:
         "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
         "8", "orderType": "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B",
         "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient
-        funds. JASU028223 accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity=
+        funds. JAZQ027598 accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity=
         460000 commission=0 sumRestingNotional=0 sumRestingComission=0 ordersInStreet=",
         "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
         "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
-        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:10.242Z",
+        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T12:10:56.373Z",
         "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
         "orderNo": "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8",
         "orderType": "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen":
@@ -225,22 +123,21 @@ interactions:
         ask + 5 cents. bid:128.27 ask:128.27", "commission": 0.0, "executedWhen":
         null, "isoTimeRestingOrderExpires": "2022-04-20T20:00:00.000Z", "limitPrice":
         0.0, "stopPrice": 10.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
-        "Standard Commission", "updatedWhen": "2022-01-20T11:04:07.394Z", "realizedPL":
+        "Standard Commission", "updatedWhen": "2022-01-20T12:10:53.290Z", "realizedPL":
         null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
-        "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
-        "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S", "createdWhen": "2021-11-25
-        19:16:51", "updatedReason": "0105 Order quantity exceeds quantity available
-        for sale.  Cannot SELL SHORT. null", "commission": 0.0, "executedWhen": null,
-        "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z", "limitPrice": 400.0,
-        "stopPrice": 0.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
-        "Standard Commission", "updatedWhen": "2022-01-19T23:47:50.372Z", "realizedPL":
-        null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
-        "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
-        "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B", "createdWhen":
-        "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient funds. JASU028125
-        accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity= 460000 commission=0
-        sumRestingNotional=0 sumRestingComission=0 ordersInStreet=", "commission":
-        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+        "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8", "orderType":
+        "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen": "2021-11-25
+        19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo ask + 5 cents.
+        bid:128.27 ask:128.27", "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires":
+        "2022-04-20T20:00:00.000Z", "limitPrice": 0.0, "stopPrice": 10.0, "cancelledWhen":
+        null, "executedPrice": null, "commissionDesc": "Standard Commission", "updatedWhen":
+        "2022-01-20T11:04:07.394Z", "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+        "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+        "8", "orderType": "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B",
+        "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient
+        funds. JASU028125 accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity=
+        460000 commission=0 sumRestingNotional=0 sumRestingComission=0 ordersInStreet=",
+        "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
         "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
         null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-19T23:47:48.890Z",
         "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
@@ -258,42 +155,33 @@ interactions:
         "executedWhen": null, "isoTimeRestingOrderExpires": "2022-04-20T20:00:00.000Z",
         "limitPrice": 0.0, "stopPrice": 63.0, "cancelledWhen": null, "executedPrice":
         null, "commissionDesc": "Standard Commission", "updatedWhen": null, "realizedPL":
-        null}]}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '3681'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:10 GMT
-      Via:
-      - 1.1 8008f773a176223da2278b5cb39f91fa.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - DczL-u7NLI8Jt10Hu3tlFpmQ3_txPs4Ov5_SMyqRSD89JE_cB0XOEw==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - 99413d8c-1dda-4c1c-839e-cdb950ca04a1
-      x-amz-apigw-id:
-      - MPcyrGUCSwMFXYw=
-      x-amzn-Remapped-Content-Length:
-      - '3681'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:10 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 44dda6c2-5b9e-4607-a4a5-c876501fd9fc
+        null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
+        "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
+        "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S", "createdWhen": "2021-11-25
+        19:16:51", "updatedReason": "0105 Order quantity exceeds quantity available
+        for sale.  Cannot SELL SHORT. null", "commission": 0.0, "executedWhen": null,
+        "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z", "limitPrice": 400.0,
+        "stopPrice": 0.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
+        "Standard Commission", "updatedWhen": "2022-01-19T23:47:50.372Z", "realizedPL":
+        null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
+        "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
+        "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B", "createdWhen":
+        "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient funds. JASU028223
+        accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity= 460000 commission=0
+        sumRestingNotional=0 sumRestingComission=0 ordersInStreet=", "commission":
+        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+        "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:10.242Z",
+        "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+        "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+        "8", "orderType": "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S",
+        "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0105 Order quantity
+        exceeds quantity available for sale.  Cannot SELL SHORT. null", "commission":
+        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+        "limitPrice": 400.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:12.559Z",
+        "realizedPL": null}]}'
+    headers: {}
     status:
       code: 200
       message: OK

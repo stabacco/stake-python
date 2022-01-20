@@ -84,6 +84,7 @@ def redact_sensitive_data(response):
 
     response["body"]["string"] = bytes(json.dumps(_redact_response_body(body)), "utf-8")
 
+    response["headers"] = {}
     return response
 
 

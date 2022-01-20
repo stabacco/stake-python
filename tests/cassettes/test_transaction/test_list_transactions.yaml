@@ -27,41 +27,7 @@ interactions:
         "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
         "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
         null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '1187'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:14 GMT
-      Via:
-      - 1.1 d3f1182213e75f053a9e7404f079d540.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - gMrekjrdRQjEVTmx7mKFTpw18LEO3AsxPSWmA32Zw_hVTBAgWBfuLA==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - a5af1f1a-d22b-456f-badf-332fe9579fe8
-      x-amz-apigw-id:
-      - MPczNHLqSwMFuAA=
-      x-amzn-Remapped-Content-Length:
-      - '1187'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:13 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - fb254b4b-0d35-4cf5-839c-ade5a451b1ef
+    headers: {}
     status:
       code: 200
       message: OK
@@ -84,7 +50,7 @@ interactions:
         "feeExchange": 0.0, "fillQty": 0.94106463, "fillPx": 84.16, "sendCommissionToInteliclear":
         false, "systemAmount": 0.0, "tranAmount": -79.2, "tranSource": "EMS", "tranWhen":
         "2021-07-13 08:09:30", "wlpAmount": 0.0, "wlpFinTranTypeID": null, "instrument":
-        {"id": "0671dc61-44c1-4664-8e0c-0efc3b8696a3", "symbol": "COP", "name": "ConocoPhillips"},
+        {"id": "702afeb3-79df-463d-93e7-c30d791f5a25", "symbol": "COP", "name": "ConocoPhillips"},
         "dividend": null, "dividendTax": null, "mergerAcquisition": null, "positionDelta":
         null, "orderID": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo": "S2-9425658g"},
         {"accountAmount": 12622.53, "accountBalance": 16228.29, "accountType": "LIVE",
@@ -94,7 +60,7 @@ interactions:
         "fillQty": 30.0, "fillPx": 420.75, "sendCommissionToInteliclear": false, "systemAmount":
         0.0, "tranAmount": 12622.53, "tranSource": "EMS", "tranWhen": "2021-07-13
         08:09:30", "wlpAmount": 0.0, "wlpFinTranTypeID": null, "instrument": {"id":
-        "0671dc61-44c1-4664-8e0c-0efc3b8696a3", "symbol": "VGT", "name": "Vanguard
+        "702afeb3-79df-463d-93e7-c30d791f5a25", "symbol": "VGT", "name": "Vanguard
         Information Technology ETF"}, "dividend": null, "dividendTax": null, "mergerAcquisition":
         null, "positionDelta": null, "orderID": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
         "orderNo": "S2-9425658g"}, {"accountAmount": -0.07, "accountBalance": 16228.22,
@@ -104,45 +70,11 @@ interactions:
         "feeExchange": 0.0, "fillQty": 0.0, "fillPx": 0.0, "sendCommissionToInteliclear":
         false, "systemAmount": 0.0, "tranAmount": -0.07, "tranSource": "EMS", "tranWhen":
         "2021-07-13 08:09:30", "wlpAmount": 0.0, "wlpFinTranTypeID": null, "instrument":
-        {"id": "0671dc61-44c1-4664-8e0c-0efc3b8696a3", "symbol": "VGT", "name": "Vanguard
+        {"id": "702afeb3-79df-463d-93e7-c30d791f5a25", "symbol": "VGT", "name": "Vanguard
         Information Technology ETF"}, "dividend": null, "dividendTax": null, "mergerAcquisition":
         null, "positionDelta": null, "orderID": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
         "orderNo": "S2-9425658g"}]'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '2298'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:15 GMT
-      Via:
-      - 1.1 b96ad58427ffff8b9d3959350f8c9f16.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 5WkO9pYf3cEIjEMsX0xNvW2nPhjWZyLjPuJESWPYe1hMNBBrJ7HaFA==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - 1c181d29-d745-44db-b001-d479147ea25a
-      x-amz-apigw-id:
-      - MPczVHOoywMF5Uw=
-      x-amzn-Remapped-Content-Length:
-      - '2298'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:14 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 1961ac1b-7865-417a-92c8-8f70b584cfe7
+    headers: {}
     status:
       code: 200
       message: OK

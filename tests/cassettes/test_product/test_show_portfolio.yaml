@@ -27,41 +27,7 @@ interactions:
         "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
         "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
         null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '1187'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:00 GMT
-      Via:
-      - 1.1 1d79c793a8ae16fbcc3957bd18e4b392.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - BFy-SvJ38moSKT3654cXvd5kElcdYiJc8KWnh2nHKf2ccp9Ul-IyhQ==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - c32cbc07-1464-46d9-9d9b-aacef7f1de4c
-      x-amz-apigw-id:
-      - MPcxGH7SywMFePg=
-      x-amzn-Remapped-Content-Length:
-      - '1187'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:00 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 55a1f9f6-22ac-49fe-bb2f-d332b5908cfe
+    headers: {}
     status:
       code: 200
       message: OK
@@ -123,41 +89,7 @@ interactions:
         "dailyReturnValue": 0.05, "yearlyReturnValue": 16.88, "yearlyReturnPercentage":
         37.82, "period": "YEAR RETURN", "exchange": null}], "equityValue": 21450.99,
         "pricesOnly": false}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Content-type, Accept, Stake-Session-Token, stake_tid
-      Access-Control-Allow-Methods:
-      - GET, POST, DELETE, PUT
-      Access-Control-Allow-Origin:
-      - '*'
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '3600'
-      Content-Type:
-      - application/json
-      Date:
-      - Thu, 20 Jan 2022 11:04:01 GMT
-      Via:
-      - 1.1 7bda591fa44b42ef6384ae955fdd5d7c.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - lbiAZfpmxt5_4R0uBhl1o772Ua7PGWjWcW7LsBvhm9f0qEAVZLarWQ==
-      X-Amz-Cf-Pop:
-      - SYD62-P2
-      X-Cache:
-      - Miss from cloudfront
-      stake_tid:
-      - fb90b77e-3bca-467b-a52a-d1652591ef38
-      x-amz-apigw-id:
-      - MPcxREO3ywMF9dQ=
-      x-amzn-Remapped-Content-Length:
-      - '3600'
-      x-amzn-Remapped-Date:
-      - Thu, 20 Jan 2022 11:04:01 GMT
-      x-amzn-Remapped-Server:
-      - Jetty(9.4.44.v20210927)
-      x-amzn-RequestId:
-      - 2ada5dc6-2e65-4bf0-afd0-2b1e3cb4536c
+    headers: {}
     status:
       code: 200
       message: OK
