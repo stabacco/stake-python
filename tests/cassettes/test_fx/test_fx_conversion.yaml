@@ -1,0 +1,121 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://global-prd-api.hellostake.com/api/user
+  response:
+    body:
+      string: '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+        true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+        "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
+        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
+        "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
+        "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+        null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
+        "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
+        "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+        null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
+        "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+        null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+        null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+        "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+        "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+        "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+        null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-type, Accept, Stake-Session-Token, stake_tid
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1187'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 20 Jan 2022 11:05:49 GMT
+      Via:
+      - 1.1 2a6cd2383f2f70d74f5acfbb719135b8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - YWxE63oe17e8qGWdsa50jy8XgFL9Q7sTowO8ZIf1sXCiS_PoN2q3Vg==
+      X-Amz-Cf-Pop:
+      - SYD62-P2
+      X-Cache:
+      - Miss from cloudfront
+      stake_tid:
+      - 3b16ca94-0b83-4077-b22a-619d54ce815b
+      x-amz-apigw-id:
+      - MPdCGHnmywMFYWg=
+      x-amzn-Remapped-Content-Length:
+      - '1187'
+      x-amzn-Remapped-Date:
+      - Thu, 20 Jan 2022 11:05:49 GMT
+      x-amzn-Remapped-Server:
+      - Jetty(9.4.44.v20210927)
+      x-amzn-RequestId:
+      - a7bdfb54-4fa4-40a7-8810-f5ada2bcb7e2
+    status:
+      code: 200
+      message: OK
+    url: https://global-prd-api.hellostake.com/api/user
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://global-prd-api.hellostake.com/api/wallet/rate
+  response:
+    body:
+      string: '{"fromCurrency": "USD", "toCurrency": "AUD", "fromAmount": 1000.0,
+        "toAmount": 1368.4, "rate": 1.3684, "quote": "90886701-f09d-4231-a79a-1946029379dd"}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-type, Accept, Stake-Session-Token, stake_tid
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '143'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 20 Jan 2022 11:05:53 GMT
+      Via:
+      - 1.1 0e61cdf08a154ac7d647c2dc742467a6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - -ZAehROUNOctK_wxWAVcglj7DxtK24q3Dp8OfqtUfvY5xmlt-3cFRA==
+      X-Amz-Cf-Pop:
+      - SYD62-P2
+      X-Cache:
+      - Miss from cloudfront
+      stake_tid:
+      - 14068474-1d6c-422d-8d40-c29f203fbc5c
+      x-amz-apigw-id:
+      - MPdCNEIzywMFy6Q=
+      x-amzn-Remapped-Content-Length:
+      - '143'
+      x-amzn-Remapped-Date:
+      - Thu, 20 Jan 2022 11:05:49 GMT
+      x-amzn-Remapped-Server:
+      - Jetty(9.4.44.v20210927)
+      x-amzn-RequestId:
+      - 0502b321-ac6c-4364-bb2b-7775e7aa2a24
+    status:
+      code: 200
+      message: OK
+    url: https://global-prd-api.hellostake.com/api/wallet/rate
+version: 1

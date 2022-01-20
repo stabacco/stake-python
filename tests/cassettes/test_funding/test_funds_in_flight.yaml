@@ -1,0 +1,132 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://global-prd-api.hellostake.com/api/user
+  response:
+    body:
+      string: '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+        true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+        "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
+        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
+        "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
+        "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+        null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
+        "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
+        "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+        null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
+        "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+        null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+        null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+        "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+        "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+        "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+        null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-type, Accept, Stake-Session-Token, stake_tid
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1187'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 19 Jan 2022 23:47:25 GMT
+      Via:
+      - 1.1 e3d6764a647541ed814ff5842b8b1476.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - k3bkL5K_B72p2N5kVZDNcc1Y40RN6yIA731WDQscLeiZ9Cb8aBQ9aA==
+      X-Amz-Cf-Pop:
+      - SYD62-P2
+      X-Cache:
+      - Miss from cloudfront
+      stake_tid:
+      - 656bf946-1cca-49b2-8c30-8ed012bf8467
+      x-amz-apigw-id:
+      - MN5qBERFywMF-sQ=
+      x-amzn-Remapped-Content-Length:
+      - '1187'
+      x-amzn-Remapped-Date:
+      - Wed, 19 Jan 2022 23:47:24 GMT
+      x-amzn-Remapped-Server:
+      - Jetty(9.4.44.v20210927)
+      x-amzn-RequestId:
+      - fc247b8a-2fcc-42d0-9ff2-4e1f17397d60
+    status:
+      code: 200
+      message: OK
+    url: https://global-prd-api.hellostake.com/api/user
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://global-prd-api.hellostake.com/api/fund/details
+  response:
+    body:
+      string: |
+        '{"fundsInFlight": [
+                    {
+                        "type": "Funding",
+                        "insertDateTime": "17 Sep 2020 05:21AM",
+                        "estimatedArrivalTime": "19 Sep 2020 05:00AM",
+                        "estimatedArrivalTimeUS": "Fri 1:00pm NY time",
+                        "transactionType": "Poli",
+                        "toAmount": 1512.0,
+                        "fromAmount": 2100.0
+                    }
+                ]}
+                '
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-type, Accept, Stake-Session-Token, stake_tid
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '20'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 19 Jan 2022 23:47:25 GMT
+      Via:
+      - 1.1 b96ad58427ffff8b9d3959350f8c9f16.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - ya0CFD1VuJq5VOB_JdqS4gLyUgtFQBrdZI8OMv7PFkzxYQ-gqLtnuw==
+      X-Amz-Cf-Pop:
+      - SYD62-P2
+      X-Cache:
+      - Miss from cloudfront
+      stake_tid:
+      - 179618fa-5fb5-4281-8e0e-1a28093ed963
+      x-amz-apigw-id:
+      - MN5qHEYpSwMF74w=
+      x-amzn-Remapped-Content-Length:
+      - '20'
+      x-amzn-Remapped-Date:
+      - Wed, 19 Jan 2022 23:47:25 GMT
+      x-amzn-Remapped-Server:
+      - Jetty(9.4.44.v20210927)
+      x-amzn-RequestId:
+      - 513d1f21-81a5-4a7d-b960-f6cdc9f96dde
+    status:
+      code: 200
+      message: OK
+    url: https://global-prd-api.hellostake.com/api/fund/details
+version: 1

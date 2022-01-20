@@ -1,0 +1,149 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://global-prd-api.hellostake.com/api/user
+  response:
+    body:
+      string: '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+        true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+        "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
+        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
+        "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
+        "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+        null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
+        "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
+        "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+        null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
+        "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+        null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+        null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+        "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+        "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+        "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+        null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-type, Accept, Stake-Session-Token, stake_tid
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1187'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 20 Jan 2022 11:04:03 GMT
+      Via:
+      - 1.1 0e61cdf08a154ac7d647c2dc742467a6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - XRNd0xHewpEpCMziKYiu03J7s6XNi6uiVS1Sxn7sAnaaWBAol-H8KQ==
+      X-Amz-Cf-Pop:
+      - SYD62-P2
+      X-Cache:
+      - Miss from cloudfront
+      stake_tid:
+      - 1dcebff0-31d7-4b0b-b38d-01e8f9424705
+      x-amz-apigw-id:
+      - MPcxhGLYSwMFQ5w=
+      x-amzn-Remapped-Content-Length:
+      - '1187'
+      x-amzn-Remapped-Date:
+      - Thu, 20 Jan 2022 11:04:03 GMT
+      x-amzn-Remapped-Server:
+      - Jetty(9.4.44.v20210927)
+      x-amzn-RequestId:
+      - 8567d05e-3d91-4b6a-8e36-0fad02c972d6
+    status:
+      code: 200
+      message: OK
+    url: https://global-prd-api.hellostake.com/api/user
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://global-prd-api.hellostake.com/api/data/calendar/ratings?tickers=AAPL,MSFT&pageSize=4
+  response:
+    body:
+      string: '{"ratings": [{"id": "dad92720-cecc-4bf3-8efc-950feda799c1", "date":
+        "2022-01-14", "time": "07:04:52", "ticker": "AAPL", "exchange": "NASDAQ",
+        "name": "Apple", "analyst": "Loop Capital", "currency": "USD", "url": "https://www.benzinga.com/stock/AAPL/ratings",
+        "importance": 0, "notes": "", "updated": 1642161976, "action_pt": "Raises",
+        "action_company": "Maintains", "rating_current": "Buy", "pt_current": "210.0000",
+        "rating_prior": "", "pt_prior": "165.0000", "url_calendar": "https://www.benzinga.com/stock/AAPL/ratings",
+        "url_news": "https://www.benzinga.com/stock-articles/AAPL/analyst-ratings",
+        "analyst_name": "Ananda Baruah"}, {"id": "dad92720-cecc-4bf3-8efc-950feda799c1",
+        "date": "2021-12-22", "time": "09:51:07", "ticker": "AAPL", "exchange": "NASDAQ",
+        "name": "Apple", "analyst": "Citigroup", "currency": "USD", "url": "https://www.benzinga.com/stock/AAPL/ratings",
+        "importance": 0, "notes": "", "updated": 1640184748, "action_pt": "Raises",
+        "action_company": "Maintains", "rating_current": "Buy", "pt_current": "200.0000",
+        "rating_prior": "", "pt_prior": "170.0000", "url_calendar": "https://www.benzinga.com/stock/AAPL/ratings",
+        "url_news": "https://www.benzinga.com/stock-articles/AAPL/analyst-ratings",
+        "analyst_name": "Jim Suva"}, {"id": "dad92720-cecc-4bf3-8efc-950feda799c1",
+        "date": "2021-12-22", "time": "05:01:24", "ticker": "MSFT", "exchange": "NASDAQ",
+        "name": "Microsoft", "analyst": "SMBC Nikko", "currency": "USD", "url": "https://www.benzinga.com/stock/MSFT/ratings",
+        "importance": 0, "notes": "", "updated": 1640167354, "action_pt": "Announces",
+        "action_company": "Initiates Coverage On", "rating_current": "Outperform",
+        "pt_current": "410.0000", "rating_prior": "", "pt_prior": "", "url_calendar":
+        "https://www.benzinga.com/stock/MSFT/ratings", "url_news": "https://www.benzinga.com/stock-articles/MSFT/analyst-ratings",
+        "analyst_name": "Steve Koenig"}, {"id": "dad92720-cecc-4bf3-8efc-950feda799c1",
+        "date": "2021-12-14", "time": "08:12:14", "ticker": "AAPL", "exchange": "NASDAQ",
+        "name": "Apple", "analyst": "Evercore ISI Group", "currency": "USD", "url":
+        "https://www.benzinga.com/stock/AAPL/ratings", "importance": 0, "notes": "",
+        "updated": 1639487616, "action_pt": "Raises", "action_company": "Maintains",
+        "rating_current": "Outperform", "pt_current": "200.0000", "rating_prior":
+        "", "pt_prior": "180.0000", "url_calendar": "https://www.benzinga.com/stock/AAPL/ratings",
+        "url_news": "https://www.benzinga.com/stock-articles/AAPL/analyst-ratings",
+        "analyst_name": "Amit Daryanani"}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-type, Accept, Stake-Session-Token, stake_tid
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2302'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 20 Jan 2022 11:04:03 GMT
+      Via:
+      - 1.1 35202ecfee8e63e178de36be1b541f0e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - Yq0Fth-8sMoOu6AHWLsG48KAis3ZY_0hwCMFnGt0zcxKvrzmmix4bw==
+      X-Amz-Cf-Pop:
+      - SYD62-P2
+      X-Cache:
+      - Miss from cloudfront
+      stake_tid:
+      - 74032331-9b71-4aa0-abce-1a54b722e5ef
+      x-amz-apigw-id:
+      - MPcxpHlZSwMFy6Q=
+      x-amzn-Remapped-Content-Length:
+      - '2302'
+      x-amzn-Remapped-Date:
+      - Thu, 20 Jan 2022 11:04:03 GMT
+      x-amzn-Remapped-Server:
+      - Jetty(9.4.44.v20210927)
+      x-amzn-RequestId:
+      - c49bbffb-f153-428f-9b10-579f5f3142e0
+    status:
+      code: 200
+      message: OK
+    url: https://global-prd-api.hellostake.com/api/data/calendar/ratings?tickers=AAPL,MSFT&pageSize=4
+version: 1

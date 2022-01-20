@@ -1,0 +1,191 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://global-prd-api.hellostake.com/api/user
+  response:
+    body:
+      string: '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+        true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+        "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
+        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
+        "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
+        "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+        null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
+        "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
+        "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+        null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
+        "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+        null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+        null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+        "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+        "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+        "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+        null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-type, Accept, Stake-Session-Token, stake_tid
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1187'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 20 Jan 2022 11:13:16 GMT
+      Via:
+      - 1.1 df166554184adf2da43f53000107ac74.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - nNvjs643qeQM6UsPPE65mivEh616sZHl3dOOvSd2MWmIOmHFuK-_gA==
+      X-Amz-Cf-Pop:
+      - SYD62-P2
+      X-Cache:
+      - Miss from cloudfront
+      stake_tid:
+      - 2704d76d-17a8-44cb-9aef-c0472e583816
+      x-amz-apigw-id:
+      - MPeH3HZzSwMF0Bw=
+      x-amzn-Remapped-Content-Length:
+      - '1187'
+      x-amzn-Remapped-Date:
+      - Thu, 20 Jan 2022 11:13:15 GMT
+      x-amzn-Remapped-Server:
+      - Jetty(9.4.44.v20210927)
+      x-amzn-RequestId:
+      - f5c266a6-8cda-48e2-9058-7e558ac67e0f
+    status:
+      code: 200
+      message: OK
+    url: https://global-prd-api.hellostake.com/api/user
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=SPOT&page=1&max=1
+  response:
+    body:
+      string: '{"products": [{"id": "432226b8-1e35-42e0-ab18-1b026c7d8c31", "instrumentTypeID":
+        null, "symbol": "SPOT", "description": "Spotify Technology SA a Luxembourg-based
+        company, which offers digital music-streaming services. The Company enables
+        users to discover new releases, which includes the latest singles and albums;
+        playlists, which includes ready-made playlists put together by music fans
+        and experts, and over millions of songs so that users can play their favorites,
+        discover new tracks and build a personalized collection. Users can either
+        select Spotify Free, which includes only shuffle play or Spotify Premium,
+        which encompasses a range of features, such as shuffle play, advertisement
+        free, unlimited skips, listen offline, play any track and high quality audio.
+        The Company operates through a number of subsidiaries, including Spotify LTD
+        and is present in over 20 countries.", "category": "Stock", "currencyID":
+        null, "urlImage": "https://drivewealth.imgix.net/symbols/spot.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
+        "sector": null, "name": "Spotify Technology SA", "dailyReturn": -3.32, "dailyReturnPercentage":
+        -1.57, "lastTraded": 207.55, "monthlyReturn": 0.0, "yearlyReturnPercentage":
+        92.8, "yearlyReturnValue": 131.68, "popularity": 9470.0, "watched": 8075,
+        "news": 0, "bought": 9478, "viewed": 23400, "productType": "Instrument", "exchange":
+        null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "spotify-technology-sa-spot",
+        "period": "YEAR RETURN", "inceptionDate": 1522713600000, "instrumentTags":
+        [], "childInstruments": []}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-type, Accept, Stake-Session-Token, stake_tid
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1491'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 20 Jan 2022 11:13:16 GMT
+      Via:
+      - 1.1 2a6cd2383f2f70d74f5acfbb719135b8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - bspatzDwV9lEgp8QixfJJtSSo4FR8aOwCGir103o2d01PsXwISp0cw==
+      X-Amz-Cf-Pop:
+      - SYD62-P2
+      X-Cache:
+      - Miss from cloudfront
+      stake_tid:
+      - 0696b5df-b932-41bf-82c0-818ff6670045
+      x-amz-apigw-id:
+      - MPeH-HQxSwMFsyg=
+      x-amzn-Remapped-Content-Length:
+      - '1491'
+      x-amzn-Remapped-Date:
+      - Thu, 20 Jan 2022 11:13:16 GMT
+      x-amzn-Remapped-Server:
+      - Jetty(9.4.44.v20210927)
+      x-amzn-RequestId:
+      - 19f7fa3c-4dc4-4d46-8364-042826f17595
+    status:
+      code: 200
+      message: OK
+    url: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=SPOT&page=1&max=1
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: POST
+    uri: https://global-prd-api.hellostake.com/api/instruments/addRemoveInstrumentWatchlist
+  response:
+    body:
+      string: '{"instrumentId": "4ef83d08-bd4e-4f2f-883c-6ec43e85e8f6", "watching":
+        false}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-type, Accept, Stake-Session-Token, stake_tid
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '72'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 20 Jan 2022 11:13:16 GMT
+      Via:
+      - 1.1 1d79c793a8ae16fbcc3957bd18e4b392.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - JK0QrNghi4j4hmCWMXsk_IQVgMpLhpXjqH3Z0ydOxBrd1gRYw7gA5A==
+      X-Amz-Cf-Pop:
+      - SYD62-P2
+      X-Cache:
+      - Miss from cloudfront
+      stake_tid:
+      - fe3ab219-dd4f-4b43-9f73-87019a9247ad
+      x-amz-apigw-id:
+      - MPeH_GqgywMF1pw=
+      x-amzn-Remapped-Content-Length:
+      - '72'
+      x-amzn-Remapped-Date:
+      - Thu, 20 Jan 2022 11:13:16 GMT
+      x-amzn-Remapped-Server:
+      - Jetty(9.4.44.v20210927)
+      x-amzn-RequestId:
+      - 00001193-4649-4eae-b4e4-bfbf075f0e2a
+    status:
+      code: 202
+      message: Accepted
+    url: https://global-prd-api.hellostake.com/api/instruments/addRemoveInstrumentWatchlist
+version: 1

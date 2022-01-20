@@ -1,0 +1,127 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://global-prd-api.hellostake.com/api/user
+  response:
+    body:
+      string: '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+        true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+        "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
+        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
+        "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
+        "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+        null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
+        "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
+        "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+        null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
+        "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+        null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+        null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+        "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+        "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+        "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+        null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-type, Accept, Stake-Session-Token, stake_tid
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1187'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 20 Jan 2022 11:05:59 GMT
+      Via:
+      - 1.1 c8a7df1b4956aa390fe495730eb3c9f4.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - mfvXDYGcKnes3Ms8ODnx9NECW4SEiZVYN5wC-1cQwcf6mpNARimPDw==
+      X-Amz-Cf-Pop:
+      - SYD62-P2
+      X-Cache:
+      - Miss from cloudfront
+      stake_tid:
+      - d95aaf1d-1e85-4c87-b341-d034ac2e0048
+      x-amz-apigw-id:
+      - MPdDkEJSywMFnyA=
+      x-amzn-Remapped-Content-Length:
+      - '1187'
+      x-amzn-Remapped-Date:
+      - Thu, 20 Jan 2022 11:05:58 GMT
+      x-amzn-Remapped-Server:
+      - Jetty(9.4.44.v20210927)
+      x-amzn-RequestId:
+      - 5d48ac2b-ac75-48e7-a97d-b6cdabfd2b36
+    status:
+      code: 200
+      message: OK
+    url: https://global-prd-api.hellostake.com/api/user
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+    method: GET
+    uri: https://global-prd-api.hellostake.com/api/users/accounts/v2/orders
+  response:
+    body:
+      string: '[{"orderNo": "S2-9425658g", "orderID": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+        "orderCashAmt": 0.0, "symbol": "TQQQ", "price": 0.0, "stopPrice": 63.0, "side":
+        "S", "orderType": 3, "cumQty": "0.0", "limitPrice": 0.0, "commission": 0.0,
+        "createdWhen": "2021-11-25 19:16:51", "orderStatus": 0, "orderQty": 98.69975,
+        "description": "Stop Order: Sell if price reaches ($63.00)", "instrumentID":
+        "63698af7-e71e-4424-9ce7-d34b70fbe260", "imageUrl": "https://drivewealth.imgix.net/symbols/tqqq.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
+        "instrumentSymbol": "TQQQ", "instrumentName": "ProShares UltraPro QQQ ETF",
+        "encodedName": "proshares-ultrapro-qqq-etf-tqqq"}]'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-type, Accept, Stake-Session-Token, stake_tid
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, PUT
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '615'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 20 Jan 2022 11:05:59 GMT
+      Via:
+      - 1.1 4ab519b4cd27a1b8a4b258d7f39bbc7e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - lFbPu56ITHA8fM7k30WEH89Oln-K8EfJ54LR-Ijl76rJhA2BYGzn1w==
+      X-Amz-Cf-Pop:
+      - SYD62-P2
+      X-Cache:
+      - Miss from cloudfront
+      stake_tid:
+      - d2abd2f8-a52e-485d-a785-cc400079735c
+      x-amz-apigw-id:
+      - MPdDsH4yywMFaEw=
+      x-amzn-Remapped-Content-Length:
+      - '615'
+      x-amzn-Remapped-Date:
+      - Thu, 20 Jan 2022 11:05:59 GMT
+      x-amzn-Remapped-Server:
+      - Jetty(9.4.44.v20210927)
+      x-amzn-RequestId:
+      - 8e74e71a-db2c-45a9-a9d4-e427066a1d4b
+    status:
+      code: 200
+      message: OK
+    url: https://global-prd-api.hellostake.com/api/users/accounts/v2/orders
+version: 1

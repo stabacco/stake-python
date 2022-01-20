@@ -1,4 +1,5 @@
 from datetime import datetime
+from string import Template
 from typing import List, Union
 
 from pydantic import BaseModel, Field
@@ -85,7 +86,7 @@ class WatchlistClient(BaseClient):
             List[WatchlistProduct]: The list of items in your watchlist.
         """
         watchlist = await self._client.get(
-            Url.watchlist.format(userId=self._client.user.id)  # type: ignore
+            Template(Url.watchlist.value).substitute(userId=self._client.user.id)
         )
         return [
             WatchlistProduct(**watched) for watched in watchlist["instrumentsWatchList"]

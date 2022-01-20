@@ -1,5 +1,6 @@
 from datetime import datetime
 from enum import IntEnum
+from string import Template
 from typing import List, Union
 
 from pydantic import BaseModel, Field
@@ -70,5 +71,5 @@ class OrdersClient(BaseClient):
             bool: True if the deletion was succesful.
         """
         return await self._client.delete(
-            Url.cancel_order.format(orderId=order.order_id)  # type: ignore
+            Template(Url.cancel_order.value).substitute(orderId=order.order_id)
         )

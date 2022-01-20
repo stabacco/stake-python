@@ -4,6 +4,7 @@ from stake.order import CancelOrderRequest
 from stake.trade import LimitBuyRequest, MarketBuyRequest, StopBuyRequest
 
 
+@pytest.mark.vcr()
 @pytest.mark.asyncio
 async def test_stop_buy(tracing_client):
     # amountCash too low.
@@ -19,6 +20,7 @@ async def test_stop_buy(tracing_client):
         )
 
 
+@pytest.mark.vcr()
 @pytest.mark.asyncio
 async def test_limit_buy(tracing_client):
     with pytest.raises(RuntimeError):
@@ -27,6 +29,7 @@ async def test_limit_buy(tracing_client):
         )
 
 
+@pytest.mark.vcr()
 @pytest.mark.asyncio
 async def test_limit_sell(tracing_client):
     with pytest.raises(RuntimeError):
@@ -35,6 +38,7 @@ async def test_limit_sell(tracing_client):
         )
 
 
+@pytest.mark.vcr()
 @pytest.mark.skip(reason="This will actually perform a trade")
 async def test_successful_trade(tracing_client):
     request_to_buy = MarketBuyRequest(

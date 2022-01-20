@@ -25,13 +25,13 @@ pre-commit = "^2.12.0"
 pytest-coverage = "^0.0"
 black = {version = "^19.10b0", allow-prereleases = true}
 pytest-mock = "^3.3.0"
-aioresponses = "0.7.1"
 faker = "^4.14.0"
 coverage-badge = "^1.0.1"
+pytest-recording = "^0.12.0"
 
 [tool.isort]
 profile = "black"
-known_third_party = ["aiohttp", "aioresponses", "dotenv", "inflection", "pkg_resources", "pydantic", "pytest", "single_version"]
+known_third_party = ["aiohttp", "dotenv", "faker", "inflection", "pydantic", "pytest", "single_version"]
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"

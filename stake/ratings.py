@@ -1,4 +1,5 @@
 from datetime import datetime
+from string import Template
 from typing import List, Optional
 
 import pydantic
@@ -54,9 +55,9 @@ class RatingsClient(BaseClient):
             List[Rating]: The list of ratings.
         """
         data = await self._client.get(
-            Url.ratings.format(
-                symbols=",".join(request.symbols), limit=request.limit
-            )  # type: ignore
+            Template(Url.ratings.value).substitute(
+                symbols=",".join(request.symbols), limit=request.limit,
+            )
         )
 
         if data == {"message": "No data returned"}:
