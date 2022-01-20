@@ -40,9 +40,7 @@ class Rating(pydantic.BaseModel):
 
     @pydantic.validator("pt_prior", "rating_prior", pre=True)
     def pt_prior_blank_string(value, field):
-        if value == "":
-            return None
-        return value
+        return None if value == "" else value
 
 
 class RatingsClient(BaseClient):
