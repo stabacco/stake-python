@@ -61,6 +61,9 @@ def redact_sensitive_data(response):
         "cashAvailableForWithdrawal": 1000,
         "cashAvailableForTrade": 800,
         "dwCashAvailableForWithdrawal": 1000,
+        "reference": fake.pystr_format(),
+        "comment": fake.pystr_format(),
+        "tranAmount": 1000,
     }
 
     def _redact_response_body(body):
