@@ -1,3 +1,5 @@
+import enum
+import json
 from datetime import datetime, timedelta
 from enum import Enum
 from typing import Dict, List, Optional
@@ -19,7 +21,7 @@ class TransactionRecordEnumDirection(str, Enum):
 class TransactionRecordRequest(BaseModel):
     to: datetime = Field(default_factory=datetime.utcnow)
     from_: datetime = Field(
-        default_factory=lambda *_: datetime.utcnow() - timedelta(days=365)
+        default_factory=lambda *_: datetime.utcnow() - timedelta(days=365), alias="from"
     )
     limit: int = 1000
     offset: Optional[int]
@@ -68,6 +70,40 @@ class Transaction(BaseModel):
         alias_generator = camelcase
 
 
+class TransactionHistoryType(str, enum.Enum):
+    BUY = "Buy"
+    CORPORATE_ACTION = "Corporate Action"
+    DIVIDEND = "Dividend"
+    DIVIDEND_TAX = "Dividend Tax"
+    FUNDING = "Funding"
+    SELL = "Sell"
+
+
+class TransactionHistorySide(str, enum.Enum):
+    CREDIT = "CREDIT"
+    DEBIT = "DEBIT"
+
+
+class TransactionHistoryElement(BaseModel):
+    transaction_type: TransactionHistoryType
+    fin_tran_type_id: Optional[str] = None
+    timestamp: datetime
+    tran_amount: Optional[float] = None
+    fee_amount: Optional[float] = None
+    side: TransactionHistorySide
+    text: str
+    comment: str
+    amount_per_share: float
+    tax_rate: float
+    order_id: Optional[str] = None
+    symbol: Optional[str] = None
+    reference: Optional[str] = None
+    reference_type: Optional[TransactionHistoryType] = None
+
+    class Config:
+        alias_generator = camelcase
+
+
 class TransactionsClient(BaseClient):
     async def list(self, request: TransactionRecordRequest) -> List[Transaction]:
         """Returns the transactions executed by the user.
@@ -79,10 +115,7 @@ class TransactionsClient(BaseClient):
         Returns:
             List[Transaction]: the transactions executed in the time frame.
         """
-        payload = request.dict()
-        payload.update(
-            {"to": payload["to"].isoformat(), "from": payload.pop("from_").isoformat()}
-        )
+        payload = json.loads(request.json(by_alias=True))
 
         data = await self._client.post(Url.account_transactions, payload=payload)
         transactions = []

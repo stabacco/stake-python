@@ -10,7 +10,7 @@ class Url(str, Enum):
     create_session: str = "sessions/v2/createSession"
     equity_positions: str = "users/accounts/v2/equityPositions"
     fund_details: str = "fund/details"
-    fundings: str = "utils/activityLog/fundingOnly"
+    fundings: str = "users/accounts/transactionHistory"
     market_status: str = "utils/marketStatus"
     orders: str = "users/accounts/v2/orders"
     quotes: str = "quotes/marketData/${symbols}"
