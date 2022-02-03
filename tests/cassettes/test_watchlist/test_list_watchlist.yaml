@@ -1,276 +1,278 @@
 interactions:
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-    method: GET
-    uri: https://global-prd-api.hellostake.com/api/user
-  response:
-    body:
-      string: '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
-        true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
-        "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
-        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
-        "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
-        "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
-        null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
-        "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
-        "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
-        null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
-        "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
-        null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
-        null, "userProfile": {"residentialAddress": null, "postalAddress": null},
-        "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
-        "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
-        "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
-        null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
-    headers: {}
-    status:
-      code: 200
-      message: OK
-    url: https://global-prd-api.hellostake.com/api/user
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-    method: GET
-    uri: https://global-prd-api.hellostake.com/api/products/productsWatchlist/7c9bbfae-0000-47b7-0000-0e66d868c2cf
-  response:
-    body:
-      string: '{"instrumentsWatchList": [{"productWatchlistID": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
-        "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
-        null, "symbol": "VMW", "description": "VMware, Inc. is an information technology
-        (IT) company. The Company is engaged in development and application of virtualization
-        technologies with x86 server-based computing, separating application software
-        from the underlying hardware. The Company offers various products, which allow
-        organizations to manage IT resources across private clouds and multi-cloud,
-        multi-device environments by leveraging synergies across three product categories:
-        Software-Defined Data Center (SDDC), Hybrid Cloud Computing and End-User Computing
-        (EUC). The SDDC is designed to transform and modernize the data center into
-        an on-demand service that addresses application requirements by abstracting,
-        pooling and automating the services that are required from the underlying
-        hardware. The Company provides many storage and availability products to offer
-        data storage and protection options to all applications running on the vSphere
-        platform. Its wholly owned subsidiary include Pivotal Software Inc.", "category":
-        "Stock", "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/vmw.png",
-        "sector": "Technology", "name": "VMware, Inc.", "dailyReturn": -0.36, "dailyReturnPercentage":
-        -0.29, "lastTraded": 124.35, "monthlyReturn": 0.0, "yearlyReturnPercentage":
-        31.23, "yearlyReturnValue": 34.18, "popularity": 1500.0, "watched": 868, "news":
-        0, "bought": 826, "viewed": 2300, "productType": "Instrument", "exchange":
-        null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "vmware-inc-vmw",
-        "period": "YEAR RETURN", "inceptionDate": 1187136000000, "instrumentTags":
-        ["Cloud Computing", "Applications", "Technology", "Software", "Data Storage"],
-        "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID":
-        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5",
-        "instrumentTypeID": null, "symbol": "TWLO", "description": "Twilio Inc. offers
-        Cloud Communications Platform, which enables developers to build, scale and
-        operate real-time communications within software applications. The Company''s
-        platform consists of Programmable Communications Cloud, Super Network and
-        Business Model for Innovators. Its Programmable Communications Cloud software
-        enables developers to embed voice, messaging, video and authentication capabilities
-        into their applications through its Application Programming Interfaces (APIs).
-        Its Programmable Communications Cloud offers building blocks that enable its
-        customers to build what they need. Its Programmable Communications Cloud includes
-        Programmable Voice, Programmable Messaging, Programmable Video and Use Case
-        APIs. The Super Network is its software layer that allows its customers''
-        software to communicate with connected devices globally. It interconnects
-        with communications networks around the world.", "category": "Stock", "currencyID":
-        "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/twlo.png",
-        "sector": "Technology", "name": "Twilio", "dailyReturn": -3.54, "dailyReturnPercentage":
-        -1.71, "lastTraded": 203.7, "monthlyReturn": 0.0, "yearlyReturnPercentage":
-        291.28, "yearlyReturnValue": 269.75, "popularity": 14533.0, "watched": 4521,
-        "news": 0, "bought": 11271, "viewed": 14900, "productType": "Instrument",
-        "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "twilio-twlo",
-        "period": "YEAR RETURN", "inceptionDate": 1466640000000, "instrumentTags":
-        ["Cloud Computing", "Applications", "Software", "Internet", "Telecommunications"],
-        "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID":
-        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5",
-        "instrumentTypeID": null, "symbol": "ATVI", "description": "Activision Blizzard,
-        Inc. is a developer and publisher of interactive entertainment content and
-        services. The Company develops and distributes content and services on video
-        game consoles, personal computers (PC) and mobile devices. Its segments include
-        Activision Publishing, Inc. (Activision), Blizzard Entertainment, Inc. (Blizzard),
-        King Digital Entertainment (King) and Other. Activision delivers content through
-        both premium and free-to-play offerings. It also includes the activities of
-        the Call of Duty League, a global professional esports league with city-based
-        teams. Blizzard develops and publishes entertainment software for creating
-        games. Blizzard also maintains an online gaming service, Blizzard Battle.net
-        , which facilitates digital distribution of Blizzard content and selected
-        Activision content, online social connectivity, and the creation of user-generated
-        content. King delivers content on the mobile platform. Kings\u2019 product
-        franchise is Candy Crush, a match three franchise.", "category": "Stock",
-        "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/atvi.png",
-        "sector": "Technology", "name": "Activision Blizzard, Inc.", "dailyReturn":
-        -0.18, "dailyReturnPercentage": -0.22, "lastTraded": 82.13, "monthlyReturn":
-        0.0, "yearlyReturnPercentage": 53.35, "yearlyReturnValue": 32.18, "popularity":
-        1617.0, "watched": 5632, "news": 0, "bought": 7394, "viewed": 18200, "productType":
-        "Instrument", "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName":
-        "activision-blizzard-inc-atvi", "period": "YEAR RETURN", "inceptionDate":
-        751507200000, "instrumentTags": ["Entertainment", "Digital Media", "Internet",
-        "Gaming"], "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"},
-        {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product":
-        {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID": null, "symbol":
-        "LI", "description": "Li Auto Inc is a China-based holding company engaged
-        in design, development, manufacturing and sales of smart electric sport utility
-        vehicles (SUVs). The Company\u2019s primary product is the SUVs under its
-        brand Li ONE. It also sells peripheral products and provides related services,
-        such as charging stalls, vehicle internet connection services and extended
-        lifetime warranties. The Company operates its businesses through its subsidiaries
-        and variable interest entities (VIEs) in China. ", "category": "Stock", "currencyID":
-        null, "urlImage": "https://drivewealth.imgix.net/symbols/li.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
-        "sector": null, "name": "Li Auto Inc", "dailyReturn": -1.18, "dailyReturnPercentage":
-        -3.87, "lastTraded": 29.29, "monthlyReturn": 0.0, "yearlyReturnPercentage":
-        null, "yearlyReturnValue": null, "popularity": 14417.0, "watched": 3908, "news":
-        0, "bought": 12736, "viewed": 11346, "productType": "Instrument", "exchange":
-        null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "li-auto-inc-li",
-        "period": "YEAR RETURN", "inceptionDate": null, "instrumentTags": ["Vehicle",
-        "China", "Electric", "Renewable Energy", "Electric Cars"], "childInstruments":
-        []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
-        null, "symbol": "PEAK", "description": "Healthpeak Properties, Inc., formerly
-        HCP, Inc., is a diversified real estate investment trust, which invests in
-        real estate serving the healthcare industry in the United States. The Company
-        acquires, develops, leases, owns and manages healthcare real estate facilities.
-        The Company''s segments include senior housing triple-net, senior housing
-        operating portfolio (SHOP), life science and medical office. Its senior housing
-        facilities include independent living facilities, assisted living facilities,
-        memory care facilities, care homes, and continuing care retirement communities.
-        Its Life science properties contain laboratory and office space for biotechnology,
-        medical device and pharmaceutical companies, scientific research institutions,
-        government agencies and other organizations. Its Medical office buildings
-        include physicians'' offices and examination rooms.", "category": "Stock",
-        "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/hcp.png",
-        "sector": "Real Estate", "name": "Healthpeak Properties, Inc.", "dailyReturn":
-        -0.34, "dailyReturnPercentage": -0.94, "lastTraded": 35.74, "monthlyReturn":
-        0.0, "yearlyReturnPercentage": -0.84, "yearlyReturnValue": -0.26, "popularity":
-        0.0, "watched": 157, "news": 0, "bought": 154, "viewed": 416, "productType":
-        "Instrument", "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName":
-        "healthpeak-properties-inc-peak", "period": "YEAR RETURN", "inceptionDate":
-        563068800000, "instrumentTags": ["Laboratories", "Real Estate", "Healthcare",
-        "Medical", "Investment"], "childInstruments": []}, "watchedDate": "2019-11-21
-        20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
-        null, "symbol": "MGNX", "description": "MacroGenics, Inc. is a clinical-stage
-        biopharmaceutical company focused on discovering and developing monoclonal
-        antibody-based therapeutics for the treatment of cancer, as well as various
-        autoimmune disorders and infectious diseases. The Company develops therapeutic
-        product candidates using its antibody-based technology platforms and also
-        in collaboration with other biopharmaceutical companies. It has a pipeline
-        of product candidates in human clinical testing, primarily as treatments for
-        different types of cancers, which are created using its technology platforms.
-        Its clinical product candidate, margetuximab, has been enhanced using its
-        Fc Optimization platform. The Company is also developing several product candidates
-        targeting B7-H3, a protein in the B7 family of immune regulator proteins.
-        The Company''s product candidates also include enoblituzumab and MGD009, MGC018,
-        MGD006 (flotetuzumab), MGD007, MGD011 (duvortuxizumab), PF-06671008 and MGD010.",
-        "category": "Stock", "currencyID": null, "urlImage": "https://drivewealth.imgix.net/symbols/mgnx.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
-        "sector": null, "name": "MacroGenics, Inc.", "dailyReturn": -0.1, "dailyReturnPercentage":
-        -0.75, "lastTraded": 13.28, "monthlyReturn": 0.0, "yearlyReturnPercentage":
-        272.93, "yearlyReturnValue": 19.76, "popularity": 25605.0, "watched": 202,
-        "news": 0, "bought": 342, "viewed": 1398, "productType": "Instrument", "exchange":
-        null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "macrogenics-inc-mgnx",
-        "period": "YEAR RETURN", "inceptionDate": 1381449600000, "instrumentTags":
-        ["Therapeutics", "Research", "Biomedical", "Pharmaceuticals"], "childInstruments":
-        []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
-        null, "symbol": "VIXY", "description": "The investment seeks to provide investment
-        results (before fees and expenses) that match the performance of the S&P 500
-        VIX Short-Term Futures Index. The fund intends to obtain exposure to its index
-        by investing in futures contracts based on the Chicago Board Options Exchange
-        (\u201cCBOE\u201d) Volatility Index. It also holds cash or cash equivalents
-        such as U.S. Treasury securities or other high credit quality short-term fixed-income
-        or similar securities (such as shares of money market funds, bank deposits,
-        bank money market accounts, certain variable rate-demand notes and collateralized
-        repurchase agreements) that may be used as margin for the futures contracts.",
-        "category": "ETF", "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/vixy.png",
-        "sector": null, "name": "VIX Short-Term Futures ProShares", "dailyReturn":
-        0.24, "dailyReturnPercentage": 1.48, "lastTraded": 16.48, "monthlyReturn":
-        0.0, "yearlyReturnPercentage": -59.03, "yearlyReturnValue": -18.3, "popularity":
-        11385.0, "watched": 1501, "news": 0, "bought": 3370, "viewed": 12200, "productType":
-        "Instrument", "exchange": null, "status": "ACTIVE", "type": "ETF", "encodedName":
-        "vix-shortterm-futures-proshares-vixy", "period": "YEAR RETURN", "inceptionDate":
-        1294099200000, "instrumentTags": ["Short Term", "VIX", "Futures", "ETF", "Short"],
-        "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID":
-        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5",
-        "instrumentTypeID": null, "symbol": "DOCU", "description": "DocuSign Inc offers
-        DocuSign Agreement Cloud, a software suite for automating the agreement process.
-        It includes DocuSign eSignature, an electronic signature solution that allows
-        an agreement to be signed electronically on a variety of devices. The Agreement
-        Cloud also includes several other applications for automating pre- and post-signature
-        processes, such as automatically generating an agreement from data in other
-        systems, supporting negotiation workflow, collecting payment after signatures,
-        and using artificial intelligence (AI) to analyze a collection of agreements
-        for risks and opportunities. The Agreement Cloud also includes hundreds of
-        integrations to other systems, so agreement processes can integrate with other
-        business processes and data. Its key Agreement Cloud products include DocuSign
-        Contract Lifecycle Management (CLM), Intelligent Insights, Gen for Salesforce,
-        Negotiate for Salesforce, Guided Forms, Click, Identify, Standards-Based Signatures,
-        Payments and eNotary.", "category": "Stock", "currencyID": null, "urlImage":
-        "https://drivewealth.imgix.net/symbols/docu.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
-        "sector": null, "name": "DocuSign, Inc. ", "dailyReturn": -0.34, "dailyReturnPercentage":
-        -0.27, "lastTraded": 126.97, "monthlyReturn": 0.0, "yearlyReturnPercentage":
-        167.13, "yearlyReturnValue": 133.4, "popularity": 21780.0, "watched": 4311,
-        "news": 0, "bought": 9711, "viewed": 12500, "productType": "Instrument", "exchange":
-        null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "docusign-inc-docu",
-        "period": "YEAR RETURN", "inceptionDate": null, "instrumentTags": ["Cloud
-        Computing", "Digital Media", "Cloud", "Software"], "childInstruments": []},
-        "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
-        null, "symbol": "TEAM", "description": "Atlassian Corporation Plc is a holding
-        company. The Company offers a range of team collaboration products. The Company
-        offers products, including JIRA, Confluence, HipChat, Bitbucket and JIRA Service
-        Desk, for software developers, information technology (IT) managers and knowledge
-        workers. The Company offers JIRA for team planning and project management;
-        Confluence for team content creation and sharing; HipChat for team real-time
-        messaging and communications; Bitbucket for team code sharing and management,
-        and JIRA Service Desk for team service and support applications. JIRA allows
-        teams to organize their work into projects and customize dashboards for those
-        projects to keep their teams aligned and on track. Confluence provides a system
-        for organizing, sharing and securing content in spaces arranged by team, project,
-        department and others. The Company also offers additional tools for software
-        developers, such as FishEye, Clover, Crowd, Crucible, Bamboo and SourceTree.",
-        "category": "Stock", "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/team.png",
-        "sector": "Technology", "name": "Atlassian Corporation Plc", "dailyReturn":
-        0.78, "dailyReturnPercentage": 0.27, "lastTraded": 294.41, "monthlyReturn":
-        0.0, "yearlyReturnPercentage": 71.88, "yearlyReturnValue": 97.46, "popularity":
-        13430.0, "watched": 7786, "news": 0, "bought": 14188, "viewed": 40600, "productType":
-        "Instrument", "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName":
-        "atlassian-corporation-plc-team", "period": "YEAR RETURN", "inceptionDate":
-        1449619200000, "instrumentTags": ["Computers", "Disruptors", "Asia Pacific",
-        "Software", "Australia"], "childInstruments": []}, "watchedDate": "2019-11-21
-        20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
-        null, "symbol": "MSFT", "description": "Microsoft Corporation is a technology
-        company. The Company develops, licenses, and supports a range of software
-        products, services and devices. The Company''s segments include Productivity
-        and Business Processes, Intelligent Cloud and More Personal Computing. The
-        Company''s products include operating systems; cross-device productivity applications;
-        server applications; business solution applications; desktop and server management
-        tools; software development tools; video games, and training and certification
-        of computer system integrators and developers. It also designs, manufactures,
-        and sells devices, including personal computers (PCs), tablets, gaming and
-        entertainment consoles, phones, other intelligent devices, and related accessories,
-        that integrate with its cloud-based offerings. It offers an array of services,
-        including cloud-based solutions that provide customers with software, services,
-        platforms, and content, and it provides solution support and consulting services.",
-        "category": "Stock", "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/msft.png",
-        "sector": "Technology", "name": "Microsoft Corporation", "dailyReturn": 1.19,
-        "dailyReturnPercentage": 0.39, "lastTraded": 303.84, "monthlyReturn": 0.0,
-        "yearlyReturnPercentage": 46.75, "yearlyReturnValue": 74.48, "popularity":
-        1717.0, "watched": 31760, "news": 0, "bought": 75929, "viewed": 88100, "productType":
-        "Instrument", "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName":
-        "microsoft-corporation-msft", "period": "YEAR RETURN", "inceptionDate": 511056000000,
-        "instrumentTags": ["Cloud Computing", "Applications", "Technology", "Software",
-        "Bill Gates"], "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"}]}'
-    headers: {}
-    status:
-      code: 200
-      message: OK
-    url: https://global-prd-api.hellostake.com/api/products/productsWatchlist/7c9bbfae-0000-47b7-0000-0e66d868c2cf
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/user
+    response:
+      body:
+        string:
+          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
+          "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
+          "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+          null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
+          "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
+          "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+          null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
+          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+          null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/user
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/products/productsWatchlist/7c9bbfae-0000-47b7-0000-0e66d868c2cf
+    response:
+      body:
+        string:
+          '{"instrumentsWatchList": [{"productWatchlistID": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
+          null, "symbol": "VMW", "description": "VMware, Inc. is an information technology
+          (IT) company. The Company is engaged in development and application of virtualization
+          technologies with x86 server-based computing, separating application software
+          from the underlying hardware. The Company offers various products, which allow
+          organizations to manage IT resources across private clouds and multi-cloud,
+          multi-device environments by leveraging synergies across three product categories:
+          Software-Defined Data Center (SDDC), Hybrid Cloud Computing and End-User Computing
+          (EUC). The SDDC is designed to transform and modernize the data center into
+          an on-demand service that addresses application requirements by abstracting,
+          pooling and automating the services that are required from the underlying
+          hardware. The Company provides many storage and availability products to offer
+          data storage and protection options to all applications running on the vSphere
+          platform. Its wholly owned subsidiary include Pivotal Software Inc.", "category":
+          "Stock", "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/vmw.png",
+          "sector": "Technology", "name": "VMware, Inc.", "dailyReturn": -0.36, "dailyReturnPercentage":
+          -0.29, "lastTraded": 124.35, "monthlyReturn": 0.0, "yearlyReturnPercentage":
+          31.23, "yearlyReturnValue": 34.18, "popularity": 1500.0, "watched": 868, "news":
+          0, "bought": 826, "viewed": 2300, "productType": "Instrument", "exchange":
+          null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "vmware-inc-vmw",
+          "period": "YEAR RETURN", "inceptionDate": 1187136000000, "instrumentTags":
+          ["Cloud Computing", "Applications", "Technology", "Software", "Data Storage"],
+          "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5",
+          "instrumentTypeID": null, "symbol": "TWLO", "description": "Twilio Inc. offers
+          Cloud Communications Platform, which enables developers to build, scale and
+          operate real-time communications within software applications. The Company''s
+          platform consists of Programmable Communications Cloud, Super Network and
+          Business Model for Innovators. Its Programmable Communications Cloud software
+          enables developers to embed voice, messaging, video and authentication capabilities
+          into their applications through its Application Programming Interfaces (APIs).
+          Its Programmable Communications Cloud offers building blocks that enable its
+          customers to build what they need. Its Programmable Communications Cloud includes
+          Programmable Voice, Programmable Messaging, Programmable Video and Use Case
+          APIs. The Super Network is its software layer that allows its customers''
+          software to communicate with connected devices globally. It interconnects
+          with communications networks around the world.", "category": "Stock", "currencyID":
+          "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/twlo.png",
+          "sector": "Technology", "name": "Twilio", "dailyReturn": -3.54, "dailyReturnPercentage":
+          -1.71, "lastTraded": 203.7, "monthlyReturn": 0.0, "yearlyReturnPercentage":
+          291.28, "yearlyReturnValue": 269.75, "popularity": 14533.0, "watched": 4521,
+          "news": 0, "bought": 11271, "viewed": 14900, "productType": "Instrument",
+          "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "twilio-twlo",
+          "period": "YEAR RETURN", "inceptionDate": 1466640000000, "instrumentTags":
+          ["Cloud Computing", "Applications", "Software", "Internet", "Telecommunications"],
+          "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5",
+          "instrumentTypeID": null, "symbol": "ATVI", "description": "Activision Blizzard,
+          Inc. is a developer and publisher of interactive entertainment content and
+          services. The Company develops and distributes content and services on video
+          game consoles, personal computers (PC) and mobile devices. Its segments include
+          Activision Publishing, Inc. (Activision), Blizzard Entertainment, Inc. (Blizzard),
+          King Digital Entertainment (King) and Other. Activision delivers content through
+          both premium and free-to-play offerings. It also includes the activities of
+          the Call of Duty League, a global professional esports league with city-based
+          teams. Blizzard develops and publishes entertainment software for creating
+          games. Blizzard also maintains an online gaming service, Blizzard Battle.net
+          , which facilitates digital distribution of Blizzard content and selected
+          Activision content, online social connectivity, and the creation of user-generated
+          content. King delivers content on the mobile platform. Kings\u2019 product
+          franchise is Candy Crush, a match three franchise.", "category": "Stock",
+          "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/atvi.png",
+          "sector": "Technology", "name": "Activision Blizzard, Inc.", "dailyReturn":
+          -0.18, "dailyReturnPercentage": -0.22, "lastTraded": 82.13, "monthlyReturn":
+          0.0, "yearlyReturnPercentage": 53.35, "yearlyReturnValue": 32.18, "popularity":
+          1617.0, "watched": 5632, "news": 0, "bought": 7394, "viewed": 18200, "productType":
+          "Instrument", "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName":
+          "activision-blizzard-inc-atvi", "period": "YEAR RETURN", "inceptionDate":
+          751507200000, "instrumentTags": ["Entertainment", "Digital Media", "Internet",
+          "Gaming"], "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"},
+          {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product":
+          {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID": null, "symbol":
+          "LI", "description": "Li Auto Inc is a China-based holding company engaged
+          in design, development, manufacturing and sales of smart electric sport utility
+          vehicles (SUVs). The Company\u2019s primary product is the SUVs under its
+          brand Li ONE. It also sells peripheral products and provides related services,
+          such as charging stalls, vehicle internet connection services and extended
+          lifetime warranties. The Company operates its businesses through its subsidiaries
+          and variable interest entities (VIEs) in China. ", "category": "Stock", "currencyID":
+          null, "urlImage": "https://drivewealth.imgix.net/symbols/li.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
+          "sector": null, "name": "Li Auto Inc", "dailyReturn": -1.18, "dailyReturnPercentage":
+          -3.87, "lastTraded": 29.29, "monthlyReturn": 0.0, "yearlyReturnPercentage":
+          null, "yearlyReturnValue": null, "popularity": 14417.0, "watched": 3908, "news":
+          0, "bought": 12736, "viewed": 11346, "productType": "Instrument", "exchange":
+          null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "li-auto-inc-li",
+          "period": "YEAR RETURN", "inceptionDate": null, "instrumentTags": ["Vehicle",
+          "China", "Electric", "Renewable Energy", "Electric Cars"], "childInstruments":
+          []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
+          null, "symbol": "PEAK", "description": "Healthpeak Properties, Inc., formerly
+          HCP, Inc., is a diversified real estate investment trust, which invests in
+          real estate serving the healthcare industry in the United States. The Company
+          acquires, develops, leases, owns and manages healthcare real estate facilities.
+          The Company''s segments include senior housing triple-net, senior housing
+          operating portfolio (SHOP), life science and medical office. Its senior housing
+          facilities include independent living facilities, assisted living facilities,
+          memory care facilities, care homes, and continuing care retirement communities.
+          Its Life science properties contain laboratory and office space for biotechnology,
+          medical device and pharmaceutical companies, scientific research institutions,
+          government agencies and other organizations. Its Medical office buildings
+          include physicians'' offices and examination rooms.", "category": "Stock",
+          "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/hcp.png",
+          "sector": "Real Estate", "name": "Healthpeak Properties, Inc.", "dailyReturn":
+          -0.34, "dailyReturnPercentage": -0.94, "lastTraded": 35.74, "monthlyReturn":
+          0.0, "yearlyReturnPercentage": -0.84, "yearlyReturnValue": -0.26, "popularity":
+          0.0, "watched": 157, "news": 0, "bought": 154, "viewed": 416, "productType":
+          "Instrument", "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName":
+          "healthpeak-properties-inc-peak", "period": "YEAR RETURN", "inceptionDate":
+          563068800000, "instrumentTags": ["Laboratories", "Real Estate", "Healthcare",
+          "Medical", "Investment"], "childInstruments": []}, "watchedDate": "2019-11-21
+          20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
+          null, "symbol": "MGNX", "description": "MacroGenics, Inc. is a clinical-stage
+          biopharmaceutical company focused on discovering and developing monoclonal
+          antibody-based therapeutics for the treatment of cancer, as well as various
+          autoimmune disorders and infectious diseases. The Company develops therapeutic
+          product candidates using its antibody-based technology platforms and also
+          in collaboration with other biopharmaceutical companies. It has a pipeline
+          of product candidates in human clinical testing, primarily as treatments for
+          different types of cancers, which are created using its technology platforms.
+          Its clinical product candidate, margetuximab, has been enhanced using its
+          Fc Optimization platform. The Company is also developing several product candidates
+          targeting B7-H3, a protein in the B7 family of immune regulator proteins.
+          The Company''s product candidates also include enoblituzumab and MGD009, MGC018,
+          MGD006 (flotetuzumab), MGD007, MGD011 (duvortuxizumab), PF-06671008 and MGD010.",
+          "category": "Stock", "currencyID": null, "urlImage": "https://drivewealth.imgix.net/symbols/mgnx.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
+          "sector": null, "name": "MacroGenics, Inc.", "dailyReturn": -0.1, "dailyReturnPercentage":
+          -0.75, "lastTraded": 13.28, "monthlyReturn": 0.0, "yearlyReturnPercentage":
+          272.93, "yearlyReturnValue": 19.76, "popularity": 25605.0, "watched": 202,
+          "news": 0, "bought": 342, "viewed": 1398, "productType": "Instrument", "exchange":
+          null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "macrogenics-inc-mgnx",
+          "period": "YEAR RETURN", "inceptionDate": 1381449600000, "instrumentTags":
+          ["Therapeutics", "Research", "Biomedical", "Pharmaceuticals"], "childInstruments":
+          []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
+          null, "symbol": "VIXY", "description": "The investment seeks to provide investment
+          results (before fees and expenses) that match the performance of the S&P 500
+          VIX Short-Term Futures Index. The fund intends to obtain exposure to its index
+          by investing in futures contracts based on the Chicago Board Options Exchange
+          (\u201cCBOE\u201d) Volatility Index. It also holds cash or cash equivalents
+          such as U.S. Treasury securities or other high credit quality short-term fixed-income
+          or similar securities (such as shares of money market funds, bank deposits,
+          bank money market accounts, certain variable rate-demand notes and collateralized
+          repurchase agreements) that may be used as margin for the futures contracts.",
+          "category": "ETF", "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/vixy.png",
+          "sector": null, "name": "VIX Short-Term Futures ProShares", "dailyReturn":
+          0.24, "dailyReturnPercentage": 1.48, "lastTraded": 16.48, "monthlyReturn":
+          0.0, "yearlyReturnPercentage": -59.03, "yearlyReturnValue": -18.3, "popularity":
+          11385.0, "watched": 1501, "news": 0, "bought": 3370, "viewed": 12200, "productType":
+          "Instrument", "exchange": null, "status": "ACTIVE", "type": "ETF", "encodedName":
+          "vix-shortterm-futures-proshares-vixy", "period": "YEAR RETURN", "inceptionDate":
+          1294099200000, "instrumentTags": ["Short Term", "VIX", "Futures", "ETF", "Short"],
+          "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5",
+          "instrumentTypeID": null, "symbol": "DOCU", "description": "DocuSign Inc offers
+          DocuSign Agreement Cloud, a software suite for automating the agreement process.
+          It includes DocuSign eSignature, an electronic signature solution that allows
+          an agreement to be signed electronically on a variety of devices. The Agreement
+          Cloud also includes several other applications for automating pre- and post-signature
+          processes, such as automatically generating an agreement from data in other
+          systems, supporting negotiation workflow, collecting payment after signatures,
+          and using artificial intelligence (AI) to analyze a collection of agreements
+          for risks and opportunities. The Agreement Cloud also includes hundreds of
+          integrations to other systems, so agreement processes can integrate with other
+          business processes and data. Its key Agreement Cloud products include DocuSign
+          Contract Lifecycle Management (CLM), Intelligent Insights, Gen for Salesforce,
+          Negotiate for Salesforce, Guided Forms, Click, Identify, Standards-Based Signatures,
+          Payments and eNotary.", "category": "Stock", "currencyID": null, "urlImage":
+          "https://drivewealth.imgix.net/symbols/docu.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
+          "sector": null, "name": "DocuSign, Inc. ", "dailyReturn": -0.34, "dailyReturnPercentage":
+          -0.27, "lastTraded": 126.97, "monthlyReturn": 0.0, "yearlyReturnPercentage":
+          167.13, "yearlyReturnValue": 133.4, "popularity": 21780.0, "watched": 4311,
+          "news": 0, "bought": 9711, "viewed": 12500, "productType": "Instrument", "exchange":
+          null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "docusign-inc-docu",
+          "period": "YEAR RETURN", "inceptionDate": null, "instrumentTags": ["Cloud
+          Computing", "Digital Media", "Cloud", "Software"], "childInstruments": []},
+          "watchedDate": "2019-11-21 20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
+          null, "symbol": "TEAM", "description": "Atlassian Corporation Plc is a holding
+          company. The Company offers a range of team collaboration products. The Company
+          offers products, including JIRA, Confluence, HipChat, Bitbucket and JIRA Service
+          Desk, for software developers, information technology (IT) managers and knowledge
+          workers. The Company offers JIRA for team planning and project management;
+          Confluence for team content creation and sharing; HipChat for team real-time
+          messaging and communications; Bitbucket for team code sharing and management,
+          and JIRA Service Desk for team service and support applications. JIRA allows
+          teams to organize their work into projects and customize dashboards for those
+          projects to keep their teams aligned and on track. Confluence provides a system
+          for organizing, sharing and securing content in spaces arranged by team, project,
+          department and others. The Company also offers additional tools for software
+          developers, such as FishEye, Clover, Crowd, Crucible, Bamboo and SourceTree.",
+          "category": "Stock", "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/team.png",
+          "sector": "Technology", "name": "Atlassian Corporation Plc", "dailyReturn":
+          0.78, "dailyReturnPercentage": 0.27, "lastTraded": 294.41, "monthlyReturn":
+          0.0, "yearlyReturnPercentage": 71.88, "yearlyReturnValue": 97.46, "popularity":
+          13430.0, "watched": 7786, "news": 0, "bought": 14188, "viewed": 40600, "productType":
+          "Instrument", "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName":
+          "atlassian-corporation-plc-team", "period": "YEAR RETURN", "inceptionDate":
+          1449619200000, "instrumentTags": ["Computers", "Disruptors", "Asia Pacific",
+          "Software", "Australia"], "childInstruments": []}, "watchedDate": "2019-11-21
+          20:04:09.76"}, {"productWatchlistID": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "product": {"id": "6fb39222-3b8d-4b80-933d-3ef7b95148b5", "instrumentTypeID":
+          null, "symbol": "MSFT", "description": "Microsoft Corporation is a technology
+          company. The Company develops, licenses, and supports a range of software
+          products, services and devices. The Company''s segments include Productivity
+          and Business Processes, Intelligent Cloud and More Personal Computing. The
+          Company''s products include operating systems; cross-device productivity applications;
+          server applications; business solution applications; desktop and server management
+          tools; software development tools; video games, and training and certification
+          of computer system integrators and developers. It also designs, manufactures,
+          and sells devices, including personal computers (PCs), tablets, gaming and
+          entertainment consoles, phones, other intelligent devices, and related accessories,
+          that integrate with its cloud-based offerings. It offers an array of services,
+          including cloud-based solutions that provide customers with software, services,
+          platforms, and content, and it provides solution support and consulting services.",
+          "category": "Stock", "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/msft.png",
+          "sector": "Technology", "name": "Microsoft Corporation", "dailyReturn": 1.19,
+          "dailyReturnPercentage": 0.39, "lastTraded": 303.84, "monthlyReturn": 0.0,
+          "yearlyReturnPercentage": 46.75, "yearlyReturnValue": 74.48, "popularity":
+          1717.0, "watched": 31760, "news": 0, "bought": 75929, "viewed": 88100, "productType":
+          "Instrument", "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName":
+          "microsoft-corporation-msft", "period": "YEAR RETURN", "inceptionDate": 511056000000,
+          "instrumentTags": ["Cloud Computing", "Applications", "Technology", "Software",
+          "Bill Gates"], "childInstruments": []}, "watchedDate": "2019-11-21 20:04:09.76"}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/products/productsWatchlist/7c9bbfae-0000-47b7-0000-0e66d868c2cf
 version: 1

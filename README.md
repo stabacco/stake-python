@@ -42,7 +42,7 @@ async def print_user():
 asyncio.run(print_user())
 ```
 
-> **_NOTE:_**  The default value of the token is read from the `STAKE_TOKEN` environment variable. If you have that env-var set you should be able to just use:
+> **_NOTE:_** The default value of the token is read from the `STAKE_TOKEN` environment variable. If you have that env-var set you should be able to just use:
 > `async with StakeClient() as stake_session: ...`
 
 ## Login with your credentials

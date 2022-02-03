@@ -1,94 +1,97 @@
 interactions:
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-    method: GET
-    uri: https://global-prd-api.hellostake.com/api/user
-  response:
-    body:
-      string: '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
-        true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
-        "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
-        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
-        "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
-        "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
-        null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
-        "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
-        "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
-        null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
-        "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
-        null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
-        null, "userProfile": {"residentialAddress": null, "postalAddress": null},
-        "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
-        "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
-        "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
-        null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
-    headers: {}
-    status:
-      code: 200
-      message: OK
-    url: https://global-prd-api.hellostake.com/api/user
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-    method: POST
-    uri: https://global-prd-api.hellostake.com/api/users/accounts/transactionHistory
-  response:
-    body:
-      string: '[{"transactionType": "Funding","finTranTypeID": "JNLC","timestamp": "2021-09-30T15:45:50.425Z","tranAmount": 1000,"feeAmount": 0.0,"orderID": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59","symbol": null,"side": "CREDIT","text": "Deposit","comment": "S7-1945193t","amountPerShare": 0.0,"taxRate": 0.0,"reference": "P0-3814688Z","referenceType": "Funding"},{"transactionType": "Funding","finTranTypeID": "JNLC","timestamp": "2021-09-30T15:45:50.425Z","tranAmount": 1000,"feeAmount": 0.0,"orderID": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59","symbol": null,"side": "CREDIT","text": "Deposit","comment": "S7-1945193t","amountPerShare": 0.0,"taxRate": 0.0,"reference": "P0-3814688Z","referenceType": "Funding"}]'
-    headers: {}
-    status:
-      code: 200
-      message: OK
-    url: https://global-prd-api.hellostake.com/api/users/accounts/transactionHistory
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-    method: GET
-    uri: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=P0-3814688Z&referenceType=Funding
-  response:
-    body:
-      string: '{"insertDate": 1632879790963, "channel": "Poli", "amountTo": 3796.79,
-        "amountFrom": 5300.0, "status": "RECONCILED", "speed": "Regular", "fxFee":
-        35.64, "expressFee": 0.0, "totalFee": 35.64, "spotRate": 0.7231, "reference":
-        "P0-3814688Z", "w8fee": 0.0, "currencyFrom": "AUD", "currencyTo": "USD", "iof":
-        null, "vet": null, "bsb": null, "accountNumber": null}'
-    headers: {}
-    status:
-      code: 200
-      message: OK
-    url: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=P0-3814688Z&referenceType=Funding
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-    method: GET
-    uri: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=P0-3814688Z&referenceType=Funding
-  response:
-    body:
-      string: '{"insertDate": 1625131659274, "channel": "Poli", "amountTo": 3708.82,
-        "amountFrom": 5000.0, "status": "RECONCILED", "speed": "Regular", "fxFee":
-        33.68, "expressFee": 0.0, "totalFee": 33.68, "spotRate": 0.7485, "reference":
-        "P0-3814688Z", "w8fee": 0.0, "currencyFrom": "AUD", "currencyTo": "USD", "iof":
-        null, "vet": null, "bsb": null, "accountNumber": null}'
-    headers: {}
-    status:
-      code: 200
-      message: OK
-    url: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=P0-3814688Z&referenceType=Funding
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/user
+    response:
+      body:
+        string:
+          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
+          "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
+          "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+          null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
+          "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
+          "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+          null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
+          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+          null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/user
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: POST
+      uri: https://global-prd-api.hellostake.com/api/users/accounts/transactionHistory
+    response:
+      body:
+        string: '[{"transactionType": "Funding","finTranTypeID": "JNLC","timestamp": "2021-09-30T15:45:50.425Z","tranAmount": 1000,"feeAmount": 0.0,"orderID": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59","symbol": null,"side": "CREDIT","text": "Deposit","comment": "S7-1945193t","amountPerShare": 0.0,"taxRate": 0.0,"reference": "P0-3814688Z","referenceType": "Funding"},{"transactionType": "Funding","finTranTypeID": "JNLC","timestamp": "2021-09-30T15:45:50.425Z","tranAmount": 1000,"feeAmount": 0.0,"orderID": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59","symbol": null,"side": "CREDIT","text": "Deposit","comment": "S7-1945193t","amountPerShare": 0.0,"taxRate": 0.0,"reference": "P0-3814688Z","referenceType": "Funding"}]'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/users/accounts/transactionHistory
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=P0-3814688Z&referenceType=Funding
+    response:
+      body:
+        string:
+          '{"insertDate": 1632879790963, "channel": "Poli", "amountTo": 3796.79,
+          "amountFrom": 5300.0, "status": "RECONCILED", "speed": "Regular", "fxFee":
+          35.64, "expressFee": 0.0, "totalFee": 35.64, "spotRate": 0.7231, "reference":
+          "P0-3814688Z", "w8fee": 0.0, "currencyFrom": "AUD", "currencyTo": "USD", "iof":
+          null, "vet": null, "bsb": null, "accountNumber": null}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=P0-3814688Z&referenceType=Funding
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=P0-3814688Z&referenceType=Funding
+    response:
+      body:
+        string:
+          '{"insertDate": 1625131659274, "channel": "Poli", "amountTo": 3708.82,
+          "amountFrom": 5000.0, "status": "RECONCILED", "speed": "Regular", "fxFee":
+          33.68, "expressFee": 0.0, "totalFee": 33.68, "spotRate": 0.7485, "reference":
+          "P0-3814688Z", "w8fee": 0.0, "currencyFrom": "AUD", "currencyTo": "USD", "iof":
+          null, "vet": null, "bsb": null, "accountNumber": null}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=P0-3814688Z&referenceType=Funding
 version: 1
