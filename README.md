@@ -49,7 +49,7 @@ asyncio.run(print_user())
 
 If you prefer to pass in your username/password credentials to login instead, it's easy to do:
 
-### If you do not have two-factor authentication enabled:
+### If you do not have two-factor authentication enabled
 
 ```python
 
@@ -68,7 +68,7 @@ async def print_user(request: CredentialsLoginRequest):
 asyncio.run(print_user(login_request))
 ```
 
-### If you have two-factor authentication enabled:
+### If you have two-factor authentication enabled
 
 In this case you need to have your phone around, get the current code from the authenticator app and add it to the `CredentialsLoginRequest` as such:
 
@@ -105,7 +105,7 @@ asyncio.run(show_portfolio())
 
 Which will return something like:
 
-```
+```bash
 AAPL 80.48
 ADBE 251.35
 GOOG 559.89
