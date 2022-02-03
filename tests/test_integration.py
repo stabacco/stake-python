@@ -4,6 +4,7 @@
 import pytest
 
 import stake
+from stake.transaction import TransactionRecordRequest
 
 
 @pytest.mark.asyncio
@@ -23,3 +24,4 @@ async def test_integration():
         assert len(transactions) == 10
         await session.fundings.cash_available()
         await session.fundings.in_flight()
+        await session.fundings.list(TransactionRecordRequest(limit=1000))
