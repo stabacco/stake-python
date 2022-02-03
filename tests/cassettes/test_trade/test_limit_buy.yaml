@@ -1,189 +1,193 @@
 interactions:
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-    method: GET
-    uri: https://global-prd-api.hellostake.com/api/user
-  response:
-    body:
-      string: '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
-        true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
-        "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
-        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
-        "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
-        "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
-        null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
-        "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
-        "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
-        null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
-        "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
-        null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
-        null, "userProfile": {"residentialAddress": null, "postalAddress": null},
-        "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
-        "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
-        "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
-        null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
-    headers: {}
-    status:
-      code: 200
-      message: OK
-    url: https://global-prd-api.hellostake.com/api/user
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-    method: GET
-    uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=AAPL&page=1&max=1
-  response:
-    body:
-      string: '{"products": [{"id": "379224d8-3679-439b-b30e-221da5b8d957", "instrumentTypeID":
-        null, "symbol": "AAPL", "description": "Apple Inc. designs, manufactures and
-        markets mobile communication and media devices, personal computers and portable
-        digital music players. The Company sells a range of related software, services,
-        accessories, networking solutions, and third-party digital content and applications.
-        The Company''s segments include the Americas, Europe, Greater China, Japan
-        and Rest of Asia Pacific. The Americas segment includes both North and South
-        America. The Europe segment includes European countries, India, the Middle
-        East and Africa. The Greater China segment includes China, Hong Kong and Taiwan.
-        The Rest of Asia Pacific segment includes Australia and the Asian countries
-        not included in the Company''s other operating segments. Its products and
-        services include iPhone, iPad, Mac, iPod, Apple Watch, Apple TV, a portfolio
-        of consumer and professional software applications, iPhone OS (iOS), OS X
-        and watchOS operating systems, iCloud, Apple Pay and a range of accessory,
-        service and support offerings.", "category": "Stock", "currencyID": "USD",
-        "urlImage": "https://drivewealth.imgix.net/symbols/aapl.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
-        "sector": "Technology", "name": "Apple, Inc.", "dailyReturn": -3.21, "dailyReturnPercentage":
-        -1.89, "lastTraded": 166.59, "monthlyReturn": 0.0, "yearlyReturnPercentage":
-        71.05, "yearlyReturnValue": 50.3, "popularity": 1967.0, "watched": 50595,
-        "news": 0, "bought": 172965, "viewed": 175200, "productType": "Instrument",
-        "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "apple-inc-aapl",
-        "period": "YEAR RETURN", "inceptionDate": 345427200000, "instrumentTags":
-        [], "childInstruments": []}]}'
-    headers: {}
-    status:
-      code: 200
-      message: OK
-    url: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=AAPL&page=1&max=1
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-    method: POST
-    uri: https://global-prd-api.hellostake.com/api/purchaseorders/v2/quickBuy
-  response:
-    body:
-      string: '[{"id": "29f24937-e47f-4cdd-8a5a-61fb4e05e07a", "itemId": "a67422af-8504-43df-9e63-7361eb0bd99e",
-        "name": "Apple, Inc.", "quantity": 1000.0, "lastPx": null, "lastQty": null,
-        "leavesQty": null, "allocatedQty": null, "amountCash": 0.0, "limitPrice":
-        null, "stopPrice": null, "effectivePrice": null, "autoStop": 0.0, "commission":
-        0.0, "grossTradeAmount": null, "description": null, "insertedDate": 1642680654984,
-        "updatedDate": 1642680654984, "side": "BUY", "orderRejectReason": null, "orderRejectReasonStake":
-        null, "errorCode": null, "encodedName": "apple-inc-aapl", "imageURL": "https://drivewealth.imgix.net/symbols/aapl.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
-        "symbol": "AAPL", "dwOrderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "orderStatus": "NEW", "type": "LIMIT", "category": "limit", "status": 0}]'
-    headers: {}
-    status:
-      code: 200
-      message: OK
-    url: https://global-prd-api.hellostake.com/api/purchaseorders/v2/quickBuy
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-    method: GET
-    uri: https://global-prd-api.hellostake.com/api/users/accounts/transactions
-  response:
-    body:
-      string: '{"transactions": [{"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
-        "8", "orderType": "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B",
-        "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient
-        funds. JAZQ027598 accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity=
-        460000 commission=0 sumRestingNotional=0 sumRestingComission=0 ordersInStreet=",
-        "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
-        "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
-        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T12:10:56.373Z",
-        "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "orderNo": "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8",
-        "orderType": "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen":
-        "2021-11-25 19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo
-        ask + 5 cents. bid:128.27 ask:128.27", "commission": 0.0, "executedWhen":
-        null, "isoTimeRestingOrderExpires": "2022-04-20T20:00:00.000Z", "limitPrice":
-        0.0, "stopPrice": 10.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
-        "Standard Commission", "updatedWhen": "2022-01-20T12:10:53.290Z", "realizedPL":
-        null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
-        "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8", "orderType":
-        "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen": "2021-11-25
-        19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo ask + 5 cents.
-        bid:128.27 ask:128.27", "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires":
-        "2022-04-20T20:00:00.000Z", "limitPrice": 0.0, "stopPrice": 10.0, "cancelledWhen":
-        null, "executedPrice": null, "commissionDesc": "Standard Commission", "updatedWhen":
-        "2022-01-20T11:04:07.394Z", "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
-        "8", "orderType": "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B",
-        "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient
-        funds. JASU028125 accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity=
-        460000 commission=0 sumRestingNotional=0 sumRestingComission=0 ordersInStreet=",
-        "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
-        "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
-        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-19T23:47:48.890Z",
-        "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "orderNo": "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8",
-        "orderType": "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen":
-        "2021-11-25 19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo
-        ask + 5 cents. bid:128.27 ask:128.27", "commission": 0.0, "executedWhen":
-        null, "isoTimeRestingOrderExpires": "2022-04-19T20:00:00.000Z", "limitPrice":
-        0.0, "stopPrice": 10.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
-        "Standard Commission", "updatedWhen": "2022-01-19T23:47:46.147Z", "realizedPL":
-        null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
-        "S2-9425658g", "symbol": "TQQQ", "cumQty": 0.0, "orderStatus": "0", "orderType":
-        "3", "orderQty": 98.69975468, "orderCashAmt": 0.0, "side": "S", "createdWhen":
-        "2021-11-25 19:16:51", "updatedReason": "stop-sell-new", "commission": 0.0,
-        "executedWhen": null, "isoTimeRestingOrderExpires": "2022-04-20T20:00:00.000Z",
-        "limitPrice": 0.0, "stopPrice": 63.0, "cancelledWhen": null, "executedPrice":
-        null, "commissionDesc": "Standard Commission", "updatedWhen": null, "realizedPL":
-        null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
-        "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
-        "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S", "createdWhen": "2021-11-25
-        19:16:51", "updatedReason": "0105 Order quantity exceeds quantity available
-        for sale.  Cannot SELL SHORT. null", "commission": 0.0, "executedWhen": null,
-        "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z", "limitPrice": 400.0,
-        "stopPrice": 0.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
-        "Standard Commission", "updatedWhen": "2022-01-19T23:47:50.372Z", "realizedPL":
-        null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
-        "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
-        "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B", "createdWhen":
-        "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient funds. JASU028223
-        accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity= 460000 commission=0
-        sumRestingNotional=0 sumRestingComission=0 ordersInStreet=", "commission":
-        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
-        "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
-        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:10.242Z",
-        "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
-        "8", "orderType": "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S",
-        "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0105 Order quantity
-        exceeds quantity available for sale.  Cannot SELL SHORT. null", "commission":
-        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
-        "limitPrice": 400.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
-        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:12.559Z",
-        "realizedPL": null}]}'
-    headers: {}
-    status:
-      code: 200
-      message: OK
-    url: https://global-prd-api.hellostake.com/api/users/accounts/transactions
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/user
+    response:
+      body:
+        string:
+          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
+          "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
+          "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+          null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
+          "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
+          "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+          null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
+          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+          null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/user
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=AAPL&page=1&max=1
+    response:
+      body:
+        string:
+          '{"products": [{"id": "379224d8-3679-439b-b30e-221da5b8d957", "instrumentTypeID":
+          null, "symbol": "AAPL", "description": "Apple Inc. designs, manufactures and
+          markets mobile communication and media devices, personal computers and portable
+          digital music players. The Company sells a range of related software, services,
+          accessories, networking solutions, and third-party digital content and applications.
+          The Company''s segments include the Americas, Europe, Greater China, Japan
+          and Rest of Asia Pacific. The Americas segment includes both North and South
+          America. The Europe segment includes European countries, India, the Middle
+          East and Africa. The Greater China segment includes China, Hong Kong and Taiwan.
+          The Rest of Asia Pacific segment includes Australia and the Asian countries
+          not included in the Company''s other operating segments. Its products and
+          services include iPhone, iPad, Mac, iPod, Apple Watch, Apple TV, a portfolio
+          of consumer and professional software applications, iPhone OS (iOS), OS X
+          and watchOS operating systems, iCloud, Apple Pay and a range of accessory,
+          service and support offerings.", "category": "Stock", "currencyID": "USD",
+          "urlImage": "https://drivewealth.imgix.net/symbols/aapl.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
+          "sector": "Technology", "name": "Apple, Inc.", "dailyReturn": -3.21, "dailyReturnPercentage":
+          -1.89, "lastTraded": 166.59, "monthlyReturn": 0.0, "yearlyReturnPercentage":
+          71.05, "yearlyReturnValue": 50.3, "popularity": 1967.0, "watched": 50595,
+          "news": 0, "bought": 172965, "viewed": 175200, "productType": "Instrument",
+          "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName": "apple-inc-aapl",
+          "period": "YEAR RETURN", "inceptionDate": 345427200000, "instrumentTags":
+          [], "childInstruments": []}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=AAPL&page=1&max=1
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: POST
+      uri: https://global-prd-api.hellostake.com/api/purchaseorders/v2/quickBuy
+    response:
+      body:
+        string:
+          '[{"id": "29f24937-e47f-4cdd-8a5a-61fb4e05e07a", "itemId": "a67422af-8504-43df-9e63-7361eb0bd99e",
+          "name": "Apple, Inc.", "quantity": 1000.0, "lastPx": null, "lastQty": null,
+          "leavesQty": null, "allocatedQty": null, "amountCash": 0.0, "limitPrice":
+          null, "stopPrice": null, "effectivePrice": null, "autoStop": 0.0, "commission":
+          0.0, "grossTradeAmount": null, "description": null, "insertedDate": 1642680654984,
+          "updatedDate": 1642680654984, "side": "BUY", "orderRejectReason": null, "orderRejectReasonStake":
+          null, "errorCode": null, "encodedName": "apple-inc-aapl", "imageURL": "https://drivewealth.imgix.net/symbols/aapl.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
+          "symbol": "AAPL", "dwOrderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderStatus": "NEW", "type": "LIMIT", "category": "limit", "status": 0}]'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/purchaseorders/v2/quickBuy
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/users/accounts/transactions
+    response:
+      body:
+        string:
+          '{"transactions": [{"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+          "8", "orderType": "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B",
+          "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient
+          funds. JAZQ027598 accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity=
+          460000 commission=0 sumRestingNotional=0 sumRestingComission=0 ordersInStreet=",
+          "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+          "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T12:10:56.373Z",
+          "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8",
+          "orderType": "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen":
+          "2021-11-25 19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo
+          ask + 5 cents. bid:128.27 ask:128.27", "commission": 0.0, "executedWhen":
+          null, "isoTimeRestingOrderExpires": "2022-04-20T20:00:00.000Z", "limitPrice":
+          0.0, "stopPrice": 10.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
+          "Standard Commission", "updatedWhen": "2022-01-20T12:10:53.290Z", "realizedPL":
+          null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
+          "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8", "orderType":
+          "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen": "2021-11-25
+          19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo ask + 5 cents.
+          bid:128.27 ask:128.27", "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires":
+          "2022-04-20T20:00:00.000Z", "limitPrice": 0.0, "stopPrice": 10.0, "cancelledWhen":
+          null, "executedPrice": null, "commissionDesc": "Standard Commission", "updatedWhen":
+          "2022-01-20T11:04:07.394Z", "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+          "8", "orderType": "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B",
+          "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient
+          funds. JASU028125 accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity=
+          460000 commission=0 sumRestingNotional=0 sumRestingComission=0 ordersInStreet=",
+          "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+          "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-19T23:47:48.890Z",
+          "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8",
+          "orderType": "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen":
+          "2021-11-25 19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo
+          ask + 5 cents. bid:128.27 ask:128.27", "commission": 0.0, "executedWhen":
+          null, "isoTimeRestingOrderExpires": "2022-04-19T20:00:00.000Z", "limitPrice":
+          0.0, "stopPrice": 10.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
+          "Standard Commission", "updatedWhen": "2022-01-19T23:47:46.147Z", "realizedPL":
+          null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
+          "S2-9425658g", "symbol": "TQQQ", "cumQty": 0.0, "orderStatus": "0", "orderType":
+          "3", "orderQty": 98.69975468, "orderCashAmt": 0.0, "side": "S", "createdWhen":
+          "2021-11-25 19:16:51", "updatedReason": "stop-sell-new", "commission": 0.0,
+          "executedWhen": null, "isoTimeRestingOrderExpires": "2022-04-20T20:00:00.000Z",
+          "limitPrice": 0.0, "stopPrice": 63.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": null, "realizedPL":
+          null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
+          "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
+          "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S", "createdWhen": "2021-11-25
+          19:16:51", "updatedReason": "0105 Order quantity exceeds quantity available
+          for sale.  Cannot SELL SHORT. null", "commission": 0.0, "executedWhen": null,
+          "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z", "limitPrice": 400.0,
+          "stopPrice": 0.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
+          "Standard Commission", "updatedWhen": "2022-01-19T23:47:50.372Z", "realizedPL":
+          null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
+          "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
+          "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B", "createdWhen":
+          "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient funds. JASU028223
+          accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity= 460000 commission=0
+          sumRestingNotional=0 sumRestingComission=0 ordersInStreet=", "commission":
+          0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+          "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:10.242Z",
+          "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+          "8", "orderType": "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S",
+          "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0105 Order quantity
+          exceeds quantity available for sale.  Cannot SELL SHORT. null", "commission":
+          0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+          "limitPrice": 400.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:12.559Z",
+          "realizedPL": null}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/users/accounts/transactions
 version: 1

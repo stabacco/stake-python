@@ -7,55 +7,55 @@ registries:
     password: "${{secrets.PYTHON_INDEX_PYPI_PYTHON_ORG_SIMPLE_PASSWORD}}"
 
 updates:
-- package-ecosystem: pip
-  directory: "/"
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: pytest-asyncio
-    versions:
-    - 0.15.0
-  - dependency-name: faker
-    versions:
-    - 5.8.0
-    - 6.0.0
-    - 6.1.1
-    - 6.3.0
-    - 6.4.1
-    - 6.5.0
-    - 6.5.2
-    - 6.6.0
-    - 6.6.1
-    - 6.6.2
-    - 6.6.3
-    - 7.0.1
-    - 8.0.0
-    - 8.1.0
-  - dependency-name: python-dotenv
-    versions:
-    - 0.16.0
-    - 0.17.0
-  - dependency-name: pytest
-    versions:
-    - 6.2.2
-    - 6.2.3
-  - dependency-name: pre-commit
-    versions:
-    - 2.10.0
-    - 2.10.1
-    - 2.11.0
-    - 2.11.1
-  - dependency-name: aioresponses
-    versions:
-    - 0.7.2
-  - dependency-name: aiohttp
-    versions:
-    - 3.7.4
-    - 3.7.4.post0
-  - dependency-name: pydantic
-    versions:
-    - "1.8"
-    - 1.8.1
-  registries:
-  - python-index-pypi-python-org-simple
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    ignore:
+      - dependency-name: pytest-asyncio
+        versions:
+          - 0.15.0
+      - dependency-name: faker
+        versions:
+          - 5.8.0
+          - 6.0.0
+          - 6.1.1
+          - 6.3.0
+          - 6.4.1
+          - 6.5.0
+          - 6.5.2
+          - 6.6.0
+          - 6.6.1
+          - 6.6.2
+          - 6.6.3
+          - 7.0.1
+          - 8.0.0
+          - 8.1.0
+      - dependency-name: python-dotenv
+        versions:
+          - 0.16.0
+          - 0.17.0
+      - dependency-name: pytest
+        versions:
+          - 6.2.2
+          - 6.2.3
+      - dependency-name: pre-commit
+        versions:
+          - 2.10.0
+          - 2.10.1
+          - 2.11.0
+          - 2.11.1
+      - dependency-name: aioresponses
+        versions:
+          - 0.7.2
+      - dependency-name: aiohttp
+        versions:
+          - 3.7.4
+          - 3.7.4.post0
+      - dependency-name: pydantic
+        versions:
+          - "1.8"
+          - 1.8.1
+    registries:
+      - python-index-pypi-python-org-simple

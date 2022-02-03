@@ -54,7 +54,8 @@ class RatingsClient(BaseClient):
         """
         data = await self._client.get(
             Template(Url.ratings.value).substitute(
-                symbols=",".join(request.symbols), limit=request.limit,
+                symbols=",".join(request.symbols),
+                limit=request.limit,
             )
         )
 

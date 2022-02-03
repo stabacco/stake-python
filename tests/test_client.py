@@ -7,7 +7,9 @@ from stake.client import InvalidLoginException
 def test_credentials_login_serializing():
 
     request = CredentialsLoginRequest(
-        username="unknown@user.com", remember_me_days=15, password="WeirdPassword",
+        username="unknown@user.com",
+        remember_me_days=15,
+        password="WeirdPassword",
     )
 
     assert request.dict(by_alias=True) == {

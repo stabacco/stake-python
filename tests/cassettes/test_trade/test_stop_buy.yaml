@@ -1,179 +1,183 @@
 interactions:
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-    method: GET
-    uri: https://global-prd-api.hellostake.com/api/user
-  response:
-    body:
-      string: '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
-        true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
-        "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
-        "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
-        "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
-        "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
-        null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
-        "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
-        "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
-        null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
-        "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
-        null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
-        null, "userProfile": {"residentialAddress": null, "postalAddress": null},
-        "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
-        "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
-        "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
-        null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
-    headers: {}
-    status:
-      code: 200
-      message: OK
-    url: https://global-prd-api.hellostake.com/api/user
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-    method: GET
-    uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=AMD&page=1&max=1
-  response:
-    body:
-      string: '{"products": [{"id": "c6477745-9bd3-4200-b409-49056ee810ca", "instrumentTypeID":
-        null, "symbol": "AMD", "description": "Advanced Micro Devices, Inc. is a global
-        semiconductor company. The Company is engaged in offering x86 microprocessors,
-        as standalone devices or as incorporated into an accelerated processing unit
-        (APU), chipsets, discrete graphics processing units (GPUs) and professional
-        graphics, and server and embedded processors and semi-custom System-on-Chip
-        (SoC) products and technology for game consoles. The Company''s segments include
-        the Computing and Graphics segment, and the Enterprise, Embedded and Semi-Custom
-        segment. The Computing and Graphics segment primarily includes desktop and
-        notebook processors and chipsets, discrete GPUs and professional graphics.
-        The Enterprise, Embedded and Semi-Custom segment primarily includes server
-        and embedded processors, semi-custom SoC products, development services, technology
-        for game consoles and licensing portions of its intellectual property portfolio.",
-        "category": "Stock", "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/amd.png",
-        "sector": "Technology", "name": "Advanced Micro Devices, Inc.", "dailyReturn":
-        -3.41, "dailyReturnPercentage": -2.58, "lastTraded": 128.52, "monthlyReturn":
-        0.0, "yearlyReturnPercentage": 73.05, "yearlyReturnValue": 33.15, "popularity":
-        800.0, "watched": 20790, "news": 0, "bought": 52423, "viewed": 95400, "productType":
-        "Instrument", "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName":
-        "advanced-micro-devices-inc-amd", "period": "YEAR RETURN", "inceptionDate":
-        322099200000, "instrumentTags": [], "childInstruments": []}]}'
-    headers: {}
-    status:
-      code: 200
-      message: OK
-    url: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=AMD&page=1&max=1
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-    method: POST
-    uri: https://global-prd-api.hellostake.com/api/purchaseorders/v2/quickBuy
-  response:
-    body:
-      string: '[{"id": "0c2582b9-1c12-42d2-b53c-ed249a352bae", "itemId": "e9bb06e1-0981-4584-8cf4-18ee9296dcbe",
-        "name": "Advanced Micro Devices, Inc.", "quantity": null, "lastPx": null,
-        "lastQty": null, "leavesQty": null, "allocatedQty": null, "amountCash": 10.0,
-        "limitPrice": null, "stopPrice": null, "effectivePrice": null, "autoStop":
-        0.0, "commission": 0.0, "grossTradeAmount": null, "description": null, "insertedDate":
-        1642680652083, "updatedDate": 1642680652083, "side": "BUY", "orderRejectReason":
-        null, "orderRejectReasonStake": null, "errorCode": null, "encodedName": "advanced-micro-devices-inc-amd",
-        "imageURL": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/amd.png",
-        "symbol": "AMD", "dwOrderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "orderStatus": "NEW", "type": "STOP", "status": 0, "category": "stop"}]'
-    headers: {}
-    status:
-      code: 200
-      message: OK
-    url: https://global-prd-api.hellostake.com/api/purchaseorders/v2/quickBuy
-- request:
-    body: null
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-    method: GET
-    uri: https://global-prd-api.hellostake.com/api/users/accounts/transactions
-  response:
-    body:
-      string: '{"transactions": [{"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "orderNo": "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8",
-        "orderType": "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen":
-        "2021-11-25 19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo
-        ask + 5 cents. bid:128.27 ask:128.27", "commission": 0.0, "executedWhen":
-        null, "isoTimeRestingOrderExpires": "2022-04-20T20:00:00.000Z", "limitPrice":
-        0.0, "stopPrice": 10.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
-        "Standard Commission", "updatedWhen": "2022-01-20T12:10:53.290Z", "realizedPL":
-        null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
-        "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8", "orderType":
-        "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen": "2021-11-25
-        19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo ask + 5 cents.
-        bid:128.27 ask:128.27", "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires":
-        "2022-04-20T20:00:00.000Z", "limitPrice": 0.0, "stopPrice": 10.0, "cancelledWhen":
-        null, "executedPrice": null, "commissionDesc": "Standard Commission", "updatedWhen":
-        "2022-01-20T11:04:07.394Z", "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
-        "8", "orderType": "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B",
-        "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient
-        funds. JASU028125 accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity=
-        460000 commission=0 sumRestingNotional=0 sumRestingComission=0 ordersInStreet=",
-        "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
-        "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
-        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-19T23:47:48.890Z",
-        "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "orderNo": "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8",
-        "orderType": "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen":
-        "2021-11-25 19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo
-        ask + 5 cents. bid:128.27 ask:128.27", "commission": 0.0, "executedWhen":
-        null, "isoTimeRestingOrderExpires": "2022-04-19T20:00:00.000Z", "limitPrice":
-        0.0, "stopPrice": 10.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
-        "Standard Commission", "updatedWhen": "2022-01-19T23:47:46.147Z", "realizedPL":
-        null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
-        "S2-9425658g", "symbol": "TQQQ", "cumQty": 0.0, "orderStatus": "0", "orderType":
-        "3", "orderQty": 98.69975468, "orderCashAmt": 0.0, "side": "S", "createdWhen":
-        "2021-11-25 19:16:51", "updatedReason": "stop-sell-new", "commission": 0.0,
-        "executedWhen": null, "isoTimeRestingOrderExpires": "2022-04-20T20:00:00.000Z",
-        "limitPrice": 0.0, "stopPrice": 63.0, "cancelledWhen": null, "executedPrice":
-        null, "commissionDesc": "Standard Commission", "updatedWhen": null, "realizedPL":
-        null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
-        "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
-        "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S", "createdWhen": "2021-11-25
-        19:16:51", "updatedReason": "0105 Order quantity exceeds quantity available
-        for sale.  Cannot SELL SHORT. null", "commission": 0.0, "executedWhen": null,
-        "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z", "limitPrice": 400.0,
-        "stopPrice": 0.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
-        "Standard Commission", "updatedWhen": "2022-01-19T23:47:50.372Z", "realizedPL":
-        null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
-        "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
-        "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B", "createdWhen":
-        "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient funds. JASU028223
-        accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity= 460000 commission=0
-        sumRestingNotional=0 sumRestingComission=0 ordersInStreet=", "commission":
-        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
-        "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
-        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:10.242Z",
-        "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
-        "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
-        "8", "orderType": "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S",
-        "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0105 Order quantity
-        exceeds quantity available for sale.  Cannot SELL SHORT. null", "commission":
-        0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
-        "limitPrice": 400.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
-        null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:12.559Z",
-        "realizedPL": null}]}'
-    headers: {}
-    status:
-      code: 200
-      message: OK
-    url: https://global-prd-api.hellostake.com/api/users/accounts/transactions
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/user
+    response:
+      body:
+        string:
+          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
+          "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
+          "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+          null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
+          "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
+          "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+          null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
+          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+          null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/user
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=AMD&page=1&max=1
+    response:
+      body:
+        string:
+          '{"products": [{"id": "c6477745-9bd3-4200-b409-49056ee810ca", "instrumentTypeID":
+          null, "symbol": "AMD", "description": "Advanced Micro Devices, Inc. is a global
+          semiconductor company. The Company is engaged in offering x86 microprocessors,
+          as standalone devices or as incorporated into an accelerated processing unit
+          (APU), chipsets, discrete graphics processing units (GPUs) and professional
+          graphics, and server and embedded processors and semi-custom System-on-Chip
+          (SoC) products and technology for game consoles. The Company''s segments include
+          the Computing and Graphics segment, and the Enterprise, Embedded and Semi-Custom
+          segment. The Computing and Graphics segment primarily includes desktop and
+          notebook processors and chipsets, discrete GPUs and professional graphics.
+          The Enterprise, Embedded and Semi-Custom segment primarily includes server
+          and embedded processors, semi-custom SoC products, development services, technology
+          for game consoles and licensing portions of its intellectual property portfolio.",
+          "category": "Stock", "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/amd.png",
+          "sector": "Technology", "name": "Advanced Micro Devices, Inc.", "dailyReturn":
+          -3.41, "dailyReturnPercentage": -2.58, "lastTraded": 128.52, "monthlyReturn":
+          0.0, "yearlyReturnPercentage": 73.05, "yearlyReturnValue": 33.15, "popularity":
+          800.0, "watched": 20790, "news": 0, "bought": 52423, "viewed": 95400, "productType":
+          "Instrument", "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName":
+          "advanced-micro-devices-inc-amd", "period": "YEAR RETURN", "inceptionDate":
+          322099200000, "instrumentTags": [], "childInstruments": []}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=AMD&page=1&max=1
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: POST
+      uri: https://global-prd-api.hellostake.com/api/purchaseorders/v2/quickBuy
+    response:
+      body:
+        string:
+          '[{"id": "0c2582b9-1c12-42d2-b53c-ed249a352bae", "itemId": "e9bb06e1-0981-4584-8cf4-18ee9296dcbe",
+          "name": "Advanced Micro Devices, Inc.", "quantity": null, "lastPx": null,
+          "lastQty": null, "leavesQty": null, "allocatedQty": null, "amountCash": 10.0,
+          "limitPrice": null, "stopPrice": null, "effectivePrice": null, "autoStop":
+          0.0, "commission": 0.0, "grossTradeAmount": null, "description": null, "insertedDate":
+          1642680652083, "updatedDate": 1642680652083, "side": "BUY", "orderRejectReason":
+          null, "orderRejectReasonStake": null, "errorCode": null, "encodedName": "advanced-micro-devices-inc-amd",
+          "imageURL": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/amd.png",
+          "symbol": "AMD", "dwOrderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderStatus": "NEW", "type": "STOP", "status": 0, "category": "stop"}]'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/purchaseorders/v2/quickBuy
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/users/accounts/transactions
+    response:
+      body:
+        string:
+          '{"transactions": [{"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8",
+          "orderType": "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen":
+          "2021-11-25 19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo
+          ask + 5 cents. bid:128.27 ask:128.27", "commission": 0.0, "executedWhen":
+          null, "isoTimeRestingOrderExpires": "2022-04-20T20:00:00.000Z", "limitPrice":
+          0.0, "stopPrice": 10.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
+          "Standard Commission", "updatedWhen": "2022-01-20T12:10:53.290Z", "realizedPL":
+          null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
+          "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8", "orderType":
+          "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen": "2021-11-25
+          19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo ask + 5 cents.
+          bid:128.27 ask:128.27", "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires":
+          "2022-04-20T20:00:00.000Z", "limitPrice": 0.0, "stopPrice": 10.0, "cancelledWhen":
+          null, "executedPrice": null, "commissionDesc": "Standard Commission", "updatedWhen":
+          "2022-01-20T11:04:07.394Z", "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+          "8", "orderType": "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B",
+          "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient
+          funds. JASU028125 accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity=
+          460000 commission=0 sumRestingNotional=0 sumRestingComission=0 ordersInStreet=",
+          "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+          "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-19T23:47:48.890Z",
+          "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "S2-9425658g", "symbol": "AMD", "cumQty": 0.0, "orderStatus": "8",
+          "orderType": "3", "orderQty": 0.0, "orderCashAmt": 10.0, "side": "B", "createdWhen":
+          "2021-11-25 19:16:51", "updatedReason": "0121 Buy Stop price must be >= nbbo
+          ask + 5 cents. bid:128.27 ask:128.27", "commission": 0.0, "executedWhen":
+          null, "isoTimeRestingOrderExpires": "2022-04-19T20:00:00.000Z", "limitPrice":
+          0.0, "stopPrice": 10.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
+          "Standard Commission", "updatedWhen": "2022-01-19T23:47:46.147Z", "realizedPL":
+          null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
+          "S2-9425658g", "symbol": "TQQQ", "cumQty": 0.0, "orderStatus": "0", "orderType":
+          "3", "orderQty": 98.69975468, "orderCashAmt": 0.0, "side": "S", "createdWhen":
+          "2021-11-25 19:16:51", "updatedReason": "stop-sell-new", "commission": 0.0,
+          "executedWhen": null, "isoTimeRestingOrderExpires": "2022-04-20T20:00:00.000Z",
+          "limitPrice": 0.0, "stopPrice": 63.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": null, "realizedPL":
+          null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
+          "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
+          "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S", "createdWhen": "2021-11-25
+          19:16:51", "updatedReason": "0105 Order quantity exceeds quantity available
+          for sale.  Cannot SELL SHORT. null", "commission": 0.0, "executedWhen": null,
+          "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z", "limitPrice": 400.0,
+          "stopPrice": 0.0, "cancelledWhen": null, "executedPrice": null, "commissionDesc":
+          "Standard Commission", "updatedWhen": "2022-01-19T23:47:50.372Z", "realizedPL":
+          null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
+          "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "8", "orderType":
+          "2", "orderQty": 1000.0, "orderCashAmt": 0.0, "side": "B", "createdWhen":
+          "2021-11-25 19:16:51", "updatedReason": "0607 Insufficient funds. JASU028223
+          accountNo=STDR000151 accountCash= 16228.22 totalRequiredEquity= 460000 commission=0
+          sumRestingNotional=0 sumRestingComission=0 ordersInStreet=", "commission":
+          0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+          "limitPrice": 460.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:10.242Z",
+          "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "S2-9425658g", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+          "8", "orderType": "2", "orderQty": 100.0, "orderCashAmt": 0.0, "side": "S",
+          "createdWhen": "2021-11-25 19:16:51", "updatedReason": "0105 Order quantity
+          exceeds quantity available for sale.  Cannot SELL SHORT. null", "commission":
+          0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-01-20T21:00:00.000Z",
+          "limitPrice": 400.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-01-20T11:04:12.559Z",
+          "realizedPL": null}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/users/accounts/transactions
 version: 1

@@ -1,17 +1,39 @@
 """Your current fundings."""
+import asyncio
 import json
 from datetime import datetime
+from string import Template
 from typing import List, Optional
 
 from pydantic import BaseModel, Field
 
 from stake.common import BaseClient, camelcase
 from stake.constant import Url
-from stake.transaction import (
-    TransactionHistoryElement,
-    TransactionHistoryType,
-    TransactionRecordRequest,
-)
+from stake.transaction import TransactionHistoryType, TransactionRecordRequest
+
+
+class Funding(BaseModel):
+    iof: Optional[str] = None
+    vet: Optional[str] = None
+    bsb: Optional[str] = None
+    account_number: Optional[str] = None
+    insert_date: Optional[datetime] = None
+    channel: Optional[str] = None
+    amount_to: Optional[float] = None
+    amount_from: Optional[float] = None
+    status: Optional[str] = None
+    speed: Optional[str] = None
+    fx_fee: Optional[float] = None
+    express_fee: Optional[int] = None
+    total_fee: Optional[float] = None
+    spot_rate: Optional[float] = None
+    reference: Optional[str] = None
+    w8_fee: Optional[int] = None
+    currency_from: Optional[str] = None
+    currency_to: Optional[str] = None
+
+    class Config:
+        alias_generator = camelcase
 
 
 class CashSettlement(BaseModel):
@@ -52,16 +74,29 @@ class FundsInFlight(BaseModel):
 
 
 class FundingsClient(BaseClient):
-    async def list(
-        self, request: TransactionRecordRequest
-    ) -> List[TransactionHistoryElement]:
+    async def list(self, request: TransactionRecordRequest) -> List[Funding]:
         payload = json.loads(request.json(by_alias=True))
-        data = await self._client.post(Url.fundings, payload=payload)
-        return [
-            TransactionHistoryElement(**d)
+        # looks like there is no way to pass filter the transactions here
+        data = await self._client.post(Url.transaction_history, payload=payload)
+
+        funding_transactions = [
+            d
             for d in data
             if d["referenceType"] == TransactionHistoryType.FUNDING.value
         ]
+
+        details = await asyncio.gather(
+            *[
+                self._client.get(
+                    Template(Url.transaction_details.value).substitute(
+                        reference=funding_transaction["reference"],
+                        reference_type=funding_transaction["referenceType"],
+                    ),
+                )
+                for funding_transaction in funding_transactions
+            ]
+        )
+        return [Funding(**d) for d in details]
 
     async def in_flight(self) -> List[FundsInFlight]:
         """Returns the funds currently in flight."""
