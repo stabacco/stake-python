@@ -9,11 +9,7 @@ from pydantic import BaseModel, Field
 
 from stake.common import BaseClient, camelcase
 from stake.constant import Url
-from stake.transaction import (
-    TransactionHistoryElement,
-    TransactionHistoryType,
-    TransactionRecordRequest,
-)
+from stake.transaction import TransactionHistoryType, TransactionRecordRequest
 
 
 class Funding(BaseModel):
@@ -84,7 +80,7 @@ class FundingsClient(BaseClient):
         data = await self._client.post(Url.transaction_history, payload=payload)
 
         funding_transactions = [
-            TransactionHistoryElement(**d)
+            d
             for d in data
             if d["referenceType"] == TransactionHistoryType.FUNDING.value
         ]
@@ -93,10 +89,8 @@ class FundingsClient(BaseClient):
             *[
                 self._client.get(
                     Template(Url.transaction_details.value).substitute(
-                        reference=funding_transaction.reference,
-                        reference_type=funding_transaction.reference_type.value
-                        if funding_transaction.reference_type
-                        else "null",
+                        reference=funding_transaction["reference"],
+                        reference_type=funding_transaction["referenceType"],
                     ),
                 )
                 for funding_transaction in funding_transactions
