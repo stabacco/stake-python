@@ -191,7 +191,7 @@ class StakeClient:
         if isinstance(login_request, CredentialsLoginRequest):
             try:
                 data = await self.post(
-                    constant.Url.create_session,
+                    constant.NYSE.create_session,
                     payload=login_request.dict(by_alias=True),
                 )
 
@@ -201,7 +201,7 @@ class StakeClient:
         else:
             self.headers.stake_session_token = login_request.token
         try:
-            user_data = await self.get(constant.Url.user)
+            user_data = await self.get(constant.NYSE.users)
         except aiohttp.client_exceptions.ClientResponseError as error:
             raise InvalidLoginException("Invalid Session Token") from error
 

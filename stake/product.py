@@ -1,4 +1,3 @@
-from string import Template
 from typing import Any, List, Optional
 
 from pydantic import BaseModel
@@ -6,7 +5,7 @@ from pydantic.fields import Field
 from pydantic.types import UUID4
 
 from stake.common import BaseClient, camelcase
-from stake.constant import Url
+from stake.constant import NYSE
 
 __all__ = ["ProductSearchByName"]
 
@@ -69,9 +68,7 @@ class ProductsClient(BaseClient):
         Examples:
             tesla_product = self.get("TSLA")
         """
-        data = await self._client.get(
-            Template(Url.symbol.value).substitute(symbol=symbol)
-        )
+        data = await self._client.get(NYSE.symbol.format(symbol=symbol))
 
         if not data["products"]:
             return None
@@ -80,7 +77,7 @@ class ProductsClient(BaseClient):
 
     async def search(self, request: ProductSearchByName) -> List[Instrument]:
         products = await self._client.get(
-            Template(Url.products_suggestions.value).substitute(keyword=request.keyword)
+            NYSE.products_suggestions.format(keyword=request.keyword)
         )
         return [Instrument(**product) for product in products["instruments"]]
 

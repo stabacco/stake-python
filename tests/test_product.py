@@ -1,11 +1,10 @@
 import asyncio
-from string import Template
 
 import aiohttp
 import pytest
 
 from stake.client import HttpClient
-from stake.constant import Url
+from stake.constant import NYSE
 from stake.product import Product
 
 
@@ -29,13 +28,11 @@ async def test_find_products_by_name(tracing_client):
 async def test_product_serializer():
 
     async with aiohttp.ClientSession(raise_for_status=True) as session:
-        await session.get(
-            HttpClient.url(Template(Url.symbol.value).substitute(symbol="MSFT"))
-        )
+        await session.get(HttpClient.url(NYSE.symbol.format(symbol="MSFT")))
 
         async def _get_symbol(symbol):
             response = await session.get(
-                HttpClient.url(Template(Url.symbol.value).substitute(symbol=symbol))
+                HttpClient.url(NYSE.symbol.format(symbol=symbol))
             )
             return await response.json()
 

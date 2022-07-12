@@ -1,11 +1,10 @@
 from datetime import datetime
-from string import Template
 from typing import List, Union
 
 from pydantic import BaseModel, Field
 
 from stake.common import BaseClient, camelcase
-from stake.constant import Url
+from stake.constant import NYSE
 from stake.product import Product
 
 __all__ = ["AddToWatchlistRequest", "RemoveFromWatchlistRequest"]
@@ -53,7 +52,7 @@ class WatchlistClient(BaseClient):
             "instrumentID": str(product.id),
             "userID": str(self._client.user.id),
         }
-        data = await self._client.post(Url.watchlist_modify, payload=payload)
+        data = await self._client.post(NYSE.watchlist_modify, payload=payload)
 
         return WatchlistResponse(symbol=request.symbol, watching=data["watching"])
 
@@ -86,7 +85,7 @@ class WatchlistClient(BaseClient):
             List[WatchlistProduct]: The list of items in your watchlist.
         """
         watchlist = await self._client.get(
-            Template(Url.watchlist.value).substitute(userId=self._client.user.id)
+            NYSE.watchlist.format(userId=self._client.user.id)
         )
         return [
             WatchlistProduct(**watched) for watched in watchlist["instrumentsWatchList"]

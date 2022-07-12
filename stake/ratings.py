@@ -1,11 +1,10 @@
 from datetime import datetime
-from string import Template
 from typing import List, Optional
 
 import pydantic
 
 from stake.common import BaseClient
-from stake.constant import Url
+from stake.constant import NYSE
 
 __all__ = ["RatingsRequest"]
 
@@ -53,7 +52,7 @@ class RatingsClient(BaseClient):
             List[Rating]: The list of ratings.
         """
         data = await self._client.get(
-            Template(Url.ratings.value).substitute(
+            NYSE.ratings.format(
                 symbols=",".join(request.symbols),
                 limit=request.limit,
             )
