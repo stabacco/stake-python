@@ -1,36 +1,75 @@
+from urllib.parse import urljoin
+
 from pydantic import BaseSettings
 
 
 class BaseUrl(BaseSettings):
     """Contains all the visited stake urls."""
 
-    account_balance: str = "cma/getAccountBalance"
-    account_transactions: str = "users/accounts/accountTransactions"
-    cancel_order: str = "orders/cancelOrder/{orderId}"
-    cash_available: str = "users/accounts/cashAvailableForWithdrawal"
-    create_session: str = "sessions/v2/createSession"
-    equity_positions: str = "users/accounts/v2/equityPositions"
-    fund_details: str = "fund/details"
-    market_status: str = "utils/marketStatus"
-    orders: str = "users/accounts/v2/orders"
-    products_suggestions: str = "products/getProductSuggestions/{keyword}"
-    quick_buy: str = "purchaseorders/v2/quickBuy"
-    quotes: str = "quotes/marketData/{symbols}"
-    rate: str = "wallet/rate"
-    ratings: str = "data/calendar/ratings?tickers={symbols}&pageSize={limit}"
-    sell_orders: str = "sellorders"
-    symbol: str = "products/searchProduct?symbol={symbol}&page=1&max=1"
-    transaction_history: str = "users/accounts/transactionHistory"
-    transaction_details: str = (
-        "users/accounts/transactionDetails?"
-        "reference={reference}&referenceType={reference_type}"
+    STAKE_URL: str = "https://global-prd-api.hellostake.com/api/"
+    account_balance: str = urljoin(
+        STAKE_URL, "cma/getAccountBalance", allow_fragments=True
     )
-    transactions: str = "users/accounts/transactions"
-    users: str = "user"
-    watchlist_modify: str = "instruments/addRemoveInstrumentWatchlist"
-    watchlist: str = "products/productsWatchlist/{userId}"
+    account_transactions: str = urljoin(
+        STAKE_URL, "users/accounts/accountTransactions", allow_fragments=True
+    )
+    cancel_order: str = urljoin(
+        STAKE_URL, "orders/cancelOrder/{orderId}", allow_fragments=True
+    )
+    cash_available: str = urljoin(
+        STAKE_URL, "users/accounts/cashAvailableForWithdrawal", allow_fragments=True
+    )
+    create_session: str = urljoin(
+        STAKE_URL, "sessions/v2/createSession", allow_fragments=True
+    )
+    equity_positions: str = urljoin(
+        STAKE_URL, "users/accounts/v2/equityPositions", allow_fragments=True
+    )
+    fund_details: str = urljoin(STAKE_URL, "fund/details", allow_fragments=True)
+    market_status: str = urljoin(STAKE_URL, "utils/marketStatus", allow_fragments=True)
+    orders: str = urljoin(STAKE_URL, "users/accounts/v2/orders", allow_fragments=True)
+    products_suggestions: str = urljoin(
+        STAKE_URL, "products/getProductSuggestions/{keyword}", allow_fragments=True
+    )
+    quick_buy: str = urljoin(
+        STAKE_URL, "purchaseorders/v2/quickBuy", allow_fragments=True
+    )
+    quotes: str = urljoin(
+        STAKE_URL, "quotes/marketData/{symbols}", allow_fragments=True
+    )
+    rate: str = urljoin(STAKE_URL, "wallet/rate", allow_fragments=True)
+    ratings: str = urljoin(
+        STAKE_URL,
+        "data/calendar/ratings?tickers={symbols}&pageSize={limit}",
+        allow_fragments=True,
+    )
+    sell_orders: str = urljoin(STAKE_URL, "sellorders", allow_fragments=True)
+    symbol: str = urljoin(
+        STAKE_URL,
+        "products/searchProduct?symbol={symbol}&page=1&max=1",
+        allow_fragments=True,
+    )
+    transaction_history: str = urljoin(
+        STAKE_URL, "users/accounts/transactionHistory", allow_fragments=True
+    )
+    transaction_details: str = urljoin(
+        STAKE_URL,
+        (
+            "users/accounts/transactionDetails?"
+            "reference={reference}&referenceType={reference_type}"
+        ),
+        allow_fragments=True,
+    )
+    transactions: str = urljoin(
+        STAKE_URL, "users/accounts/transactions", allow_fragments=True
+    )
+    users: str = urljoin(STAKE_URL, "user", allow_fragments=True)
+    watchlist_modify: str = urljoin(
+        STAKE_URL, "instruments/addRemoveInstrumentWatchlist", allow_fragments=True
+    )
+    watchlist: str = urljoin(
+        STAKE_URL, "products/productsWatchlist/{userId}", allow_fragments=True
+    )
 
-
-STAKE_URL = "https://global-prd-api.hellostake.com/api/"
 
 NYSE = BaseUrl()

@@ -1,6 +1,5 @@
 import os
 from typing import Optional, Union
-from urllib.parse import urljoin
 
 import aiohttp
 from dotenv import load_dotenv
@@ -68,7 +67,8 @@ class HttpClient:
         Returns:
             str: the full url
         """
-        return urljoin(constant.STAKE_URL, endpoint, allow_fragments=True)
+        return endpoint
+        # return urljoin(constant.STAKE_URL, endpoint, allow_fragments=True)
 
     @staticmethod
     async def get(url: str, payload: dict = None, headers: dict = None) -> dict:

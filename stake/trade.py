@@ -213,7 +213,7 @@ class TradesClient(BaseClient):
             RuntimeError if the trade was not successful.
         """
 
-        transactions = await self._client.get("users/accounts/transactions")
+        transactions = await self._client.get(NYSE.transactions)
 
         if not transactions:
             raise RuntimeError(
