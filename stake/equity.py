@@ -5,7 +5,6 @@ from uuid import UUID
 from pydantic import BaseModel, Field
 
 from stake.common import BaseClient, SideEnum, camelcase
-from stake.constant import NYSE
 
 
 class EquityCategory(str, Enum):
@@ -63,5 +62,5 @@ class EquitiesClient(BaseClient):
         Returns:
             EquityPositions: The list of your equities.
         """
-        data = await self._client.get(NYSE.equity_positions)
+        data = await self._client.get(self._client.exchange.equity_positions)
         return EquityPositions(**data)

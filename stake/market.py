@@ -4,7 +4,6 @@ from datetime import datetime
 from pydantic import BaseModel, Field
 
 from stake.common import BaseClient, camelcase
-from stake.constant import NYSE
 
 __all__ = ["MarketStatus"]
 
@@ -33,7 +32,7 @@ class MarketStatus(BaseModel):
 
 class MarketClient(BaseClient):
     async def get(self) -> MarketStatus:
-        data = await self._client.get(NYSE.market_status)
+        data = await self._client.get(self._client.exchange.market_status)
         return MarketStatus(**data["response"])
 
     async def is_open(self) -> bool:

@@ -5,7 +5,6 @@ from typing import List, Union
 from pydantic import BaseModel, Field
 
 from stake.common import BaseClient, SideEnum, camelcase
-from stake.constant import NYSE
 
 __all__ = ["OrderTypeEnum", "CancelOrderRequest"]
 
@@ -57,7 +56,7 @@ class OrdersClient(BaseClient):
         Returns:
             List[Order]: The list of pending orders.
         """
-        data = await self._client.get(NYSE.orders)
+        data = await self._client.get(self._client.exchange.orders)
         return [Order(**d) for d in data]
 
     async def cancel(self, order: Union[Order, CancelOrderRequest]) -> bool:
@@ -70,5 +69,5 @@ class OrdersClient(BaseClient):
             bool: True if the deletion was succesful.
         """
         return await self._client.delete(
-            NYSE.cancel_order.format(orderId=order.order_id)
+            self._client.exchange.cancel_order.format(orderId=order.order_id)
         )

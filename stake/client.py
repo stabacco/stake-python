@@ -111,10 +111,23 @@ class StakeClient:
     """The main client to interact with the Stake API."""
 
     def __init__(
-        self, request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
+        self,
+        request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None,
+        exchange: constant.BaseUrl = constant.NYSE,
     ):
-        self.user: Optional[user.User] = None
+        """_summary_
 
+        Args:
+            request (Union[CredentialsLoginRequest,
+                SessionTokenLoginRequest], optional):
+                The authentication method: either a session token or credentials.
+                Defaults to None.
+            exchange (constant.BaseUrl, optional):
+                the stock exchange to be used.
+                Defaults to constant.NYSE.
+        """
+        self.user: Optional[user.User] = None
+        self.exchange: constant.BaseUrl = exchange
         self.headers = Headers()
         self.http_client = HttpClient
 
@@ -202,7 +215,7 @@ class StakeClient:
         else:
             self.headers.stake_session_token = login_request.token
         try:
-            user_data = await self.get(constant.NYSE.users)
+            user_data = await self.get(self.exchange.users)
         except aiohttp.client_exceptions.ClientResponseError as error:
             raise InvalidLoginException("Invalid Session Token") from error
 

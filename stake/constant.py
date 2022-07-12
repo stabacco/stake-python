@@ -72,4 +72,5 @@ class BaseUrl(BaseSettings):
     )
 
 
+# The New York Stock Exchange
 NYSE = BaseUrl()
