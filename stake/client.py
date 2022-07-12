@@ -1,3 +1,4 @@
+import logging
 import os
 from typing import Optional, Union
 
@@ -23,9 +24,9 @@ from stake.common import camelcase
 
 load_dotenv()
 
-__all__ = ["StakeClient", "CredentialsLoginRequest", "SessionTokenLoginRequest"]
+logger = logging.getLogger(__name__)
 
-global test_name
+__all__ = ["StakeClient", "CredentialsLoginRequest", "SessionTokenLoginRequest"]
 
 
 class CredentialsLoginRequest(BaseModel):
@@ -62,13 +63,13 @@ class HttpClient:
         """Generates a stake api url.
 
         Args:
-            endpoint (str): the final part of the url
+            endpoint (str): the  full url
 
         Returns:
             str: the full url
         """
+        logger.debug("Endpoint %s", endpoint)
         return endpoint
-        # return urljoin(constant.STAKE_URL, endpoint, allow_fragments=True)
 
     @staticmethod
     async def get(url: str, payload: dict = None, headers: dict = None) -> dict:
