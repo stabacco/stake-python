@@ -16,8 +16,8 @@ class ProductSearchByName(BaseModel):
 
 
 class Instrument(BaseModel):
-    encoded_name: str
-    image_url: str
+    encoded_name: Optional[str] = None
+    image_url: Optional[str] = None
     instrument_id: str
     name: str
     symbol: str

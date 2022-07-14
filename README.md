@@ -167,6 +167,68 @@ async def example_stop_sell(symbol='TSLA'):
 asyncio.run(example_stop_sell('MSFT'))
 ```
 
+### Watchlists
+
+These are some examples on how to interact with watchlists:
+
+```python
+import stake
+import asyncio
+from stake.watchlist import Watchlist
+
+async def create_watchlist(name: str) -> "Watchlist":
+    async with stake.StakeClient() as stake_session:
+        request= stake.CreateWatchlistRequest(name = name)
+        new_watchlist = await stake_session.watchlist.create_watchlist(request=request)
+        return new_watchlist
+
+asyncio.run(create_watchlist(name='My watchlist'))
+```
+
+```python
+import stake
+import asyncio
+from stake.watchlist import Watchlist
+
+async def update_watchlist(id: str, tickers: "List[str]") -> "Watchlist":
+    async with stake.StakeClient() as stake_session:
+        request= stake.UpdateWatchlistRequest(id=id, tickers=tickers)
+        watchlist = await stake_session.watchlist.add_to_watchlist(request=request)
+        return watchlist
+
+asyncio.run(update_watchlist(id=WATCHLIST_ID, tickers=["TSLA", "MSFT", "GOOG"] ))
+```
+
+```python
+import stake
+import asyncio
+from stake.watchlist import Watchlist
+
+async def remove_from_watchlist(id: str, tickers: "List[str]") -> "Watchlist":
+    async with stake.StakeClient() as stake_session:
+        request= stake.UpdateWatchlistRequest(id=id, tickers=tickers)
+        watchlist = await stake_session.watchlist.remove_from_watchlist(request=request)
+        return watchlist
+
+asyncio.run(remove_from_watchlist(id=WATCHLIST_ID, tickers=["TSLA", "GOOG"] ))
+
+```
+
+```python
+import stake
+import asyncio
+from stake.watchlist import Watchlist
+
+async def delete_watchlist(id: str) -> "Watchlist":
+    async with stake.StakeClient() as stake_session:
+        request= stake.DeleteWatchlistRequest(id=id)
+        watchlist = await stake_session.watchlist.delete_watchlist(request=request)
+        return watchlist
+
+asyncio.run(delete_watchlist(id=WATCHLIST_ID))
+
+```
+
 ## Contributors
 
 ### Contributors on GitHub

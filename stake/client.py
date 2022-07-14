@@ -93,14 +93,14 @@ class HttpClient:
             return await response.json()
 
     @staticmethod
-    async def delete(url: str, payload: dict = None, headers: dict = None) -> bool:
+    async def delete(url: str, payload: dict = None, headers: dict = None) -> dict:
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
             response = await session.delete(
                 HttpClient.url(url), headers=headers, json=payload
             )
-            return response.status <= 399
+            return await response.json()
 
 
 class InvalidLoginException(Exception):
@@ -115,7 +115,7 @@ class StakeClient:
         request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None,
         exchange: constant.BaseUrl = constant.NYSE,
     ):
-        """_summary_
+        """
 
         Args:
             request (Union[CredentialsLoginRequest,
@@ -175,7 +175,7 @@ class StakeClient:
             url, payload=payload, headers=self.headers.dict(by_alias=True)
         )
 
-    async def delete(self, url: str, payload: dict = None) -> bool:
+    async def delete(self, url: str, payload: dict = None) -> dict:
         """Performs an HTTP delete operation.
 
         Args:

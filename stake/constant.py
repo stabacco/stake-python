@@ -1,9 +1,10 @@
+# sourcery skip: use-fstring-for-concatenation
 from urllib.parse import urljoin
 
-from pydantic import BaseSettings
+from pydantic import BaseModel
 
 
-class BaseUrl(BaseSettings):
+class BaseUrl(BaseModel):
     """Contains all the visited stake urls."""
 
     STAKE_URL: str = "https://global-prd-api.hellostake.com/api/"
@@ -70,6 +71,15 @@ class BaseUrl(BaseSettings):
     watchlist: str = urljoin(
         STAKE_URL, "products/productsWatchlist/{userId}", allow_fragments=True
     )
+    watchlists: str = "https://api.prd.stakeover.io/us/instrument/watchlists"
+    create_watchlist: str = "https://api.prd.stakeover.io/us/instrument/watchlist"
+    read_watchlist: str = (
+        "https://api.prd.stakeover.io/us/instrument/watchlist/{watchlist_id}"
+    )
+    update_watchlist: str = read_watchlist + "/items"
+
+
+# https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlists
 
 
 # The New York Stock Exchange

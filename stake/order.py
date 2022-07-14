@@ -68,6 +68,7 @@ class OrdersClient(BaseClient):
         Returns:
             bool: True if the deletion was succesful.
         """
-        return await self._client.delete(
+        await self._client.delete(
             self._client.exchange.cancel_order.format(orderId=order.order_id)
         )
+        return True
