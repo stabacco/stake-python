@@ -71,10 +71,7 @@ class ProductsClient(BaseClient):
             self._client.exchange.symbol.format(symbol=symbol)
         )
 
-        if not data["products"]:
-            return None
-
-        return Product(**data["products"][0])
+        return Product(**data["products"][0]) if data["products"] else None
 
     async def search(self, request: ProductSearchByName) -> List[Instrument]:
         products = await self._client.get(
