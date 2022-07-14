@@ -14,11 +14,11 @@ async def test_integration():
         await session.equities.list()
         await session.orders.list()
         await session.market.get()
-        request = stake.FxConversionRequest(
-            from_currency="USD", to_currency="AUD", from_amount=1000.0
-        )
-        conversion_result = await session.fx.convert(request)
-        assert conversion_result.rate
+        # request = stake.FxConversionRequest(
+        #     from_currency="USD", to_currency="AUD", from_amount=1000.0
+        # )
+        # conversion_result = await session.fx.convert(request)
+        # assert conversion_result.rate
         request = stake.TransactionRecordRequest(limit=10)
         transactions = await session.transactions.list(request)
         assert len(transactions) == 10

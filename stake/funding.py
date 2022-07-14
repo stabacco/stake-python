@@ -2,13 +2,11 @@
 import asyncio
 import json
 from datetime import datetime
-from string import Template
 from typing import List, Optional
 
 from pydantic import BaseModel, Field
 
 from stake.common import BaseClient, camelcase
-from stake.constant import Url
 from stake.transaction import TransactionHistoryType, TransactionRecordRequest
 
 
@@ -77,7 +75,9 @@ class FundingsClient(BaseClient):
     async def list(self, request: TransactionRecordRequest) -> List[Funding]:
         payload = json.loads(request.json(by_alias=True))
         # looks like there is no way to pass filter the transactions here
-        data = await self._client.post(Url.transaction_history, payload=payload)
+        data = await self._client.post(
+            self._client.exchange.transaction_history, payload=payload
+        )
 
         funding_transactions = [
             d
@@ -88,7 +88,7 @@ class FundingsClient(BaseClient):
         details = await asyncio.gather(
             *[
                 self._client.get(
-                    Template(Url.transaction_details.value).substitute(
+                    self._client.exchange.transaction_details.format(
                         reference=funding_transaction["reference"],
                         reference_type=funding_transaction["referenceType"],
                     ),
@@ -100,12 +100,10 @@ class FundingsClient(BaseClient):
 
     async def in_flight(self) -> List[FundsInFlight]:
         """Returns the funds currently in flight."""
-        data = await self._client.get(Url.fund_details)
+        data = await self._client.get(self._client.exchange.fund_details)
         data = data.get("fundsInFlight")
-        if not data:
-            return []
-        return [FundsInFlight(**d) for d in data]
+        return [FundsInFlight(**d) for d in data] if data else []
 
     async def cash_available(self) -> CashAvailable:
-        data = await self._client.get(Url.cash_available)
+        data = await self._client.get(self._client.exchange.cash_available)
         return CashAvailable(**data)

@@ -1,0 +1,214 @@
+interactions:
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/user
+    response:
+      body:
+        string:
+          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "username": "leonardzachary", "emailAddress": "ellen70@bates-williams.com",
+          "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
+          "R6-1813041A", "macAccountNumber": "K4-3517949y", "status": null, "macStatus":
+          "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+          null, "firstName": "Tammy", "middleName": null, "lastName": "Alexander", "phoneNumber":
+          "9011530005", "signUpPhase": 0, "ackSignedWhen": "2022-01-22", "createdDate":
+          1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+          null, "referralCode": "A1-2107594j", "referredByCode": null, "regionIdentifier":
+          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+          null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
+          false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/user
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://api.prd.stakeover.io/us/instrument/watchlists
+    response:
+      body:
+        string:
+          '{"generated": false, "watchlists": [{"watchlistId": "bb0f59b5-2454-451c-8de3-fa3fc7d13a42",
+          "name": "Not so much test", "timeCreated": "2022-07-14T05:25:44.881769Z",
+          "count": 1}, {"watchlistId": "e649db6d-71ab-4649-a32e-59d57def4a00", "name":
+          "stef 2", "timeCreated": "2022-07-14T05:31:06.054443Z", "count": 0}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://api.prd.stakeover.io/us/instrument/watchlists
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: POST
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist
+    response:
+      body:
+        string:
+          '{"newWatchlistId": "51c502dd-20b9-4f7d-940d-43e66754f9a3", "watchlists":
+          [{"watchlistId": "bb0f59b5-2454-451c-8de3-fa3fc7d13a42", "name": "Not so much
+          test", "timeCreated": "2022-07-14T05:25:44.881769Z", "count": 1}, {"watchlistId":
+          "e649db6d-71ab-4649-a32e-59d57def4a00", "name": "stef 2", "timeCreated": "2022-07-14T05:31:06.054443Z",
+          "count": 0}, {"watchlistId": "51c502dd-20b9-4f7d-940d-43e66754f9a3", "name":
+          "__test_watchlist__", "timeCreated": "2022-07-14T07:33:26.424872Z", "count":
+          0}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://api.prd.stakeover.io/us/instrument/watchlist
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+    response:
+      body:
+        string:
+          '{"watchlistId": "51c502dd-20b9-4f7d-940d-43e66754f9a3", "name": "__test_watchlist__",
+          "count": 0, "instruments": []}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: POST
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3/items
+    response:
+      body:
+        string:
+          '{"watchlistId": "51c502dd-20b9-4f7d-940d-43e66754f9a3", "name": "__test_watchlist__",
+          "count": 3, "instruments": [{"instrumentId": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
+          "name": "Tesla, Inc.", "symbol": "TSLA"}, {"instrumentId": "68277cc0-6106-4f3c-849b-1298ba964aba",
+          "name": "Alphabet Inc. - Class C Shares", "symbol": "GOOG"}, {"instrumentId":
+          "e234cc98-cd08-4b04-a388-fe5c822beea6", "name": "Microsoft Corporation", "symbol":
+          "MSFT"}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3/items
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+    response:
+      body:
+        string:
+          '{"watchlistId": "51c502dd-20b9-4f7d-940d-43e66754f9a3", "name": "__test_watchlist__",
+          "count": 3, "instruments": [{"instrumentId": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
+          "name": "Tesla, Inc.", "symbol": "TSLA"}, {"instrumentId": "68277cc0-6106-4f3c-849b-1298ba964aba",
+          "name": "Alphabet Inc. - Class C Shares", "symbol": "GOOG"}, {"instrumentId":
+          "e234cc98-cd08-4b04-a388-fe5c822beea6", "name": "Microsoft Corporation", "symbol":
+          "MSFT"}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+    response:
+      body:
+        string:
+          '{"watchlistId": "51c502dd-20b9-4f7d-940d-43e66754f9a3", "name": "__test_watchlist__",
+          "count": 3, "instruments": [{"instrumentId": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
+          "name": "Tesla, Inc.", "symbol": "TSLA"}, {"instrumentId": "68277cc0-6106-4f3c-849b-1298ba964aba",
+          "name": "Alphabet Inc. - Class C Shares", "symbol": "GOOG"}, {"instrumentId":
+          "e234cc98-cd08-4b04-a388-fe5c822beea6", "name": "Microsoft Corporation", "symbol":
+          "MSFT"}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+  - request:
+      body:
+        tickers:
+          - TSLA
+          - GOOG
+          - MSFT
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: DELETE
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3/items
+    response:
+      body:
+        string:
+          '{"watchlistId": "51c502dd-20b9-4f7d-940d-43e66754f9a3", "name": "__test_watchlist__",
+          "count": 0, "instruments": []}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3/items
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: DELETE
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+    response:
+      body:
+        string:
+          '[{"watchlistId": "bb0f59b5-2454-451c-8de3-fa3fc7d13a42", "name": "Not
+          so much test", "timeCreated": "2022-07-14T05:25:44.881769Z", "count": 1},
+          {"watchlistId": "e649db6d-71ab-4649-a32e-59d57def4a00", "name": "stef 2",
+          "timeCreated": "2022-07-14T05:31:06.054443Z", "count": 0}]'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+version: 1

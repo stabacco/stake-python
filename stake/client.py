@@ -1,6 +1,6 @@
+import logging
 import os
 from typing import Optional, Union
-from urllib.parse import urljoin
 
 import aiohttp
 from dotenv import load_dotenv
@@ -24,9 +24,9 @@ from stake.common import camelcase
 
 load_dotenv()
 
-__all__ = ["StakeClient", "CredentialsLoginRequest", "SessionTokenLoginRequest"]
+logger = logging.getLogger(__name__)
 
-global test_name
+__all__ = ["StakeClient", "CredentialsLoginRequest", "SessionTokenLoginRequest"]
 
 
 class CredentialsLoginRequest(BaseModel):
@@ -63,12 +63,13 @@ class HttpClient:
         """Generates a stake api url.
 
         Args:
-            endpoint (str): the final part of the url
+            endpoint (str): the  full url
 
         Returns:
             str: the full url
         """
-        return urljoin(constant.STAKE_URL, endpoint, allow_fragments=True)
+        logger.debug("Endpoint %s", endpoint)
+        return endpoint
 
     @staticmethod
     async def get(url: str, payload: dict = None, headers: dict = None) -> dict:
@@ -92,14 +93,14 @@ class HttpClient:
             return await response.json()
 
     @staticmethod
-    async def delete(url: str, payload: dict = None, headers: dict = None) -> bool:
+    async def delete(url: str, payload: dict = None, headers: dict = None) -> dict:
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
             response = await session.delete(
                 HttpClient.url(url), headers=headers, json=payload
             )
-            return response.status <= 399
+            return await response.json()
 
 
 class InvalidLoginException(Exception):
@@ -110,10 +111,23 @@ class StakeClient:
     """The main client to interact with the Stake API."""
 
     def __init__(
-        self, request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None
+        self,
+        request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None,
+        exchange: constant.BaseUrl = constant.NYSE,
     ):
-        self.user: Optional[user.User] = None
+        """
 
+        Args:
+            request (Union[CredentialsLoginRequest,
+                SessionTokenLoginRequest], optional):
+                The authentication method: either a session token or credentials.
+                Defaults to None.
+            exchange (constant.BaseUrl, optional):
+                the stock exchange to be used.
+                Defaults to constant.NYSE.
+        """
+        self.user: Optional[user.User] = None
+        self.exchange: constant.BaseUrl = exchange
         self.headers = Headers()
         self.http_client = HttpClient
 
@@ -161,7 +175,7 @@ class StakeClient:
             url, payload=payload, headers=self.headers.dict(by_alias=True)
         )
 
-    async def delete(self, url: str, payload: dict = None) -> bool:
+    async def delete(self, url: str, payload: dict = None) -> dict:
         """Performs an HTTP delete operation.
 
         Args:
@@ -191,7 +205,7 @@ class StakeClient:
         if isinstance(login_request, CredentialsLoginRequest):
             try:
                 data = await self.post(
-                    constant.Url.create_session,
+                    constant.NYSE.create_session,
                     payload=login_request.dict(by_alias=True),
                 )
 
@@ -201,7 +215,7 @@ class StakeClient:
         else:
             self.headers.stake_session_token = login_request.token
         try:
-            user_data = await self.get(constant.Url.user)
+            user_data = await self.get(self.exchange.users)
         except aiohttp.client_exceptions.ClientResponseError as error:
             raise InvalidLoginException("Invalid Session Token") from error
 

@@ -6,7 +6,6 @@ from typing import Optional, Union
 from pydantic import BaseModel, Field, validator
 
 from stake.common import BaseClient, camelcase
-from stake.constant import Url
 
 failed_transaction_regex = re.compile(r"^[0-9]{4}")
 
@@ -213,7 +212,7 @@ class TradesClient(BaseClient):
             RuntimeError if the trade was not successful.
         """
 
-        transactions = await self._client.get("users/accounts/transactions")
+        transactions = await self._client.get(self._client.exchange.transactions)
 
         if not transactions:
             raise RuntimeError(
@@ -244,7 +243,7 @@ class TradesClient(BaseClient):
         Returns:
             the TradeResponse object
         """
-        return await self._trade(Url.quick_buy, request)
+        return await self._trade(self._client.exchange.quick_buy, request)
 
     async def sell(self, request: MarketSellRequest) -> TradeResponse:
         """Creates an order to sell equities.
@@ -255,4 +254,4 @@ class TradesClient(BaseClient):
         Returns:
             the TradeResponse object
         """
-        return await self._trade(Url.sell_orders, request)
+        return await self._trade(self._client.exchange.sell_orders, request)
