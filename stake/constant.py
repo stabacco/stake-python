@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 
 class BaseUrl(BaseModel):
-    """Contains all the visited stake urls."""
+    """Contains all the visited stake urls for the NYSE."""
 
     STAKE_URL: str = "https://global-prd-api.hellostake.com/api/"
     account_balance: str = urljoin(
@@ -65,21 +65,22 @@ class BaseUrl(BaseModel):
         STAKE_URL, "users/accounts/transactions", allow_fragments=True
     )
     users: str = urljoin(STAKE_URL, "user", allow_fragments=True)
+
+    # deprecated, use update_watchlist instead
     watchlist_modify: str = urljoin(
         STAKE_URL, "instruments/addRemoveInstrumentWatchlist", allow_fragments=True
     )
+    # deprecated, use read_watchlist instead
     watchlist: str = urljoin(
         STAKE_URL, "products/productsWatchlist/{userId}", allow_fragments=True
     )
+
     watchlists: str = "https://api.prd.stakeover.io/us/instrument/watchlists"
     create_watchlist: str = "https://api.prd.stakeover.io/us/instrument/watchlist"
     read_watchlist: str = (
         "https://api.prd.stakeover.io/us/instrument/watchlist/{watchlist_id}"
     )
     update_watchlist: str = read_watchlist + "/items"
-
-
-# https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlists
 
 
 # The New York Stock Exchange

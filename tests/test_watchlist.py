@@ -71,3 +71,101 @@ async def test_create_watchlist(tracing_client):
         request=DeleteWatchlistRequest(id=update_request.id)
     )
     assert result
+
+
+"""
+```python
+import stake
+import asyncio
+from stake.watchlist import Watchlist
+
+async def create_watchlist(name: str) -> "Watchlist":
+    async with stake.StakeClient() as stake_session:
+        request= stake.CreateWatchlistRequest(name = name)
+        new_watchlist = await stake_session.watchlist.create_watchlist(request=request)
+        return new_watchlist
+
+asyncio.run(create_watchlist(name='Stef 3'))
+
+
+import stake
+import asyncio
+from stake.watchlist import Watchlist
+
+async def update_watchlist(id: str, tickers: "List[str]") -> "Watchlist":
+    async with stake.StakeClient() as stake_session:
+        request= stake.UpdateWatchlistRequest(id=id, tickers=tickers)
+        watchlist = await stake_session.watchlist.add_to_watchlist(request=request)
+        return watchlist
+
+asyncio.run(update_watchlist(id='146c733c-518d-4123-8ca8-a33d0ed65328', tickers=["TSLA", "MSFT", "GOOG"] ))
+
+import stake
+import asyncio
+from stake.watchlist import Watchlist
+
+async def get_watchlist(id: str) -> "Watchlist":
+    async with stake.StakeClient() as stake_session:
+        request= stake.GetWatchlistRequest(id=id)
+        watchlist = await stake_session.watchlist.watchlist(request=request)
+        return watchlist
+
+asyncio.run(get_watchlist(id='20accd2e-4955-42f8-b9d2-15d0a196608c'))
+
+
+
+import stake
+import asyncio
+from stake.watchlist import Watchlist
+
+async def remove_from_watchlist(id: str, tickers: "List[str]") -> "Watchlist":
+    async with stake.StakeClient() as stake_session:
+        request= stake.UpdateWatchlistRequest(id=id, tickers=tickers)
+        watchlist = await stake_session.watchlist.remove_from_watchlist(request=request)
+        return watchlist
+
+asyncio.run(remove_from_watchlist(id='20accd2e-4955-42f8-b9d2-15d0a196608c', tickers=["TSLA", "MSFT", "GOOG"] ))
+
+
+import stake
+import asyncio
+from stake.watchlist import Watchlist
+
+async def delete_watchlist(id: str) -> "Watchlist":
+    async with stake.StakeClient() as stake_session:
+        request= stake.DeleteWatchlistRequest(id=id)
+        watchlist = await stake_session.watchlist.delete_watchlist(request=request)
+        return watchlist
+
+asyncio.run(delete_watchlist(id='0e431e05-b60d-4432-9bdb-6d09c7d90108'))
+
+import stake
+import asyncio
+from stake.watchlist import Watchlist
+
+async def delete_watchlist(id: str) -> "Watchlist":
+    async with stake.StakeClient() as stake_session:
+        request= stake.DeleteWatchlistRequest(id=id)
+        watchlist = await stake_session.watchlist.list()
+        return watchlist
+
+asyncio.run(delete_watchlist(id='0e431e05-b60d-4432-9bdb-6d09c7d90108'))
+
+
+import stake
+import asyncio
+from stake.watchlist import Watchlist
+
+async def cancel_order(id: str) -> "Watchlist":
+    async with stake.StakeClient() as stake_session:
+        request= stake.CancelOrderRequest(order_id=id)
+        watchlist = await stake_session.orders.cancel(order=request)
+        return watchlist
+
+asyncio.run(cancel_order(id='0e431e05-b60d-4432-9bdb-6d09c7d90108'))
+
+
+
+```
+
+"""
