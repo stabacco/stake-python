@@ -102,9 +102,7 @@ class FundingsClient(BaseClient):
         """Returns the funds currently in flight."""
         data = await self._client.get(self._client.exchange.fund_details)
         data = data.get("fundsInFlight")
-        if not data:
-            return []
-        return [FundsInFlight(**d) for d in data]
+        return [FundsInFlight(**d) for d in data] if data else []
 
     async def cash_available(self) -> CashAvailable:
         data = await self._client.get(self._client.exchange.cash_available)
