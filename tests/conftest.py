@@ -26,6 +26,10 @@ def event_loop():
 
 def redact_sensitive_data(response):
 
+    if not response["body"].get("string", None):
+        response["headers"] = {}
+        return response
+
     fake = Faker()
     fake.seed_instance(1234)
     fake_user_id = "7c9bbfae-0000-47b7-0000-0e66d868c2cf"
@@ -33,37 +37,47 @@ def redact_sensitive_data(response):
 
     fake_transaction_id = "HHI." + str(fake_order_id)
     obfuscated_fields = {
-        "id": str(uuid.uuid4()),
-        "firstName": fake.first_name(),
-        "lastName": fake.last_name(),
-        "phoneNumber": fake.phone_number(),
         "ackSignedWhen": str(fake.date_this_decade()),
-        "referralCode": fake.pystr_format(),
-        "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
-        "username": fake.simple_profile()["username"],
-        "emailAddress": fake.email(),
-        "password": fake.password(),
-        "dw_id": str(fake_order_id),
+        "brokerOrderId": 11111,
+        "buyingPower": 1000.0,
+        "cashAvailableForTrade": 800,
+        "cashAvailableForWithdrawal": 1000,
+        "cashAvailableForTransfer": 1000,
+        "cashBalance": 1000.0,
+        "comment": fake.pystr_format(),
+        "createdWhen": str(fake.date_time_this_decade()),
         "dw_AccountId": str(fake_order_id),
         "dw_AccountNumber": fake.pystr_format(),
-        "macAccountNumber": fake.pystr_format(),
+        "dw_id": str(fake_order_id),
+        "dwAccountId": str(fake_order_id),
+        "dwCashAvailableForWithdrawal": 1000,
+        "dwOrderId": fake_transaction_id,
+        "emailAddress": fake.email(),
         "finTranID": str(fake_order_id),
+        "firstName": fake.first_name(),
+        "id": str(fake_order_id),
+        "lastName": fake.last_name(),
+        "liquidCash": 1000.0,
+        "macAccountNumber": fake.pystr_format(),
+        "openQty": 100,
         "orderID": fake_transaction_id,
         "orderId": fake_transaction_id,
-        "userID": fake_user_id,
         "orderNo": fake.pystr_format(),
-        "dwAccountId": str(fake_order_id),
-        "dwOrderId": fake_transaction_id,
-        "tranWhen": str(fake.date_time_this_decade()),
-        "referenceNumber": fake.pystr_format(),
+        "password": fake.password(),
+        "phoneNumber": fake.phone_number(),
         "productWatchlistID": str(fake_order_id),
-        "createdWhen": str(fake.date_time_this_decade()),
-        "cashAvailableForWithdrawal": 1000,
-        "cashAvailableForTrade": 800,
-        "dwCashAvailableForWithdrawal": 1000,
         "reference": fake.pystr_format(),
-        "comment": fake.pystr_format(),
+        "referenceNumber": fake.pystr_format(),
+        "referralCode": fake.pystr_format(),
+        "settledCash": 10000.00,
         "tranAmount": 1000,
+        "tranWhen": str(fake.date_time_this_decade()),
+        "unrealizedDayPLPercent": 1.0,
+        "unrealizedPL": 1.0,
+        "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+        "userID": fake_user_id,
+        "username": fake.simple_profile()["username"],
+        "watchlistId": str(fake_order_id),
     }
 
     def _redact_response_body(body):

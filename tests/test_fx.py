@@ -1,11 +1,12 @@
 import pytest
 
+import stake
 from stake import FxConversionRequest
 
 
 @pytest.mark.vcr()
 @pytest.mark.asyncio
-async def test_fx_conversion(tracing_client):
+async def test_fx_conversion(tracing_client: stake.StakeClient):
     request = FxConversionRequest(
         from_currency="USD", to_currency="AUD", from_amount=1000.0
     )

@@ -5,7 +5,7 @@
 
 **Stake** is an unofficial Python client for the [Stake](https://www.stake.com.au) trading platform.
 
-This library wraps the current Stake RPC api and allows common trade operations, such as submitting buy/sell requests, checking your portfolio etc...
+This library wraps the current Stake api and allows common trade operations, such as submitting buy/sell requests, checking your portfolio etc...
 
 Please note that, at the current stage, the Stake client is asynchronous.
 
@@ -79,6 +79,40 @@ In this case you need to have your phone around, get the current code from the a
 
 Obviously, this can become a bit inconvenient, since you will need to provide the otp code every time you instantiate a new `StakeClient` instance. Therefore, you could probably authenticate once with your credentials, retrieve the session token from the headers(`stake_session.headers.stake_session_token`), and store it in the `STAKE_TOKEN` env-var for subsequent usages.
 
+## Choose your trading exchange
+
+Stake can currently trade on the NY stock exchange (default for this library) as well as the Australian ASX. In order to choose which trading market to use you can initialize the client by specifying the `exchange` argument:
+
+```python
+import asyncio
+from typing import Union
+
+import stake
+
+
+async def show_current_orders(
+    current_exchange: Union[stake.constant.ASXUrl, stake.constant.NYSEUrl]
+):
+    async with stake.StakeClient(exchange=current_exchange) as stake_session:
+        my_equities = await stake_session.orders.list()
+        return my_equities
+
+# ASX
+print(asyncio.run(show_current_orders(stake.ASX)))
+
+# NYSE
+print(asyncio.run(show_current_orders(stake.NYSE)))
+
+```
+
+Alternatively you can call the `set_exchange` method on the `StakeClient` object.
+
+One thing to note, is that the apis for the two exchanges are currently wildly different, and this reflects in some parts of this library as well.
+You might find that the way you need to perform a trade (as well as the resulting response) is somewhat different when switching between exchanges.
+
+As a rule of thumb the code for the ASX stake api resides in the `stake.asx` python package
+while the one for the USA one is under the main `stake` namespace (for backwards compatibitity mostly, it might get moved to `stake.nyse` in the future).
+
 ## Examples
 
 With `stake-python` you can do most of the operations that are available through the web app.
@@ -90,11 +124,11 @@ Here are some examples:
 ```python
 import stake
 import asyncio
-
+from stake.constant import NYSE
 
 async def show_portfolio():
     # here the client will use the STAKE_TOKEN env var for authenticating
-    async with stake.StakeClient() as stake_session:
+    async with stake.StakeClient(exchange=NYSE) as stake_session:
         my_equities = await stake_session.equities.list()
         for my_equity in my_equities.equity_positions:
             print(my_equity.symbol, my_equity.yearly_return_value)
@@ -136,7 +170,7 @@ import asyncio
 import stake
 
 async def example_limit_buy():
-    symbol = "UNKN" # should be the equity symbol, for ex: AAPL, TSLA, GOOGL
+    symbol = "TSLA"
     async with stake.StakeClient() as stake_session:
         return await stake_session.trades.buy(
             stake.LimitBuyRequest(symbol=symbol, limitPrice=10, quantity=1000)
@@ -228,6 +262,8 @@ async def delete_watchlist(id: str) -> "Watchlist":
 asyncio.run(delete_watchlist(id=WATCHLIST_ID))
 
 ```
+
+For more examples, you can have a look at the unittests.
 
 ## Contributors
 

@@ -23,7 +23,7 @@ class TransactionRecordRequest(BaseModel):
         default_factory=lambda *_: datetime.utcnow() - timedelta(days=365), alias="from"
     )
     limit: int = 1000
-    offset: Optional[int]
+    offset: Optional[datetime]
     direction: TransactionRecordEnumDirection = TransactionRecordEnumDirection.prev
 
 
@@ -76,31 +76,6 @@ class TransactionHistoryType(str, enum.Enum):
     DIVIDEND_TAX = "Dividend Tax"
     FUNDING = "Funding"
     SELL = "Sell"
-
-
-class TransactionHistorySide(str, enum.Enum):
-    CREDIT = "CREDIT"
-    DEBIT = "DEBIT"
-
-
-class TransactionHistoryElement(BaseModel):
-    transaction_type: TransactionHistoryType
-    fin_tran_type_id: Optional[str] = None
-    timestamp: datetime
-    tran_amount: Optional[float] = None
-    fee_amount: Optional[float] = None
-    side: TransactionHistorySide
-    text: str
-    comment: str
-    amount_per_share: float
-    tax_rate: float
-    order_id: Optional[str] = None
-    symbol: Optional[str] = None
-    reference: Optional[str] = None
-    reference_type: Optional[TransactionHistoryType] = None
-
-    class Config:
-        alias_generator = camelcase
 
 
 class TransactionsClient(BaseClient):

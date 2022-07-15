@@ -1,0 +1,233 @@
+interactions:
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/user
+    response:
+      body:
+        string:
+          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "username": "michael29", "emailAddress": "reevesmegan@gilmore-wright.biz",
+          "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
+          "z0-0593879b", "macAccountNumber": "d9-0481457G", "status": null, "macStatus":
+          "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+          null, "firstName": "Rita", "middleName": null, "lastName": "Jones", "phoneNumber":
+          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2021-11-15", "createdDate":
+          1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+          null, "referralCode": "W2-6612029X", "referredByCode": null, "regionIdentifier":
+          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+          null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
+          false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/user
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=TSLA&page=1&max=1
+    response:
+      body:
+        string:
+          '{"products": [{"id": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "instrumentTypeID":
+          null, "symbol": "TSLA", "description": "Tesla, Inc. designs, develops, manufactures
+          and sells electric vehicles and designs, manufactures, installs and sells
+          solar energy generation and energy storage products. The Company''s segments
+          include automotive, and energy generation and storage. The automotive segment
+          includes the design, development, manufacturing, sales and leasing of electric
+          vehicles as well as sales of automotive regulatory credits. The energy generation
+          and storage segment include the design, manufacture, installation, sales and
+          leasing of solar energy generation and energy storage products, services related
+          to its products, and sales of solar energy system incentives. Its automotive
+          products include Model 3, Model Y, Model S and Model X. Model 3 is a four-door
+          sedan. Model Y is a sport utility vehicle (SUV) built on the Model 3 platform.
+          Model S is a four-door sedan. Model X is an SUV. Its energy storage products
+          include Powerwall and Powerpack.", "category": "Stock", "currencyID": "USD",
+          "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/tsla.png",
+          "sector": "Consumer Cyclical", "name": "Tesla, Inc.", "dailyReturn": -27.61,
+          "dailyReturnPercentage": -3.43, "lastTraded": 777.69, "monthlyReturn": 0.0,
+          "yearlyReturnPercentage": 421.89, "yearlyReturnValue": 544.51, "popularity":
+          17753.0, "watched": 74328, "news": 0, "bought": 447958, "viewed": 477900,
+          "productType": "Instrument", "exchange": null, "status": "ACTIVE", "type":
+          "EQUITY", "encodedName": "tesla-inc-tsla", "period": "YEAR RETURN", "inceptionDate":
+          1277769600000, "instrumentTags": [], "childInstruments": []}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=TSLA&page=1&max=1
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: POST
+      uri: https://global-prd-api.hellostake.com/api/purchaseorders/v2/quickBuy
+    response:
+      body:
+        string:
+          '[{"id": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "itemId": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
+          "name": "Tesla, Inc.", "quantity": null, "lastPx": null, "lastQty": null,
+          "leavesQty": null, "allocatedQty": null, "amountCash": 20.0, "limitPrice":
+          null, "stopPrice": null, "effectivePrice": null, "autoStop": 0.0, "commission":
+          0.0, "grossTradeAmount": null, "description": null, "insertedDate": 1658924561819,
+          "updatedDate": 1658924561819, "side": "BUY", "orderRejectReason": null, "orderRejectReasonStake":
+          null, "errorCode": null, "encodedName": "tesla-inc-tsla", "imageURL": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/tsla.png",
+          "symbol": "TSLA", "dwOrderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderStatus": "NEW", "type": "MARKET", "timeInForce": "GFD", "expiration":
+          null, "status": 0, "category": "market"}]'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/purchaseorders/v2/quickBuy
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/users/accounts/transactions
+    response:
+      body:
+        string:
+          '{"transactions": [{"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "x5-4334954E", "symbol": "TSLA", "cumQty": 0.0, "orderStatus":
+          "4", "orderType": "1", "orderQty": 0.02526847, "orderCashAmt": 20.0, "side":
+          "B", "createdWhen": "2021-07-04 21:46:25", "updatedReason": "JOS TS CXL ",
+          "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-07-27T20:00:00.000Z",
+          "limitPrice": 0.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-07-27T12:17:54.074Z",
+          "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "x5-4334954E", "symbol": "TQQQ", "cumQty": 0.0, "orderStatus":
+          "4", "orderType": "1", "orderQty": 3.52112676, "orderCashAmt": 100.0, "side":
+          "B", "createdWhen": "2021-07-04 21:46:25", "updatedReason": "JOS TS CXL ",
+          "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-07-27T20:00:00.000Z",
+          "limitPrice": 0.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-07-27T12:12:15.826Z",
+          "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "x5-4334954E", "symbol": "TSLA", "cumQty": 0.0, "orderStatus":
+          "4", "orderType": "1", "orderQty": 0.02529916, "orderCashAmt": 20.0, "side":
+          "B", "createdWhen": "2021-07-04 21:46:25", "updatedReason": "JOS TS CXL ",
+          "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-07-27T20:00:00.000Z",
+          "limitPrice": 0.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-07-27T12:11:56.996Z",
+          "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "x5-4334954E", "symbol": "TSLA", "cumQty": 0.0, "orderStatus":
+          "4", "orderType": "1", "orderQty": 0.02528508, "orderCashAmt": 20.0, "side":
+          "B", "createdWhen": "2021-07-04 21:46:25", "updatedReason": "JOS TS CXL ",
+          "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-07-27T20:00:00.000Z",
+          "limitPrice": 0.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-07-27T12:02:10.256Z",
+          "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "x5-4334954E", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+          "4", "orderType": "1", "orderQty": 0.65410779, "orderCashAmt": 100.0, "side":
+          "B", "createdWhen": "2021-07-04 21:46:25", "updatedReason": "JOS TS CXL ",
+          "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-07-27T20:00:00.000Z",
+          "limitPrice": 0.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-07-27T11:22:22.271Z",
+          "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "x5-4334954E", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+          "4", "orderType": "1", "orderQty": 0.65410779, "orderCashAmt": 100.0, "side":
+          "B", "createdWhen": "2021-07-04 21:46:25", "updatedReason": "JOS TS CXL ",
+          "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-07-27T20:00:00.000Z",
+          "limitPrice": 0.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-07-27T11:21:04.186Z",
+          "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "x5-4334954E", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+          "4", "orderType": "1", "orderQty": 0.65440743, "orderCashAmt": 100.0, "side":
+          "B", "createdWhen": "2021-07-04 21:46:25", "updatedReason": "JOS TS CXL ",
+          "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-07-27T20:00:00.000Z",
+          "limitPrice": 0.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-07-27T11:18:45.019Z",
+          "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "x5-4334954E", "symbol": "AAPL", "cumQty": 0.0, "orderStatus":
+          "4", "orderType": "1", "orderQty": 0.65466448, "orderCashAmt": 100.0, "side":
+          "B", "createdWhen": "2021-07-04 21:46:25", "updatedReason": "JOS TS CXL ",
+          "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-07-27T20:00:00.000Z",
+          "limitPrice": 0.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-07-27T11:15:22.321Z",
+          "realizedPL": null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderNo": "x5-4334954E", "symbol": "TSLA", "cumQty": 0.0, "orderStatus":
+          "0", "orderType": "1", "orderQty": 0.02523818, "orderCashAmt": 20.0, "side":
+          "B", "createdWhen": "2021-07-04 21:46:25", "updatedReason": "market_order-buy-new",
+          "commission": 0.0, "executedWhen": null, "isoTimeRestingOrderExpires": "2022-07-27T20:00:00.000Z",
+          "limitPrice": 0.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": null, "realizedPL":
+          null}, {"orderId": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "orderNo":
+          "x5-4334954E", "symbol": "AAPL", "cumQty": 0.0, "orderStatus": "4", "orderType":
+          "1", "orderQty": 1.30984347, "orderCashAmt": 200.0, "side": "B", "createdWhen":
+          "2021-07-04 21:46:25", "updatedReason": "JOS TS CXL ", "commission": 0.0,
+          "executedWhen": null, "isoTimeRestingOrderExpires": "2022-07-27T20:00:00.000Z",
+          "limitPrice": 0.0, "stopPrice": 0.0, "cancelledWhen": null, "executedPrice":
+          null, "commissionDesc": "Standard Commission", "updatedWhen": "2022-07-27T12:12:10.007Z",
+          "realizedPL": null}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/users/accounts/transactions
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/users/accounts/v2/orders
+    response:
+      body:
+        string:
+          '[{"orderNo": "x5-4334954E", "orderID": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "orderCashAmt": 20.0, "symbol": "TSLA", "price": 0.0, "stopPrice": 0.0, "side":
+          "B", "orderType": 1, "cumQty": "0.0", "limitPrice": 0.0, "commission": 0.0,
+          "createdWhen": "2021-07-04 21:46:25", "orderStatus": 0, "orderQty": 0.02523818,
+          "description": "Market Order", "instrumentID": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
+          "imageUrl": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/tsla.png",
+          "instrumentSymbol": "TSLA", "instrumentName": "Tesla, Inc.", "encodedName":
+          "tesla-inc-tsla", "expires": "2022-07-27"}]'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/users/accounts/v2/orders
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: DELETE
+      uri: https://global-prd-api.hellostake.com/api/orders/cancelOrder/HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59
+    response:
+      body:
+        string: ""
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/orders/cancelOrder/HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59
+version: 1

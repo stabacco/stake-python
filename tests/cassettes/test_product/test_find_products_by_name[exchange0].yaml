@@ -13,21 +13,22 @@ interactions:
         string:
           '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
           true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
-          "username": "rita19", "emailAddress": "torresbenjamin@gmail.com", "dw_AccountId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "w4-1267174s",
-          "macAccountNumber": "H1-7641957H", "status": null, "macStatus": "BASIC_USER",
-          "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
-          null, "firstName": "Tammy", "lastName": "Alexander", "phoneNumber": "9011530005",
-          "signUpPhase": 0, "ackSignedWhen": "2021-05-18", "createdDate": 1574303699770,
-          "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
-          null, "referralCode": "L7-2127933N", "referredByCode": null, "regionIdentifier":
+          "username": "leonardzachary", "emailAddress": "ellen70@bates-williams.com",
+          "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
+          "R6-1813041A", "macAccountNumber": "K4-3517949y", "status": null, "macStatus":
+          "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+          null, "firstName": "Tammy", "middleName": null, "lastName": "Alexander", "phoneNumber":
+          "9011530005", "signUpPhase": 0, "ackSignedWhen": "2022-01-22", "createdDate":
+          1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+          null, "referralCode": "A1-2107594j", "referredByCode": null, "regionIdentifier":
           "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
           null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
           null, "userProfile": {"residentialAddress": null, "postalAddress": null},
           "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
           "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
           "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
-          null, "documentsStatus": "NO_ACTION", "mfaenabled": false}'
+          null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
+          false}'
       headers: {}
       status:
         code: 200
@@ -60,7 +61,10 @@ interactions:
           "exchange": null}, {"name": "iRhythm Technologies, Inc.", "symbol": "IRTC",
           "encodedName": "irhythm-technologies-inc-irtc", "instrumentId": "05f00a67-b822-4023-871a-1d6215a0eef6",
           "imageUrl": "https://drivewealth.imgix.net/symbols/irtc.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
-          "exchange": null}, {"name": "FARO Technologies Inc.", "symbol": "FARO", "encodedName":
+          "exchange": null}, {"name": "ASPEN TECHNOLOGY INC", "symbol": "AZPN", "encodedName":
+          "aspen-technology-inc-azpn", "instrumentId": "08b7f76d-fa40-44b0-951e-b77d1a9206e3",
+          "imageUrl": "https://drivewealth.imgix.net/symbols/azpn_1652797208.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
+          "exchange": "NSQ"}, {"name": "FARO Technologies Inc.", "symbol": "FARO", "encodedName":
           "faro-technologies-inc-faro", "instrumentId": "08c65f62-394e-442a-86c1-0ad93b3efe21",
           "imageUrl": "https://drivewealth.imgix.net/symbols/faro.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
           "exchange": null}, {"name": "Shift Technologies, Inc.", "symbol": "SFT", "encodedName":
@@ -72,14 +76,10 @@ interactions:
           "exchange": null}, {"name": "Micron Technology Inc.", "symbol": "MU", "encodedName":
           "micron-technology-inc-mu", "instrumentId": "0baafbff-dcc6-4645-8d27-4b4baf8a37ac",
           "imageUrl": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/mu.png",
-          "exchange": null}, {"name": "SIGA Technologies Inc", "symbol": "SIGA", "encodedName":
-          "siga-technologies-inc-siga", "instrumentId": "0bcd0ba3-11d7-4a7b-b713-20241cbeaebc",
-          "imageUrl": "https://drivewealth.imgix.net/symbols/siga.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
           "exchange": null}], "instrumentTags": [{"tagID": "448f6003-9af8-4f25-8f51-2cf924255f09",
           "tagName": "Nanotechnology"}, {"tagID": "55832928-f3cb-4229-9d27-1baa5b25ec15",
           "tagName": "Wearable Technology"}, {"tagID": "794e2f64-f33c-4ec7-918a-7ec5c7c998cf",
-          "tagName": "Technology"}, {"tagID": "7ff03c9f-e9e5-4239-b10d-7098b8452c94",
-          "tagName": "Technologies"}, {"tagID": "e1cdd8d5-c9be-460b-ab56-934907c7d69d",
+          "tagName": "Technology"}, {"tagID": "e1cdd8d5-c9be-460b-ab56-934907c7d69d",
           "tagName": "Biotechnology"}]}'
       headers: {}
       status:

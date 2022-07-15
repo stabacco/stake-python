@@ -5,6 +5,7 @@ from single_version import get_version
 
 from .client import *
 from .common import *
+from .constant import *
 from .funding import *
 from .fx import *
 from .market import *

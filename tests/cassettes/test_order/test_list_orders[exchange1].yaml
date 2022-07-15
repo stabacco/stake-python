@@ -1,0 +1,63 @@
+interactions:
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/user
+    response:
+      body:
+        string:
+          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "username": "leonardzachary", "emailAddress": "ellen70@bates-williams.com",
+          "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
+          "R6-1813041A", "macAccountNumber": "K4-3517949y", "status": null, "macStatus":
+          "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+          null, "firstName": "Tammy", "middleName": null, "lastName": "Alexander", "phoneNumber":
+          "9011530005", "signUpPhase": 0, "ackSignedWhen": "2022-01-22", "createdDate":
+          1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+          null, "referralCode": "A1-2107594j", "referredByCode": null, "regionIdentifier":
+          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+          null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
+          false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/user
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/asx/orders
+    response:
+      body:
+        string:
+          '[{"id": "20ce85f9-2d8d-49ae-8191-39f785c3d5d6", "broker": "FINCLEAR",
+          "brokerOrderId": null, "brokerOrderVersionId": null, "brokerInstructionId":
+          4736823, "brokerInstructionVersionId": 2, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "instrumentId": null, "instrumentCode": "OOO.XAU", "side": "BUY", "limitPrice":
+          6.0, "validity": "GTC", "validityDate": null, "type": "LIMIT", "placedTimestamp":
+          "2022-07-21T17:08:38.771843", "completedTimestamp": null, "expiresAt": "2022-08-22T00:00:00",
+          "orderStatus": "STAKE_PENDING_CREATE", "orderCompletionType": null, "filledUnits":
+          0, "averagePrice": null, "unitsRemaining": 221, "estimatedBrokerage": 0.0,
+          "estimatedExchangeFees": 0.0}]'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/asx/orders
+version: 1

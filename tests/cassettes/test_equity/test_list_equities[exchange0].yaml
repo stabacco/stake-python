@@ -1,0 +1,116 @@
+interactions:
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/user
+    response:
+      body:
+        string:
+          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "username": "leonardzachary", "emailAddress": "ellen70@bates-williams.com",
+          "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
+          "R6-1813041A", "macAccountNumber": "K4-3517949y", "status": null, "macStatus":
+          "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+          null, "firstName": "Tammy", "middleName": null, "lastName": "Alexander", "phoneNumber":
+          "9011530005", "signUpPhase": 0, "ackSignedWhen": "2022-01-22", "createdDate":
+          1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+          null, "referralCode": "A1-2107594j", "referredByCode": null, "regionIdentifier":
+          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+          null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
+          false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/user
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/users/accounts/v2/equityPositions
+    response:
+      body:
+        string:
+          '{"equityPositions": [{"unrealizedDayPLPercent": 1.0, "symbol": "AAPL",
+          "encodedName": "apple-inc-aapl", "unrealizedDayPL": "11.92", "instrumentID":
+          "a67422af-8504-43df-9e63-7361eb0bd99e", "openQty": "100", "priorClose":
+          "151", "avgPrice": "171.19", "side": "B", "costBasis": "1E+3", "mktPrice":
+          "153.04", "marketValue": "893.99", "unrealizedPL": 1.0, "availableForTradingQty":
+          "5.84152111", "name": "Apple, Inc.", "category": "Stock", "urlImage": "https://drivewealth.imgix.net/symbols/aapl.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
+          "bidPrice": null, "askPrice": null, "returnOnStock": null, "lastTrade": 153.04,
+          "dailyReturnValue": 2.04, "yearlyReturnValue": 50.3, "yearlyReturnPercentage":
+          71.05, "period": "YEAR RETURN", "exchange": null}, {"unrealizedDayPLPercent":
+          1.0, "symbol": "COP", "encodedName": "conocophillips-cop", "unrealizedDayPL":
+          "11.15", "instrumentID": "6b4f77d9-5617-4885-8377-ebc211d32bf7", "openQty":
+          "100", "priorClose": "88.48", "avgPrice": "116", "side": "B", "costBasis": "5.8E+2",
+          "mktPrice": "90.71", "marketValue": "453.55", "unrealizedPL": 1.0, "availableForTradingQty":
+          "5", "name": "ConocoPhillips", "category": "Stock", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/cop.png",
+          "bidPrice": null, "askPrice": null, "returnOnStock": null, "lastTrade": 90.71,
+          "dailyReturnValue": 2.23, "yearlyReturnValue": 26.11, "yearlyReturnPercentage":
+          79.93, "period": "YEAR RETURN", "exchange": null}, {"unrealizedDayPLPercent":
+          1.0, "symbol": "DVN", "encodedName": "devon-energy-corporation-dvn", "unrealizedDayPL":
+          "3.80", "instrumentID": "3962d255-47d5-4d7a-aeff-4fd1e2a324ed", "openQty":
+          "100", "priorClose": "57.21", "avgPrice": "61.77", "side": "B", "costBasis":
+          "5E+2", "mktPrice": "57.68", "marketValue": "466.91", "unrealizedPL": 1.0,
+          "availableForTradingQty": "8.09486805", "name": "Devon Energy Corporation",
+          "category": "Stock", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/dvn.png",
+          "bidPrice": null, "askPrice": null, "returnOnStock": null, "lastTrade": 57.68,
+          "dailyReturnValue": 0.47, "yearlyReturnValue": 15.36, "yearlyReturnPercentage":
+          181.23, "period": "YEAR RETURN", "exchange": null}, {"unrealizedDayPLPercent":
+          1.0, "symbol": "LIT", "encodedName": "global-x-lithium-battery-tech-etf-lit",
+          "unrealizedDayPL": "0.90", "instrumentID": "52b17dd1-07cf-494f-9487-e4a7a2e67c6a",
+          "openQty": "100", "priorClose": "72.01", "avgPrice": "78", "side": "B", "costBasis":
+          "7.8E+2", "mktPrice": "72.1", "marketValue": "721", "unrealizedPL": 1.0, "availableForTradingQty":
+          "10", "name": "Global X Lithium & Battery Tech ETF", "category": "ETF", "urlImage":
+          "https://drivewealth.imgix.net/symbols/lit.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
+          "bidPrice": null, "askPrice": null, "returnOnStock": null, "lastTrade": 72.1,
+          "dailyReturnValue": 0.09, "yearlyReturnValue": 29.94, "yearlyReturnPercentage":
+          116.84, "period": "YEAR RETURN", "exchange": null}, {"unrealizedDayPLPercent":
+          1.0, "symbol": "MSFT", "encodedName": "microsoft-corporation-msft", "unrealizedDayPL":
+          "8.95", "instrumentID": "e234cc98-cd08-4b04-a388-fe5c822beea6", "openQty":
+          "100", "priorClose": "259.53", "avgPrice": "306.15", "side": "B", "costBasis":
+          "1E+3", "mktPrice": "262.27", "marketValue": "856.67", "unrealizedPL": 1.0,
+          "availableForTradingQty": "3.26637269", "name": "Microsoft Corporation", "category":
+          "Stock", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/msft.png",
+          "bidPrice": null, "askPrice": null, "returnOnStock": null, "lastTrade": 262.27,
+          "dailyReturnValue": 2.74, "yearlyReturnValue": 74.48, "yearlyReturnPercentage":
+          46.75, "period": "YEAR RETURN", "exchange": null}, {"unrealizedDayPLPercent":
+          1.0, "symbol": "MU", "encodedName": "micron-technology-inc-mu", "unrealizedDayPL":
+          "9.00", "instrumentID": "0baafbff-dcc6-4645-8d27-4b4baf8a37ac", "openQty":
+          "100", "priorClose": "62.4", "avgPrice": "89", "side": "B", "costBasis":
+          "8.9E+2", "mktPrice": "63.3", "marketValue": "633", "unrealizedPL": 1.0, "availableForTradingQty":
+          "10", "name": "Micron Technology Inc.", "category": "Stock", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/mu.png",
+          "bidPrice": null, "askPrice": null, "returnOnStock": null, "lastTrade": 63.3,
+          "dailyReturnValue": 0.9, "yearlyReturnValue": 41.44, "yearlyReturnPercentage":
+          86.59, "period": "YEAR RETURN", "exchange": null}, {"unrealizedDayPLPercent":
+          1.0, "symbol": "VPU", "encodedName": "utilities-vanguard-vpu", "unrealizedDayPL":
+          "-3.93", "instrumentID": "102ed336-3edf-414e-87fa-b004da9d5e73", "openQty":
+          "100", "priorClose": "151.01", "avgPrice": "154.56", "side": "B", "costBasis":
+          "3.1E+2", "mktPrice": "149.05", "marketValue": "298.95", "unrealizedPL": 1.0,
+          "availableForTradingQty": "2.00569358", "name": "Utilities Vanguard ", "category":
+          "ETF", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/vpu.png",
+          "bidPrice": null, "askPrice": null, "returnOnStock": null, "lastTrade": 149.05,
+          "dailyReturnValue": -1.96, "yearlyReturnValue": -0.97, "yearlyReturnPercentage":
+          -0.71, "period": "YEAR RETURN", "exchange": null}], "equityValue": 4324.07,
+          "pricesOnly": false, "pageNum": 0, "hasNext": false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/users/accounts/v2/equityPositions
+version: 1

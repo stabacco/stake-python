@@ -1,0 +1,154 @@
+interactions:
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/user
+    response:
+      body:
+        string:
+          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "username": "leonardzachary", "emailAddress": "ellen70@bates-williams.com",
+          "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
+          "R6-1813041A", "macAccountNumber": "K4-3517949y", "status": null, "macStatus":
+          "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+          null, "firstName": "Tammy", "middleName": null, "lastName": "Alexander", "phoneNumber":
+          "9011530005", "signUpPhase": 0, "ackSignedWhen": "2022-01-22", "createdDate":
+          1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+          null, "referralCode": "A1-2107594j", "referredByCode": null, "regionIdentifier":
+          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+          null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
+          false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/user
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=TSLA&page=1&max=1
+    response:
+      body:
+        string:
+          '{"products": [{"id": "82f68a8a-874d-472b-bbb2-8d4b62856476", "instrumentTypeID":
+          null, "symbol": "TSLA", "description": "Tesla, Inc. designs, develops, manufactures
+          and sells electric vehicles and designs, manufactures, installs and sells
+          solar energy generation and energy storage products. The Company''s segments
+          include automotive, and energy generation and storage. The automotive segment
+          includes the design, development, manufacturing, sales and leasing of electric
+          vehicles as well as sales of automotive regulatory credits. The energy generation
+          and storage segment include the design, manufacture, installation, sales and
+          leasing of solar energy generation and energy storage products, services related
+          to its products, and sales of solar energy system incentives. Its automotive
+          products include Model 3, Model Y, Model S and Model X. Model 3 is a four-door
+          sedan. Model Y is a sport utility vehicle (SUV) built on the Model 3 platform.
+          Model S is a four-door sedan. Model X is an SUV. Its energy storage products
+          include Powerwall and Powerpack.", "category": "Stock", "currencyID": "USD",
+          "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/tsla.png",
+          "sector": "Consumer Cyclical", "name": "Tesla, Inc.", "dailyReturn": 6.64,
+          "dailyReturnPercentage": 0.9, "lastTraded": 743.23, "monthlyReturn": 0.0,
+          "yearlyReturnPercentage": 421.89, "yearlyReturnValue": 544.51, "popularity":
+          17753.0, "watched": 74328, "news": 0, "bought": 446283, "viewed": 475700,
+          "productType": "Instrument", "exchange": null, "status": "ACTIVE", "type":
+          "EQUITY", "encodedName": "tesla-inc-tsla", "period": "YEAR RETURN", "inceptionDate":
+          1277769600000, "instrumentTags": [], "childInstruments": []}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=TSLA&page=1&max=1
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=MSFT&page=1&max=1
+    response:
+      body:
+        string:
+          '{"products": [{"id": "51160e9a-c3ea-4cdd-8870-b449b0a973b5", "instrumentTypeID":
+          null, "symbol": "MSFT", "description": "Microsoft Corporation is a technology
+          company. The Company develops, licenses, and supports a range of software
+          products, services and devices. The Company''s segments include Productivity
+          and Business Processes, Intelligent Cloud and More Personal Computing. The
+          Company''s products include operating systems; cross-device productivity applications;
+          server applications; business solution applications; desktop and server management
+          tools; software development tools; video games, and training and certification
+          of computer system integrators and developers. It also designs, manufactures,
+          and sells devices, including personal computers (PCs), tablets, gaming and
+          entertainment consoles, phones, other intelligent devices, and related accessories,
+          that integrate with its cloud-based offerings. It offers an array of services,
+          including cloud-based solutions that provide customers with software, services,
+          platforms, and content, and it provides solution support and consulting services.",
+          "category": "Stock", "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/msft.png",
+          "sector": "Technology", "name": "Microsoft Corporation", "dailyReturn": 2.6,
+          "dailyReturnPercentage": 1.0, "lastTraded": 262.13, "monthlyReturn": 0.0,
+          "yearlyReturnPercentage": 46.75, "yearlyReturnValue": 74.48, "popularity":
+          1717.0, "watched": 35555, "news": 0, "bought": 94582, "viewed": 103800, "productType":
+          "Instrument", "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName":
+          "microsoft-corporation-msft", "period": "YEAR RETURN", "inceptionDate": 511056000000,
+          "instrumentTags": [], "childInstruments": []}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=MSFT&page=1&max=1
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=GOOG&page=1&max=1
+    response:
+      body:
+        string:
+          '{"products": [{"id": "96b28603-b755-4ba4-987c-30152c5a79f6", "instrumentTypeID":
+          null, "symbol": "GOOG", "description": "Alphabet Inc. is a holding company.
+          The Company''s businesses include Google Inc. (Google) and its Internet products,
+          such as Access, Calico, CapitalG, GV, Nest, Verily, Waymo and X. The Company''s
+          segments include Google and Other Bets. The Google segment includes its Internet
+          products, such as Search, Ads, Commerce, Maps, YouTube, Google Cloud, Android,
+          Chrome and Google Play, as well as its hardware initiatives. The Google segment
+          is engaged in advertising, sales of digital content, applications and cloud
+          offerings, and sales of hardware products. The Other Bets segment is engaged
+          in the sales of Internet and television services through Google Fiber, sales
+          of Nest products and services, and licensing and research and development
+          (R&D) services through Verily. It offers Google Assistant, which allows users
+          to type or talk with Google; Google Maps, which helps users navigate to a
+          store, and Google Photos, which helps users store and organize all of their
+          photos.", "category": "Stock", "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/goog.png",
+          "sector": "Technology", "name": "Alphabet Inc. - Class C Shares", "dailyReturn":
+          0.0, "dailyReturnPercentage": 0.0, "lastTraded": 114.62, "monthlyReturn":
+          0.0, "yearlyReturnPercentage": 66.52, "yearlyReturnValue": 808.61, "popularity":
+          1595.0, "watched": 15480, "news": 0, "bought": 23093, "viewed": 29100, "productType":
+          "Instrument", "exchange": null, "status": "ACTIVE", "type": "EQUITY", "encodedName":
+          "alphabet-inc-class-c-shares-goog", "period": "YEAR RETURN", "inceptionDate":
+          1092873600000, "instrumentTags": [], "childInstruments": []}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=GOOG&page=1&max=1
+version: 1

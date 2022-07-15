@@ -1,0 +1,85 @@
+interactions:
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/user
+    response:
+      body:
+        string:
+          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "username": "leonardzachary", "emailAddress": "ellen70@bates-williams.com",
+          "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
+          "R6-1813041A", "macAccountNumber": "K4-3517949y", "status": null, "macStatus":
+          "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+          null, "firstName": "Tammy", "middleName": null, "lastName": "Alexander", "phoneNumber":
+          "9011530005", "signUpPhase": 0, "ackSignedWhen": "2022-01-22", "createdDate":
+          1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+          null, "referralCode": "A1-2107594j", "referredByCode": null, "regionIdentifier":
+          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+          null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
+          false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/user
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/asx/instrument/equityPositions
+    response:
+      body:
+        string:
+          '{"pageNum": 0, "hasNext": false, "equityPositions": [{"instrumentId":
+          "FUEL.XAU", "symbol": "FUEL", "name": "BETA GLOBAL ENERGY ETF UNITS", "openQty":
+          "100", "availableForTradingQty": "170", "averagePrice": "5.9400", "marketValue":
+          "953.7000", "mktPrice": "5.6100", "priorClose": "5.5900", "unrealizedDayPL":
+          "3.4000", "unrealizedDayPLPercent": 1.0, "unrealizedPL": 1.0, "unrealizedPLPercent":
+          "-5.56", "recentAnnouncement": false, "sensitive": false}, {"instrumentId":
+          "WDS.XAU", "symbol": "WDS", "name": "WOODSIDE ENERGY FPO", "openQty": "100",
+          "availableForTradingQty": "3", "averagePrice": "0", "marketValue": "93.4200",
+          "mktPrice": "31.1400", "priorClose": "32.5700", "unrealizedDayPL": "-4.2900",
+          "unrealizedDayPLPercent": 1.0, "unrealizedPL": 1.0, "unrealizedPLPercent":
+          "0", "recentAnnouncement": true, "sensitive": true}, {"instrumentId": "WTC.XAU",
+          "symbol": "WTC", "name": "WISETECH GLOBAL LTD FPO", "openQty": "100", "availableForTradingQty":
+          "10", "averagePrice": "51.5000", "marketValue": "491.8000", "mktPrice": "49.1800",
+          "priorClose": "47.4900", "unrealizedDayPL": "16.9000", "unrealizedDayPLPercent":
+          1.0, "unrealizedPL": 1.0, "unrealizedPLPercent": "-4.50", "recentAnnouncement":
+          false, "sensitive": false}, {"instrumentId": "ALU.XAU", "symbol": "ALU", "name":
+          "ALTIUM LIMITED FPO", "openQty": "100", "availableForTradingQty": "20", "averagePrice":
+          "35.0000", "marketValue": "615.0000", "mktPrice": "30.7500", "priorClose":
+          "29.6800", "unrealizedDayPL": "21.4000", "unrealizedDayPLPercent": 1.0, "unrealizedPL":
+          1.0, "unrealizedPLPercent": "-12.14", "recentAnnouncement": false, "sensitive":
+          false}, {"instrumentId": "BHP.XAU", "symbol": "BHP", "name": "BHP GROUP LIMITED
+          FPO", "openQty": "100", "availableForTradingQty": "20", "averagePrice": "50.8000",
+          "marketValue": "735.8000", "mktPrice": "36.7900", "priorClose": "37.1100",
+          "unrealizedDayPL": "-6.4000", "unrealizedDayPLPercent": 1.0, "unrealizedPL":
+          1.0, "unrealizedPLPercent": "-27.58", "recentAnnouncement": false, "sensitive":
+          false}, {"instrumentId": "FOOD.XAU", "symbol": "FOOD", "name": "BETA GLOBAL
+          AGRI ETF UNITS", "openQty": "100", "availableForTradingQty": "100", "averagePrice":
+          "8.4700", "marketValue": "704.0000", "mktPrice": "7.0400", "priorClose": "7.0000",
+          "unrealizedDayPL": "4.0000", "unrealizedDayPLPercent": 1.0, "unrealizedPL":
+          1.0, "unrealizedPLPercent": "-16.88", "recentAnnouncement": false, "sensitive":
+          false}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/asx/instrument/equityPositions
+version: 1
