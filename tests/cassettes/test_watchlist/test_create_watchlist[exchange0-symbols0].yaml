@@ -13,14 +13,14 @@ interactions:
         string:
           '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
           true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
-          "username": "leonardzachary", "emailAddress": "ellen70@bates-williams.com",
+          "username": "michael29", "emailAddress": "reevesmegan@gilmore-wright.biz",
           "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
-          "R6-1813041A", "macAccountNumber": "K4-3517949y", "status": null, "macStatus":
+          "z0-0593879b", "macAccountNumber": "d9-0481457G", "status": null, "macStatus":
           "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
-          null, "firstName": "Tammy", "middleName": null, "lastName": "Alexander", "phoneNumber":
-          "9011530005", "signUpPhase": 0, "ackSignedWhen": "2022-01-22", "createdDate":
+          null, "firstName": "Rita", "middleName": null, "lastName": "Jones", "phoneNumber":
+          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2021-11-15", "createdDate":
           1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
-          null, "referralCode": "A1-2107594j", "referredByCode": null, "regionIdentifier":
+          null, "referralCode": "W2-6612029X", "referredByCode": null, "regionIdentifier":
           "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
           null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
           null, "userProfile": {"residentialAddress": null, "postalAddress": null},
@@ -67,12 +67,12 @@ interactions:
     response:
       body:
         string:
-          '{"newWatchlistId": "51c502dd-20b9-4f7d-940d-43e66754f9a3", "watchlists":
+          '{"newWatchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "watchlists":
           [{"watchlistId": "bb0f59b5-2454-451c-8de3-fa3fc7d13a42", "name": "Not so much
           test", "timeCreated": "2022-07-14T05:25:44.881769Z", "count": 1}, {"watchlistId":
           "e649db6d-71ab-4649-a32e-59d57def4a00", "name": "stef 2", "timeCreated": "2022-07-14T05:31:06.054443Z",
-          "count": 0}, {"watchlistId": "51c502dd-20b9-4f7d-940d-43e66754f9a3", "name":
-          "__test_watchlist__", "timeCreated": "2022-07-14T07:33:26.424872Z", "count":
+          "count": 0}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
+          "test_watchlist__NYSEUrl", "timeCreated": "2022-07-24T06:28:54.177475Z", "count":
           0}]}'
       headers: {}
       status:
@@ -87,17 +87,17 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
     response:
       body:
         string:
-          '{"watchlistId": "51c502dd-20b9-4f7d-940d-43e66754f9a3", "name": "__test_watchlist__",
+          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__NYSEUrl",
           "count": 0, "instruments": []}'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+      url: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
   - request:
       body: null
       headers:
@@ -106,11 +106,11 @@ interactions:
         Content-Type:
           - application/json
       method: POST
-      uri: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3/items
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
     response:
       body:
         string:
-          '{"watchlistId": "51c502dd-20b9-4f7d-940d-43e66754f9a3", "name": "__test_watchlist__",
+          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__NYSEUrl",
           "count": 3, "instruments": [{"instrumentId": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
           "name": "Tesla, Inc.", "symbol": "TSLA"}, {"instrumentId": "68277cc0-6106-4f3c-849b-1298ba964aba",
           "name": "Alphabet Inc. - Class C Shares", "symbol": "GOOG"}, {"instrumentId":
@@ -120,7 +120,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3/items
+      url: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
   - request:
       body: null
       headers:
@@ -129,11 +129,11 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
     response:
       body:
         string:
-          '{"watchlistId": "51c502dd-20b9-4f7d-940d-43e66754f9a3", "name": "__test_watchlist__",
+          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__NYSEUrl",
           "count": 3, "instruments": [{"instrumentId": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
           "name": "Tesla, Inc.", "symbol": "TSLA"}, {"instrumentId": "68277cc0-6106-4f3c-849b-1298ba964aba",
           "name": "Alphabet Inc. - Class C Shares", "symbol": "GOOG"}, {"instrumentId":
@@ -143,7 +143,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+      url: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
   - request:
       body: null
       headers:
@@ -152,11 +152,11 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
     response:
       body:
         string:
-          '{"watchlistId": "51c502dd-20b9-4f7d-940d-43e66754f9a3", "name": "__test_watchlist__",
+          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__NYSEUrl",
           "count": 3, "instruments": [{"instrumentId": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
           "name": "Tesla, Inc.", "symbol": "TSLA"}, {"instrumentId": "68277cc0-6106-4f3c-849b-1298ba964aba",
           "name": "Alphabet Inc. - Class C Shares", "symbol": "GOOG"}, {"instrumentId":
@@ -166,7 +166,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+      url: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
   - request:
       body:
         tickers:
@@ -179,17 +179,17 @@ interactions:
         Content-Type:
           - application/json
       method: DELETE
-      uri: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3/items
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
     response:
       body:
         string:
-          '{"watchlistId": "51c502dd-20b9-4f7d-940d-43e66754f9a3", "name": "__test_watchlist__",
+          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__NYSEUrl",
           "count": 0, "instruments": []}'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3/items
+      url: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
   - request:
       body: null
       headers:
@@ -198,7 +198,7 @@ interactions:
         Content-Type:
           - application/json
       method: DELETE
-      uri: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
     response:
       body:
         string:
@@ -210,5 +210,5 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://api.prd.stakeover.io/us/instrument/watchlist/51c502dd-20b9-4f7d-940d-43e66754f9a3
+      url: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
 version: 1

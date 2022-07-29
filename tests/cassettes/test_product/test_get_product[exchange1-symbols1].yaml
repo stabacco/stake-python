@@ -1,0 +1,104 @@
+interactions:
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/user
+    response:
+      body:
+        string:
+          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "username": "leonardzachary", "emailAddress": "ellen70@bates-williams.com",
+          "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
+          "R6-1813041A", "macAccountNumber": "K4-3517949y", "status": null, "macStatus":
+          "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+          null, "firstName": "Tammy", "middleName": null, "lastName": "Alexander", "phoneNumber":
+          "9011530005", "signUpPhase": 0, "ackSignedWhen": "2022-01-22", "createdDate":
+          1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+          null, "referralCode": "A1-2107594j", "referredByCode": null, "regionIdentifier":
+          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
+          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+          null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
+          false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/user
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/asx/instrument/singleQuote/ANZ
+    response:
+      body:
+        string:
+          '{"marketStatus": "CLOSED", "lastTradedExchange": "ASX", "symbol": "ANZ",
+          "lastTradedTimestamp": 1658383848, "lastTrade": "21.9300", "bid": "21.9200",
+          "ask": "21.9300", "priorClose": "21.6400", "open": "22.3200", "high": "22.3400",
+          "low": "21.2700", "pointsChange": "0.2900", "percentageChange": "1.34", "outOfMarketPrice":
+          "21.9300", "outOfMarketQuantity": "3393713", "outOfMarketSurplus": "-69162"}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/asx/instrument/singleQuote/ANZ
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/asx/instrument/singleQuote/WDS
+    response:
+      body:
+        string:
+          '{"marketStatus": "CLOSED", "lastTradedExchange": "ASX", "symbol": "WDS",
+          "lastTradedTimestamp": 1658383848, "lastTrade": "31.1400", "bid": "30.9600",
+          "ask": "30.9900", "priorClose": "32.5700", "open": "31.8400", "high": "32.1400",
+          "low": "30.7000", "pointsChange": "-1.5800", "percentageChange": "-4.39",
+          "outOfMarketPrice": "31.1400", "outOfMarketQuantity": "2070129", "outOfMarketSurplus":
+          "-16665"}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/asx/instrument/singleQuote/WDS
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/asx/instrument/singleQuote/COL
+    response:
+      body:
+        string:
+          '{"marketStatus": "CLOSED", "lastTradedExchange": "ASX", "symbol": "COL",
+          "lastTradedTimestamp": 1658383850, "lastTrade": "18.8800", "bid": "18.8800",
+          "ask": "18.8900", "priorClose": "18.6300", "open": "18.7900", "high": "18.9700",
+          "low": "18.6400", "pointsChange": "0.2500", "percentageChange": "1.34", "outOfMarketPrice":
+          "18.8800", "outOfMarketQuantity": "1076585", "outOfMarketSurplus": "42836"}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+      url: https://global-prd-api.hellostake.com/api/asx/instrument/singleQuote/COL
+version: 1

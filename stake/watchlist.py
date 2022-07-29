@@ -18,12 +18,6 @@ __all__ = [
 ]
 
 
-class ListWatchlistRequest(BaseModel):
-    """The request to list all the available watchlists."""
-
-    pass
-
-
 class AddToWatchlistRequest(BaseModel):
     symbol: str
 
@@ -208,13 +202,12 @@ class WatchlistClient(BaseClient):
         )
 
     async def add_to_watchlist(self, request: UpdateWatchlistRequest) -> Watchlist:
-        """Updates a watchlist by adding tickers to it."""
+        """Updates a watchlist by adding symbols to it."""
 
         existing_watchlist = await self.watchlist(request=request)
         existing_tickers = [
             instrument.symbol for instrument in existing_watchlist.instruments or []
         ]
-
         # filter out the ones that are already there, otherwise an exception will happen.
         request.tickers = [
             ticker for ticker in request.tickers if ticker not in existing_tickers
@@ -250,7 +243,9 @@ class WatchlistClient(BaseClient):
 
         return Watchlist(**response)
 
-    async def delete_watchlist(self, request: DeleteWatchlistRequest) -> bool:
+    async def delete_watchlist(
+        self, request: Union[Watchlist, DeleteWatchlistRequest]
+    ) -> bool:
         response = await self._client.delete(
             self._client.exchange.read_watchlist.format(watchlist_id=request.id)
         )

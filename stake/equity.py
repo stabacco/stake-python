@@ -6,6 +6,8 @@ from pydantic import BaseModel, Field
 
 from stake.common import BaseClient, SideEnum, camelcase
 
+__all__ = ["EquityCategory"]
+
 
 class EquityCategory(str, Enum):
     ETF = "ETF"
@@ -13,31 +15,31 @@ class EquityCategory(str, Enum):
 
 
 class EquityPosition(BaseModel):
+    ask_price: Optional[float] = None
     available_for_trading_qty: float
     average_price: float = Field(alias="avgPrice")
+    bid_price: Optional[float] = None
     category: Optional[EquityCategory] = None
     cost_basis: float
     daily_return_value: float
     encoded_name: str
     instrument_id: UUID = Field(alias="instrumentID")
     last_trade: float
-    market_value: float
     market_price: float = Field(alias="mktPrice")
+    market_value: float
     name: str
     open_qty: float
     period: str
     prior_close: float
+    return_on_stock: Optional[float] = None
     side: SideEnum
     symbol: str
-    unrealized_day_pl: float = Field(alias="unrealizedDayPL")
     unrealized_day_pl_percent: float = Field(alias="unrealizedDayPLPercent")
+    unrealized_day_pl: float = Field(alias="unrealizedDayPL")
     unrealized_pl: float = Field(alias="unrealizedPL")
     url_image: str
     yearly_return_percentage: Optional[float] = None
     yearly_return_value: Optional[float] = None
-    ask_price: Optional[float] = None
-    bid_price: Optional[float] = None
-    return_on_stock: Optional[float] = None
 
     class Config:
         alias_generator = camelcase

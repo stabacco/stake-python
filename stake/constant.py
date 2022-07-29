@@ -3,8 +3,10 @@ from urllib.parse import urljoin
 
 from pydantic import BaseModel
 
+__all__ = ["ASX", "NYSE"]
 
-class BaseUrl(BaseModel):
+
+class NYSEUrl(BaseModel):
     """Contains all the visited stake urls for the NYSE."""
 
     STAKE_URL: str = "https://global-prd-api.hellostake.com/api/"
@@ -83,5 +85,59 @@ class BaseUrl(BaseModel):
     update_watchlist: str = read_watchlist + "/items"
 
 
-# The New York Stock Exchange
-NYSE = BaseUrl()
+NYSE = NYSEUrl()
+
+
+class ASXUrl(BaseModel):
+    """Contains all the visited stake urls for the ASX."""
+
+    ASX_STAKE_URL: str = "https://global-prd-api.hellostake.com/api/asx/"
+
+    cash_available: str = urljoin(ASX_STAKE_URL, "cash", allow_fragments=True)
+    cancel_order: str = urljoin(
+        ASX_STAKE_URL, "orders/{orderId}/cancel", allow_fragments=True
+    )
+    equity_positions: str = urljoin(
+        ASX_STAKE_URL, "instrument/equityPositions", allow_fragments=True
+    )
+    market_status: str = "https://early-bird-promo.hellostake.com/marketStatus"
+
+    orders: str = urljoin(ASX_STAKE_URL, "orders", allow_fragments=True)
+
+    products_suggestions: str = urljoin(
+        ASX_STAKE_URL,
+        "instrument/search?searchKey={keyword}",
+        allow_fragments=True,
+    )
+
+    symbol: str = urljoin(
+        ASX_STAKE_URL,
+        "instrument/singleQuote/{symbol}",
+        allow_fragments=True,
+    )
+
+    trade_activity: str = urljoin(
+        ASX_STAKE_URL, "orders/tradeActivity", allow_fragments=True
+    )
+    watchlists = urljoin(
+        ASX_STAKE_URL, "instrument/v2/watchlists", allow_fragments=True
+    )
+    create_watchlist = urljoin(
+        ASX_STAKE_URL, "instrument/v2/watchlist", allow_fragments=True
+    )
+    read_watchlist: str = urljoin(
+        ASX_STAKE_URL, "instrument/v2/watchlist/{watchlist_id}", allow_fragments=True
+    )
+    update_watchlist: str = urljoin(
+        ASX_STAKE_URL,
+        "instrument/v2/watchlist/{watchlist_id}/items",
+        allow_fragments=True,
+    )
+    instrument_from_symbol: str = urljoin(
+        ASX_STAKE_URL, "instrument/view/{symbol}", allow_fragments=True
+    )
+    transactions: str = urljoin(ASX_STAKE_URL, "transactions", allow_fragments=True)
+    users: str = "https://global-prd-api.hellostake.com/api/user"
+
+
+ASX = ASXUrl()

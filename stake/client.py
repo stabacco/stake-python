@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 
 from stake import (
+    asx,
     constant,
     equity,
     funding,
@@ -87,6 +88,7 @@ class HttpClient:
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
+            logger.debug("POST %s %s", url, payload)
             response = await session.post(
                 HttpClient.url(url), headers=headers, json=payload
             )
@@ -113,7 +115,7 @@ class StakeClient:
     def __init__(
         self,
         request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None,
-        exchange: constant.BaseUrl = constant.NYSE,
+        exchange: Union[constant.NYSEUrl, constant.ASXUrl] = constant.NYSE,
     ):
         """
 
@@ -127,23 +129,49 @@ class StakeClient:
                 Defaults to constant.NYSE.
         """
         self.user: Optional[user.User] = None
-        self.exchange: constant.BaseUrl = exchange
+        self.set_exchange(exchange=exchange)
         self.headers = Headers()
         self.http_client = HttpClient
-
-        # register all the clients
-        self.equities = equity.EquitiesClient(self)
-        self.fx = fx.FxClient(self)
-        self.fundings = funding.FundingsClient(self)
-        self.market = market.MarketClient(self)
-        self.orders = order.OrdersClient(self)
-        self.products = product.ProductsClient(self)
-        self.trades = trade.TradesClient(self)
-        self.transactions = transaction.TransactionsClient(self)
-        self.watchlist = watchlist.WatchlistClient(self)
-        self.ratings = ratings.RatingsClient(self)
-
         self._login_request = request or SessionTokenLoginRequest()
+
+    def set_exchange(self, exchange: Union[constant.NYSEUrl, constant.ASXUrl]) -> None:
+        self.exchange = exchange
+
+        self.watchlist: watchlist.WatchlistClient = watchlist.WatchlistClient(self)
+
+        if exchange == constant.ASX:
+            self.equities: Union[
+                asx.equity.EquitiesClient, equity.EquitiesClient
+            ] = asx.equity.EquitiesClient(self)
+            self.fundings: Union[
+                asx.funding.FundingsClient, funding.FundingsClient
+            ] = asx.funding.FundingsClient(self)
+            self.market: Union[
+                asx.market.MarketClient, market.MarketClient
+            ] = asx.market.MarketClient(self)
+            self.orders: Union[
+                asx.order.OrdersClient, order.OrdersClient
+            ] = asx.order.OrdersClient(self)
+            self.products: Union[
+                asx.product.ProductsClient, product.ProductsClient
+            ] = asx.product.ProductsClient(self)
+            self.trades: Union[
+                asx.trade.TradesClient, trade.TradesClient
+            ] = asx.trade.TradesClient(self)
+            self.transactions: Union[
+                asx.transaction.TransactionsClient, transaction.TransactionsClient
+            ] = asx.transaction.TransactionsClient(self)
+            # ratings is unsupported.
+        else:
+            self.equities = equity.EquitiesClient(self)
+            self.fundings = funding.FundingsClient(self)
+            self.fx = fx.FxClient(self)
+            self.market = market.MarketClient(self)
+            self.orders = order.OrdersClient(self)
+            self.products = product.ProductsClient(self)
+            self.ratings = ratings.RatingsClient(self)
+            self.trades = trade.TradesClient(self)
+            self.transactions = transaction.TransactionsClient(self)
 
     async def get(self, url: str, payload: dict = None) -> dict:
         """Performs an HTTP get operation.
