@@ -35,7 +35,7 @@ def redact_sensitive_data(response):
     fake_user_id = "7c9bbfae-0000-47b7-0000-0e66d868c2cf"
     fake_order_id = uuid.UUID(str(uuid.uuid3(uuid.NAMESPACE_URL, "test")), version=4)
 
-    fake_transaction_id = "HHI." + str(fake_order_id)
+    fake_transaction_id = f"HHI.{str(fake_order_id)}"
     obfuscated_fields = {
         "ackSignedWhen": str(fake.date_this_decade()),
         "brokerOrderId": 11111,
