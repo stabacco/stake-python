@@ -27,25 +27,3 @@ async def test_list_transactions(
     transactions = await tracing_client.transactions.list(request_)
 
     assert transactions
-    # for t in transactions:
-    #     assert not (set(t.__fields__.keys()).difference(t.__fields_set__))
-
-
-"""
-import asyncio
-
-import stake
-from stake.asx.transaction import TransactionRecordRequest
-from stake.constant import ASX
-
-
-async def transactions() -> "Watchlist":
-    async with stake.StakeClient(exchange=ASX) as stake_session:
-        transactions = await stake_session.transactions.list(
-            TransactionRecordRequest(size=2)
-        )
-        return transactions
-
-
-asyncio.run(transactions())
-"""
