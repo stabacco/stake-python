@@ -3,7 +3,7 @@
 
 # Stake
 
-**Stake** is an unofficial Python client for the [Stake](https://www.stake.com.au) trading platform.
+**Stake** is an unofficial Python client for the [Stake](https://hellostake.com) trading platform.
 
 This library wraps the current Stake api and allows common trade operations, such as submitting buy/sell requests, checking your portfolio etc...
 
