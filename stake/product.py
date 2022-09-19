@@ -1,8 +1,8 @@
+import uuid
 from typing import Any, List, Optional
 
 from pydantic import BaseModel
 from pydantic.fields import Field
-from pydantic.types import UUID4
 
 from stake.common import BaseClient, camelcase
 
@@ -27,7 +27,7 @@ class Instrument(BaseModel):
 
 
 class Product(BaseModel):
-    id: UUID4
+    id: uuid.UUID
     instrument_type_id: Optional[str] = Field(None, alias="instrumentTypeID")
     symbol: str
     description: str
