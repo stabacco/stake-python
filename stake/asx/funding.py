@@ -19,6 +19,7 @@ class Action(str, Enum):
     SETTLEMENT = "SETTLEMENT"
     TRANSFER = "TRANSFER"
     WITHDRAWAL = "WITHDRAWAL"
+    ADJUSTMENT = "ADJUSTMENT"
 
 
 class Currency(str, Enum):
@@ -79,7 +80,7 @@ class FundingRequest(BaseModel):
 class FundingRecord(BaseModel):
     action: Optional[Action] = None
     amount: Optional[float] = None
-    approved_by: None
+    approved_by: Optional[str] = Field(None, alias="approvedBy")
     currency: Optional[Currency] = None
     customer_fee: Optional[int] = None
     id: Optional[UUID] = None
@@ -98,7 +99,7 @@ class Fundings(BaseModel):
     fundings: Optional[List[FundingRecord]] = Field(None, alias="items")
     has_next: Optional[bool] = None
     page: Optional[int] = None
-    total_items: Optional[int] = None
+    total_items: Optional[int] = Field(None, alias="totalItems")
 
     class Config:
         alias_generator = camelcase
