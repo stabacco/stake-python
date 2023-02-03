@@ -80,7 +80,7 @@ class FundingRequest(BaseModel):
 class FundingRecord(BaseModel):
     action: Optional[Action] = None
     amount: Optional[float] = None
-    approvedBy: Optional[str] = None
+    approved_by: Optional[str] = Field(None, alias="approvedBy")
     currency: Optional[Currency] = None
     customer_fee: Optional[int] = None
     id: Optional[UUID] = None
