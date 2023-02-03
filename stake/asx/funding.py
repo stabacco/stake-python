@@ -19,7 +19,7 @@ class Action(str, Enum):
     SETTLEMENT = "SETTLEMENT"
     TRANSFER = "TRANSFER"
     WITHDRAWAL = "WITHDRAWAL"
-    ADJUSTMENT="ADJUSTMENT"
+    ADJUSTMENT = "ADJUSTMENT"
 
 
 class Currency(str, Enum):
