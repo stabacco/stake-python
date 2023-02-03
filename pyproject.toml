@@ -10,11 +10,11 @@ license = "Apache-2.0"
 keywords = ["stake","trading","stocks","financial","python"]
 
 [tool.poetry.dependencies]
-python = "^3.6.1"
+python = ">=3.7,<4.0.0"
 python-dotenv = "^0.13.0"
 pydantic = "^1.5.1"
 inflection = "^0.5.0"
-aiohttp = "3.7.4"
+aiohttp = "^3.8.3"
 single-version = "^1.2.2"
 
 [tool.poetry.dev-dependencies]
