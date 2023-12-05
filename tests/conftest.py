@@ -1,5 +1,6 @@
 import asyncio
 import json
+import sys
 import uuid
 
 import pytest
@@ -19,7 +20,15 @@ async def tracing_client(request, mocker):
 
 @pytest.fixture(scope="session")
 def event_loop():
-    loop = asyncio.get_event_loop()
+    if sys.version_info < (3, 10):
+        loop = asyncio.get_event_loop()
+    else:
+        try:
+            loop = asyncio.get_running_loop()
+        except RuntimeError:
+            loop = asyncio.new_event_loop()
+
+        asyncio.set_event_loop(loop)
     yield loop
     loop.close()
 

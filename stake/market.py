@@ -1,5 +1,6 @@
 """Checks the market status."""
-from datetime import datetime
+
+from typing import Optional
 
 from pydantic import BaseModel, Field
 
@@ -9,8 +10,8 @@ __all__ = ["MarketStatus"]
 
 
 class Status(BaseModel):
-    change_at: str = Field(alias="change_at")
-    next: str
+    change_at: Optional[str] = Field(None, alias="change_at")
+    next: Optional[str] = None
     current: str
 
     class Config:
@@ -18,13 +19,7 @@ class Status(BaseModel):
 
 
 class MarketStatus(BaseModel):
-    message: str
-    unixtime: datetime
-    error: str
     status: Status
-    elapsedtime: int
-    date: datetime
-    version_number: str
 
     class Config:
         alias_generator = camelcase
