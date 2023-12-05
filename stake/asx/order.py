@@ -36,6 +36,17 @@ class Order(BaseModel):
         alias_generator = camelcase
 
 
+class Brokerage(BaseModel):
+    brokerage_fee: Optional[float] = None
+    brokerage_discount: Optional[float] = None
+    fixed_fee: Optional[float] = None
+    variable_fee_percentage: Optional[float] = None
+    variable_limit: Optional[int] = None
+
+    class Config:
+        alias_generator = camelcase
+
+
 class CancelOrderRequest(BaseModel):
     order_id: str
 
@@ -69,3 +80,17 @@ class OrdersClient(BaseClient):
             payload={},
         )
         return True
+
+    async def brokerage(self, order_amount: float) -> Brokerage:
+        """ Retrieve the brokerage for an order
+
+        Args:
+            order_amount (float): the per unit purchase price
+        Returns:
+            Brokerage: ???
+        """
+
+        data = await self._client.get(
+            self._client.exchange.brokerage.format(orderAmount=order_amount)
+        )
+        return Brokerage(**data)
