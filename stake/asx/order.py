@@ -29,7 +29,7 @@ class Order(BaseModel):
     side: Side
     type: TradeType
     units_remaining: Optional[int] = None
-    validity_date: Optional[Union[date,datetime]] = None
+    validity_date: Optional[Union[date, datetime]] = None
     validity: Optional[str] = None
 
     class Config:
