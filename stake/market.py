@@ -28,7 +28,6 @@ class MarketStatus(BaseModel):
 class MarketClient(BaseClient):
     async def get(self) -> MarketStatus:
         data = await self._client.get(self._client.exchange.market_status)
-        print("dddd", data)
         return MarketStatus(**data["response"])
 
     async def is_open(self) -> bool:
