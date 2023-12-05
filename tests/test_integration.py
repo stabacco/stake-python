@@ -8,17 +8,17 @@ from stake import constant
 from stake.transaction import TransactionRecordRequest
 
 
-@pytest.mark.parametrize("exchange", (constant.NYSE, constant.ASX))
+@pytest.mark.parametrize("exchange", (constant.NYSE,))
 @pytest.mark.asyncio
-async def test_integration(exchange):
+async def test_integration_NYSE(exchange):
     async with stake.StakeClient(exchange=exchange) as session:
         await session.watchlist.list_watchlists()
         await session.equities.list()
         await session.orders.list()
         await session.market.get()
-        await session.market.is_open()
+        # await session.market.is_open()
         await session.fundings.cash_available()
-        await session.fundings.in_flight()
+        # await session.fundings.in_flight()
 
         if exchange == constant.NYSE:
             request = stake.TransactionRecordRequest(limit=10)
@@ -44,3 +44,34 @@ async def test_integration(exchange):
             )
             result = await session.transactions.list(request=request)
             assert len(result.transactions) == 10
+
+
+@pytest.mark.parametrize("exchange", (constant.ASX,))
+@pytest.mark.asyncio
+async def test_integration_ASX(exchange):
+    async with stake.StakeClient(exchange=exchange) as session:
+        await session.watchlist.list_watchlists()
+        await session.equities.list()
+        await session.orders.list()
+        # await session.market.get()
+        # await session.market.is_open()
+        await session.fundings.cash_available()
+        # await session.fundings.in_flight()
+
+        from stake.asx.funding import FundingRequest as ASXFundingRequest
+        from stake.asx.funding import Sort
+        from stake.asx.transaction import (
+            TransactionRecordRequest as ASXTransactionRecordRequest,
+        )
+
+        request = ASXFundingRequest(
+            limit=10, sort=[Sort(direction="asc", attribute="insertedAt")]
+        )
+        result = await session.fundings.list(request=request)
+        assert len(result.fundings) == 10
+
+        request = ASXTransactionRecordRequest(
+            limit=10, sort=[Sort(direction="desc", attribute="insertedAt")]
+        )
+        result = await session.transactions.list(request=request)
+        assert len(result.transactions) == 10

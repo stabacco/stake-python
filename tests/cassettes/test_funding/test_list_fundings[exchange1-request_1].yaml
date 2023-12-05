@@ -48,15 +48,15 @@ interactions:
         string:
           '{"items": [{"id": "6fd4187a-559b-4326-b9bb-6fb6312ece7b", "side": "CREDIT",
           "amount": 18.27, "currency": "AUD", "action": "DIVIDEND_DEPOSIT", "reference":
-          "O9-7708124v", "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf", "status":
+          "r9-6577610c", "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf", "status":
           "RECONCILED", "approvedBy": null, "customerFee": 0.0, "insertedAt": "2022-07-18T07:32:28.836634",
           "updatedAt": "2022-07-27T07:13:13.455605"}, {"id": "6fd4187a-559b-4326-b9bb-6fb6312ece7b",
           "side": "DEBIT", "amount": 1148.28, "currency": "AUD", "action": "SETTLEMENT",
-          "reference": "O9-7708124v", "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "reference": "r9-6577610c", "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
           "status": "RECONCILED", "approvedBy": null, "customerFee": 0.0, "insertedAt":
           "2022-07-26T20:02:16.50554", "updatedAt": "2022-07-26T20:02:17.488227"}, {"id":
           "6fd4187a-559b-4326-b9bb-6fb6312ece7b", "side": "CREDIT", "amount": 26.58,
-          "currency": "AUD", "action": "DIVIDEND_DEPOSIT", "reference": "O9-7708124v",
+          "currency": "AUD", "action": "DIVIDEND_DEPOSIT", "reference": "r9-6577610c",
           "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf", "status": "RECONCILED",
           "approvedBy": null, "customerFee": 0.0, "insertedAt": "2022-01-18T21:24:30.449019",
           "updatedAt": "2022-07-14T02:59:09.799755"}], "hasNext": true, "page": 0, "totalItems":

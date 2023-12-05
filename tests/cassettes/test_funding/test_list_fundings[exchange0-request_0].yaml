@@ -49,12 +49,12 @@ interactions:
           "Funding", "finTranTypeID": "JNLC", "timestamp": "2021-09-30T15:45:50.425Z",
           "tranAmount": 1000, "feeAmount": 0.0, "orderID": "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59",
           "symbol": null, "side": "CREDIT", "text": "Deposit", "comment": "f1-9011914a",
-          "amountPerShare": 0.0, "taxRate": 0.0, "reference": "O9-7708124v", "referenceType":
+          "amountPerShare": 0.0, "taxRate": 0.0, "reference": "r9-6577610c", "referenceType":
           "Funding"},{"transactionType": "Funding", "finTranTypeID": "JNLC", "timestamp":
           "2021-08-10T15:45:02.683Z", "tranAmount": 1000, "feeAmount": 0.0, "orderID":
           "HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59", "symbol": null, "side": "CREDIT",
           "text": "Deposit", "comment": "f1-9011914a", "amountPerShare": 0.0, "taxRate":
-          0.0, "reference": "O9-7708124v", "referenceType": "Funding"}]'
+          0.0, "reference": "r9-6577610c", "referenceType": "Funding"}]'
       headers: {}
       status:
         code: 200
@@ -68,21 +68,21 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=O9-7708124v&referenceType=Funding
+      uri: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=r9-6577610c&referenceType=Funding
     response:
       body:
         string:
           '{"insertDate": 1628229668979, "channel": "Poli", "amountTo": 2196.01,
           "amountFrom": 3000.0, "status": "RECONCILED", "speed": "Regular", "fxFee":
           20.39, "expressFee": 0.0, "channelFee": null, "totalFee": 20.39, "feesDisplayCurrency":
-          "USD", "spotRate": 0.7388, "reference": "O9-7708124v", "w8fee": 0.0, "currencyFrom":
+          "USD", "spotRate": 0.7388, "reference": "r9-6577610c", "w8fee": 0.0, "currencyFrom":
           "AUD", "currencyTo": "USD", "iof": null, "vet": null, "bsb": null, "accountNumber":
           null, "transactionDetails": null}'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=O9-7708124v&referenceType=Funding
+      url: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=r9-6577610c&referenceType=Funding
   - request:
       body: null
       headers:
@@ -91,19 +91,19 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=O9-7708124v&referenceType=Funding
+      uri: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=r9-6577610c&referenceType=Funding
     response:
       body:
         string:
           '{"insertDate": 1632879790963, "channel": "Poli", "amountTo": 3796.79,
           "amountFrom": 5300.0, "status": "RECONCILED", "speed": "Regular", "fxFee":
           35.64, "expressFee": 0.0, "channelFee": null, "totalFee": 35.64, "feesDisplayCurrency":
-          "USD", "spotRate": 0.7231, "reference": "O9-7708124v", "w8fee": 0.0, "currencyFrom":
+          "USD", "spotRate": 0.7231, "reference": "r9-6577610c", "w8fee": 0.0, "currencyFrom":
           "AUD", "currencyTo": "USD", "iof": null, "vet": null, "bsb": null, "accountNumber":
           null, "transactionDetails": null}'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=O9-7708124v&referenceType=Funding
+      url: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=r9-6577610c&referenceType=Funding
 version: 1
