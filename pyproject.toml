@@ -53,13 +53,11 @@ exclude = [
     ".direnv",
     ".eggs",
     ".git",
-    ".hg",
     ".mypy_cache",
     ".nox",
     ".pants.d",
     ".pytype",
     ".ruff_cache",
-    ".svn",
     ".tox",
     ".venv",
     "__pypackages__",
@@ -67,10 +65,7 @@ exclude = [
     "buck-out",
     "build",
     "dist",
-    "node_modules",
     "venv",
-    "tests/**",
-    "migrations/**",
 ]
 
 line-length = 100
