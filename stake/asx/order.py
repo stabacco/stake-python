@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 from typing import List, Optional, Union
 from uuid import UUID
 
@@ -29,7 +29,7 @@ class Order(BaseModel):
     side: Side
     type: TradeType
     units_remaining: Optional[int] = None
-    validity_date: Optional[datetime] = None
+    validity_date: Optional[Union[date,datetime]] = None
     validity: Optional[str] = None
 
     class Config:
