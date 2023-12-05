@@ -1,6 +1,6 @@
 from datetime import datetime
 from enum import IntEnum
-from typing import Optional, List, Union
+from typing import List, Optional, Union
 
 from pydantic import BaseModel, Field
 
@@ -84,7 +84,7 @@ class OrdersClient(BaseClient):
         return True
 
     async def brokerage(self, order_amount: float) -> Brokerage:
-        """ Retrieve the brokerage for an order
+        """Retrieve the brokerage for an order.
 
         Args:
             order_amount (float): the per unit purchase price

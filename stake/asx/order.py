@@ -82,7 +82,7 @@ class OrdersClient(BaseClient):
         return True
 
     async def brokerage(self, order_amount: float) -> Brokerage:
-        """ Retrieve the brokerage for an order
+        """Retrieve the brokerage for an order.
 
         Args:
             order_amount (float): the per unit purchase price

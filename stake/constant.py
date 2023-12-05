@@ -96,7 +96,9 @@ class ASXUrl(BaseModel):
 
     ASX_STAKE_URL: str = "https://global-prd-api.hellostake.com/api/asx/"
     brokerage: str = urljoin(
-        ASX_STAKE_URL, "orders/brokerage?orderAmount={orderAmount}", allow_fragments=True
+        ASX_STAKE_URL,
+        "orders/brokerage?orderAmount={orderAmount}",
+        allow_fragments=True,
     )
     cash_available: str = urljoin(ASX_STAKE_URL, "cash", allow_fragments=True)
     cancel_order: str = urljoin(
