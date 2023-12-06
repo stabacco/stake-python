@@ -1,6 +1,6 @@
 from datetime import datetime
 from enum import IntEnum
-from typing import List, Union
+from typing import List, Optional, Union
 
 from pydantic import BaseModel, Field
 
@@ -40,6 +40,16 @@ class Order(BaseModel):
         alias_generator = camelcase
 
 
+class Brokerage(BaseModel):
+    brokerage_fee: Optional[float] = None
+    fixed_fee: Optional[float] = None
+    variable_fee_percentage: Optional[float] = None
+    variable_limit: Optional[int] = None
+
+    class Config:
+        alias_generator = camelcase
+
+
 class CancelOrderRequest(BaseModel):
     order_id: str
 
@@ -72,3 +82,17 @@ class OrdersClient(BaseClient):
             self._client.exchange.cancel_order.format(orderId=order.order_id)
         )
         return True
+
+    async def brokerage(self, order_amount: float) -> Brokerage:
+        """Retrieve the brokerage for an order.
+
+        Args:
+            order_amount (float): the per unit purchase price
+        Returns:
+            Brokerage: the brokerage information
+        """
+
+        data = await self._client.get(
+            self._client.exchange.brokerage.format(orderAmount=order_amount)
+        )
+        return Brokerage(**data)

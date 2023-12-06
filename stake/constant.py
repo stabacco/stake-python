@@ -16,6 +16,9 @@ class NYSEUrl(BaseModel):
     account_transactions: str = urljoin(
         STAKE_URL, "users/accounts/accountTransactions", allow_fragments=True
     )
+    brokerage: str = urljoin(
+        STAKE_URL, "orders/brokerage?orderAmount={orderAmount}", allow_fragments=True
+    )
     cancel_order: str = urljoin(
         STAKE_URL, "orders/cancelOrder/{orderId}", allow_fragments=True
     )
@@ -92,7 +95,11 @@ class ASXUrl(BaseModel):
     """Contains all the visited stake urls for the ASX."""
 
     ASX_STAKE_URL: str = "https://global-prd-api.hellostake.com/api/asx/"
-
+    brokerage: str = urljoin(
+        ASX_STAKE_URL,
+        "orders/brokerage?orderAmount={orderAmount}",
+        allow_fragments=True,
+    )
     cash_available: str = urljoin(ASX_STAKE_URL, "cash", allow_fragments=True)
     cancel_order: str = urljoin(
         ASX_STAKE_URL, "orders/{orderId}/cancel", allow_fragments=True
@@ -119,10 +126,10 @@ class ASXUrl(BaseModel):
     trade_activity: str = urljoin(
         ASX_STAKE_URL, "orders/tradeActivity", allow_fragments=True
     )
-    watchlists = urljoin(
+    watchlists: str = urljoin(
         ASX_STAKE_URL, "instrument/v2/watchlists", allow_fragments=True
     )
-    create_watchlist = urljoin(
+    create_watchlist: str = urljoin(
         ASX_STAKE_URL, "instrument/v2/watchlist", allow_fragments=True
     )
     read_watchlist: str = urljoin(
