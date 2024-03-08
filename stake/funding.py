@@ -4,7 +4,7 @@ import json
 from datetime import datetime
 from typing import List, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from stake.common import BaseClient, camelcase
 from stake.transaction import TransactionHistoryType, TransactionRecordRequest
@@ -29,17 +29,13 @@ class Funding(BaseModel):
     w8_fee: Optional[int] = None
     currency_from: Optional[str] = None
     currency_to: Optional[str] = None
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class CashSettlement(BaseModel):
     utc_time: datetime
     cash: float
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class CashAvailable(BaseModel):
@@ -53,9 +49,7 @@ class CashAvailable(BaseModel):
     pending_poli_amount: float
     pending_withdrawals: float
     reserved_cash: float
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class FundsInFlight(BaseModel):
@@ -66,14 +60,12 @@ class FundsInFlight(BaseModel):
     transaction_type: str
     to_amount: float
     from_amount: float
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class FundingsClient(BaseClient):
     async def list(self, request: TransactionRecordRequest) -> List[Funding]:
-        payload = json.loads(request.json(by_alias=True))
+        payload = json.loads(request.model_dump_json(by_alias=True))
         # looks like there is no way to pass filter the transactions here
         data = await self._client.post(
             self._client.exchange.transaction_history, payload=payload

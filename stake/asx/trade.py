@@ -2,7 +2,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Optional, Union
 
-from pydantic import BaseModel, Field, root_validator, validate_arguments
+from pydantic import BaseModel, ConfigDict, Field, model_validator, validate_call
 
 from stake.asx.common import TradeType
 from stake.asx.order import Order
@@ -36,17 +36,15 @@ class GenericTradeRequest(BaseModel):
     units: int
     validity: ExpiryDate = ExpiryDate.IN_THIRTY_DAYS
     validity_date: Optional[datetime] = None
+    model_config = ConfigDict(alias_generator=camelcase, populate_by_name=True)
 
-    class Config:
-        alias_generator = camelcase
-        allow_population_by_field_name = True
-
-    @root_validator(pre=True)
-    def symbol_or_instrument_type(cls, value: dict) -> dict:
-
-        if not any((value.get("symbol", None), value.get("instrument_code", None))):
+    @model_validator(mode="after")
+    @classmethod
+    def symbol_or_instrument_type(
+        cls, value: "GenericTradeRequest"
+    ) -> "GenericTradeRequest":
+        if value.symbol is None and value.instrument_code is None:
             raise ValueError("Either specify symbol or instrument_code")
-
         return value
 
 
@@ -77,7 +75,7 @@ class MarketSellRequest(GenericTradeRequest):
 class TradesClient(BaseClient):
     """This client is used to buy/sell equities."""
 
-    @validate_arguments
+    @validate_call
     async def _trade(
         self,
         url: str,
@@ -102,7 +100,7 @@ class TradesClient(BaseClient):
             request.instrument_code = instrument_id
 
         data = await self._client.post(
-            url, payload=request.dict(by_alias=True, exclude={"symbol"})
+            url, payload=request.model_dump(by_alias=True, exclude={"symbol"})
         )
 
         return Order(**data["order"])

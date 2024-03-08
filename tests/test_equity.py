@@ -16,4 +16,4 @@ async def test_list_equities(tracing_client: stake.StakeClient, exchange):
     assert equities.equity_positions
 
     for e in equities.equity_positions:
-        assert not (set(e.__fields__.keys()).difference(e.__fields_set__))
+        assert not (set(e.model_fields.keys()).difference(e.model_fields_set))

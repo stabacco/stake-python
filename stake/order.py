@@ -2,7 +2,7 @@ from datetime import datetime
 from enum import IntEnum
 from typing import List, Optional, Union
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from stake.common import BaseClient, SideEnum, camelcase
 
@@ -20,12 +20,11 @@ class Order(BaseModel):
     order_id: str = Field(alias="orderID")
     order_cash_amt: int
     symbol: str
-    price: int
-    stop_price: int
+    stop_price: float
     side: SideEnum
     order_type: OrderTypeEnum
     cum_qty: str
-    limit_price: int
+    limit_price: float
     created_when: datetime
     order_status: int
     order_qty: float
@@ -35,9 +34,7 @@ class Order(BaseModel):
     instrument_symbol: str
     instrument_name: str
     encoded_name: str
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class Brokerage(BaseModel):
@@ -45,9 +42,7 @@ class Brokerage(BaseModel):
     fixed_fee: Optional[float] = None
     variable_fee_percentage: Optional[float] = None
     variable_limit: Optional[int] = None
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class CancelOrderRequest(BaseModel):

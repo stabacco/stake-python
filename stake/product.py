@@ -1,7 +1,8 @@
 import uuid
+from datetime import datetime
 from typing import Any, List, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from pydantic.fields import Field
 
 from stake.common import BaseClient, camelcase
@@ -21,9 +22,7 @@ class Instrument(BaseModel):
     instrument_id: str
     name: str
     symbol: str
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class Product(BaseModel):
@@ -40,7 +39,7 @@ class Product(BaseModel):
     daily_return: float
     daily_return_percentage: float
     last_traded: float
-    monthly_return: int
+    monthly_return: float
     yearly_return_percentage: Optional[float] = None
     yearly_return_value: Optional[float] = None
     popularity: int
@@ -49,15 +48,13 @@ class Product(BaseModel):
     bought: int
     viewed: int
     product_type: str
-    trade_status: Optional[int]
+    trade_status: Optional[int] = None
     encoded_name: str
     period: str
-    inception_date: Optional[str]
+    inception_date: Optional[datetime] = None
     instrument_tags: List[Any]
     child_instruments: List[Instrument]
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class ProductsClient(BaseClient):

@@ -1,6 +1,6 @@
 from typing import Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from pydantic.fields import Field
 
 from stake.common import camelcase
@@ -14,10 +14,7 @@ class User(BaseModel):
     mac_status: str
     account_type: str
     region_identifier: str
-    dw_account_number: Optional[str] = Field(alias="dw_AccountNumber")
-    can_trade_on_unsettled_funds: Optional[bool]
-    username: Optional[str]
-
-    class Config:
-        alias_generator = camelcase
-        allow_population_by_field_name = True
+    dw_account_number: Optional[str] = Field(None, alias="dw_AccountNumber")
+    can_trade_on_unsettled_funds: Optional[bool] = None
+    username: Optional[str] = None
+    model_config = ConfigDict(alias_generator=camelcase, populate_by_name=True)
