@@ -2,7 +2,7 @@
 
 from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from stake.common import BaseClient, camelcase
 
@@ -13,16 +13,12 @@ class Status(BaseModel):
     change_at: Optional[str] = Field(None, alias="change_at")
     next: Optional[str] = None
     current: str
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class MarketStatus(BaseModel):
     status: Status
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class MarketClient(BaseClient):

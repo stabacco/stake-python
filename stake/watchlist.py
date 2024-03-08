@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import List, Optional, Union
 from warnings import warn
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from stake.common import BaseClient, camelcase
 from stake.product import Instrument, Product
@@ -62,18 +62,14 @@ class Watchlist(BaseModel):
     count: Optional[int] = None
     time_created: Optional[datetime] = None
     instruments: Optional[List[Instrument]] = None
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class WatchlistProduct(BaseModel):
     id: str = Field(alias="productWatchlistID")
     watched_date: datetime
     product: Product
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class WatchlistClient(BaseClient):
@@ -187,7 +183,7 @@ class WatchlistClient(BaseClient):
             raise ValueError(f"A watchlist named {name} already exists.")
 
         response = await self._client.post(
-            self._client.exchange.create_watchlist, payload=request.dict()
+            self._client.exchange.create_watchlist, payload=request.model_dump()
         )
         watchlist_id = response.get("newWatchlistId", None)
         assert watchlist_id, "Could not get a new watchlist"
@@ -218,7 +214,7 @@ class WatchlistClient(BaseClient):
 
         response = await self._client.post(
             self._client.exchange.update_watchlist.format(watchlist_id=request.id),
-            payload=request.dict(exclude={"id"}),
+            payload=request.model_dump(exclude={"id"}),
         )
         return Watchlist(**response)
 
@@ -238,7 +234,7 @@ class WatchlistClient(BaseClient):
 
         response = await self._client.delete(
             self._client.exchange.update_watchlist.format(watchlist_id=request.id),
-            payload=request.dict(exclude={"id"}),
+            payload=request.model_dump(exclude={"id"}),
         )
 
         return Watchlist(**response)

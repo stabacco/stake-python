@@ -4,7 +4,7 @@ from enum import Enum
 from typing import List, Optional
 from urllib.parse import urlencode
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from pydantic.types import UUID
 
 from stake.asx.transaction import Sort
@@ -61,7 +61,7 @@ class FundingRequest(BaseModel):
     def as_url_params(self) -> str:
         """Returns the parameters for the GET request."""
         data = json.loads(
-            self.json(
+            self.model_dump_json(
                 exclude_none=True,
             )
         )
@@ -90,9 +90,7 @@ class FundingRecord(BaseModel):
     status: Optional[FundingStatus] = None
     updated_at: Optional[datetime] = None
     user_id: Optional[UUID] = None
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class Fundings(BaseModel):
@@ -100,9 +98,7 @@ class Fundings(BaseModel):
     has_next: Optional[bool] = None
     page: Optional[int] = None
     total_items: Optional[int] = Field(None, alias="totalItems")
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class CashAvailable(BaseModel):
@@ -118,9 +114,7 @@ class CashAvailable(BaseModel):
     settled_cash: Optional[float] = None
     settlement_hold: Optional[int] = None
     trade_settlement: Optional[int] = None
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class FundingsClient(BaseClient):

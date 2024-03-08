@@ -2,6 +2,7 @@ from datetime import date
 from typing import Optional
 
 import pydantic
+from pydantic import ConfigDict
 
 from stake.common import BaseClient, camelcase
 
@@ -15,9 +16,7 @@ class Status(pydantic.BaseModel):
 class MarketStatus(pydantic.BaseModel):
     last_trading_date: Optional[date] = None
     status: Status
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class MarketClient(BaseClient):

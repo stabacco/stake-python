@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from enum import Enum
 from typing import Dict, List, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from pydantic.types import UUID, UUID4
 
 from stake.common import BaseClient, camelcase
@@ -23,7 +23,7 @@ class TransactionRecordRequest(BaseModel):
         default_factory=lambda *_: datetime.utcnow() - timedelta(days=365), alias="from"
     )
     limit: int = 1000
-    offset: Optional[datetime]
+    offset: Optional[datetime] = None
     direction: TransactionRecordEnumDirection = TransactionRecordEnumDirection.prev
 
 
@@ -56,17 +56,15 @@ class Transaction(BaseModel):
     order_no: Optional[str] = None
     position_delta: Optional[float] = None
     send_commission_to_inteliclear: bool
-    symbol: Optional[str]
+    symbol: Optional[str] = None
     system_amount: int
     tran_amount: float
     tran_source: str
     tran_when: datetime
-    updated_reason: Optional[str]
+    updated_reason: Optional[str] = None
     wlp_amount: int
-    wlp_fin_tran_type_id: UUID = Field(None, alias="wlpFinTranTypeID")
-
-    class Config:
-        alias_generator = camelcase
+    wlp_fin_tran_type_id: Optional[UUID] = Field(None, alias="wlpFinTranTypeID")
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class TransactionHistoryType(str, enum.Enum):
@@ -89,7 +87,7 @@ class TransactionsClient(BaseClient):
         Returns:
             List[Transaction]: the transactions executed in the time frame.
         """
-        payload = json.loads(request.json(by_alias=True))
+        payload = json.loads(request.model_dump_json(by_alias=True))
 
         data = await self._client.post(
             self._client.exchange.account_transactions, payload=payload

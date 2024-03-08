@@ -2,7 +2,7 @@ from datetime import date, datetime
 from typing import List, Optional, Union
 from uuid import UUID
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from stake.asx.common import TradeType
 from stake.asx.transaction import Side
@@ -31,9 +31,7 @@ class Order(BaseModel):
     units_remaining: Optional[int] = None
     validity_date: Optional[Union[date, datetime]] = None
     validity: Optional[str] = None
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class Brokerage(BaseModel):
@@ -42,9 +40,7 @@ class Brokerage(BaseModel):
     fixed_fee: Optional[float] = None
     variable_fee_percentage: Optional[float] = None
     variable_limit: Optional[int] = None
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class CancelOrderRequest(BaseModel):

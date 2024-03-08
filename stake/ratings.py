@@ -36,8 +36,9 @@ class Rating(pydantic.BaseModel):
     url_news: Optional[str] = None
     analyst_name: Optional[str] = None
 
-    @pydantic.validator("pt_prior", "rating_prior", pre=True)
-    def pt_prior_blank_string(value, field):
+    @pydantic.field_validator("pt_prior", "rating_prior", mode="before")
+    @classmethod
+    def pt_prior_blank_string(cls, value, *args) -> Optional[str]:
         return None if value == "" else value
 
 
@@ -59,5 +60,5 @@ class RatingsClient(BaseClient):
 
         if data == {"message": "No data returned"}:
             return []
-
+        print(data["ratings"])
         return [Rating(**d) for d in data["ratings"]]

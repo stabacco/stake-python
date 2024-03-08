@@ -4,7 +4,7 @@ from enum import Enum
 from typing import List, Optional
 from urllib.parse import urlencode
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from stake.asx.common import Side
 from stake.common import BaseClient, camelcase
@@ -38,7 +38,7 @@ class TransactionRecordRequest(BaseModel):
     def as_url_params(self) -> str:
         """Returns the parameters for the GET request."""
         data = json.loads(
-            self.json(
+            self.model_dump_json(
                 exclude_none=True,
             )
         )
@@ -71,9 +71,7 @@ class Transaction(BaseModel):
     type: Optional[str] = None
     units: Optional[float] = None
     user_brokerage_fees: Optional[float] = None
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class Transactions(BaseModel):
@@ -81,9 +79,7 @@ class Transactions(BaseModel):
     has_next: Optional[bool] = None
     page: Optional[int] = None
     total_items: Optional[int] = None
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class TransactionsClient(BaseClient):

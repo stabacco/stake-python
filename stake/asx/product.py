@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 from stake.common import BaseClient, camelcase
 
@@ -21,9 +21,7 @@ class Instrument(BaseModel):
     type: str
     recent_announcement: Optional[bool] = None
     sensitive: Optional[bool] = None
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class Product(BaseModel):
@@ -43,9 +41,7 @@ class Product(BaseModel):
     points_change: Optional[float] = None
     percentage_change: Optional[float] = None
     out_of_market_price: Optional[float] = None
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class ProductsClient(BaseClient):

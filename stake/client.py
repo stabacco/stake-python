@@ -4,7 +4,7 @@ from typing import Optional, Union
 
 import aiohttp
 from dotenv import load_dotenv
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from stake import (
     asx,
@@ -38,10 +38,7 @@ class CredentialsLoginRequest(BaseModel):
     platform_type: str = Field(
         default_factory=lambda *_: os.getenv("STAKE_PLATFORM_TYPE", "WEB_f5K2x3")
     )  # Note: find this in the login page
-
-    class Config:
-        alias_generator = camelcase
-        allow_population_by_field_name = True
+    model_config = ConfigDict(alias_generator=camelcase, populate_by_name=True)
 
 
 class SessionTokenLoginRequest(BaseModel):
@@ -185,7 +182,7 @@ class StakeClient:
         """
 
         return await self.http_client.get(
-            url, payload=payload, headers=self.headers.dict(by_alias=True)
+            url, payload=payload, headers=self.headers.model_dump(by_alias=True)
         )
 
     async def post(self, url: str, payload: dict) -> dict:
@@ -200,7 +197,7 @@ class StakeClient:
         """
 
         return await self.http_client.post(
-            url, payload=payload, headers=self.headers.dict(by_alias=True)
+            url, payload=payload, headers=self.headers.model_dump(by_alias=True)
         )
 
     async def delete(self, url: str, payload: dict = None) -> dict:
@@ -214,7 +211,7 @@ class StakeClient:
             bool: True if the deletion was successful.
         """
         return await self.http_client.delete(
-            url, headers=self.headers.dict(by_alias=True), payload=payload
+            url, headers=self.headers.model_dump(by_alias=True), payload=payload
         )
 
     async def login(
@@ -234,7 +231,7 @@ class StakeClient:
             try:
                 data = await self.post(
                     constant.NYSE.create_session,
-                    payload=login_request.dict(by_alias=True),
+                    payload=login_request.model_dump(by_alias=True),
                 )
 
                 self.headers.stake_session_token = data["sessionKey"]

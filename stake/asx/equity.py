@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from stake.common import BaseClient, camelcase
 
@@ -19,15 +19,13 @@ class EquityPosition(BaseModel):
     recent_announcement: Optional[bool] = None
     sensitive: Optional[bool] = None
     symbol: Optional[str] = None
-    unrealized_day_pl_percent: Optional[str] = Field(
+    unrealized_day_pl_percent: Optional[float] = Field(
         None, alias="unrealizedDayPLPercent"
     )
-    unrealized_day_pl: Optional[str] = Field(None, alias="unrealizedDayPL")
-    unrealized_pl_percent: Optional[str] = Field(None, alias="unrealizedPLPercent")
-    unrealized_pl: Optional[str] = Field(None, alias="unrealizedPL")
-
-    class Config:
-        alias_generator = camelcase
+    unrealized_day_pl: Optional[float] = Field(None, alias="unrealizedDayPL")
+    unrealized_pl_percent: Optional[float] = Field(None, alias="unrealizedPLPercent")
+    unrealized_pl: Optional[float] = Field(None, alias="unrealizedPL")
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class EquityPositions(BaseModel):
@@ -37,9 +35,7 @@ class EquityPositions(BaseModel):
     page_num: Optional[int] = None
     has_next: Optional[bool] = None
     equity_positions: Optional[List[EquityPosition]] = None
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class EquitiesClient(BaseClient):

@@ -1,7 +1,7 @@
 """Currency conversion."""
 from enum import Enum
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from pydantic.types import UUID4
 
 from stake.common import BaseClient, camelcase
@@ -18,10 +18,7 @@ class FxConversionRequest(BaseModel):
     from_currency: CurrencyEnum
     to_currency: CurrencyEnum
     from_amount: float
-
-    class Config:
-        alias_generator = camelcase
-        allow_population_by_field_name = True
+    model_config = ConfigDict(alias_generator=camelcase, populate_by_name=True)
 
 
 class FxConversion(BaseModel):
@@ -31,9 +28,7 @@ class FxConversion(BaseModel):
     to_amount: float
     rate: float
     quote: UUID4
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class FxClient(BaseClient):
@@ -43,6 +38,6 @@ class FxClient(BaseClient):
         """Converts from one currency to another."""
         data = await self._client.post(
             self._client.exchange.rate,
-            payload=currency_conversion_request.dict(by_alias=True),
+            payload=currency_conversion_request.model_dump(by_alias=True),
         )
         return FxConversion(**data)

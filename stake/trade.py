@@ -3,7 +3,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Optional, Union
 
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from stake.common import BaseClient, camelcase
 
@@ -35,44 +35,36 @@ class MarketBuyRequest(BaseModel):
     # AAPL, MSFT, TSLA etc...
     symbol: str
     amount_cash: float
-    comments: Optional[str]
+    comments: Optional[str] = None
 
     item_type: str = "instrument"
     order_type: TradeType = TradeType.MARKET
-
-    class Config:
-        alias_generator = camelcase
-        allow_population_by_field_name = True
+    model_config = ConfigDict(alias_generator=camelcase, populate_by_name=True)
 
 
 class LimitBuyRequest(BaseModel):
     symbol: str
     limit_price: float
     quantity: int
-    comments: Optional[str]
+    comments: Optional[str] = None
 
     item_type: str = "instrument"
     order_type: TradeType = TradeType.LIMIT
-
-    class Config:
-        alias_generator = camelcase
-        allow_population_by_field_name = True
+    model_config = ConfigDict(alias_generator=camelcase, populate_by_name=True)
 
 
 class StopBuyRequest(BaseModel):
     symbol: str
     amount_cash: float
     price: float  # must be higher than the current one
-    comments: Optional[str]
+    comments: Optional[str] = None
 
     item_type: str = "instrument"
     order_type: TradeType = TradeType.STOP
+    model_config = ConfigDict(alias_generator=camelcase, populate_by_name=True)
 
-    class Config:
-        alias_generator = camelcase
-        allow_population_by_field_name = True
-
-    @validator("amount_cash")
+    @field_validator("amount_cash")
+    @classmethod
     def at_least_10(cls, v: float) -> float:  # noqa
 
         if v < 10.0:
@@ -85,28 +77,22 @@ class LimitSellRequest(BaseModel):
     symbol: str
     limit_price: float
     quantity: int
-    comments: Optional[str]
+    comments: Optional[str] = None
 
     item_type: str = "instrument"
     order_type: TradeType = TradeType.LIMIT
-
-    class Config:
-        alias_generator = camelcase
-        allow_population_by_field_name = True
+    model_config = ConfigDict(alias_generator=camelcase, populate_by_name=True)
 
 
 class StopSellRequest(BaseModel):
     symbol: str
     quantity: float
     stop_price: float
-    comments: Optional[str]
+    comments: Optional[str] = None
 
     item_type: str = "instrument"
     order_type: TradeType = TradeType.STOP
-
-    class Config:
-        alias_generator = camelcase
-        allow_population_by_field_name = True
+    model_config = ConfigDict(alias_generator=camelcase, populate_by_name=True)
 
 
 class MarketSellRequest(BaseModel):
@@ -114,42 +100,37 @@ class MarketSellRequest(BaseModel):
 
     symbol: str
     quantity: float
-    comments: Optional[str]
+    comments: Optional[str] = None
 
     item_type: str = "instrument"
     order_type: TradeType = TradeType.MARKET
-
-    class Config:
-        alias_generator = camelcase
-        allow_population_by_field_name = True
+    model_config = ConfigDict(alias_generator=camelcase, populate_by_name=True)
 
 
 class TradeResponse(BaseModel):
     """The response from a request to buy/sell."""
 
-    amount_cash: Optional[float]
+    amount_cash: Optional[float] = None
     category: str
-    commission: Optional[float]
-    description: Optional[str]
+    commission: Optional[float] = None
+    description: Optional[str] = None
     dw_order_id: str
-    effective_price: Optional[float]
+    effective_price: Optional[float] = None
     encoded_name: str
     id: str
     image_url: str = Field(alias="imageURL")
     inserted_date: datetime
     item_id: str
-    limit_price: Optional[float]
+    limit_price: Optional[float] = None
     name: str
-    order_reject_reason: Optional[str]
-    quantity: Optional[float]
+    order_reject_reason: Optional[str] = None
+    quantity: Optional[float] = None
     side: str
-    status: Optional[int]
-    stop_price: Optional[float]
+    status: Optional[int] = None
+    stop_price: Optional[float] = None
     symbol: str
     updated_date: datetime
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class TradesClient(BaseClient):
@@ -184,7 +165,7 @@ class TradesClient(BaseClient):
         Raises:
             RuntimeError
         """
-        request_dict = request.dict(by_alias=True)
+        request_dict = request.model_dump(by_alias=True)
         product = await self._client.products.get(request_dict.pop("symbol"))
         assert product
 

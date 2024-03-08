@@ -2,7 +2,7 @@ from enum import Enum
 from typing import List, Optional
 from uuid import UUID
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 from stake.common import BaseClient, SideEnum, camelcase
 
@@ -40,9 +40,7 @@ class EquityPosition(BaseModel):
     url_image: str
     yearly_return_percentage: Optional[float] = None
     yearly_return_value: Optional[float] = None
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class EquityPositions(BaseModel):
@@ -52,9 +50,7 @@ class EquityPositions(BaseModel):
     equity_positions: List[EquityPosition]
     equity_value: float
     prices_only: bool
-
-    class Config:
-        alias_generator = camelcase
+    model_config = ConfigDict(alias_generator=camelcase)
 
 
 class EquitiesClient(BaseClient):
