@@ -214,7 +214,9 @@ class TradesClient(BaseClient):
         raise RuntimeError("Could not find a matching transaction.")
 
     async def buy(
-        self, request: Union[MarketBuyRequest, LimitBuyRequest, StopBuyRequest]
+        self,
+        request: Union[MarketBuyRequest, LimitBuyRequest, StopBuyRequest],
+        check_success: bool = True,
     ) -> TradeResponse:
         """Creates an order to buy equities.
 
@@ -224,9 +226,15 @@ class TradesClient(BaseClient):
         Returns:
             the TradeResponse object
         """
-        return await self._trade(self._client.exchange.quick_buy, request)
+        return await self._trade(
+            self._client.exchange.quick_buy, request, check_success
+        )
 
-    async def sell(self, request: MarketSellRequest) -> TradeResponse:
+    async def sell(
+        self,
+        request: MarketSellRequest,
+        check_success: bool = True,
+    ) -> TradeResponse:
         """Creates an order to sell equities.
 
         Args:
@@ -235,4 +243,6 @@ class TradesClient(BaseClient):
         Returns:
             the TradeResponse object
         """
-        return await self._trade(self._client.exchange.sell_orders, request)
+        return await self._trade(
+            self._client.exchange.sell_orders, request, check_success
+        )
