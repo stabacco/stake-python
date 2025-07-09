@@ -23,7 +23,6 @@ pytest-asyncio = "^1.0.0"
 pre-commit-hooks = "^3.1.0"
 pre-commit = "^4.2.0"
 pytest-coverage = "^0.0"
-black = {version = "^19.10b0", allow-prereleases = true}
 pytest-mock = "^3.3.0"
 faker = "^4.14.0"
 coverage-badge = "^1.0.1"
