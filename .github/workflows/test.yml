@@ -28,7 +28,7 @@ jobs:
           STAKE_TOKEN: ${{ secrets.STAKE_TOKEN }}
         run: poetry install && poetry run pytest --cov=stake --cov-report=xml && poetry run coverage-badge -f -o coverage.svg
       - name: Upload coverage
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: ${{ matrix.os == 'ubuntu-latest' && matrix.python-version == 3.10 }}
         with:
           name: coverage
