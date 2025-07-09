@@ -13,8 +13,8 @@ __all__ = ["TransactionRecordRequest"]
 
 
 class TransactionRecordEnumDirection(str, Enum):
-    prev: str = "prev"
-    next_: str = "next"
+    prev = "prev"
+    next_ = "next"
 
 
 class TransactionRecordRequest(BaseModel):

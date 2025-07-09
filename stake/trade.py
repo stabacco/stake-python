@@ -23,9 +23,9 @@ __all__ = [
 class TradeType(str, Enum):
     """The type of trade the user is requesting."""
 
-    MARKET: str = "market"
-    LIMIT: str = "limit"
-    STOP: str = "stop"
+    MARKET = "market"
+    LIMIT = "limit"
+    STOP = "stop"
 
 
 class MarketBuyRequest(BaseModel):

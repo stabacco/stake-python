@@ -18,14 +18,13 @@ interactions:
           "z0-0593879b", "macAccountNumber": "d9-0481457G", "status": null, "macStatus":
           "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
           null, "firstName": "Rita", "middleName": null, "lastName": "Jones", "phoneNumber":
-          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2021-11-15", "createdDate":
+          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2023-10-01", "createdDate":
           1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
           null, "referralCode": "W2-6612029X", "referredByCode": null, "regionIdentifier":
           "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
           null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
           null, "userProfile": {"residentialAddress": null, "postalAddress": null},
-          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
-          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "ledgerBalance": 0.0, "fxSpeed": "Regular", "dateOfBirth": null, "upToDateDetails2021":
           "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
           null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
           false}'
@@ -33,7 +32,6 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/user
   - request:
       body: null
       headers:
@@ -49,11 +47,10 @@ interactions:
           '{"cashAvailableForWithdrawal": 1000, "cashAvailableForTrade": 800,
           "cashBalance": 1000.0, "reservedCash": 0.0, "liquidCash": 1000.0, "dwCashAvailableForWithdrawal":
           1000, "pendingOrdersAmount": 0.0, "pendingWithdrawals": 0.0, "cardHoldAmount":
-          0.0, "pendingPoliAmount": 0.0, "cashSettlement": [{"utcTime": "2022-07-27T13:30:00.001Z",
-          "cash": 0.0}, {"utcTime": "2022-07-28T13:30:00.001Z", "cash": 0.0}, null]}'
+          0.0, "pendingPoliAmount": 0.0, "cashSettlement": [{"utcTime": "2025-07-10T13:30:00.001Z",
+          "cash": 0.0}, null, null]}'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/users/accounts/cashAvailableForWithdrawal
 version: 1

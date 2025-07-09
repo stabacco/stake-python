@@ -1,0 +1,697 @@
+interactions:
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/user
+    response:
+      body:
+        string:
+          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "username": "michael29", "emailAddress": "reevesmegan@gilmore-wright.biz",
+          "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
+          "z0-0593879b", "macAccountNumber": "d9-0481457G", "status": null, "macStatus":
+          "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+          null, "firstName": "Rita", "middleName": null, "lastName": "Jones", "phoneNumber":
+          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2023-10-01", "createdDate":
+          1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+          null, "referralCode": "W2-6612029X", "referredByCode": null, "regionIdentifier":
+          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+          "ledgerBalance": 0.0, "fxSpeed": "Regular", "dateOfBirth": null, "upToDateDetails2021":
+          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+          null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
+          false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/data/fundamentals/CVNA/statements?startDate=2022-01-01
+    response:
+      body:
+        string:
+          '[{"date": "2025-03-31", "quarter": 1, "year": 2025, "statementData":
+          {"balanceSheet": [{"dataCode": "equity", "value": 1504000000.0}, {"dataCode":
+          "investmentsCurrent", "value": 1212000000.0}, {"dataCode": "taxLiabilities",
+          "value": 0.0}, {"dataCode": "acctPay", "value": 836000000.0}, {"dataCode":
+          "accoci", "value": 0.0}, {"dataCode": "liabilitiesCurrent", "value": 1347000000.0},
+          {"dataCode": "inventory", "value": 1503000000.0}, {"dataCode": "sharesBasic",
+          "value": 213166351.0}, {"dataCode": "liabilitiesNonCurrent", "value": 5758000000.0},
+          {"dataCode": "deposits", "value": 0.0}, {"dataCode": "retainedEarnings", "value":
+          -1200000000.0}, {"dataCode": "debtCurrent", "value": 372000000.0}, {"dataCode":
+          "cashAndEq", "value": 1904000000.0}, {"dataCode": "ppeq", "value": 3173000000.0},
+          {"dataCode": "investmentsNonCurrent", "value": 0.0}, {"dataCode": "investments",
+          "value": 1212000000.0}, {"dataCode": "debtNonCurrent", "value": 5671000000.0},
+          {"dataCode": "totalAssets", "value": 8878000000.0}, {"dataCode": "deferredRev",
+          "value": 0.0}, {"dataCode": "intangibles", "value": 37000000.0}, {"dataCode":
+          "taxAssets", "value": 0.0}, {"dataCode": "assetsNonCurrent", "value": 3741000000.0},
+          {"dataCode": "totalLiabilities", "value": 7105000000.0}, {"dataCode": "assetsCurrent",
+          "value": 5137000000.0}, {"dataCode": "debt", "value": 6043000000.0}, {"dataCode":
+          "acctRec", "value": 369000000.0}], "incomeStatement": [{"dataCode": "costRev",
+          "value": 3303000000.0}, {"dataCode": "opex", "value": 535000000.0}, {"dataCode":
+          "shareswa", "value": 134058000.0}, {"dataCode": "netinc", "value": 216000000.0},
+          {"dataCode": "intexp", "value": 139000000.0}, {"dataCode": "prefDVDs", "value":
+          0.0}, {"dataCode": "shareswaDil", "value": 142587000.0}, {"dataCode": "netIncComStock",
+          "value": 216000000.0}, {"dataCode": "eps", "value": 1.61}, {"dataCode": "epsDil",
+          "value": 1.51}, {"dataCode": "ebit", "value": 357000000.0}, {"dataCode": "ebt",
+          "value": 218000000.0}, {"dataCode": "grossProfit", "value": 929000000.0},
+          {"dataCode": "ebitda", "value": 430000000.0}, {"dataCode": "taxExp", "value":
+          2000000.0}, {"dataCode": "nonControllingInterests", "value": 157000000.0},
+          {"dataCode": "rnd", "value": 0.0}, {"dataCode": "consolidatedIncome", "value":
+          373000000.0}, {"dataCode": "revenue", "value": 4232000000.0}, {"dataCode":
+          "opinc", "value": 394000000.0}, {"dataCode": "sga", "value": 535000000.0},
+          {"dataCode": "netIncDiscOps", "value": 0.0}], "cashFlow": [{"dataCode": "ncff",
+          "value": -53000000.0}, {"dataCode": "ncf", "value": 144000000.0}, {"dataCode":
+          "investmentsAcqDisposals", "value": 15000000.0}, {"dataCode": "payDiv", "value":
+          0.0}, {"dataCode": "businessAcqDisposals", "value": -24000000.0}, {"dataCode":
+          "depamor", "value": 73000000.0}, {"dataCode": "sbcomp", "value": 23000000.0},
+          {"dataCode": "ncfo", "value": 232000000.0}, {"dataCode": "ncfx", "value":
+          0.0}, {"dataCode": "freeCashFlow", "value": 206000000.0}, {"dataCode": "issrepayEquity",
+          "value": 5000000.0}, {"dataCode": "ncfi", "value": -35000000.0}, {"dataCode":
+          "issrepayDebt", "value": -35000000.0}, {"dataCode": "capex", "value": -26000000.0}],
+          "overview": [{"dataCode": "revenueQoQ", "value": 0.382554720679517}, {"dataCode":
+          "grossMargin", "value": 0.219517958412098}, {"dataCode": "debtEquity", "value":
+          4.01795212765957}, {"dataCode": "profitMargin", "value": 0.219517958412098},
+          {"dataCode": "shareFactor", "value": 1.0}, {"dataCode": "bookVal", "value":
+          1773000000.0}, {"dataCode": "rps", "value": 19.8530395634534}, {"dataCode":
+          "roa", "value": 0.0499059561128527}, {"dataCode": "piotroskiFScore", "value":
+          8.0}, {"dataCode": "currentRatio", "value": 3.81365998515219}, {"dataCode":
+          "longTermDebtEquity", "value": 3.77061170212766}, {"dataCode": "roe", "value":
+          0.408100487054601}, {"dataCode": "epsQoQ", "value": 5.70833333333333}, {"dataCode":
+          "bvps", "value": 8.31744781332772}]}}, {"date": "2024-12-31", "quarter": 4,
+          "year": 2024, "statementData": {"balanceSheet": [{"dataCode": "deposits",
+          "value": 0.0}, {"dataCode": "taxAssets", "value": 0.0}, {"dataCode": "liabilitiesNonCurrent",
+          "value": 5771000000.0}, {"dataCode": "accoci", "value": 0.0}, {"dataCode":
+          "assetsCurrent", "value": 4869000000.0}, {"dataCode": "retainedEarnings",
+          "value": -1416000000.0}, {"dataCode": "debtCurrent", "value": 376000000.0},
+          {"dataCode": "assetsNonCurrent", "value": 3615000000.0}, {"dataCode": "ppeq",
+          "value": 3213000000.0}, {"dataCode": "cashAndEq", "value": 1760000000.0},
+          {"dataCode": "totalLiabilities", "value": 7109000000.0}, {"dataCode": "investmentsNonCurrent",
+          "value": 0.0}, {"dataCode": "debtNonCurrent", "value": 5670000000.0}, {"dataCode":
+          "totalAssets", "value": 8484000000.0}, {"dataCode": "intangibles", "value":
+          34000000.0}, {"dataCode": "investmentsCurrent", "value": 1076000000.0}, {"dataCode":
+          "equity", "value": 1260000000.0}, {"dataCode": "taxLiabilities", "value":
+          0.0}, {"dataCode": "acctPay", "value": 856000000.0}, {"dataCode": "acctRec",
+          "value": 303000000.0}, {"dataCode": "liabilitiesCurrent", "value": 1338000000.0},
+          {"dataCode": "deferredRev", "value": 0.0}, {"dataCode": "inventory", "value":
+          1608000000.0}, {"dataCode": "investments", "value": 1076000000.0}, {"dataCode":
+          "sharesBasic", "value": 207629772.0}, {"dataCode": "debt", "value": 6046000000.0}],
+          "incomeStatement": [{"dataCode": "shareswaDil", "value": 141065000.0}, {"dataCode":
+          "netIncComStock", "value": 79000000.0}, {"dataCode": "taxExp", "value": -3000000.0},
+          {"dataCode": "consolidatedIncome", "value": 159000000.0}, {"dataCode": "eps",
+          "value": 0.63}, {"dataCode": "sga", "value": 494000000.0}, {"dataCode": "ebt",
+          "value": 76000000.0}, {"dataCode": "costRev", "value": 2784000000.0}, {"dataCode":
+          "ebit", "value": 224000000.0}, {"dataCode": "epsDil", "value": 0.58}, {"dataCode":
+          "opinc", "value": 260000000.0}, {"dataCode": "grossProfit", "value": 763000000.0},
+          {"dataCode": "revenue", "value": 3547000000.0}, {"dataCode": "ebitda", "value":
+          298000000.0}, {"dataCode": "nonControllingInterests", "value": 80000000.0},
+          {"dataCode": "netIncDiscOps", "value": 0.0}, {"dataCode": "prefDVDs", "value":
+          0.0}, {"dataCode": "rnd", "value": 0.0}, {"dataCode": "opex", "value": 503000000.0},
+          {"dataCode": "shareswa", "value": 130219000.0}, {"dataCode": "netinc", "value":
+          79000000.0}, {"dataCode": "intexp", "value": 148000000.0}], "cashFlow": [{"dataCode":
+          "capex", "value": -22000000.0}, {"dataCode": "ncfo", "value": 60000000.0},
+          {"dataCode": "freeCashFlow", "value": 38000000.0}, {"dataCode": "ncff", "value":
+          775000000.0}, {"dataCode": "ncfx", "value": 0.0}, {"dataCode": "ncf", "value":
+          828000000.0}, {"dataCode": "payDiv", "value": 0.0}, {"dataCode": "issrepayEquity",
+          "value": 921000000.0}, {"dataCode": "investmentsAcqDisposals", "value": 15000000.0},
+          {"dataCode": "depamor", "value": 74000000.0}, {"dataCode": "issrepayDebt",
+          "value": -129000000.0}, {"dataCode": "businessAcqDisposals", "value": 0.0},
+          {"dataCode": "ncfi", "value": -7000000.0}, {"dataCode": "sbcomp", "value":
+          22000000.0}], "overview": [{"dataCode": "epsQoQ", "value": -1.5625}, {"dataCode":
+          "piotroskiFScore", "value": 6.0}, {"dataCode": "bookVal", "value": 1375000000.0},
+          {"dataCode": "revenueQoQ", "value": 0.463283828382838}, {"dataCode": "rps",
+          "value": 17.0832918893732}, {"dataCode": "roe", "value": 0.312732688011914},
+          {"dataCode": "bvps", "value": 6.62236434955966}, {"dataCode": "shareFactor",
+          "value": 1.0}, {"dataCode": "profitMargin", "value": 0.215111361714125}, {"dataCode":
+          "grossMargin", "value": 0.215111361714125}, {"dataCode": "roa", "value": 0.0279953341109815},
+          {"dataCode": "currentRatio", "value": 3.6390134529148}, {"dataCode": "longTermDebtEquity",
+          "value": 4.5}, {"dataCode": "debtEquity", "value": 4.7984126984127}]}}, {"date":
+          "2024-12-31", "quarter": 0, "year": 2024, "statementData": {"balanceSheet":
+          [{"dataCode": "acctPay", "value": 856000000.0}, {"dataCode": "cashAndEq",
+          "value": 1760000000.0}, {"dataCode": "debtCurrent", "value": 376000000.0},
+          {"dataCode": "totalLiabilities", "value": 7109000000.0}, {"dataCode": "investmentsCurrent",
+          "value": 1076000000.0}, {"dataCode": "accoci", "value": 0.0}, {"dataCode":
+          "taxLiabilities", "value": 0.0}, {"dataCode": "debt", "value": 6046000000.0},
+          {"dataCode": "investments", "value": 1076000000.0}, {"dataCode": "retainedEarnings",
+          "value": -1416000000.0}, {"dataCode": "acctRec", "value": 303000000.0}, {"dataCode":
+          "deferredRev", "value": 0.0}, {"dataCode": "inventory", "value": 1608000000.0},
+          {"dataCode": "liabilitiesNonCurrent", "value": 5771000000.0}, {"dataCode":
+          "liabilitiesCurrent", "value": 1338000000.0}, {"dataCode": "sharesBasic",
+          "value": 207629772.0}, {"dataCode": "deposits", "value": 0.0}, {"dataCode":
+          "intangibles", "value": 34000000.0}, {"dataCode": "assetsNonCurrent", "value":
+          3615000000.0}, {"dataCode": "ppeq", "value": 3213000000.0}, {"dataCode": "totalAssets",
+          "value": 8484000000.0}, {"dataCode": "equity", "value": 1260000000.0}, {"dataCode":
+          "debtNonCurrent", "value": 5670000000.0}, {"dataCode": "taxAssets", "value":
+          0.0}, {"dataCode": "investmentsNonCurrent", "value": 0.0}, {"dataCode": "assetsCurrent",
+          "value": 4869000000.0}], "incomeStatement": [{"dataCode": "ebit", "value":
+          857000000.0}, {"dataCode": "intexp", "value": 651000000.0}, {"dataCode": "ebt",
+          "value": 206000000.0}, {"dataCode": "shareswa", "value": 122344000.0}, {"dataCode":
+          "eps", "value": 1.72}, {"dataCode": "netIncDiscOps", "value": 0.0}, {"dataCode":
+          "ebitda", "value": 1162000000.0}, {"dataCode": "netIncComStock", "value":
+          210000000.0}, {"dataCode": "grossProfit", "value": 2876000000.0}, {"dataCode":
+          "shareswaDil", "value": 132206000.0}, {"dataCode": "sga", "value": 1874000000.0},
+          {"dataCode": "nonControllingInterests", "value": 194000000.0}, {"dataCode":
+          "consolidatedIncome", "value": 404000000.0}, {"dataCode": "epsDil", "value":
+          1.59}, {"dataCode": "costRev", "value": 10797000000.0}, {"dataCode": "netinc",
+          "value": 210000000.0}, {"dataCode": "taxExp", "value": -4000000.0}, {"dataCode":
+          "rnd", "value": 0.0}, {"dataCode": "prefDVDs", "value": 0.0}, {"dataCode":
+          "opinc", "value": 990000000.0}, {"dataCode": "opex", "value": 1886000000.0},
+          {"dataCode": "revenue", "value": 13673000000.0}], "cashFlow": [{"dataCode":
+          "ncfi", "value": -13000000.0}, {"dataCode": "issrepayDebt", "value": -991000000.0},
+          {"dataCode": "businessAcqDisposals", "value": 0.0}, {"dataCode": "issrepayEquity",
+          "value": 1271000000.0}, {"dataCode": "payDiv", "value": 0.0}, {"dataCode":
+          "ncfo", "value": 918000000.0}, {"dataCode": "ncff", "value": 261000000.0},
+          {"dataCode": "depamor", "value": 305000000.0}, {"dataCode": "sbcomp", "value":
+          91000000.0}, {"dataCode": "ncf", "value": 1166000000.0}, {"dataCode": "investmentsAcqDisposals",
+          "value": 67000000.0}, {"dataCode": "ncfx", "value": 0.0}, {"dataCode": "capex",
+          "value": -80000000.0}, {"dataCode": "freeCashFlow", "value": 838000000.0}],
+          "overview": [{"dataCode": "shareFactor", "value": 1.0}]}}, {"date": "2024-09-30",
+          "quarter": 3, "year": 2024, "statementData": {"balanceSheet": [{"dataCode":
+          "investments", "value": 1016000000.0}, {"dataCode": "liabilitiesNonCurrent",
+          "value": 5923000000.0}, {"dataCode": "taxAssets", "value": 0.0}, {"dataCode":
+          "investmentsCurrent", "value": 1016000000.0}, {"dataCode": "equity", "value":
+          611000000.0}, {"dataCode": "assetsCurrent", "value": 3765000000.0}, {"dataCode":
+          "accoci", "value": 0.0}, {"dataCode": "intangibles", "value": 39000000.0},
+          {"dataCode": "retainedEarnings", "value": -1495000000.0}, {"dataCode": "liabilitiesCurrent",
+          "value": 1159000000.0}, {"dataCode": "deferredRev", "value": 0.0}, {"dataCode":
+          "taxLiabilities", "value": 0.0}, {"dataCode": "acctPay", "value": 772000000.0},
+          {"dataCode": "debtCurrent", "value": 285000000.0}, {"dataCode": "sharesBasic",
+          "value": 206943558.0}, {"dataCode": "ppeq", "value": 3278000000.0}, {"dataCode":
+          "inventory", "value": 1305000000.0}, {"dataCode": "investmentsNonCurrent",
+          "value": 0.0}, {"dataCode": "totalLiabilities", "value": 7082000000.0}, {"dataCode":
+          "deposits", "value": 0.0}, {"dataCode": "assetsNonCurrent", "value": 3603000000.0},
+          {"dataCode": "debt", "value": 6145000000.0}, {"dataCode": "acctRec", "value":
+          363000000.0}, {"dataCode": "cashAndEq", "value": 932000000.0}, {"dataCode":
+          "totalAssets", "value": 7368000000.0}, {"dataCode": "debtNonCurrent", "value":
+          5860000000.0}], "incomeStatement": [{"dataCode": "nonControllingInterests",
+          "value": 63000000.0}, {"dataCode": "consolidatedIncome", "value": 148000000.0},
+          {"dataCode": "shareswaDil", "value": 133555000.0}, {"dataCode": "taxExp",
+          "value": -1000000.0}, {"dataCode": "netIncComStock", "value": 85000000.0},
+          {"dataCode": "intexp", "value": 157000000.0}, {"dataCode": "eps", "value":
+          0.69}, {"dataCode": "netinc", "value": 85000000.0}, {"dataCode": "ebt", "value":
+          84000000.0}, {"dataCode": "netIncDiscOps", "value": 0.0}, {"dataCode": "costRev",
+          "value": 2848000000.0}, {"dataCode": "revenue", "value": 3655000000.0}, {"dataCode":
+          "ebit", "value": 241000000.0}, {"dataCode": "sga", "value": 469000000.0},
+          {"dataCode": "grossProfit", "value": 807000000.0}, {"dataCode": "ebitda",
+          "value": 314000000.0}, {"dataCode": "prefDVDs", "value": 0.0}, {"dataCode":
+          "opinc", "value": 337000000.0}, {"dataCode": "opex", "value": 470000000.0},
+          {"dataCode": "epsDil", "value": 0.64}, {"dataCode": "shareswa", "value": 123883000.0},
+          {"dataCode": "rnd", "value": 0.0}], "cashFlow": [{"dataCode": "issrepayEquity",
+          "value": 0.0}, {"dataCode": "ncff", "value": -63000000.0}, {"dataCode": "depamor",
+          "value": 73000000.0}, {"dataCode": "issrepayDebt", "value": -61000000.0},
+          {"dataCode": "capex", "value": -26000000.0}, {"dataCode": "ncfx", "value":
+          0.0}, {"dataCode": "payDiv", "value": 0.0}, {"dataCode": "sbcomp", "value":
+          24000000.0}, {"dataCode": "ncf", "value": 325000000.0}, {"dataCode": "investmentsAcqDisposals",
+          "value": 11000000.0}, {"dataCode": "ncfo", "value": 403000000.0}, {"dataCode":
+          "ncfi", "value": -15000000.0}, {"dataCode": "businessAcqDisposals", "value":
+          0.0}, {"dataCode": "freeCashFlow", "value": 377000000.0}], "overview": [{"dataCode":
+          "rps", "value": 17.6618206206738}, {"dataCode": "debtEquity", "value": 10.0572831423895},
+          {"dataCode": "epsQoQ", "value": -0.902127659574468}, {"dataCode": "roa", "value":
+          0.00237828763290431}, {"dataCode": "longTermDebtEquity", "value": 9.59083469721768},
+          {"dataCode": "bookVal", "value": 286000000.0}, {"dataCode": "piotroskiFScore",
+          "value": 7.0}, {"dataCode": "bvps", "value": 1.38201934268473}, {"dataCode":
+          "currentRatio", "value": 3.24849007765315}, {"dataCode": "shareFactor", "value":
+          1.0}, {"dataCode": "profitMargin", "value": 0.220793433652531}, {"dataCode":
+          "roe", "value": 0.0407429598562013}, {"dataCode": "revenueQoQ", "value": 0.318067075369636},
+          {"dataCode": "grossMargin", "value": 0.220793433652531}]}}, {"date": "2024-06-30",
+          "quarter": 2, "year": 2024, "statementData": {"balanceSheet": [{"dataCode":
+          "equity", "value": 526000000.0}, {"dataCode": "assetsCurrent", "value": 3477000000.0},
+          {"dataCode": "investments", "value": 1179000000.0}, {"dataCode": "sharesBasic",
+          "value": 202566719.0}, {"dataCode": "ppeq", "value": 3333000000.0}, {"dataCode":
+          "debtNonCurrent", "value": 5872000000.0}, {"dataCode": "totalLiabilities",
+          "value": 7055000000.0}, {"dataCode": "investmentsCurrent", "value": 1179000000.0},
+          {"dataCode": "taxLiabilities", "value": 0.0}, {"dataCode": "acctPay", "value":
+          742000000.0}, {"dataCode": "debt", "value": 6147000000.0}, {"dataCode": "assetsNonCurrent",
+          "value": 3693000000.0}, {"dataCode": "taxAssets", "value": 0.0}, {"dataCode":
+          "deferredRev", "value": 0.0}, {"dataCode": "totalAssets", "value": 7170000000.0},
+          {"dataCode": "investmentsNonCurrent", "value": 0.0}, {"dataCode": "debtCurrent",
+          "value": 275000000.0}, {"dataCode": "retainedEarnings", "value": -1580000000.0},
+          {"dataCode": "liabilitiesNonCurrent", "value": 5937000000.0}, {"dataCode":
+          "deposits", "value": 0.0}, {"dataCode": "inventory", "value": 1221000000.0},
+          {"dataCode": "liabilitiesCurrent", "value": 1118000000.0}, {"dataCode": "acctRec",
+          "value": 349000000.0}, {"dataCode": "cashAndEq", "value": 607000000.0}, {"dataCode":
+          "intangibles", "value": 43000000.0}, {"dataCode": "accoci", "value": 0.0}],
+          "incomeStatement": [{"dataCode": "prefDVDs", "value": 0.0}, {"dataCode": "netinc",
+          "value": 18000000.0}, {"dataCode": "shareswa", "value": 118930000.0}, {"dataCode":
+          "intexp", "value": 173000000.0}, {"dataCode": "shareswaDil", "value": 128465000.0},
+          {"dataCode": "netIncComStock", "value": 18000000.0}, {"dataCode": "eps", "value":
+          0.15}, {"dataCode": "ebit", "value": 192000000.0}, {"dataCode": "ebitda",
+          "value": 268000000.0}, {"dataCode": "revenue", "value": 3410000000.0}, {"dataCode":
+          "rnd", "value": 0.0}, {"dataCode": "sga", "value": 455000000.0}, {"dataCode":
+          "netIncDiscOps", "value": 0.0}, {"dataCode": "costRev", "value": 2695000000.0},
+          {"dataCode": "opinc", "value": 259000000.0}, {"dataCode": "nonControllingInterests",
+          "value": 30000000.0}, {"dataCode": "taxExp", "value": 1000000.0}, {"dataCode":
+          "epsDil", "value": 0.14}, {"dataCode": "grossProfit", "value": 715000000.0},
+          {"dataCode": "ebt", "value": 19000000.0}, {"dataCode": "consolidatedIncome",
+          "value": 48000000.0}, {"dataCode": "opex", "value": 456000000.0}], "cashFlow":
+          [{"dataCode": "depamor", "value": 76000000.0}, {"dataCode": "freeCashFlow",
+          "value": 335000000.0}, {"dataCode": "issrepayDebt", "value": -426000000.0},
+          {"dataCode": "ncfi", "value": 2000000.0}, {"dataCode": "capex", "value": -19000000.0},
+          {"dataCode": "payDiv", "value": 0.0}, {"dataCode": "ncf", "value": 280000000.0},
+          {"dataCode": "investmentsAcqDisposals", "value": 21000000.0}, {"dataCode":
+          "ncff", "value": -76000000.0}, {"dataCode": "issrepayEquity", "value": 350000000.0},
+          {"dataCode": "ncfx", "value": 0.0}, {"dataCode": "ncfo", "value": 354000000.0},
+          {"dataCode": "sbcomp", "value": 23000000.0}, {"dataCode": "businessAcqDisposals",
+          "value": 0.0}], "overview": [{"dataCode": "rps", "value": 16.8339597779633},
+          {"dataCode": "shareFactor", "value": 1.0}, {"dataCode": "profitMargin", "value":
+          0.209677419354839}, {"dataCode": "roe", "value": 2.04438081603436}, {"dataCode":
+          "debtEquity", "value": 11.6863117870722}, {"dataCode": "roa", "value": 0.101100923926511},
+          {"dataCode": "revenueQoQ", "value": 0.148921832884097}, {"dataCode": "currentRatio",
+          "value": 3.11001788908766}, {"dataCode": "longTermDebtEquity", "value": 11.1634980988593},
+          {"dataCode": "bookVal", "value": 115000000.0}, {"dataCode": "grossMargin",
+          "value": 0.209677419354839}, {"dataCode": "piotroskiFScore", "value": 8.0},
+          {"dataCode": "epsQoQ", "value": -1.27272727272727}, {"dataCode": "bvps", "value":
+          0.567714186060347}]}}, {"date": "2024-03-31", "quarter": 1, "year": 2024,
+          "statementData": {"balanceSheet": [{"dataCode": "inventory", "value": 1162000000.0},
+          {"dataCode": "ppeq", "value": 3366000000.0}, {"dataCode": "debt", "value":
+          6437000000.0}, {"dataCode": "retainedEarnings", "value": -1598000000.0}, {"dataCode":
+          "sharesBasic", "value": 201899201.0}, {"dataCode": "liabilitiesNonCurrent",
+          "value": 6020000000.0}, {"dataCode": "accoci", "value": 0.0}, {"dataCode":
+          "assetsNonCurrent", "value": 3751000000.0}, {"dataCode": "deposits", "value":
+          0.0}, {"dataCode": "cashAndEq", "value": 327000000.0}, {"dataCode": "acctPay",
+          "value": 705000000.0}, {"dataCode": "taxAssets", "value": 0.0}, {"dataCode":
+          "investmentsCurrent", "value": 1254000000.0}, {"dataCode": "investments",
+          "value": 1254000000.0}, {"dataCode": "deferredRev", "value": 0.0}, {"dataCode":
+          "equity", "value": 289000000.0}, {"dataCode": "acctRec", "value": 351000000.0},
+          {"dataCode": "taxLiabilities", "value": 0.0}, {"dataCode": "debtNonCurrent",
+          "value": 5968000000.0}, {"dataCode": "totalLiabilities", "value": 7294000000.0},
+          {"dataCode": "totalAssets", "value": 6983000000.0}, {"dataCode": "assetsCurrent",
+          "value": 3232000000.0}, {"dataCode": "intangibles", "value": 48000000.0},
+          {"dataCode": "liabilitiesCurrent", "value": 1274000000.0}, {"dataCode": "investmentsNonCurrent",
+          "value": 0.0}, {"dataCode": "debtCurrent", "value": 469000000.0}], "incomeStatement":
+          [{"dataCode": "rnd", "value": 0.0}, {"dataCode": "prefDVDs", "value": 0.0},
+          {"dataCode": "netIncComStock", "value": 28000000.0}, {"dataCode": "netIncDiscOps",
+          "value": 0.0}, {"dataCode": "eps", "value": 0.24}, {"dataCode": "costRev",
+          "value": 2470000000.0}, {"dataCode": "ebt", "value": 27000000.0}, {"dataCode":
+          "shareswaDil", "value": 212239000.0}, {"dataCode": "intexp", "value": 173000000.0},
+          {"dataCode": "opinc", "value": 134000000.0}, {"dataCode": "epsDil", "value":
+          0.23}, {"dataCode": "sga", "value": 456000000.0}, {"dataCode": "opex", "value":
+          457000000.0}, {"dataCode": "taxExp", "value": -1000000.0}, {"dataCode": "netinc",
+          "value": 28000000.0}, {"dataCode": "shareswa", "value": 116298000.0}, {"dataCode":
+          "ebitda", "value": 282000000.0}, {"dataCode": "nonControllingInterests", "value":
+          21000000.0}, {"dataCode": "grossProfit", "value": 591000000.0}, {"dataCode":
+          "revenue", "value": 3061000000.0}, {"dataCode": "ebit", "value": 200000000.0},
+          {"dataCode": "consolidatedIncome", "value": 49000000.0}], "cashFlow": [{"dataCode":
+          "ncff", "value": -375000000.0}, {"dataCode": "payDiv", "value": 0.0}, {"dataCode":
+          "businessAcqDisposals", "value": 0.0}, {"dataCode": "sbcomp", "value": 22000000.0},
+          {"dataCode": "capex", "value": -13000000.0}, {"dataCode": "ncf", "value":
+          -267000000.0}, {"dataCode": "ncfi", "value": 7000000.0}, {"dataCode": "investmentsAcqDisposals",
+          "value": 20000000.0}, {"dataCode": "issrepayEquity", "value": 0.0}, {"dataCode":
+          "issrepayDebt", "value": -375000000.0}, {"dataCode": "depamor", "value": 82000000.0},
+          {"dataCode": "ncfx", "value": 0.0}, {"dataCode": "freeCashFlow", "value":
+          88000000.0}, {"dataCode": "ncfo", "value": 101000000.0}], "overview": [{"dataCode":
+          "shareFactor", "value": 1.0}, {"dataCode": "piotroskiFScore", "value": 8.0},
+          {"dataCode": "epsQoQ", "value": -1.15894039735099}, {"dataCode": "grossMargin",
+          "value": 0.193074158771643}, {"dataCode": "roe", "value": 14.6666666666667},
+          {"dataCode": "profitMargin", "value": 0.193074158771643}, {"dataCode": "roa",
+          "value": 0.0882190265486726}, {"dataCode": "currentRatio", "value": 2.53689167974882},
+          {"dataCode": "bookVal", "value": -311000000.0}, {"dataCode": "debtEquity",
+          "value": 22.2733564013841}, {"dataCode": "rps", "value": 15.1610307759465},
+          {"dataCode": "revenueQoQ", "value": 0.174597083653108}, {"dataCode": "longTermDebtEquity",
+          "value": 20.6505190311419}, {"dataCode": "bvps", "value": -1.54037261395601}]}},
+          {"date": "2023-12-31", "quarter": 4, "year": 2023, "statementData": {"balanceSheet":
+          [{"dataCode": "investmentsCurrent", "value": 1173000000.0}, {"dataCode": "totalLiabilities",
+          "value": 7455000000.0}, {"dataCode": "cashAndEq", "value": 594000000.0}, {"dataCode":
+          "debt", "value": 6706000000.0}, {"dataCode": "assetsNonCurrent", "value":
+          3750000000.0}, {"dataCode": "taxAssets", "value": 0.0}, {"dataCode": "assetsCurrent",
+          "value": 3321000000.0}, {"dataCode": "deferredRev", "value": 0.0}, {"dataCode":
+          "debtNonCurrent", "value": 5849000000.0}, {"dataCode": "totalAssets", "value":
+          7071000000.0}, {"dataCode": "investmentsNonCurrent", "value": 0.0}, {"dataCode":
+          "debtCurrent", "value": 857000000.0}, {"dataCode": "ppeq", "value": 3437000000.0},
+          {"dataCode": "retainedEarnings", "value": -1626000000.0}, {"dataCode": "intangibles",
+          "value": 52000000.0}, {"dataCode": "accoci", "value": 0.0}, {"dataCode": "liabilitiesNonCurrent",
+          "value": 5919000000.0}, {"dataCode": "deposits", "value": 0.0}, {"dataCode":
+          "sharesBasic", "value": 199649835.0}, {"dataCode": "inventory", "value": 1150000000.0},
+          {"dataCode": "liabilitiesCurrent", "value": 1536000000.0}, {"dataCode": "investments",
+          "value": 1173000000.0}, {"dataCode": "acctRec", "value": 266000000.0}, {"dataCode":
+          "equity", "value": 243000000.0}, {"dataCode": "taxLiabilities", "value": 0.0},
+          {"dataCode": "acctPay", "value": 596000000.0}], "incomeStatement": [{"dataCode":
+          "opinc", "value": -38000000.0}, {"dataCode": "sga", "value": 439000000.0},
+          {"dataCode": "costRev", "value": 2022000000.0}, {"dataCode": "nonControllingInterests",
+          "value": -86000000.0}, {"dataCode": "rnd", "value": 0.0}, {"dataCode": "epsDil",
+          "value": -1.03}, {"dataCode": "taxExp", "value": -2000000.0}, {"dataCode":
+          "netinc", "value": -114000000.0}, {"dataCode": "ebitda", "value": 131000000.0},
+          {"dataCode": "ebit", "value": 49000000.0}, {"dataCode": "grossProfit", "value":
+          402000000.0}, {"dataCode": "revenue", "value": 2424000000.0}, {"dataCode":
+          "netIncComStock", "value": -114000000.0}, {"dataCode": "eps", "value": -1.12},
+          {"dataCode": "ebt", "value": -116000000.0}, {"dataCode": "shareswaDil", "value":
+          210940000.0}, {"dataCode": "prefDVDs", "value": 0.0}, {"dataCode": "intexp",
+          "value": 165000000.0}, {"dataCode": "consolidatedIncome", "value": -200000000.0},
+          {"dataCode": "shareswa", "value": 114216000.0}, {"dataCode": "opex", "value":
+          440000000.0}, {"dataCode": "netIncDiscOps", "value": 0.0}], "cashFlow": [{"dataCode":
+          "ncf", "value": -22000000.0}, {"dataCode": "ncfi", "value": 9000000.0}, {"dataCode":
+          "capex", "value": -4000000.0}, {"dataCode": "issrepayEquity", "value": 0.0},
+          {"dataCode": "issrepayDebt", "value": 211000000.0}, {"dataCode": "ncfx", "value":
+          0.0}, {"dataCode": "freeCashFlow", "value": -243000000.0}, {"dataCode": "ncfo",
+          "value": -239000000.0}, {"dataCode": "sbcomp", "value": 21000000.0}, {"dataCode":
+          "businessAcqDisposals", "value": 0.0}, {"dataCode": "depamor", "value": 82000000.0},
+          {"dataCode": "investmentsAcqDisposals", "value": 13000000.0}, {"dataCode":
+          "payDiv", "value": 0.0}, {"dataCode": "ncff", "value": 208000000.0}], "overview":
+          [{"dataCode": "bvps", "value": -1.92336747986794}, {"dataCode": "rps", "value":
+          12.1412572166664}, {"dataCode": "roa", "value": 0.0588408355398647}, {"dataCode":
+          "bookVal", "value": -384000000.0}, {"dataCode": "profitMargin", "value": 0.165841584158416},
+          {"dataCode": "revenueQoQ", "value": -0.145576313006697}, {"dataCode": "debtEquity",
+          "value": 27.59670781893}, {"dataCode": "grossMargin", "value": 0.165841584158416},
+          {"dataCode": "roe", "value": -2.32258064516129}, {"dataCode": "currentRatio",
+          "value": 2.162109375}, {"dataCode": "piotroskiFScore", "value": 5.0}, {"dataCode":
+          "longTermDebtEquity", "value": 24.0699588477366}, {"dataCode": "epsQoQ", "value":
+          -0.857506361323155}, {"dataCode": "shareFactor", "value": 1.0}]}}, {"date":
+          "2023-12-31", "quarter": 0, "year": 2023, "statementData": {"balanceSheet":
+          [{"dataCode": "investmentsCurrent", "value": 1173000000.0}, {"dataCode": "intangibles",
+          "value": 52000000.0}, {"dataCode": "accoci", "value": 0.0}, {"dataCode": "cashAndEq",
+          "value": 594000000.0}, {"dataCode": "acctRec", "value": 266000000.0}, {"dataCode":
+          "liabilitiesCurrent", "value": 1536000000.0}, {"dataCode": "inventory", "value":
+          1150000000.0}, {"dataCode": "deposits", "value": 0.0}, {"dataCode": "liabilitiesNonCurrent",
+          "value": 5919000000.0}, {"dataCode": "retainedEarnings", "value": -1626000000.0},
+          {"dataCode": "investmentsNonCurrent", "value": 0.0}, {"dataCode": "debtCurrent",
+          "value": 857000000.0}, {"dataCode": "totalAssets", "value": 7071000000.0},
+          {"dataCode": "deferredRev", "value": 0.0}, {"dataCode": "taxAssets", "value":
+          0.0}, {"dataCode": "assetsNonCurrent", "value": 3750000000.0}, {"dataCode":
+          "debt", "value": 6706000000.0}, {"dataCode": "acctPay", "value": 596000000.0},
+          {"dataCode": "taxLiabilities", "value": 0.0}, {"dataCode": "equity", "value":
+          243000000.0}, {"dataCode": "totalLiabilities", "value": 7455000000.0}, {"dataCode":
+          "debtNonCurrent", "value": 5849000000.0}, {"dataCode": "ppeq", "value": 3437000000.0},
+          {"dataCode": "sharesBasic", "value": 199649835.0}, {"dataCode": "investments",
+          "value": 1173000000.0}, {"dataCode": "assetsCurrent", "value": 3321000000.0}],
+          "incomeStatement": [{"dataCode": "consolidatedIncome", "value": 150000000.0},
+          {"dataCode": "opex", "value": 1804000000.0}, {"dataCode": "netinc", "value":
+          450000000.0}, {"dataCode": "ebt", "value": 475000000.0}, {"dataCode": "grossProfit",
+          "value": 1724000000.0}, {"dataCode": "epsDil", "value": 0.75}, {"dataCode":
+          "taxExp", "value": 25000000.0}, {"dataCode": "nonControllingInterests", "value":
+          -300000000.0}, {"dataCode": "costRev", "value": 9047000000.0}, {"dataCode":
+          "opinc", "value": -80000000.0}, {"dataCode": "netIncDiscOps", "value": 0.0},
+          {"dataCode": "sga", "value": 1796000000.0}, {"dataCode": "rnd", "value": 0.0},
+          {"dataCode": "ebit", "value": 1107000000.0}, {"dataCode": "ebitda", "value":
+          1459000000.0}, {"dataCode": "revenue", "value": 10771000000.0}, {"dataCode":
+          "netIncComStock", "value": 450000000.0}, {"dataCode": "eps", "value": 4.12},
+          {"dataCode": "shareswaDil", "value": 200578000.0}, {"dataCode": "intexp",
+          "value": 632000000.0}, {"dataCode": "shareswa", "value": 109323000.0}, {"dataCode":
+          "prefDVDs", "value": 0.0}], "cashFlow": [{"dataCode": "businessAcqDisposals",
+          "value": -7000000.0}, {"dataCode": "sbcomp", "value": 73000000.0}, {"dataCode":
+          "ncfo", "value": 803000000.0}, {"dataCode": "ncfx", "value": 0.0}, {"dataCode":
+          "issrepayEquity", "value": 453000000.0}, {"dataCode": "ncff", "value": -868000000.0},
+          {"dataCode": "ncf", "value": -34000000.0}, {"dataCode": "investmentsAcqDisposals",
+          "value": 53000000.0}, {"dataCode": "payDiv", "value": 0.0}, {"dataCode": "ncfi",
+          "value": 31000000.0}, {"dataCode": "capex", "value": -15000000.0}, {"dataCode":
+          "issrepayDebt", "value": -1306000000.0}, {"dataCode": "freeCashFlow", "value":
+          788000000.0}, {"dataCode": "depamor", "value": 352000000.0}], "overview":
+          [{"dataCode": "shareFactor", "value": 1.0}]}}, {"date": "2023-09-30", "quarter":
+          3, "year": 2023, "statementData": {"balanceSheet": [{"dataCode": "ppeq", "value":
+          3524000000.0}, {"dataCode": "accoci", "value": 0.0}, {"dataCode": "debtCurrent",
+          "value": 629000000.0}, {"dataCode": "liabilitiesCurrent", "value": 1395000000.0},
+          {"dataCode": "inventory", "value": 1085000000.0}, {"dataCode": "totalLiabilities",
+          "value": 7227000000.0}, {"dataCode": "intangibles", "value": 56000000.0},
+          {"dataCode": "totalAssets", "value": 7025000000.0}, {"dataCode": "investments",
+          "value": 1021000000.0}, {"dataCode": "investmentsCurrent", "value": 1021000000.0},
+          {"dataCode": "acctRec", "value": 318000000.0}, {"dataCode": "deferredRev",
+          "value": 0.0}, {"dataCode": "cashAndEq", "value": 616000000.0}, {"dataCode":
+          "debtNonCurrent", "value": 5755000000.0}, {"dataCode": "assetsCurrent", "value":
+          3186000000.0}, {"dataCode": "acctPay", "value": 681000000.0}, {"dataCode":
+          "taxAssets", "value": 0.0}, {"dataCode": "debt", "value": 6384000000.0}, {"dataCode":
+          "assetsNonCurrent", "value": 3839000000.0}, {"dataCode": "equity", "value":
+          339000000.0}, {"dataCode": "taxLiabilities", "value": 0.0}, {"dataCode": "deposits",
+          "value": 0.0}, {"dataCode": "liabilitiesNonCurrent", "value": 5832000000.0},
+          {"dataCode": "retainedEarnings", "value": -1512000000.0}, {"dataCode": "investmentsNonCurrent",
+          "value": 0.0}, {"dataCode": "sharesBasic", "value": 189444131.0}], "incomeStatement":
+          [{"dataCode": "epsDil", "value": 3.6}, {"dataCode": "costRev", "value": 2291000000.0},
+          {"dataCode": "ebitda", "value": 1051000000.0}, {"dataCode": "grossProfit",
+          "value": 482000000.0}, {"dataCode": "netIncDiscOps", "value": 0.0}, {"dataCode":
+          "ebit", "value": 964000000.0}, {"dataCode": "prefDVDs", "value": 0.0}, {"dataCode":
+          "opex", "value": 434000000.0}, {"dataCode": "shareswa", "value": 110844000.0},
+          {"dataCode": "netinc", "value": 782000000.0}, {"dataCode": "taxExp", "value":
+          29000000.0}, {"dataCode": "rnd", "value": 0.0}, {"dataCode": "opinc", "value":
+          48000000.0}, {"dataCode": "nonControllingInterests", "value": -41000000.0},
+          {"dataCode": "revenue", "value": 2773000000.0}, {"dataCode": "shareswaDil",
+          "value": 205958000.0}, {"dataCode": "intexp", "value": 153000000.0}, {"dataCode":
+          "eps", "value": 7.05}, {"dataCode": "sga", "value": 433000000.0}, {"dataCode":
+          "ebt", "value": 811000000.0}, {"dataCode": "netIncComStock", "value": 782000000.0},
+          {"dataCode": "consolidatedIncome", "value": 741000000.0}], "cashFlow": [{"dataCode":
+          "ncfo", "value": 599000000.0}, {"dataCode": "freeCashFlow", "value": 605000000.0},
+          {"dataCode": "ncfx", "value": 0.0}, {"dataCode": "issrepayDebt", "value":
+          -1119000000.0}, {"dataCode": "investmentsAcqDisposals", "value": 10000000.0},
+          {"dataCode": "issrepayEquity", "value": 453000000.0}, {"dataCode": "capex",
+          "value": 6000000.0}, {"dataCode": "ncfi", "value": 16000000.0}, {"dataCode":
+          "ncf", "value": -61000000.0}, {"dataCode": "sbcomp", "value": 18000000.0},
+          {"dataCode": "depamor", "value": 87000000.0}, {"dataCode": "payDiv", "value":
+          0.0}, {"dataCode": "ncff", "value": -676000000.0}, {"dataCode": "businessAcqDisposals",
+          "value": 0.0}], "overview": [{"dataCode": "piotroskiFScore", "value": 5.0},
+          {"dataCode": "profitMargin", "value": 0.173818968626037}, {"dataCode": "currentRatio",
+          "value": 2.28387096774194}, {"dataCode": "shareFactor", "value": 1.0}, {"dataCode":
+          "roa", "value": -0.0300453162828233}, {"dataCode": "epsQoQ", "value": -3.64044943820225},
+          {"dataCode": "debtEquity", "value": 18.8318584070796}, {"dataCode": "roe",
+          "value": 0.630208333333333}, {"dataCode": "bookVal", "value": -202000000.0},
+          {"dataCode": "longTermDebtEquity", "value": 16.976401179941}, {"dataCode":
+          "revenueQoQ", "value": -0.181039574719433}, {"dataCode": "grossMargin", "value":
+          0.173818968626037}, {"dataCode": "bvps", "value": -1.06627742402851}, {"dataCode":
+          "rps", "value": 14.6375608754013}]}}, {"date": "2023-06-30", "quarter": 2,
+          "year": 2023, "statementData": {"balanceSheet": [{"dataCode": "sharesBasic",
+          "value": 189082667.0}, {"dataCode": "ppeq", "value": 3615000000.0}, {"dataCode":
+          "investmentsCurrent", "value": 1433000000.0}, {"dataCode": "taxLiabilities",
+          "value": 0.0}, {"dataCode": "assetsNonCurrent", "value": 3937000000.0}, {"dataCode":
+          "taxAssets", "value": 0.0}, {"dataCode": "debtCurrent", "value": 1360000000.0},
+          {"dataCode": "retainedEarnings", "value": -2294000000.0}, {"dataCode": "liabilitiesNonCurrent",
+          "value": 7076000000.0}, {"dataCode": "liabilitiesCurrent", "value": 2179000000.0},
+          {"dataCode": "acctRec", "value": 335000000.0}, {"dataCode": "cashAndEq", "value":
+          677000000.0}, {"dataCode": "accoci", "value": 0.0}, {"dataCode": "assetsCurrent",
+          "value": 3912000000.0}, {"dataCode": "investments", "value": 1433000000.0},
+          {"dataCode": "intangibles", "value": 61000000.0}, {"dataCode": "inventory",
+          "value": 1302000000.0}, {"dataCode": "deposits", "value": 0.0}, {"dataCode":
+          "investmentsNonCurrent", "value": 0.0}, {"dataCode": "totalAssets", "value":
+          7849000000.0}, {"dataCode": "deferredRev", "value": 0.0}, {"dataCode": "debt",
+          "value": 8368000000.0}, {"dataCode": "acctPay", "value": 739000000.0}, {"dataCode":
+          "totalLiabilities", "value": 9255000000.0}, {"dataCode": "debtNonCurrent",
+          "value": 7008000000.0}, {"dataCode": "equity", "value": -697000000.0}], "incomeStatement":
+          [{"dataCode": "revenue", "value": 2968000000.0}, {"dataCode": "epsDil", "value":
+          -0.55}, {"dataCode": "netinc", "value": -58000000.0}, {"dataCode": "shareswaDil",
+          "value": 106222000.0}, {"dataCode": "eps", "value": -0.55}, {"dataCode": "ebitda",
+          "value": 187000000.0}, {"dataCode": "rnd", "value": 0.0}, {"dataCode": "sga",
+          "value": 452000000.0}, {"dataCode": "opinc", "value": 42000000.0}, {"dataCode":
+          "nonControllingInterests", "value": -47000000.0}, {"dataCode": "grossProfit",
+          "value": 499000000.0}, {"dataCode": "shareswa", "value": 106222000.0}, {"dataCode":
+          "prefDVDs", "value": 0.0}, {"dataCode": "opex", "value": 457000000.0}, {"dataCode":
+          "ebt", "value": -58000000.0}, {"dataCode": "taxExp", "value": 0.0}, {"dataCode":
+          "costRev", "value": 2469000000.0}, {"dataCode": "netIncDiscOps", "value":
+          0.0}, {"dataCode": "ebit", "value": 97000000.0}, {"dataCode": "netIncComStock",
+          "value": -58000000.0}, {"dataCode": "intexp", "value": 155000000.0}, {"dataCode":
+          "consolidatedIncome", "value": -105000000.0}], "cashFlow": [{"dataCode": "ncfx",
+          "value": 0.0}, {"dataCode": "freeCashFlow", "value": 512000000.0}, {"dataCode":
+          "issrepayDebt", "value": -549000000.0}, {"dataCode": "capex", "value": 3000000.0},
+          {"dataCode": "payDiv", "value": 0.0}, {"dataCode": "investmentsAcqDisposals",
+          "value": 22000000.0}, {"dataCode": "ncff", "value": -551000000.0}, {"dataCode":
+          "issrepayEquity", "value": 0.0}, {"dataCode": "ncfo", "value": 509000000.0},
+          {"dataCode": "sbcomp", "value": 19000000.0}, {"dataCode": "businessAcqDisposals",
+          "value": 0.0}, {"dataCode": "depamor", "value": 90000000.0}, {"dataCode":
+          "ncf", "value": -17000000.0}, {"dataCode": "ncfi", "value": 25000000.0}],
+          "overview": [{"dataCode": "debtEquity", "value": -12.0057388809182}, {"dataCode":
+          "roe", "value": 3.26545908806996}, {"dataCode": "revenueQoQ", "value": -0.235839340885685},
+          {"dataCode": "currentRatio", "value": 1.79531895364846}, {"dataCode": "profitMargin",
+          "value": 0.168126684636119}, {"dataCode": "piotroskiFScore", "value": 6.0},
+          {"dataCode": "bvps", "value": -7.43590103898841}, {"dataCode": "longTermDebtEquity",
+          "value": -10.0545193687231}, {"dataCode": "rps", "value": 15.6968380396285},
+          {"dataCode": "bookVal", "value": -1406000000.0}, {"dataCode": "epsQoQ", "value":
+          -0.765957446808511}, {"dataCode": "roa", "value": -0.150169472051474}, {"dataCode":
+          "shareFactor", "value": 1.0}, {"dataCode": "grossMargin", "value": 0.168126684636119}]}},
+          {"date": "2023-03-31", "quarter": 1, "year": 2023, "statementData": {"balanceSheet":
+          [{"dataCode": "assetsNonCurrent", "value": 4030000000.0}, {"dataCode": "liabilitiesNonCurrent",
+          "value": 7118000000.0}, {"dataCode": "debt", "value": 8950000000.0}, {"dataCode":
+          "taxAssets", "value": 0.0}, {"dataCode": "cashAndEq", "value": 694000000.0},
+          {"dataCode": "retainedEarnings", "value": -2236000000.0}, {"dataCode": "deferredRev",
+          "value": 0.0}, {"dataCode": "totalAssets", "value": 8646000000.0}, {"dataCode":
+          "investmentsNonCurrent", "value": 0.0}, {"dataCode": "debtCurrent", "value":
+          1904000000.0}, {"dataCode": "ppeq", "value": 3714000000.0}, {"dataCode": "intangibles",
+          "value": 65000000.0}, {"dataCode": "acctRec", "value": 342000000.0}, {"dataCode":
+          "debtNonCurrent", "value": 7046000000.0}, {"dataCode": "inventory", "value":
+          1485000000.0}, {"dataCode": "investments", "value": 1918000000.0}, {"dataCode":
+          "assetsCurrent", "value": 4616000000.0}, {"dataCode": "liabilitiesCurrent",
+          "value": 2850000000.0}, {"dataCode": "totalLiabilities", "value": 9968000000.0},
+          {"dataCode": "investmentsCurrent", "value": 1918000000.0}, {"dataCode": "accoci",
+          "value": 0.0}, {"dataCode": "deposits", "value": 0.0}, {"dataCode": "taxLiabilities",
+          "value": 0.0}, {"dataCode": "sharesBasic", "value": 188974506.0}, {"dataCode":
+          "equity", "value": -660000000.0}, {"dataCode": "acctPay", "value": 864000000.0}],
+          "incomeStatement": [{"dataCode": "shareswa", "value": 106011000.0}, {"dataCode":
+          "taxExp", "value": -2000000.0}, {"dataCode": "grossProfit", "value": 341000000.0},
+          {"dataCode": "revenue", "value": 2606000000.0}, {"dataCode": "intexp", "value":
+          159000000.0}, {"dataCode": "eps", "value": -1.51}, {"dataCode": "opex", "value":
+          473000000.0}, {"dataCode": "netIncComStock", "value": -160000000.0}, {"dataCode":
+          "ebitda", "value": 90000000.0}, {"dataCode": "ebit", "value": -3000000.0},
+          {"dataCode": "rnd", "value": 0.0}, {"dataCode": "prefDVDs", "value": 0.0},
+          {"dataCode": "sga", "value": 472000000.0}, {"dataCode": "epsDil", "value":
+          -1.51}, {"dataCode": "netIncDiscOps", "value": 0.0}, {"dataCode": "netinc",
+          "value": -160000000.0}, {"dataCode": "consolidatedIncome", "value": -286000000.0},
+          {"dataCode": "shareswaDil", "value": 106011000.0}, {"dataCode": "opinc", "value":
+          -132000000.0}, {"dataCode": "costRev", "value": 2265000000.0}, {"dataCode":
+          "nonControllingInterests", "value": -126000000.0}, {"dataCode": "ebt", "value":
+          -162000000.0}], "cashFlow": [{"dataCode": "issrepayEquity", "value": 0.0},
+          {"dataCode": "ncfx", "value": 0.0}, {"dataCode": "ncfo", "value": -66000000.0},
+          {"dataCode": "depamor", "value": 93000000.0}, {"dataCode": "freeCashFlow",
+          "value": -86000000.0}, {"dataCode": "issrepayDebt", "value": 151000000.0},
+          {"dataCode": "capex", "value": -20000000.0}, {"dataCode": "ncfi", "value":
+          -19000000.0}, {"dataCode": "businessAcqDisposals", "value": -7000000.0}, {"dataCode":
+          "payDiv", "value": 0.0}, {"dataCode": "investmentsAcqDisposals", "value":
+          8000000.0}, {"dataCode": "ncf", "value": 66000000.0}, {"dataCode": "sbcomp",
+          "value": 15000000.0}, {"dataCode": "ncff", "value": 151000000.0}], "overview":
+          [{"dataCode": "longTermDebtEquity", "value": -10.6757575757576}, {"dataCode":
+          "revenueQoQ", "value": -0.254789819845582}, {"dataCode": "bvps", "value":
+          -6.99565263051938}, {"dataCode": "grossMargin", "value": 0.130851880276285},
+          {"dataCode": "debtEquity", "value": -13.5606060606061}, {"dataCode": "bookVal",
+          "value": -1322000000.0}, {"dataCode": "epsQoQ", "value": -0.477508650519031},
+          {"dataCode": "roe", "value": 16.2958904109589}, {"dataCode": "rps", "value":
+          13.7902199358045}, {"dataCode": "roa", "value": -0.158753036005018}, {"dataCode":
+          "shareFactor", "value": 1.0}, {"dataCode": "currentRatio", "value": 1.61964912280702},
+          {"dataCode": "profitMargin", "value": 0.130851880276285}, {"dataCode": "piotroskiFScore",
+          "value": 3.0}]}}, {"date": "2022-12-31", "quarter": 4, "year": 2022, "statementData":
+          {"balanceSheet": [{"dataCode": "deferredRev", "value": 0.0}, {"dataCode":
+          "investments", "value": 1655000000.0}, {"dataCode": "investmentsCurrent",
+          "value": 1655000000.0}, {"dataCode": "debtNonCurrent", "value": 7081000000.0},
+          {"dataCode": "equity", "value": -518000000.0}, {"dataCode": "intangibles",
+          "value": 70000000.0}, {"dataCode": "totalLiabilities", "value": 9751000000.0},
+          {"dataCode": "debt", "value": 8816000000.0}, {"dataCode": "liabilitiesCurrent",
+          "value": 2592000000.0}, {"dataCode": "liabilitiesNonCurrent", "value": 7159000000.0},
+          {"dataCode": "assetsCurrent", "value": 4594000000.0}, {"dataCode": "inventory",
+          "value": 1876000000.0}, {"dataCode": "investmentsNonCurrent", "value": 0.0},
+          {"dataCode": "retainedEarnings", "value": -2076000000.0}, {"dataCode": "totalAssets",
+          "value": 8698000000.0}, {"dataCode": "taxAssets", "value": 0.0}, {"dataCode":
+          "debtCurrent", "value": 1735000000.0}, {"dataCode": "acctPay", "value": 777000000.0},
+          {"dataCode": "sharesBasic", "value": 188848021.0}, {"dataCode": "assetsNonCurrent",
+          "value": 4104000000.0}, {"dataCode": "taxLiabilities", "value": 0.0}, {"dataCode":
+          "ppeq", "value": 3780000000.0}, {"dataCode": "cashAndEq", "value": 628000000.0},
+          {"dataCode": "deposits", "value": 0.0}, {"dataCode": "accoci", "value": 0.0},
+          {"dataCode": "acctRec", "value": 253000000.0}], "incomeStatement": [{"dataCode":
+          "netIncDiscOps", "value": 0.0}, {"dataCode": "shareswa", "value": 105910000.0},
+          {"dataCode": "costRev", "value": 2644000000.0}, {"dataCode": "grossProfit",
+          "value": 193000000.0}, {"dataCode": "revenue", "value": 2837000000.0}, {"dataCode":
+          "epsDil", "value": -7.86}, {"dataCode": "sga", "value": 632000000.0}, {"dataCode":
+          "rnd", "value": 0.0}, {"dataCode": "opinc", "value": -1300000000.0}, {"dataCode":
+          "shareswaDil", "value": 105910000.0}, {"dataCode": "eps", "value": -7.86},
+          {"dataCode": "netinc", "value": -806000000.0}, {"dataCode": "opex", "value":
+          1493000000.0}, {"dataCode": "prefDVDs", "value": 0.0}, {"dataCode": "intexp",
+          "value": 153000000.0}, {"dataCode": "netIncComStock", "value": -806000000.0},
+          {"dataCode": "ebitda", "value": -571000000.0}, {"dataCode": "ebt", "value":
+          -806000000.0}, {"dataCode": "ebit", "value": -653000000.0}, {"dataCode": "consolidatedIncome",
+          "value": -1441000000.0}, {"dataCode": "nonControllingInterests", "value":
+          -635000000.0}, {"dataCode": "taxExp", "value": 0.0}], "cashFlow": [{"dataCode":
+          "businessAcqDisposals", "value": -7000000.0}, {"dataCode": "payDiv", "value":
+          0.0}, {"dataCode": "depamor", "value": 82000000.0}, {"dataCode": "ncfo", "value":
+          -739000000.0}, {"dataCode": "capex", "value": -17000000.0}, {"dataCode": "ncfi",
+          "value": -15000000.0}, {"dataCode": "sbcomp", "value": 12000000.0}, {"dataCode":
+          "ncff", "value": 905000000.0}, {"dataCode": "ncfx", "value": 0.0}, {"dataCode":
+          "issrepayEquity", "value": 0.0}, {"dataCode": "ncf", "value": 151000000.0},
+          {"dataCode": "investmentsAcqDisposals", "value": 9000000.0}, {"dataCode":
+          "freeCashFlow", "value": -756000000.0}, {"dataCode": "issrepayDebt", "value":
+          905000000.0}], "overview": [{"dataCode": "roa", "value": -0.174366862605065},
+          {"dataCode": "profitMargin", "value": 0.0680296087416285}, {"dataCode": "epsQoQ",
+          "value": 6.34579439252336}, {"dataCode": "debtEquity", "value": -17.019305019305},
+          {"dataCode": "currentRatio", "value": 1.77237654320988}, {"dataCode": "bookVal",
+          "value": -1053000000.0}, {"dataCode": "roe", "value": -16.928}, {"dataCode":
+          "rps", "value": 15.0226620590321}, {"dataCode": "piotroskiFScore", "value":
+          3.0}, {"dataCode": "revenueQoQ", "value": -0.244071409539035}, {"dataCode":
+          "shareFactor", "value": 1.0}, {"dataCode": "longTermDebtEquity", "value":
+          -13.6698841698842}, {"dataCode": "grossMargin", "value": 0.0680296087416285},
+          {"dataCode": "bvps", "value": -5.57591228345464}]}}, {"date": "2022-12-31",
+          "quarter": 0, "year": 2022, "statementData": {"balanceSheet": [{"dataCode":
+          "cashAndEq", "value": 628000000.0}, {"dataCode": "debt", "value": 8816000000.0},
+          {"dataCode": "taxLiabilities", "value": 0.0}, {"dataCode": "ppeq", "value":
+          3780000000.0}, {"dataCode": "intangibles", "value": 70000000.0}, {"dataCode":
+          "acctPay", "value": 777000000.0}, {"dataCode": "accoci", "value": 0.0}, {"dataCode":
+          "debtCurrent", "value": 1735000000.0}, {"dataCode": "retainedEarnings", "value":
+          -2076000000.0}, {"dataCode": "assetsNonCurrent", "value": 4104000000.0}, {"dataCode":
+          "totalAssets", "value": 8698000000.0}, {"dataCode": "inventory", "value":
+          1876000000.0}, {"dataCode": "investments", "value": 1655000000.0}, {"dataCode":
+          "assetsCurrent", "value": 4594000000.0}, {"dataCode": "liabilitiesCurrent",
+          "value": 2592000000.0}, {"dataCode": "liabilitiesNonCurrent", "value": 7159000000.0},
+          {"dataCode": "totalLiabilities", "value": 9751000000.0}, {"dataCode": "debtNonCurrent",
+          "value": 7081000000.0}, {"dataCode": "investmentsCurrent", "value": 1655000000.0},
+          {"dataCode": "taxAssets", "value": 0.0}, {"dataCode": "acctRec", "value":
+          253000000.0}, {"dataCode": "equity", "value": -518000000.0}, {"dataCode":
+          "deposits", "value": 0.0}, {"dataCode": "investmentsNonCurrent", "value":
+          0.0}, {"dataCode": "sharesBasic", "value": 188848021.0}, {"dataCode": "deferredRev",
+          "value": 0.0}], "incomeStatement": [{"dataCode": "revenue", "value": 13604000000.0},
+          {"dataCode": "ebitda", "value": -839000000.0}, {"dataCode": "costRev", "value":
+          12358000000.0}, {"dataCode": "intexp", "value": 486000000.0}, {"dataCode":
+          "netIncComStock", "value": -1587000000.0}, {"dataCode": "shareswaDil", "value":
+          100828000.0}, {"dataCode": "prefDVDs", "value": 0.0}, {"dataCode": "opex",
+          "value": 3597000000.0}, {"dataCode": "eps", "value": -15.74}, {"dataCode":
+          "netinc", "value": -1587000000.0}, {"dataCode": "opinc", "value": -2351000000.0},
+          {"dataCode": "sga", "value": 2736000000.0}, {"dataCode": "rnd", "value": 0.0},
+          {"dataCode": "nonControllingInterests", "value": -1307000000.0}, {"dataCode":
+          "grossProfit", "value": 1246000000.0}, {"dataCode": "epsDil", "value": -15.74},
+          {"dataCode": "netIncDiscOps", "value": 0.0}, {"dataCode": "shareswa", "value":
+          100828000.0}, {"dataCode": "ebit", "value": -1100000000.0}, {"dataCode": "consolidatedIncome",
+          "value": -2894000000.0}, {"dataCode": "ebt", "value": -1586000000.0}, {"dataCode":
+          "taxExp", "value": 1000000.0}], "cashFlow": [{"dataCode": "businessAcqDisposals",
+          "value": -2196000000.0}, {"dataCode": "ncf", "value": -8000000.0}, {"dataCode":
+          "ncff", "value": 3899000000.0}, {"dataCode": "sbcomp", "value": 69000000.0},
+          {"dataCode": "issrepayEquity", "value": 1231000000.0}, {"dataCode": "ncfi",
+          "value": -2583000000.0}, {"dataCode": "depamor", "value": 261000000.0}, {"dataCode":
+          "ncfx", "value": 0.0}, {"dataCode": "capex", "value": -468000000.0}, {"dataCode":
+          "payDiv", "value": 0.0}, {"dataCode": "issrepayDebt", "value": 2676000000.0},
+          {"dataCode": "investmentsAcqDisposals", "value": 81000000.0}, {"dataCode":
+          "freeCashFlow", "value": -1792000000.0}, {"dataCode": "ncfo", "value": -1324000000.0}],
+          "overview": [{"dataCode": "shareFactor", "value": 1.0}]}}, {"date": "2022-09-30",
+          "quarter": 3, "year": 2022, "statementData": {"balanceSheet": [{"dataCode":
+          "intangibles", "value": 923000000.0}, {"dataCode": "taxAssets", "value": 0.0},
+          {"dataCode": "debt", "value": 8073000000.0}, {"dataCode": "accoci", "value":
+          0.0}, {"dataCode": "assetsNonCurrent", "value": 5152000000.0}, {"dataCode":
+          "acctPay", "value": 1009000000.0}, {"dataCode": "taxLiabilities", "value":
+          0.0}, {"dataCode": "deposits", "value": 0.0}, {"dataCode": "liabilitiesCurrent",
+          "value": 1878000000.0}, {"dataCode": "investmentsCurrent", "value": 835000000.0},
+          {"dataCode": "totalLiabilities", "value": 9247000000.0}, {"dataCode": "investments",
+          "value": 835000000.0}, {"dataCode": "inventory", "value": 2577000000.0}, {"dataCode":
+          "debtNonCurrent", "value": 7285000000.0}, {"dataCode": "acctRec", "value":
+          359000000.0}, {"dataCode": "cashAndEq", "value": 477000000.0}, {"dataCode":
+          "assetsCurrent", "value": 4469000000.0}, {"dataCode": "sharesBasic", "value":
+          188702603.0}, {"dataCode": "ppeq", "value": 4015000000.0}, {"dataCode": "retainedEarnings",
+          "value": -1270000000.0}, {"dataCode": "debtCurrent", "value": 788000000.0},
+          {"dataCode": "totalAssets", "value": 9621000000.0}, {"dataCode": "deferredRev",
+          "value": 0.0}, {"dataCode": "investmentsNonCurrent", "value": 0.0}, {"dataCode":
+          "liabilitiesNonCurrent", "value": 7369000000.0}, {"dataCode": "equity", "value":
+          274000000.0}], "incomeStatement": [{"dataCode": "costRev", "value": 3027000000.0},
+          {"dataCode": "shareswaDil", "value": 105857000.0}, {"dataCode": "nonControllingInterests",
+          "value": -225000000.0}, {"dataCode": "ebt", "value": -283000000.0}, {"dataCode":
+          "opinc", "value": -297000000.0}, {"dataCode": "consolidatedIncome", "value":
+          -508000000.0}, {"dataCode": "netIncDiscOps", "value": 0.0}, {"dataCode": "sga",
+          "value": 656000000.0}, {"dataCode": "rnd", "value": 0.0}, {"dataCode": "ebit",
+          "value": -130000000.0}, {"dataCode": "epsDil", "value": -2.67}, {"dataCode":
+          "shareswa", "value": 105857000.0}, {"dataCode": "ebitda", "value": -52000000.0},
+          {"dataCode": "prefDVDs", "value": 0.0}, {"dataCode": "netIncComStock", "value":
+          -283000000.0}, {"dataCode": "netinc", "value": -283000000.0}, {"dataCode":
+          "eps", "value": -2.67}, {"dataCode": "grossProfit", "value": 359000000.0},
+          {"dataCode": "intexp", "value": 153000000.0}, {"dataCode": "revenue", "value":
+          3386000000.0}, {"dataCode": "opex", "value": 656000000.0}, {"dataCode": "taxExp",
+          "value": 0.0}], "cashFlow": [{"dataCode": "sbcomp", "value": 15000000.0},
+          {"dataCode": "ncff", "value": -579000000.0}, {"dataCode": "businessAcqDisposals",
+          "value": 0.0}, {"dataCode": "ncf", "value": -720000000.0}, {"dataCode": "investmentsAcqDisposals",
+          "value": 47000000.0}, {"dataCode": "payDiv", "value": 0.0}, {"dataCode": "depamor",
+          "value": 78000000.0}, {"dataCode": "ncfi", "value": -43000000.0}, {"dataCode":
+          "capex", "value": -90000000.0}, {"dataCode": "issrepayDebt", "value": -579000000.0},
+          {"dataCode": "freeCashFlow", "value": -188000000.0}, {"dataCode": "ncfo",
+          "value": -98000000.0}, {"dataCode": "ncfx", "value": 0.0}, {"dataCode": "issrepayEquity",
+          "value": 1000000.0}], "overview": [{"dataCode": "roe", "value": -2.9024186822352},
+          {"dataCode": "shareFactor", "value": 1.0}, {"dataCode": "currentRatio", "value":
+          2.37965921192758}, {"dataCode": "piotroskiFScore", "value": 2.0}, {"dataCode":
+          "roa", "value": -0.100221755032687}, {"dataCode": "epsQoQ", "value": 6.02631578947368},
+          {"dataCode": "debtEquity", "value": 29.463503649635}, {"dataCode": "revenueQoQ",
+          "value": -0.0270114942528735}, {"dataCode": "profitMargin", "value": 0.106024808033077},
+          {"dataCode": "rps", "value": 17.9435786585307}, {"dataCode": "grossMargin",
+          "value": 0.106024808033077}, {"dataCode": "longTermDebtEquity", "value": 26.5875912408759},
+          {"dataCode": "bookVal", "value": 374000000.0}, {"dataCode": "bvps", "value":
+          1.98195464214132}]}}]'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+version: 1

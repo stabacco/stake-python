@@ -146,3 +146,5 @@ STAKE.*.json
 .idea
 DS_Store
 .DS_Store
+
+.idx/

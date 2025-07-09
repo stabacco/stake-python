@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import datetime
 from typing import Optional
 
 import pydantic
@@ -10,11 +10,11 @@ __all__ = ["MarketStatus"]
 
 
 class Status(pydantic.BaseModel):
-    current: Optional[str] = None
+    current: str
 
 
 class MarketStatus(pydantic.BaseModel):
-    last_trading_date: Optional[date] = None
+    last_trading_date: Optional[datetime] = None
     status: Status
     model_config = ConfigDict(alias_generator=camelcase)
 
@@ -24,7 +24,10 @@ class MarketClient(BaseClient):
 
     async def get(self) -> MarketStatus:
         data = await self._client.get(self._client.exchange.market_status)
-        return MarketStatus(**data)
+        return MarketStatus(
+            last_trading_date=data[0]["lastTradedTimestamp"],
+            status=Status(current=data[0]["marketStatus"]),
+        )
 
     async def is_open(self) -> bool:
         status = await self.get()

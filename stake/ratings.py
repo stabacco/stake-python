@@ -60,5 +60,4 @@ class RatingsClient(BaseClient):
 
         if data == {"message": "No data returned"}:
             return []
-        print(data["ratings"])
         return [Rating(**d) for d in data["ratings"]]

@@ -4,6 +4,7 @@ import sys
 import uuid
 
 import pytest
+import pytest_asyncio
 from dotenv import load_dotenv
 from faker import Faker
 
@@ -12,7 +13,7 @@ from stake.client import StakeClient
 load_dotenv()
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def tracing_client(request, mocker):
     async with StakeClient() as client:
         yield client
@@ -49,8 +50,10 @@ def redact_sensitive_data(response):
         "ackSignedWhen": str(fake.date_this_decade()),
         "brokerOrderId": 11111,
         "buyingPower": 1000.0,
+        "cashAvailableForExpressWithdrawal": 1000,
         "cashAvailableForTrade": 800,
         "cashAvailableForWithdrawal": 1000,
+        "cashAvailableForWithdrawalRaw": 1000,
         "cashAvailableForTransfer": 1000,
         "cashBalance": 1000.0,
         "comment": fake.pystr_format(),
@@ -74,6 +77,7 @@ def redact_sensitive_data(response):
         "orderNo": fake.pystr_format(),
         "password": fake.password(),
         "phoneNumber": fake.phone_number(),
+        "postedBalance": 4000,
         "productWatchlistID": str(fake_order_id),
         "reference": fake.pystr_format(),
         "referenceNumber": fake.pystr_format(),

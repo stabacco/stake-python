@@ -9,5 +9,5 @@ class Side(str, Enum):
 class TradeType(str, Enum):
     """The type of trade the user is requesting."""
 
-    MARKET: str = "MARKET_TO_LIMIT"
-    LIMIT: str = "LIMIT"
+    MARKET = "MARKET_TO_LIMIT"
+    LIMIT = "LIMIT"

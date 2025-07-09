@@ -16,11 +16,11 @@ jobs:
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
       - uses: actions/setup-python@v2
         with:
-          python-version: 3.7
+          python-version: 3.10
       - name: Run image
         uses: abatilo/actions-poetry@v2.0.0
         with:
-          poetry-version: 1.3.2
+          poetry-version: 2.1
       - name: Publish python package
         run: poetry version ${{ steps.vars.outputs.tag }} && poetry config pypi-token.pypi ${{ secrets.PYPI_API_KEY }} && poetry build  && poetry publish
       - name: Auto commit pyproject.toml

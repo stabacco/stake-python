@@ -19,8 +19,8 @@ __all__ = [
 class ExpiryDate(str, Enum):
     """The expiry date for the trade."""
 
-    IN_ONE_DAY: str = "GFD"
-    IN_THIRTY_DAYS: str = "GTC"
+    IN_ONE_DAY = "GFD"
+    IN_THIRTY_DAYS = "GTC"
 
 
 class GenericTradeRequest(BaseModel):

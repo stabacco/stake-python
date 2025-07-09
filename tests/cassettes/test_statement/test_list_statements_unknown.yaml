@@ -18,14 +18,13 @@ interactions:
           "z0-0593879b", "macAccountNumber": "d9-0481457G", "status": null, "macStatus":
           "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
           null, "firstName": "Rita", "middleName": null, "lastName": "Jones", "phoneNumber":
-          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2021-11-15", "createdDate":
+          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2023-10-01", "createdDate":
           1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
           null, "referralCode": "W2-6612029X", "referredByCode": null, "regionIdentifier":
           "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
           null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
           null, "userProfile": {"residentialAddress": null, "postalAddress": null},
-          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
-          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "ledgerBalance": 0.0, "fxSpeed": "Regular", "dateOfBirth": null, "upToDateDetails2021":
           "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
           null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
           false}'
@@ -33,7 +32,6 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/user
   - request:
       body: null
       headers:
@@ -42,28 +40,12 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/transactions?status=RECONCILED&size=3&page=0
+      uri: https://global-prd-api.hellostake.com/api/data/fundamentals/__X_X/statements?startDate=2022-01-01
     response:
       body:
-        string:
-          '{"items": [{"id": "6fd4187a-559b-4326-b9bb-6fb6312ece7b", "side": "CREDIT",
-          "amount": 18.27, "currency": "AUD", "action": "DIVIDEND_DEPOSIT", "reference":
-          "O9-7708124v", "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf", "status":
-          "RECONCILED", "approvedBy": null, "customerFee": 0.0, "insertedAt": "2022-07-18T07:32:28.836634",
-          "updatedAt": "2022-07-27T07:13:13.455605"}, {"id": "6fd4187a-559b-4326-b9bb-6fb6312ece7b",
-          "side": "DEBIT", "amount": 1148.28, "currency": "AUD", "action": "SETTLEMENT",
-          "reference": "O9-7708124v", "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
-          "status": "RECONCILED", "approvedBy": null, "customerFee": 0.0, "insertedAt":
-          "2022-07-26T20:02:16.50554", "updatedAt": "2022-07-26T20:02:17.488227"}, {"id":
-          "6fd4187a-559b-4326-b9bb-6fb6312ece7b", "side": "CREDIT", "amount": 26.58,
-          "currency": "AUD", "action": "DIVIDEND_DEPOSIT", "reference": "O9-7708124v",
-          "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf", "status": "RECONCILED",
-          "approvedBy": null, "customerFee": 0.0, "insertedAt": "2022-01-18T21:24:30.449019",
-          "updatedAt": "2022-07-14T02:59:09.799755"}], "hasNext": true, "page": 0, "totalItems":
-          37}'
+        string: '{"message": "No data returned"}'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/asx/transactions?status=RECONCILED&size=3&page=0
 version: 1

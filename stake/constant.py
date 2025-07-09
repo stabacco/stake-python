@@ -87,6 +87,12 @@ class NYSEUrl(BaseModel):
     )
     update_watchlist: str = read_watchlist + "/items"
 
+    statement: str = urljoin(
+        STAKE_URL,
+        "data/fundamentals/{symbol}/statements?startDate={date}",
+        allow_fragments=True,
+    )
+
 
 NYSE = NYSEUrl()
 
@@ -107,7 +113,9 @@ class ASXUrl(BaseModel):
     equity_positions: str = urljoin(
         ASX_STAKE_URL, "instrument/equityPositions", allow_fragments=True
     )
-    market_status: str = "https://early-bird-promo.hellostake.com/marketStatus"
+    market_status: str = urljoin(
+        ASX_STAKE_URL, "instrument/quoteTwo/ASX", allow_fragments=True
+    )
 
     orders: str = urljoin(ASX_STAKE_URL, "orders", allow_fragments=True)
 
