@@ -17,7 +17,9 @@ inflection = "^0.5.0"
 aiohttp = "^3.9"
 single-version = "^1.2.2"
 
-[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+bump-pydantic = "^0.8.0"
 pytest = "^8.4.1"
 pytest-asyncio = "^1.0.0"
 pre-commit-hooks = "^3.1.0"
@@ -28,8 +30,6 @@ faker = "^4.14.0"
 coverage-badge = "^1.0.1"
 pytest-recording = "^0.13.4"
 
-[tool.poetry.group.dev.dependencies]
-bump-pydantic = "^0.8.0"
 
 [tool.isort]
 profile = "black"
