@@ -13,19 +13,18 @@ interactions:
         string:
           '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
           true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
-          "username": "leonardzachary", "emailAddress": "ellen70@bates-williams.com",
+          "username": "michael29", "emailAddress": "reevesmegan@gilmore-wright.biz",
           "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
-          "R6-1813041A", "macAccountNumber": "K4-3517949y", "status": null, "macStatus":
+          "z0-0593879b", "macAccountNumber": "d9-0481457G", "status": null, "macStatus":
           "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
-          null, "firstName": "Tammy", "middleName": null, "lastName": "Alexander", "phoneNumber":
-          "9011530005", "signUpPhase": 0, "ackSignedWhen": "2022-01-22", "createdDate":
+          null, "firstName": "Rita", "middleName": null, "lastName": "Jones", "phoneNumber":
+          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2023-10-01", "createdDate":
           1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
-          null, "referralCode": "A1-2107594j", "referredByCode": null, "regionIdentifier":
+          null, "referralCode": "W2-6612029X", "referredByCode": null, "regionIdentifier":
           "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
           null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
           null, "userProfile": {"residentialAddress": null, "postalAddress": null},
-          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
-          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "ledgerBalance": 0.0, "fxSpeed": "Regular", "dateOfBirth": null, "upToDateDetails2021":
           "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
           null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
           false}'
@@ -33,7 +32,6 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/user
   - request:
       body: null
       headers:
@@ -42,22 +40,17 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://early-bird-promo.hellostake.com/marketStatus
+      uri: https://global-prd-api.hellostake.com/api/asx/instrument/quoteTwo/ASX
     response:
       body:
         string:
-          '{"lastTradingDate": "2022-07-19", "status": {"current": "close"}, "marketLimits":
-          [[0, 0.005, 0.125], [0.005, 0.02, 0.075], [0.02, 0.05, 0.0625], [0.05, 0.1,
-          0.05], [0.1, 0.2, 0.045], [0.2, 0.5, 0.03], [0.5, 1, 0.0125], [1, 2, 0.0125],
-          [2, 5, 0.01], [5, 15, 0.0075], [15, 39, 0.005], [30, 50, 0.0025], [50, 100,
-          0.0025], [100, 250, 0.0025], [250, 500, 0.0025], [500, 9999, 0.0025]], "passiveLimits":
-          [[0, 0.005, 1], [0.005, 0.02, 0.6], [0.02, 0.05, 0.5], [0.05, 0.1, 0.4], [0.1,
-          0.2, 0.4], [0.2, 0.5, 0.4], [0.5, 1, 0.3], [1, 2, 0.3], [2, 5, 0.3], [5, 15,
-          0.3], [15, 39, 0.2], [30, 50, 0.2], [50, 100, 0.2], [100, 250, 0.2], [250,
-          500, 0.2], [500, 9999, 0.2]]}'
+          '[{"marketStatus": "CLOSED", "lastTradedExchange": "ASX", "symbol":
+          "ASX", "lastTradedTimestamp": 1752041427, "lastTrade": "71.1800", "bid": "71.0100",
+          "ask": "71.1800", "priorClose": "71.0100", "open": "70.8600", "high": "71.3000",
+          "low": "70.6800", "pointsChange": "0.1700", "percentageChange": "0.24", "outOfMarketPrice":
+          null, "outOfMarketQuantity": null, "outOfMarketSurplus": null, "volume": 256565}]'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://early-bird-promo.hellostake.com/marketStatus
 version: 1
