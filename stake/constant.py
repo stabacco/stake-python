@@ -87,6 +87,12 @@ class NYSEUrl(BaseModel):
     )
     update_watchlist: str = read_watchlist + "/items"
 
+    statement: str = urljoin(
+        STAKE_URL,
+        "data/fundamentals/{symbol}/statements?startDate={date}",
+        allow_fragments=True,
+    )
+
 
 NYSE = NYSEUrl()
 

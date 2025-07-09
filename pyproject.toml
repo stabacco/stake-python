@@ -10,7 +10,7 @@ license = "Apache-2.0"
 keywords = ["stake","trading","stocks","financial","python"]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<4.0.0"
+python = ">=3.10,<4.0.0"
 python-dotenv = "^0.13.0"
 pydantic = "^2.3"
 inflection = "^0.5.0"
@@ -18,23 +18,23 @@ aiohttp = "^3.9"
 single-version = "^1.2.2"
 
 [tool.poetry.dev-dependencies]
-pytest = "^7.2.0"
-pytest-asyncio = "^0.14.0"
+pytest = "^8.4.1"
+pytest-asyncio = "^1.0.0"
 pre-commit-hooks = "^3.1.0"
-pre-commit = "^2.12.0"
+pre-commit = "^4.2.0"
 pytest-coverage = "^0.0"
 black = {version = "^19.10b0", allow-prereleases = true}
 pytest-mock = "^3.3.0"
 faker = "^4.14.0"
 coverage-badge = "^1.0.1"
-pytest-recording = "^0.12.0"
+pytest-recording = "^0.13.4"
 
 [tool.poetry.group.dev.dependencies]
 bump-pydantic = "^0.8.0"
 
 [tool.isort]
 profile = "black"
-known_third_party = ["aiohttp", "dotenv", "faker", "inflection", "pydantic", "pytest", "single_version"]
+known_third_party = ["aiohttp", "dotenv", "faker", "inflection", "pydantic", "pytest", "pytest_asyncio", "single_version"]
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"

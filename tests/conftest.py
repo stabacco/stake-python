@@ -4,6 +4,7 @@ import sys
 import uuid
 
 import pytest
+import pytest_asyncio
 from dotenv import load_dotenv
 from faker import Faker
 
@@ -12,7 +13,7 @@ from stake.client import StakeClient
 load_dotenv()
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def tracing_client(request, mocker):
     async with StakeClient() as client:
         yield client

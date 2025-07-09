@@ -16,6 +16,7 @@ from stake import (
     order,
     product,
     ratings,
+    statement,
     trade,
     transaction,
     user,
@@ -70,7 +71,9 @@ class HttpClient:
         return endpoint
 
     @staticmethod
-    async def get(url: str, payload: dict = None, headers: dict = None) -> dict:
+    async def get(
+        url: str, payload: dict | None = None, headers: dict | None = None
+    ) -> dict:
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
@@ -80,7 +83,7 @@ class HttpClient:
             return await response.json()
 
     @staticmethod
-    async def post(url: str, payload: dict, headers: dict = None) -> dict:
+    async def post(url: str, payload: dict, headers: dict | None = None) -> dict:
 
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
@@ -92,7 +95,9 @@ class HttpClient:
             return await response.json()
 
     @staticmethod
-    async def delete(url: str, payload: dict = None, headers: dict = None) -> dict:
+    async def delete(
+        url: str, payload: dict | None = None, headers: dict | None = None
+    ) -> dict:
         async with aiohttp.ClientSession(
             headers=headers, raise_for_status=True
         ) as session:
@@ -111,7 +116,7 @@ class StakeClient:
 
     def __init__(
         self,
-        request: Union[CredentialsLoginRequest, SessionTokenLoginRequest] = None,
+        request: Union[CredentialsLoginRequest, SessionTokenLoginRequest, None] = None,
         exchange: Union[constant.NYSEUrl, constant.ASXUrl] = constant.NYSE,
     ):
         """
@@ -137,28 +142,29 @@ class StakeClient:
         self.watchlist: watchlist.WatchlistClient = watchlist.WatchlistClient(self)
 
         if exchange == constant.ASX:
-            self.equities: Union[
-                asx.equity.EquitiesClient, equity.EquitiesClient
-            ] = asx.equity.EquitiesClient(self)
-            self.fundings: Union[
-                asx.funding.FundingsClient, funding.FundingsClient
-            ] = asx.funding.FundingsClient(self)
-            self.market: Union[
-                asx.market.MarketClient, market.MarketClient
-            ] = asx.market.MarketClient(self)
-            self.orders: Union[
-                asx.order.OrdersClient, order.OrdersClient
-            ] = asx.order.OrdersClient(self)
-            self.products: Union[
-                asx.product.ProductsClient, product.ProductsClient
-            ] = asx.product.ProductsClient(self)
-            self.trades: Union[
-                asx.trade.TradesClient, trade.TradesClient
-            ] = asx.trade.TradesClient(self)
+            self.equities: Union[asx.equity.EquitiesClient, equity.EquitiesClient] = (
+                asx.equity.EquitiesClient(self)
+            )
+            self.fundings: Union[asx.funding.FundingsClient, funding.FundingsClient] = (
+                asx.funding.FundingsClient(self)
+            )
+            self.market: Union[asx.market.MarketClient, market.MarketClient] = (
+                asx.market.MarketClient(self)
+            )
+            self.orders: Union[asx.order.OrdersClient, order.OrdersClient] = (
+                asx.order.OrdersClient(self)
+            )
+            self.products: Union[asx.product.ProductsClient, product.ProductsClient] = (
+                asx.product.ProductsClient(self)
+            )
+            self.trades: Union[asx.trade.TradesClient, trade.TradesClient] = (
+                asx.trade.TradesClient(self)
+            )
             self.transactions: Union[
                 asx.transaction.TransactionsClient, transaction.TransactionsClient
             ] = asx.transaction.TransactionsClient(self)
             # ratings is unsupported.
+            # statements is unsupported.
         else:
             self.equities = equity.EquitiesClient(self)
             self.fundings = funding.FundingsClient(self)
@@ -169,8 +175,9 @@ class StakeClient:
             self.ratings = ratings.RatingsClient(self)
             self.trades = trade.TradesClient(self)
             self.transactions = transaction.TransactionsClient(self)
+            self.statements = statement.StatementClient(self)
 
-    async def get(self, url: str, payload: dict = None) -> dict:
+    async def get(self, url: str, payload: dict | None = None) -> dict:
         """Performs an HTTP get operation.
 
         Args:
@@ -200,7 +207,7 @@ class StakeClient:
             url, payload=payload, headers=self.headers.model_dump(by_alias=True)
         )
 
-    async def delete(self, url: str, payload: dict = None) -> dict:
+    async def delete(self, url: str, payload: dict | None = None) -> dict:
         """Performs an HTTP delete operation.
 
         Args:

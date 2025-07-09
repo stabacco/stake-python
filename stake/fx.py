@@ -1,4 +1,5 @@
 """Currency conversion."""
+
 from enum import Enum
 
 from pydantic import BaseModel, ConfigDict
@@ -10,8 +11,8 @@ __all__ = ["FxConversionRequest", "CurrencyEnum"]
 
 
 class CurrencyEnum(str, Enum):
-    AUD: str = "AUD"
-    USD: str = "USD"
+    AUD = "AUD"
+    USD = "USD"
 
 
 class FxConversionRequest(BaseModel):

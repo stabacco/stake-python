@@ -13,8 +13,8 @@ __all__ = ["TransactionRecordRequest", "SortDirection", "Sort"]
 
 
 class SortDirection(str, Enum):
-    ASC: str = "asc"
-    DESC: str = "desc"
+    ASC = "asc"
+    DESC = "desc"
 
 
 class Sort(BaseModel):
