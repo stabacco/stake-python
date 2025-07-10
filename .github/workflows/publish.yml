@@ -20,7 +20,7 @@ jobs:
       - name: Run image
         uses: abatilo/actions-poetry@v2.0.0
         with:
-          poetry-version: 2.1
+          poetry-version: "2.1"
       - name: Publish python package
         run: poetry version ${{ steps.vars.outputs.tag }} && poetry config pypi-token.pypi ${{ secrets.PYPI_API_KEY }} && poetry build  && poetry publish
       - name: Auto commit pyproject.toml
