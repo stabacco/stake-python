@@ -9,6 +9,10 @@ authors = ["Stefano Tabacco <tabacco.stefano@gmail.com>"]
 license = "Apache-2.0"
 keywords = ["stake","trading","stocks","financial","python"]
 
+packages = [
+    { include = "stake",  from="." },
+]
+
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0.0"
 python-dotenv = "^0.13.0"
@@ -34,13 +38,10 @@ pytest-recording = "^0.13.4"
 [tool.isort]
 profile = "black"
 known_third_party = ["aiohttp", "dotenv", "faker", "inflection", "pydantic", "pytest", "pytest_asyncio", "single_version"]
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
 
-packages = [
-    { include = "stake",  from="." },
-]
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.ruff]
 # Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
