@@ -16,7 +16,7 @@ jobs:
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
       - uses: actions/setup-python@v5
         with:
-          python-version: 3.10
+          python-version: "3.10"
       - name: Run image
         uses: abatilo/actions-poetry@v2.0.0
         with:
