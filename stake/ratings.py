@@ -40,7 +40,7 @@ class Rating(pydantic.BaseModel):
         "pt_prior", "rating_prior", "pt_current", "rating_current", mode="before"
     )
     @classmethod
-    def pt_prior_blank_string(cls, value, *args) -> Optional[str]:
+    def remove_blank_strings(cls, value, *args) -> Optional[str]:
         return None if value == "" else value
 
 

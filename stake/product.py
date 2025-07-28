@@ -62,9 +62,10 @@ class Product(BaseModel):
     _client: "StakeClient" = PrivateAttr()
     model_config = ConfigDict(alias_generator=camelcase)
 
-    def model_post_init(self, context: Any) -> None:
-        self._client = context.get("client")
-        assert self._client
+    def model_post_init(self, context: Any | None = None) -> None:
+        if context:
+            self._client = context.get("client")
+            assert self._client
 
     async def ratings(self) -> "List[Rating]":
         from stake import RatingsRequest
