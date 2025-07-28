@@ -53,3 +53,15 @@ async def test_integration_ASX(exchange):
         )
         result = await session.transactions.list(request=request)
         assert len(result.transactions) == 10
+
+
+@pytest.mark.parametrize("exchange", (constant.NYSE,))
+@pytest.mark.asyncio
+async def test_integration_product(exchange):
+    async with stake.StakeClient(exchange=exchange) as session:
+        product = await session.products.get("AAPL")
+        assert product is not None
+        ratings = await product.ratings()
+        assert len(ratings) > 0
+        statements = await product.statements()
+        assert len(statements) > 0

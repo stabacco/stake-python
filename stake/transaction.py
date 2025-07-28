@@ -1,6 +1,6 @@
 import enum
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from enum import Enum
 from typing import Dict, List, Optional
 
@@ -18,9 +18,10 @@ class TransactionRecordEnumDirection(str, Enum):
 
 
 class TransactionRecordRequest(BaseModel):
-    to: datetime = Field(default_factory=datetime.utcnow)
+    to: datetime = Field(default_factory=lambda *_: datetime.now(timezone.utc))
     from_: datetime = Field(
-        default_factory=lambda *_: datetime.utcnow() - timedelta(days=365), alias="from"
+        default_factory=lambda *_: datetime.now(timezone.utc) - timedelta(days=365),
+        alias="from",
     )
     limit: int = 1000
     offset: Optional[datetime] = None
