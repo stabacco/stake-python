@@ -64,6 +64,7 @@ class Product(BaseModel):
 
     def model_post_init(self, context: Any) -> None:
         self._client = context.get("client")
+        assert self._client
 
     async def ratings(self) -> "List[Rating]":
         from stake import RatingsRequest
