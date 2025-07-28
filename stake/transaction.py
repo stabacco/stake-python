@@ -18,9 +18,9 @@ class TransactionRecordEnumDirection(str, Enum):
 
 
 class TransactionRecordRequest(BaseModel):
-    to: datetime = Field(default_factory=lambda *_: datetime.now(timezone.UTC))
+    to: datetime = Field(default_factory=lambda *_: datetime.now(timezone.utc))
     from_: datetime = Field(
-        default_factory=lambda *_: datetime.now(timezone.UTC) - timedelta(days=365), alias="from"
+        default_factory=lambda *_: datetime.now(timezone.utc) - timedelta(days=365), alias="from"
     )
     limit: int = 1000
     offset: Optional[datetime] = None
