@@ -55,7 +55,6 @@ async def test_integration_ASX(exchange):
         assert len(result.transactions) == 10
 
 
-
 @pytest.mark.parametrize("exchange", (constant.NYSE,))
 @pytest.mark.asyncio
 async def test_integration_product(exchange):

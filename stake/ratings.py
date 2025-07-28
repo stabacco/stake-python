@@ -36,7 +36,9 @@ class Rating(pydantic.BaseModel):
     url_news: Optional[str] = None
     analyst_name: Optional[str] = None
 
-    @pydantic.field_validator("pt_prior", "rating_prior", "pt_current", "rating_current", mode="before")
+    @pydantic.field_validator(
+        "pt_prior", "rating_prior", "pt_current", "rating_current", mode="before"
+    )
     @classmethod
     def pt_prior_blank_string(cls, value, *args) -> Optional[str]:
         return None if value == "" else value
