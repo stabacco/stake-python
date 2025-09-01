@@ -71,15 +71,6 @@ class NYSEUrl(BaseModel):
     )
     users: str = urljoin(STAKE_URL, "user", allow_fragments=True)
 
-    # deprecated, use update_watchlist instead
-    watchlist_modify: str = urljoin(
-        STAKE_URL, "instruments/addRemoveInstrumentWatchlist", allow_fragments=True
-    )
-    # deprecated, use read_watchlist instead
-    watchlist: str = urljoin(
-        STAKE_URL, "products/productsWatchlist/{userId}", allow_fragments=True
-    )
-
     watchlists: str = "https://api.prd.stakeover.io/us/instrument/watchlists"
     create_watchlist: str = "https://api.prd.stakeover.io/us/instrument/watchlist"
     read_watchlist: str = (

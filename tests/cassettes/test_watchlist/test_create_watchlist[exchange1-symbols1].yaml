@@ -18,14 +18,13 @@ interactions:
           "z0-0593879b", "macAccountNumber": "d9-0481457G", "status": null, "macStatus":
           "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
           null, "firstName": "Rita", "middleName": null, "lastName": "Jones", "phoneNumber":
-          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2021-11-15", "createdDate":
+          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2023-10-01", "createdDate":
           1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
           null, "referralCode": "W2-6612029X", "referredByCode": null, "regionIdentifier":
           "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
           null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
           null, "userProfile": {"residentialAddress": null, "postalAddress": null},
-          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
-          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "ledgerBalance": 0.0, "fxSpeed": "Regular", "dateOfBirth": null, "upToDateDetails2021":
           "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
           null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
           false}'
@@ -33,7 +32,6 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/user
   - request:
       body: null
       headers:
@@ -47,17 +45,25 @@ interactions:
       body:
         string:
           '{"generated": false, "watchlists": [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "List #1", "count": 7, "timeCreated": "2022-05-27T22:13:19.251101"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini",
-          "count": 1, "timeCreated": "2022-05-30T06:21:48.134924"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Test List", "count": 0, "timeCreated":
-          "2022-07-13T04:05:52.149562"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "Stef 3", "count": 3, "timeCreated": "2022-07-14T07:56:40.921637"}]}'
+          "name": "watchlist-2025-08-05", "count": 13, "timeCreated": "2025-08-05T07:20:15.861472"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-06",
+          "count": 14, "timeCreated": "2025-08-06T11:14:12.301944"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-09", "count":
+          15, "timeCreated": "2025-08-09T00:40:14.987686"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-11", "count": 15, "timeCreated": "2025-08-11T10:47:31.306034"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-13",
+          "count": 14, "timeCreated": "2025-08-13T06:34:29.643625"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-21", "count":
+          16, "timeCreated": "2025-08-21T01:40:59.486169"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-22", "count": 16, "timeCreated": "2025-08-22T05:00:05.327484"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-23",
+          "count": 14, "timeCreated": "2025-08-22T21:55:05.81269"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-26", "count":
+          16, "timeCreated": "2025-08-26T02:52:58.934391"}]}'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlists
   - request:
       body: null
       headers:
@@ -70,21 +76,28 @@ interactions:
     response:
       body:
         string:
-          '{"newWatchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "watchlists":
-          [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "List #1",
-          "count": 7, "timeCreated": "2022-05-27T22:13:19.251101"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini", "count": 1, "timeCreated":
-          "2022-05-30T06:21:48.134924"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "Test List", "count": 0, "timeCreated": "2022-07-13T04:05:52.149562"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Stef 3",
-          "count": 3, "timeCreated": "2022-07-14T07:56:40.921637"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
-          "count": 0, "timeCreated": "2022-07-24T06:33:04.897381"}]}'
+          '{"newWatchlistId": "7f3f4fd8-6fbf-4cc1-8beb-49bc807e90fd", "watchlists":
+          [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-05",
+          "count": 13, "timeCreated": "2025-08-05T07:20:15.861472"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-06", "count":
+          14, "timeCreated": "2025-08-06T11:14:12.301944"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-09", "count": 15, "timeCreated": "2025-08-09T00:40:14.987686"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-11",
+          "count": 15, "timeCreated": "2025-08-11T10:47:31.306034"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-13", "count":
+          14, "timeCreated": "2025-08-13T06:34:29.643625"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-21", "count": 16, "timeCreated": "2025-08-21T01:40:59.486169"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-22",
+          "count": 16, "timeCreated": "2025-08-22T05:00:05.327484"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-23", "count":
+          14, "timeCreated": "2025-08-22T21:55:05.81269"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-26", "count": 16, "timeCreated": "2025-08-26T02:52:58.934391"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
+          "count": 0, "timeCreated": "2025-09-01T12:36:07.629226"}]}'
       headers: {}
       status:
         code: 201
         message: Created
-      url: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist
   - request:
       body: null
       headers:
@@ -93,7 +106,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/7f3f4fd8-6fbf-4cc1-8beb-49bc807e90fd
     response:
       body:
         string:
@@ -103,7 +116,24 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/7f3f4fd8-6fbf-4cc1-8beb-49bc807e90fd
+    response:
+      body:
+        string:
+          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
+          "count": 0, "instruments": []}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
   - request:
       body: null
       headers:
@@ -112,7 +142,7 @@ interactions:
         Content-Type:
           - application/json
       method: POST
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
+      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/7f3f4fd8-6fbf-4cc1-8beb-49bc807e90fd/items
     response:
       body:
         string:
@@ -122,12 +152,11 @@ interactions:
           {"instrumentId": "WDS.XAU", "name": "Woodside Energy Group Ltd", "symbol":
           "WDS", "recentAnnouncement": false, "sensitive": false}, {"instrumentId":
           "COL.XAU", "name": "Coles Group Limited", "symbol": "COL", "recentAnnouncement":
-          false, "sensitive": false}]}'
+          true, "sensitive": false}]}'
       headers: {}
       status:
         code: 201
         message: Created
-      url: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
   - request:
       body: null
       headers:
@@ -136,7 +165,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/7f3f4fd8-6fbf-4cc1-8beb-49bc807e90fd
     response:
       body:
         string:
@@ -146,12 +175,11 @@ interactions:
           {"instrumentId": "WDS.XAU", "name": "Woodside Energy Group Ltd", "symbol":
           "WDS", "recentAnnouncement": false, "sensitive": false}, {"instrumentId":
           "COL.XAU", "name": "Coles Group Limited", "symbol": "COL", "recentAnnouncement":
-          false, "sensitive": false}]}'
+          true, "sensitive": false}]}'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
   - request:
       body: null
       headers:
@@ -160,7 +188,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/7f3f4fd8-6fbf-4cc1-8beb-49bc807e90fd
     response:
       body:
         string:
@@ -170,12 +198,11 @@ interactions:
           {"instrumentId": "WDS.XAU", "name": "Woodside Energy Group Ltd", "symbol":
           "WDS", "recentAnnouncement": false, "sensitive": false}, {"instrumentId":
           "COL.XAU", "name": "Coles Group Limited", "symbol": "COL", "recentAnnouncement":
-          false, "sensitive": false}]}'
+          true, "sensitive": false}]}'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
   - request:
       body:
         tickers:
@@ -188,7 +215,7 @@ interactions:
         Content-Type:
           - application/json
       method: DELETE
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
+      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/7f3f4fd8-6fbf-4cc1-8beb-49bc807e90fd/items
     response:
       body:
         string:
@@ -198,7 +225,6 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
   - request:
       body: null
       headers:
@@ -207,20 +233,27 @@ interactions:
         Content-Type:
           - application/json
       method: DELETE
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/7f3f4fd8-6fbf-4cc1-8beb-49bc807e90fd
     response:
       body:
         string:
-          '[{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "List
-          #1", "count": 7, "timeCreated": "2022-05-27T22:13:19.251101"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini", "count": 1, "timeCreated":
-          "2022-05-30T06:21:48.134924"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "Test List", "count": 0, "timeCreated": "2022-07-13T04:05:52.149562"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Stef 3",
-          "count": 3, "timeCreated": "2022-07-14T07:56:40.921637"}]'
+          '[{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-05",
+          "count": 13, "timeCreated": "2025-08-05T07:20:15.861472"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-06", "count":
+          14, "timeCreated": "2025-08-06T11:14:12.301944"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-09", "count": 15, "timeCreated": "2025-08-09T00:40:14.987686"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-11",
+          "count": 15, "timeCreated": "2025-08-11T10:47:31.306034"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-13", "count":
+          14, "timeCreated": "2025-08-13T06:34:29.643625"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-21", "count": 16, "timeCreated": "2025-08-21T01:40:59.486169"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-22",
+          "count": 16, "timeCreated": "2025-08-22T05:00:05.327484"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-23", "count":
+          14, "timeCreated": "2025-08-22T21:55:05.81269"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-26", "count": 16, "timeCreated": "2025-08-26T02:52:58.934391"}]'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
 version: 1

@@ -18,14 +18,13 @@ interactions:
           "z0-0593879b", "macAccountNumber": "d9-0481457G", "status": null, "macStatus":
           "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
           null, "firstName": "Rita", "middleName": null, "lastName": "Jones", "phoneNumber":
-          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2021-11-15", "createdDate":
+          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2023-10-01", "createdDate":
           1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
           null, "referralCode": "W2-6612029X", "referredByCode": null, "regionIdentifier":
           "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
           null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
           null, "userProfile": {"residentialAddress": null, "postalAddress": null},
-          "ledgerBalance": 0.0, "investorAccreditations": null, "proscoreStatus": null,
-          "fxSpeed": "Regular", "facilitaStatus": null, "dateOfBirth": null, "upToDateDetails2021":
+          "ledgerBalance": 0.0, "fxSpeed": "Regular", "dateOfBirth": null, "upToDateDetails2021":
           "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
           null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
           false}'
@@ -33,7 +32,6 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/user
   - request:
       body: null
       headers:
@@ -46,15 +44,27 @@ interactions:
     response:
       body:
         string:
-          '{"generated": false, "watchlists": [{"watchlistId": "bb0f59b5-2454-451c-8de3-fa3fc7d13a42",
-          "name": "Not so much test", "timeCreated": "2022-07-14T05:25:44.881769Z",
-          "count": 1}, {"watchlistId": "e649db6d-71ab-4649-a32e-59d57def4a00", "name":
-          "stef 2", "timeCreated": "2022-07-14T05:31:06.054443Z", "count": 0}]}'
+          '{"generated": false, "watchlists": [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-13", "timeCreated": "2025-08-12T23:54:17.121422Z",
+          "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
+          "watchlist-2025-08-14", "timeCreated": "2025-08-14T01:58:57.211214Z", "count":
+          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-15",
+          "timeCreated": "2025-08-15T01:35:39.886173Z", "count": 17}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-18", "timeCreated":
+          "2025-08-18T02:09:51.269589Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-19", "timeCreated": "2025-08-19T05:27:40.000616Z",
+          "count": 16}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
+          "watchlist-2025-08-21", "timeCreated": "2025-08-21T01:32:29.335752Z", "count":
+          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-22",
+          "timeCreated": "2025-08-22T04:34:50.976937Z", "count": 15}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-23", "timeCreated":
+          "2025-08-22T21:47:06.609169Z", "count": 14}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-26", "timeCreated": "2025-08-26T02:29:35.0685Z",
+          "count": 15}]}'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://api.prd.stakeover.io/us/instrument/watchlists
   - request:
       body: null
       headers:
@@ -67,18 +77,29 @@ interactions:
     response:
       body:
         string:
-          '{"newWatchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "watchlists":
-          [{"watchlistId": "bb0f59b5-2454-451c-8de3-fa3fc7d13a42", "name": "Not so much
-          test", "timeCreated": "2022-07-14T05:25:44.881769Z", "count": 1}, {"watchlistId":
-          "e649db6d-71ab-4649-a32e-59d57def4a00", "name": "stef 2", "timeCreated": "2022-07-14T05:31:06.054443Z",
-          "count": 0}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
-          "test_watchlist__NYSEUrl", "timeCreated": "2022-07-24T06:28:54.177475Z", "count":
-          0}]}'
+          '{"newWatchlistId": "fa4a4511-920f-45f4-8cb7-9370620d24a4", "watchlists":
+          [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-13",
+          "timeCreated": "2025-08-12T23:54:17.121422Z", "count": 15}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-14", "timeCreated":
+          "2025-08-14T01:58:57.211214Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-15", "timeCreated": "2025-08-15T01:35:39.886173Z",
+          "count": 17}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
+          "watchlist-2025-08-18", "timeCreated": "2025-08-18T02:09:51.269589Z", "count":
+          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-19",
+          "timeCreated": "2025-08-19T05:27:40.000616Z", "count": 16}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-21", "timeCreated":
+          "2025-08-21T01:32:29.335752Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-22", "timeCreated": "2025-08-22T04:34:50.976937Z",
+          "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
+          "watchlist-2025-08-23", "timeCreated": "2025-08-22T21:47:06.609169Z", "count":
+          14}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-26",
+          "timeCreated": "2025-08-26T02:29:35.0685Z", "count": 15}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__NYSEUrl",
+          "timeCreated": "2025-09-01T12:36:05.141048Z", "count": 0}]}'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://api.prd.stakeover.io/us/instrument/watchlist
   - request:
       body: null
       headers:
@@ -87,7 +108,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/fa4a4511-920f-45f4-8cb7-9370620d24a4
     response:
       body:
         string:
@@ -97,7 +118,24 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/fa4a4511-920f-45f4-8cb7-9370620d24a4
+    response:
+      body:
+        string:
+          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__NYSEUrl",
+          "count": 0, "instruments": []}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
   - request:
       body: null
       headers:
@@ -106,21 +144,22 @@ interactions:
         Content-Type:
           - application/json
       method: POST
-      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/fa4a4511-920f-45f4-8cb7-9370620d24a4/items
     response:
       body:
         string:
           '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__NYSEUrl",
-          "count": 3, "instruments": [{"instrumentId": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
-          "name": "Tesla, Inc.", "symbol": "TSLA"}, {"instrumentId": "68277cc0-6106-4f3c-849b-1298ba964aba",
-          "name": "Alphabet Inc. - Class C Shares", "symbol": "GOOG"}, {"instrumentId":
-          "e234cc98-cd08-4b04-a388-fe5c822beea6", "name": "Microsoft Corporation", "symbol":
-          "MSFT"}]}'
+          "count": 3, "instruments": [{"instrumentId": "68277cc0-6106-4f3c-849b-1298ba964aba",
+          "stakeInstrumentId": "9606cf50-41fe-42ea-b489-6da1768bc26e", "name": "Alphabet
+          Inc. - Class C Shares", "symbol": "GOOG"}, {"instrumentId": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
+          "stakeInstrumentId": "b4889388-1f73-46e5-a865-a68e5fd61ca5", "name": "Tesla,
+          Inc.", "symbol": "TSLA"}, {"instrumentId": "e234cc98-cd08-4b04-a388-fe5c822beea6",
+          "stakeInstrumentId": "e3769c0b-456d-49dd-bec5-7a750c146d11", "name": "Microsoft
+          Corporation", "symbol": "MSFT"}]}'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
   - request:
       body: null
       headers:
@@ -129,21 +168,22 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/fa4a4511-920f-45f4-8cb7-9370620d24a4
     response:
       body:
         string:
           '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__NYSEUrl",
-          "count": 3, "instruments": [{"instrumentId": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
-          "name": "Tesla, Inc.", "symbol": "TSLA"}, {"instrumentId": "68277cc0-6106-4f3c-849b-1298ba964aba",
-          "name": "Alphabet Inc. - Class C Shares", "symbol": "GOOG"}, {"instrumentId":
-          "e234cc98-cd08-4b04-a388-fe5c822beea6", "name": "Microsoft Corporation", "symbol":
-          "MSFT"}]}'
+          "count": 3, "instruments": [{"instrumentId": "68277cc0-6106-4f3c-849b-1298ba964aba",
+          "stakeInstrumentId": "9606cf50-41fe-42ea-b489-6da1768bc26e", "name": "Alphabet
+          Inc. - Class C Shares", "symbol": "GOOG"}, {"instrumentId": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
+          "stakeInstrumentId": "b4889388-1f73-46e5-a865-a68e5fd61ca5", "name": "Tesla,
+          Inc.", "symbol": "TSLA"}, {"instrumentId": "e234cc98-cd08-4b04-a388-fe5c822beea6",
+          "stakeInstrumentId": "e3769c0b-456d-49dd-bec5-7a750c146d11", "name": "Microsoft
+          Corporation", "symbol": "MSFT"}]}'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
   - request:
       body: null
       headers:
@@ -152,21 +192,22 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/fa4a4511-920f-45f4-8cb7-9370620d24a4
     response:
       body:
         string:
           '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__NYSEUrl",
-          "count": 3, "instruments": [{"instrumentId": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
-          "name": "Tesla, Inc.", "symbol": "TSLA"}, {"instrumentId": "68277cc0-6106-4f3c-849b-1298ba964aba",
-          "name": "Alphabet Inc. - Class C Shares", "symbol": "GOOG"}, {"instrumentId":
-          "e234cc98-cd08-4b04-a388-fe5c822beea6", "name": "Microsoft Corporation", "symbol":
-          "MSFT"}]}'
+          "count": 3, "instruments": [{"instrumentId": "68277cc0-6106-4f3c-849b-1298ba964aba",
+          "stakeInstrumentId": "9606cf50-41fe-42ea-b489-6da1768bc26e", "name": "Alphabet
+          Inc. - Class C Shares", "symbol": "GOOG"}, {"instrumentId": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
+          "stakeInstrumentId": "b4889388-1f73-46e5-a865-a68e5fd61ca5", "name": "Tesla,
+          Inc.", "symbol": "TSLA"}, {"instrumentId": "e234cc98-cd08-4b04-a388-fe5c822beea6",
+          "stakeInstrumentId": "e3769c0b-456d-49dd-bec5-7a750c146d11", "name": "Microsoft
+          Corporation", "symbol": "MSFT"}]}'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
   - request:
       body:
         tickers:
@@ -179,7 +220,7 @@ interactions:
         Content-Type:
           - application/json
       method: DELETE
-      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/fa4a4511-920f-45f4-8cb7-9370620d24a4/items
     response:
       body:
         string:
@@ -189,7 +230,6 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
   - request:
       body: null
       headers:
@@ -198,17 +238,28 @@ interactions:
         Content-Type:
           - application/json
       method: DELETE
-      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/fa4a4511-920f-45f4-8cb7-9370620d24a4
     response:
       body:
         string:
-          '[{"watchlistId": "bb0f59b5-2454-451c-8de3-fa3fc7d13a42", "name": "Not
-          so much test", "timeCreated": "2022-07-14T05:25:44.881769Z", "count": 1},
-          {"watchlistId": "e649db6d-71ab-4649-a32e-59d57def4a00", "name": "stef 2",
-          "timeCreated": "2022-07-14T05:31:06.054443Z", "count": 0}]'
+          '[{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-13",
+          "timeCreated": "2025-08-12T23:54:17.121422Z", "count": 15}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-14", "timeCreated":
+          "2025-08-14T01:58:57.211214Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-15", "timeCreated": "2025-08-15T01:35:39.886173Z",
+          "count": 17}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
+          "watchlist-2025-08-18", "timeCreated": "2025-08-18T02:09:51.269589Z", "count":
+          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-19",
+          "timeCreated": "2025-08-19T05:27:40.000616Z", "count": 16}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-21", "timeCreated":
+          "2025-08-21T01:32:29.335752Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "watchlist-2025-08-22", "timeCreated": "2025-08-22T04:34:50.976937Z",
+          "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
+          "watchlist-2025-08-23", "timeCreated": "2025-08-22T21:47:06.609169Z", "count":
+          14}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "watchlist-2025-08-26",
+          "timeCreated": "2025-08-26T02:29:35.0685Z", "count": 15}]'
       headers: {}
       status:
         code: 200
         message: OK
-      url: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
 version: 1
