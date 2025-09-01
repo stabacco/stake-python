@@ -1,0 +1,179 @@
+interactions:
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://global-prd-api.hellostake.com/api/user
+    response:
+      body:
+        string:
+          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
+          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
+          "username": "michael29", "emailAddress": "reevesmegan@gilmore-wright.biz",
+          "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
+          "z0-0593879b", "macAccountNumber": "d9-0481457G", "status": null, "macStatus":
+          "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
+          null, "firstName": "Rita", "middleName": null, "lastName": "Jones", "phoneNumber":
+          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2023-10-01", "createdDate":
+          1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
+          null, "referralCode": "W2-6612029X", "referredByCode": null, "regionIdentifier":
+          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
+          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
+          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
+          "ledgerBalance": 0.0, "fxSpeed": "Regular", "dateOfBirth": null, "upToDateDetails2021":
+          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
+          null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
+          false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://api.prd.stakeover.io/us/instrument/watchlists
+    response:
+      body:
+        string:
+          '{"generated": false, "watchlists": [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "test-2025-08-13", "timeCreated": "2025-08-12T23:54:17.121422Z",
+          "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
+          "test-2025-08-14", "timeCreated": "2025-08-14T01:58:57.211214Z", "count":
+          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-15",
+          "timeCreated": "2025-08-15T01:35:39.886173Z", "count": 17}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-18", "timeCreated":
+          "2025-08-18T02:09:51.269589Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "test-2025-08-19", "timeCreated": "2025-08-19T05:27:40.000616Z",
+          "count": 16}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
+          "test-2025-08-21", "timeCreated": "2025-08-21T01:32:29.335752Z", "count":
+          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-22",
+          "timeCreated": "2025-08-22T04:34:50.976937Z", "count": 15}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-23", "timeCreated":
+          "2025-08-22T21:47:06.609169Z", "count": 14}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "test-2025-08-26", "timeCreated": "2025-08-26T02:29:35.0685Z",
+          "count": 15}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: POST
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist
+    response:
+      body:
+        string:
+          '{"newWatchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "watchlists":
+          [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-13",
+          "timeCreated": "2025-08-12T23:54:17.121422Z", "count": 15}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-14", "timeCreated":
+          "2025-08-14T01:58:57.211214Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "test-2025-08-15", "timeCreated": "2025-08-15T01:35:39.886173Z",
+          "count": 17}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
+          "test-2025-08-18", "timeCreated": "2025-08-18T02:09:51.269589Z", "count":
+          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-19",
+          "timeCreated": "2025-08-19T05:27:40.000616Z", "count": 16}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-21", "timeCreated":
+          "2025-08-21T01:32:29.335752Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "test-2025-08-22", "timeCreated": "2025-08-22T04:34:50.976937Z",
+          "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
+          "test-2025-08-23", "timeCreated": "2025-08-22T21:47:06.609169Z", "count":
+          14}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-26",
+          "timeCreated": "2025-08-26T02:29:35.0685Z", "count": 15}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__NYSEUrl",
+          "timeCreated": "2025-09-01T13:05:48.891648Z", "count": 0}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+    response:
+      body:
+        string:
+          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__NYSEUrl",
+          "count": 0, "instruments": []}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: POST
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
+    response:
+      body:
+        string:
+          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__NYSEUrl",
+          "count": 4, "instruments": [{"instrumentId": "68277cc0-6106-4f3c-849b-1298ba964aba",
+          "stakeInstrumentId": "9606cf50-41fe-42ea-b489-6da1768bc26e", "name": "Alphabet
+          Inc. - Class C Shares", "symbol": "GOOG"}, {"instrumentId": "5772f238-235d-40c2-9053-c13815fee7eb",
+          "stakeInstrumentId": "b19da77b-0d19-420d-9a63-26b697182773", "name": "Nokia
+          Corp.", "symbol": "NOK"}, {"instrumentId": "5b85fabb-d57c-44e6-a7f6-a3efc760226c",
+          "stakeInstrumentId": "b4889388-1f73-46e5-a865-a68e5fd61ca5", "name": "Tesla,
+          Inc.", "symbol": "TSLA"}, {"instrumentId": "e234cc98-cd08-4b04-a388-fe5c822beea6",
+          "stakeInstrumentId": "e3769c0b-456d-49dd-bec5-7a750c146d11", "name": "Microsoft
+          Corporation", "symbol": "MSFT"}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: DELETE
+      uri: https://api.prd.stakeover.io/us/instrument/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+    response:
+      body:
+        string:
+          '[{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-13",
+          "timeCreated": "2025-08-12T23:54:17.121422Z", "count": 15}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-14", "timeCreated":
+          "2025-08-14T01:58:57.211214Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "test-2025-08-15", "timeCreated": "2025-08-15T01:35:39.886173Z",
+          "count": 17}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
+          "test-2025-08-18", "timeCreated": "2025-08-18T02:09:51.269589Z", "count":
+          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-19",
+          "timeCreated": "2025-08-19T05:27:40.000616Z", "count": 16}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-21", "timeCreated":
+          "2025-08-21T01:32:29.335752Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "test-2025-08-22", "timeCreated": "2025-08-22T04:34:50.976937Z",
+          "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
+          "test-2025-08-23", "timeCreated": "2025-08-22T21:47:06.609169Z", "count":
+          14}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-26",
+          "timeCreated": "2025-08-26T02:29:35.0685Z", "count": 15}]'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+version: 1
