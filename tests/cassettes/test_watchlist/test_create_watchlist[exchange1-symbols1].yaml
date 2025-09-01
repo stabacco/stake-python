@@ -45,20 +45,20 @@ interactions:
       body:
         string:
           '{"generated": false, "watchlists": [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-05", "count": 13, "timeCreated": "2025-08-05T07:20:15.861472"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-06",
+          "name": "test-2025-08-05", "count": 13, "timeCreated": "2025-08-05T07:20:15.861472"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-06",
           "count": 14, "timeCreated": "2025-08-06T11:14:12.301944"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-09", "count":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-09", "count":
           15, "timeCreated": "2025-08-09T00:40:14.987686"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-11", "count": 15, "timeCreated": "2025-08-11T10:47:31.306034"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-13",
+          "name": "test-2025-08-11", "count": 15, "timeCreated": "2025-08-11T10:47:31.306034"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-13",
           "count": 14, "timeCreated": "2025-08-13T06:34:29.643625"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-21", "count":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-21", "count":
           16, "timeCreated": "2025-08-21T01:40:59.486169"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-22", "count": 16, "timeCreated": "2025-08-22T05:00:05.327484"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-23",
+          "name": "test-2025-08-22", "count": 16, "timeCreated": "2025-08-22T05:00:05.327484"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-23",
           "count": 14, "timeCreated": "2025-08-22T21:55:05.81269"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-26", "count":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-26", "count":
           16, "timeCreated": "2025-08-26T02:52:58.934391"}]}'
       headers: {}
       status:
@@ -77,23 +77,23 @@ interactions:
       body:
         string:
           '{"newWatchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "watchlists":
-          [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-05",
+          [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-05",
           "count": 13, "timeCreated": "2025-08-05T07:20:15.861472"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-06", "count":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-06", "count":
           14, "timeCreated": "2025-08-06T11:14:12.301944"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-09", "count": 15, "timeCreated": "2025-08-09T00:40:14.987686"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-11",
+          "name": "test-2025-08-09", "count": 15, "timeCreated": "2025-08-09T00:40:14.987686"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-11",
           "count": 15, "timeCreated": "2025-08-11T10:47:31.306034"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-13", "count":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-13", "count":
           14, "timeCreated": "2025-08-13T06:34:29.643625"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-21", "count": 16, "timeCreated": "2025-08-21T01:40:59.486169"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-22",
+          "name": "test-2025-08-21", "count": 16, "timeCreated": "2025-08-21T01:40:59.486169"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-22",
           "count": 16, "timeCreated": "2025-08-22T05:00:05.327484"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-23", "count":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-23", "count":
           14, "timeCreated": "2025-08-22T21:55:05.81269"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-26", "count": 16, "timeCreated": "2025-08-26T02:52:58.934391"},
+          "name": "test-2025-08-26", "count": 16, "timeCreated": "2025-08-26T02:52:58.934391"},
           {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
-          "count": 0, "timeCreated": "2025-09-01T12:43:50.131385"}]}'
+          "count": 0, "timeCreated": "2025-09-01T13:05:47.428516"}]}'
       headers: {}
       status:
         code: 201
@@ -237,21 +237,21 @@ interactions:
     response:
       body:
         string:
-          '[{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-05",
+          '[{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-05",
           "count": 13, "timeCreated": "2025-08-05T07:20:15.861472"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-06", "count":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-06", "count":
           14, "timeCreated": "2025-08-06T11:14:12.301944"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-09", "count": 15, "timeCreated": "2025-08-09T00:40:14.987686"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-11",
+          "name": "test-2025-08-09", "count": 15, "timeCreated": "2025-08-09T00:40:14.987686"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-11",
           "count": 15, "timeCreated": "2025-08-11T10:47:31.306034"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-13", "count":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-13", "count":
           14, "timeCreated": "2025-08-13T06:34:29.643625"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-21", "count": 16, "timeCreated": "2025-08-21T01:40:59.486169"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-22",
+          "name": "test-2025-08-21", "count": 16, "timeCreated": "2025-08-21T01:40:59.486169"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-22",
           "count": 16, "timeCreated": "2025-08-22T05:00:05.327484"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-23", "count":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-23", "count":
           14, "timeCreated": "2025-08-22T21:55:05.81269"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-26", "count": 16, "timeCreated": "2025-08-26T02:52:58.934391"}]'
+          "name": "test-2025-08-26", "count": 16, "timeCreated": "2025-08-26T02:52:58.934391"}]'
       headers: {}
       status:
         code: 200

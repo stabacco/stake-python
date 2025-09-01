@@ -54,3 +54,31 @@ async def test_create_watchlist(
         request=DeleteWatchlistRequest(id=update_request.id)
     )
     assert result
+
+
+@pytest.mark.parametrize(
+    "exchange, symbols",
+    (
+        (constant.NYSE, ["TSLA", "GOOG", "MSFT", "NOK"]),
+        (constant.ASX, ["COL", "WDS", "BHP", "OOO"]),
+    ),
+)
+@pytest.mark.vcr()
+@pytest.mark.asyncio
+async def test_create_watchlist_with_tickers(
+    tracing_client: stake.StakeClient, exchange: BaseModel, symbols: str
+):
+    name = f"test_watchlist__{exchange.__class__.__name__}"
+    tracing_client.set_exchange(exchange)
+    watched = await tracing_client.watchlist.create_watchlist(
+        CreateWatchlistRequest(name=name, tickers=symbols)
+    )
+    if not watched:
+        return
+
+    assert watched.count == len(symbols)
+
+    result = await tracing_client.watchlist.delete_watchlist(
+        request=DeleteWatchlistRequest(id=watched.watchlist_id)
+    )
+    assert result

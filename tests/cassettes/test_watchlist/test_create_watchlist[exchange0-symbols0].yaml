@@ -45,21 +45,21 @@ interactions:
       body:
         string:
           '{"generated": false, "watchlists": [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-13", "timeCreated": "2025-08-12T23:54:17.121422Z",
+          "name": "test-2025-08-13", "timeCreated": "2025-08-12T23:54:17.121422Z",
           "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
-          "test--2025-08-14", "timeCreated": "2025-08-14T01:58:57.211214Z", "count":
-          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-15",
+          "test-2025-08-14", "timeCreated": "2025-08-14T01:58:57.211214Z", "count":
+          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-15",
           "timeCreated": "2025-08-15T01:35:39.886173Z", "count": 17}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-18", "timeCreated":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-18", "timeCreated":
           "2025-08-18T02:09:51.269589Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-19", "timeCreated": "2025-08-19T05:27:40.000616Z",
+          "name": "test-2025-08-19", "timeCreated": "2025-08-19T05:27:40.000616Z",
           "count": 16}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
-          "test--2025-08-21", "timeCreated": "2025-08-21T01:32:29.335752Z", "count":
-          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-22",
+          "test-2025-08-21", "timeCreated": "2025-08-21T01:32:29.335752Z", "count":
+          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-22",
           "timeCreated": "2025-08-22T04:34:50.976937Z", "count": 15}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-23", "timeCreated":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-23", "timeCreated":
           "2025-08-22T21:47:06.609169Z", "count": 14}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-26", "timeCreated": "2025-08-26T02:29:35.0685Z",
+          "name": "test-2025-08-26", "timeCreated": "2025-08-26T02:29:35.0685Z",
           "count": 15}]}'
       headers: {}
       status:
@@ -78,24 +78,24 @@ interactions:
       body:
         string:
           '{"newWatchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "watchlists":
-          [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-13",
+          [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-13",
           "timeCreated": "2025-08-12T23:54:17.121422Z", "count": 15}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-14", "timeCreated":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-14", "timeCreated":
           "2025-08-14T01:58:57.211214Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-15", "timeCreated": "2025-08-15T01:35:39.886173Z",
+          "name": "test-2025-08-15", "timeCreated": "2025-08-15T01:35:39.886173Z",
           "count": 17}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
-          "test--2025-08-18", "timeCreated": "2025-08-18T02:09:51.269589Z", "count":
-          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-19",
+          "test-2025-08-18", "timeCreated": "2025-08-18T02:09:51.269589Z", "count":
+          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-19",
           "timeCreated": "2025-08-19T05:27:40.000616Z", "count": 16}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-21", "timeCreated":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-21", "timeCreated":
           "2025-08-21T01:32:29.335752Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-22", "timeCreated": "2025-08-22T04:34:50.976937Z",
+          "name": "test-2025-08-22", "timeCreated": "2025-08-22T04:34:50.976937Z",
           "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
-          "test--2025-08-23", "timeCreated": "2025-08-22T21:47:06.609169Z", "count":
-          14}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-26",
+          "test-2025-08-23", "timeCreated": "2025-08-22T21:47:06.609169Z", "count":
+          14}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-26",
           "timeCreated": "2025-08-26T02:29:35.0685Z", "count": 15}, {"watchlistId":
           "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__NYSEUrl",
-          "timeCreated": "2025-09-01T12:43:47.947856Z", "count": 0}]}'
+          "timeCreated": "2025-09-01T13:05:45.299653Z", "count": 0}]}'
       headers: {}
       status:
         code: 200
@@ -242,21 +242,21 @@ interactions:
     response:
       body:
         string:
-          '[{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-13",
+          '[{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-13",
           "timeCreated": "2025-08-12T23:54:17.121422Z", "count": 15}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-14", "timeCreated":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-14", "timeCreated":
           "2025-08-14T01:58:57.211214Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-15", "timeCreated": "2025-08-15T01:35:39.886173Z",
+          "name": "test-2025-08-15", "timeCreated": "2025-08-15T01:35:39.886173Z",
           "count": 17}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
-          "test--2025-08-18", "timeCreated": "2025-08-18T02:09:51.269589Z", "count":
-          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-19",
+          "test-2025-08-18", "timeCreated": "2025-08-18T02:09:51.269589Z", "count":
+          15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-19",
           "timeCreated": "2025-08-19T05:27:40.000616Z", "count": 16}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-21", "timeCreated":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-21", "timeCreated":
           "2025-08-21T01:32:29.335752Z", "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test--2025-08-22", "timeCreated": "2025-08-22T04:34:50.976937Z",
+          "name": "test-2025-08-22", "timeCreated": "2025-08-22T04:34:50.976937Z",
           "count": 15}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name":
-          "test--2025-08-23", "timeCreated": "2025-08-22T21:47:06.609169Z", "count":
-          14}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test--2025-08-26",
+          "test-2025-08-23", "timeCreated": "2025-08-22T21:47:06.609169Z", "count":
+          14}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-26",
           "timeCreated": "2025-08-26T02:29:35.0685Z", "count": 15}]'
       headers: {}
       status:
