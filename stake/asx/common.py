@@ -11,3 +11,4 @@ class TradeType(str, Enum):
 
     MARKET = "MARKET_TO_LIMIT"
     LIMIT = "LIMIT"
+    STOP = "STOP"

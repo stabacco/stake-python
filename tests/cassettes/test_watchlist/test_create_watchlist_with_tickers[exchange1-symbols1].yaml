@@ -93,29 +93,11 @@ interactions:
           14, "timeCreated": "2025-08-22T21:55:05.81269"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
           "name": "test-2025-08-26", "count": 16, "timeCreated": "2025-08-26T02:52:58.934391"},
           {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
-          "count": 0, "timeCreated": "2025-09-01T13:05:47.428516"}]}'
+          "count": 0, "timeCreated": "2025-09-01T13:05:50.279057"}]}'
       headers: {}
       status:
         code: 201
         message: Created
-  - request:
-      body: null
-      headers:
-        Accept:
-          - application/json
-        Content-Type:
-          - application/json
-      method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
-    response:
-      body:
-        string:
-          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
-          "count": 0, "instruments": []}'
-      headers: {}
-      status:
-        code: 200
-        message: OK
   - request:
       body: null
       headers:
@@ -147,7 +129,9 @@ interactions:
       body:
         string:
           '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
-          "count": 3, "instruments": [{"instrumentId": "BHP.XAU", "name": "BHP Group
+          "count": 4, "instruments": [{"instrumentId": "OOO.XAU", "name": "BetaShares
+          Crude Oil Index ETF-Currency Hedged (Synthetic)", "symbol": "OOO", "recentAnnouncement":
+          false, "sensitive": false}, {"instrumentId": "BHP.XAU", "name": "BHP Group
           Limited", "symbol": "BHP", "recentAnnouncement": false, "sensitive": false},
           {"instrumentId": "WDS.XAU", "name": "Woodside Energy Group Ltd", "symbol":
           "WDS", "recentAnnouncement": false, "sensitive": false}, {"instrumentId":
@@ -157,74 +141,6 @@ interactions:
       status:
         code: 201
         message: Created
-  - request:
-      body: null
-      headers:
-        Accept:
-          - application/json
-        Content-Type:
-          - application/json
-      method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
-    response:
-      body:
-        string:
-          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
-          "count": 3, "instruments": [{"instrumentId": "BHP.XAU", "name": "BHP Group
-          Limited", "symbol": "BHP", "recentAnnouncement": false, "sensitive": false},
-          {"instrumentId": "WDS.XAU", "name": "Woodside Energy Group Ltd", "symbol":
-          "WDS", "recentAnnouncement": false, "sensitive": false}, {"instrumentId":
-          "COL.XAU", "name": "Coles Group Limited", "symbol": "COL", "recentAnnouncement":
-          true, "sensitive": false}]}'
-      headers: {}
-      status:
-        code: 200
-        message: OK
-  - request:
-      body: null
-      headers:
-        Accept:
-          - application/json
-        Content-Type:
-          - application/json
-      method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
-    response:
-      body:
-        string:
-          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
-          "count": 3, "instruments": [{"instrumentId": "BHP.XAU", "name": "BHP Group
-          Limited", "symbol": "BHP", "recentAnnouncement": false, "sensitive": false},
-          {"instrumentId": "WDS.XAU", "name": "Woodside Energy Group Ltd", "symbol":
-          "WDS", "recentAnnouncement": false, "sensitive": false}, {"instrumentId":
-          "COL.XAU", "name": "Coles Group Limited", "symbol": "COL", "recentAnnouncement":
-          true, "sensitive": false}]}'
-      headers: {}
-      status:
-        code: 200
-        message: OK
-  - request:
-      body:
-        tickers:
-          - COL
-          - WDS
-          - BHP
-      headers:
-        Accept:
-          - application/json
-        Content-Type:
-          - application/json
-      method: DELETE
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
-    response:
-      body:
-        string:
-          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
-          "count": 0, "instruments": []}'
-      headers: {}
-      status:
-        code: 200
-        message: OK
   - request:
       body: null
       headers:

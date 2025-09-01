@@ -1,7 +1,6 @@
 import uuid
 from datetime import datetime
 from typing import List, Optional, Union
-from warnings import warn
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -42,6 +41,7 @@ class CreateWatchlistRequest(BaseModel):
     """This is used to create a new watchlist."""
 
     name: str
+    tickers: List[str] | None = None
 
 
 class UpdateWatchlistRequest(BaseModel):
@@ -98,59 +98,6 @@ class WatchlistClient(BaseClient):
 
         return WatchlistResponse(symbol=request.symbol, watching=data["watching"])
 
-    async def add(self, request: AddToWatchlistRequest) -> WatchlistResponse:
-        """Adds a symbol to the watchlist.
-
-        Args:
-            request (AddToWatchlistRequest): The request containing the symbol.
-
-        Returns:
-            WatchlistResponse: The result of the watchlist modification.
-        """
-        warn(
-            "This method is deprecated, please use `add_to_watchlist` instead.",
-            DeprecationWarning,
-            stacklevel=2,
-        )
-
-        return await self._modify_watchlist(request)
-
-    async def remove(self, request: RemoveFromWatchlistRequest) -> WatchlistResponse:
-        """Removes a symbol from the watchlist.
-
-        Args:
-            request (RemoveFromWatchlistRequest): The request containing the symbol
-
-        Returns:
-            WatchlistResponse: The result of the watchlist modification.
-        """
-        warn(
-            "This method is deprecated, please use `remove_from_watchlist` instead.",
-            DeprecationWarning,
-            stacklevel=2,
-        )
-
-        return await self._modify_watchlist(request)
-
-    async def list(self) -> List[WatchlistProduct]:
-        """Lists all the contents of your watchlist.
-
-        Returns:
-            List[WatchlistProduct]: The list of items in your watchlist.
-        """
-        warn(
-            "This method is deprecated, please use `watchlist` instead.",
-            DeprecationWarning,
-            stacklevel=2,
-        )
-
-        watchlist = await self._client.get(
-            self._client.exchange.watchlist.format(userId=self._client.user.id)
-        )
-        return [
-            WatchlistProduct(**watched) for watched in watchlist["instrumentsWatchList"]
-        ]
-
     async def watchlist(self, request: GetWatchlistRequest) -> Watchlist:
         """Retrieves a watchlist by id.
 
@@ -188,14 +135,11 @@ class WatchlistClient(BaseClient):
         watchlist_id = response.get("newWatchlistId", None)
         assert watchlist_id, "Could not get a new watchlist"
 
-        return next(
-            (
-                Watchlist(**watchlist_data)
-                for watchlist_data in response["watchlists"]
-                if watchlist_data["watchlistId"] == watchlist_id
-            ),
-            None,
-        )
+        if request.tickers:
+            return await self.add_to_watchlist(
+                request=UpdateWatchlistRequest(id=watchlist_id, tickers=request.tickers)
+            )
+        return await self.watchlist(request=GetWatchlistRequest(id=watchlist_id))
 
     async def add_to_watchlist(self, request: UpdateWatchlistRequest) -> Watchlist:
         """Updates a watchlist by adding symbols to it."""

@@ -4,39 +4,10 @@ from pydantic import BaseModel
 import stake
 from stake import constant
 from stake.watchlist import (
-    AddToWatchlistRequest,
     CreateWatchlistRequest,
     DeleteWatchlistRequest,
-    RemoveFromWatchlistRequest,
     UpdateWatchlistRequest,
-    Watchlist,
 )
-
-# flake8: noqa
-
-
-@pytest.mark.vcr()
-@pytest.mark.asyncio
-async def test_add_to_watchlist(tracing_client: stake.StakeClient):
-    added = await tracing_client.watchlist.add(AddToWatchlistRequest(symbol="SPOT"))
-    assert added.watching
-
-
-@pytest.mark.vcr()
-@pytest.mark.asyncio
-async def test_remove_from_watchlist(tracing_client: stake.StakeClient):
-
-    removed = await tracing_client.watchlist.remove(
-        RemoveFromWatchlistRequest(symbol="SPOT")
-    )
-    assert not removed.watching
-
-
-@pytest.mark.vcr()
-@pytest.mark.asyncio
-async def test_list_watchlist(tracing_client: stake.StakeClient):
-    watched = await tracing_client.watchlist.list()
-    assert len(watched) == 10
 
 
 @pytest.mark.parametrize(
@@ -81,5 +52,33 @@ async def test_create_watchlist(
 
     result = await tracing_client.watchlist.delete_watchlist(
         request=DeleteWatchlistRequest(id=update_request.id)
+    )
+    assert result
+
+
+@pytest.mark.parametrize(
+    "exchange, symbols",
+    (
+        (constant.NYSE, ["TSLA", "GOOG", "MSFT", "NOK"]),
+        (constant.ASX, ["COL", "WDS", "BHP", "OOO"]),
+    ),
+)
+@pytest.mark.vcr()
+@pytest.mark.asyncio
+async def test_create_watchlist_with_tickers(
+    tracing_client: stake.StakeClient, exchange: BaseModel, symbols: str
+):
+    name = f"test_watchlist__{exchange.__class__.__name__}"
+    tracing_client.set_exchange(exchange)
+    watched = await tracing_client.watchlist.create_watchlist(
+        CreateWatchlistRequest(name=name, tickers=symbols)
+    )
+    if not watched:
+        return
+
+    assert watched.count == len(symbols)
+
+    result = await tracing_client.watchlist.delete_watchlist(
+        request=DeleteWatchlistRequest(id=watched.watchlist_id)
     )
     assert result
