@@ -7,7 +7,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/user
+      uri: https://api2.prd.hellostake.com/api/user
     response:
       body:
         string:
@@ -40,7 +40,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/quoteTwo/ASX
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/quoteTwo/ASX
     response:
       body:
         string:

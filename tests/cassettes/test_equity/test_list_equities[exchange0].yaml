@@ -7,7 +7,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/user
+      uri: https://api2.prd.hellostake.com/api/user
     response:
       body:
         string:
@@ -33,7 +33,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/user
+      url: https://api2.prd.hellostake.com/api/user
   - request:
       body: null
       headers:
@@ -42,7 +42,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/users/accounts/v2/equityPositions
+      uri: https://api2.prd.hellostake.com/api/users/accounts/v2/equityPositions
     response:
       body:
         string:
@@ -112,5 +112,5 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/users/accounts/v2/equityPositions
+      url: https://api2.prd.hellostake.com/api/users/accounts/v2/equityPositions
 version: 1

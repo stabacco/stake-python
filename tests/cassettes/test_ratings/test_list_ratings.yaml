@@ -7,7 +7,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/user
+      uri: https://api2.prd.hellostake.com/api/user
     response:
       body:
         string:
@@ -32,7 +32,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/user
+      url: https://api2.prd.hellostake.com/api/user
   - request:
       body: null
       headers:
@@ -41,7 +41,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/data/calendar/ratings?tickers=AAPL,MSFT&pageSize=4
+      uri: https://api2.prd.hellostake.com/api/data/calendar/ratings?tickers=AAPL,MSFT&pageSize=4
     response:
       body:
         string:
@@ -79,5 +79,5 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/data/calendar/ratings?tickers=AAPL,MSFT&pageSize=4
+      url: https://api2.prd.hellostake.com/api/data/calendar/ratings?tickers=AAPL,MSFT&pageSize=4
 version: 1

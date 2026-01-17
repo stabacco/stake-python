@@ -22,7 +22,7 @@ In order to successfully issue requests to the Stake platform you will need to a
 
 ## Using an existing Session-Token
 
-You can retrieve one of these `Stake-Session-Token` by using the developer tools in your browser (Network tab) and inspecting some of the request headers sent to some of the `https://global-prd-api.hellostake.com/` host. (For example, click on the wishlist of dashboard links to see some session-token authenticated requests)
+You can retrieve one of these `Stake-Session-Token` by using the developer tools in your browser (Network tab) and inspecting some of the request headers sent to some of the `https://api2.prd.hellostake.com/` host. (For example, click on the wishlist of dashboard links to see some session-token authenticated requests)
 
 They are usually valid for 30 days (be sure to enable that checkbox on login) and seem to get refreshed before expiry so you should be good to use them directly.
 
