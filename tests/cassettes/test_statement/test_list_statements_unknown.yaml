@@ -7,7 +7,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/user
+      uri: https://api2.prd.hellostake.com/api/user
     response:
       body:
         string:
@@ -40,7 +40,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/data/fundamentals/__X_X/statements?startDate=2022-01-01
+      uri: https://api2.prd.hellostake.com/api/data/fundamentals/__X_X/statements?startDate=2022-01-01
     response:
       body:
         string: '{"message": "No data returned"}'

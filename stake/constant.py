@@ -155,7 +155,7 @@ class ASXUrl(BaseModel):
         ASX_STAKE_URL, "instrument/view/{symbol}", allow_fragments=True
     )
     transactions: str = urljoin(ASX_STAKE_URL, "transactions", allow_fragments=True)
-    users: str = "https://global-prd-api.hellostake.com/api/user"
+    users: str = "https://api2.prd.hellostake.com/api/user"
 
 
 ASX = ASXUrl()

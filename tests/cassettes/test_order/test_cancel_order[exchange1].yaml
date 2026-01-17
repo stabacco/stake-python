@@ -7,7 +7,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/user
+      uri: https://api2.prd.hellostake.com/api/user
     response:
       body:
         string:
@@ -33,7 +33,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/user
+      url: https://api2.prd.hellostake.com/api/user
   - request:
       body: null
       headers:
@@ -42,7 +42,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/orders
+      uri: https://api2.prd.hellostake.com/api/asx/orders
     response:
       body:
         string:
@@ -75,7 +75,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/asx/orders
+      url: https://api2.prd.hellostake.com/api/asx/orders
   - request:
       body: null
       headers:
@@ -84,7 +84,7 @@ interactions:
         Content-Type:
           - application/json
       method: POST
-      uri: https://global-prd-api.hellostake.com/api/asx/orders/1cf93550-8eb4-4c32-a229-826cf8c1be59/cancel
+      uri: https://api2.prd.hellostake.com/api/asx/orders/1cf93550-8eb4-4c32-a229-826cf8c1be59/cancel
     response:
       body:
         string:
@@ -101,7 +101,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/asx/orders/76e8101a-f70d-4b7d-85eb-6cb400cd6509/cancel
+      url: https://api2.prd.hellostake.com/api/asx/orders/76e8101a-f70d-4b7d-85eb-6cb400cd6509/cancel
   - request:
       body: null
       headers:
@@ -110,7 +110,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/orders
+      uri: https://api2.prd.hellostake.com/api/asx/orders
     response:
       body:
         string:
@@ -135,5 +135,5 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/asx/orders
+      url: https://api2.prd.hellostake.com/api/asx/orders
 version: 1

@@ -7,7 +7,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/user
+      uri: https://api2.prd.hellostake.com/api/user
     response:
       body:
         string:
@@ -33,7 +33,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/user
+      url: https://api2.prd.hellostake.com/api/user
   - request:
       body: null
       headers:
@@ -42,7 +42,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/singleQuote/ANZ
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/singleQuote/ANZ
     response:
       body:
         string:
@@ -55,7 +55,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/asx/instrument/singleQuote/ANZ
+      url: https://api2.prd.hellostake.com/api/asx/instrument/singleQuote/ANZ
   - request:
       body: null
       headers:
@@ -64,7 +64,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/singleQuote/WDS
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/singleQuote/WDS
     response:
       body:
         string:
@@ -78,7 +78,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/asx/instrument/singleQuote/WDS
+      url: https://api2.prd.hellostake.com/api/asx/instrument/singleQuote/WDS
   - request:
       body: null
       headers:
@@ -87,7 +87,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/singleQuote/COL
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/singleQuote/COL
     response:
       body:
         string:
@@ -100,5 +100,5 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/asx/instrument/singleQuote/COL
+      url: https://api2.prd.hellostake.com/api/asx/instrument/singleQuote/COL
 version: 1

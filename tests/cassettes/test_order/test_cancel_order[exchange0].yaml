@@ -7,7 +7,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/user
+      uri: https://api2.prd.hellostake.com/api/user
     response:
       body:
         string:
@@ -33,7 +33,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/user
+      url: https://api2.prd.hellostake.com/api/user
   - request:
       body: null
       headers:
@@ -42,7 +42,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/users/accounts/v2/orders
+      uri: https://api2.prd.hellostake.com/api/users/accounts/v2/orders
     response:
       body:
         string:
@@ -58,7 +58,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/users/accounts/v2/orders
+      url: https://api2.prd.hellostake.com/api/users/accounts/v2/orders
   - request:
       body: null
       headers:
@@ -67,7 +67,7 @@ interactions:
         Content-Type:
           - application/json
       method: DELETE
-      uri: https://global-prd-api.hellostake.com/api/orders/cancelOrder/HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api2.prd.hellostake.com/api/orders/cancelOrder/HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59
     response:
       body:
         string: ""
@@ -75,7 +75,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/orders/cancelOrder/HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59
+      url: https://api2.prd.hellostake.com/api/orders/cancelOrder/HHI.1cf93550-8eb4-4c32-a229-826cf8c1be59
   - request:
       body: null
       headers:
@@ -84,7 +84,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/users/accounts/v2/orders
+      uri: https://api2.prd.hellostake.com/api/users/accounts/v2/orders
     response:
       body:
         string: "[]"
@@ -92,5 +92,5 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/users/accounts/v2/orders
+      url: https://api2.prd.hellostake.com/api/users/accounts/v2/orders
 version: 1

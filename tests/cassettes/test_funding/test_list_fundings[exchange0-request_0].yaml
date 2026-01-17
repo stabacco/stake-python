@@ -7,7 +7,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/user
+      uri: https://api2.prd.hellostake.com/api/user
     response:
       body:
         string:
@@ -33,7 +33,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/user
+      url: https://api2.prd.hellostake.com/api/user
   - request:
       body: null
       headers:
@@ -42,7 +42,7 @@ interactions:
         Content-Type:
           - application/json
       method: POST
-      uri: https://global-prd-api.hellostake.com/api/users/accounts/transactionHistory
+      uri: https://api2.prd.hellostake.com/api/users/accounts/transactionHistory
     response:
       body:
         string: '[{"transactionType":
@@ -59,7 +59,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/users/accounts/transactionHistory
+      url: https://api2.prd.hellostake.com/api/users/accounts/transactionHistory
   - request:
       body: null
       headers:
@@ -68,7 +68,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=O9-7708124v&referenceType=Funding
+      uri: https://api2.prd.hellostake.com/api/users/accounts/transactionDetails?reference=O9-7708124v&referenceType=Funding
     response:
       body:
         string:
@@ -82,7 +82,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=O9-7708124v&referenceType=Funding
+      url: https://api2.prd.hellostake.com/api/users/accounts/transactionDetails?reference=O9-7708124v&referenceType=Funding
   - request:
       body: null
       headers:
@@ -91,7 +91,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=O9-7708124v&referenceType=Funding
+      uri: https://api2.prd.hellostake.com/api/users/accounts/transactionDetails?reference=O9-7708124v&referenceType=Funding
     response:
       body:
         string:
@@ -105,5 +105,5 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/users/accounts/transactionDetails?reference=O9-7708124v&referenceType=Funding
+      url: https://api2.prd.hellostake.com/api/users/accounts/transactionDetails?reference=O9-7708124v&referenceType=Funding
 version: 1

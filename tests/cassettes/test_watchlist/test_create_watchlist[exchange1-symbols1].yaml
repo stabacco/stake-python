@@ -7,7 +7,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/user
+      uri: https://api2.prd.hellostake.com/api/user
     response:
       body:
         string:
@@ -40,7 +40,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlists
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlists
     response:
       body:
         string:
@@ -72,7 +72,7 @@ interactions:
         Content-Type:
           - application/json
       method: POST
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist
     response:
       body:
         string:
@@ -106,7 +106,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
     response:
       body:
         string:
@@ -124,7 +124,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
     response:
       body:
         string:
@@ -142,7 +142,7 @@ interactions:
         Content-Type:
           - application/json
       method: POST
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
     response:
       body:
         string:
@@ -165,7 +165,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
     response:
       body:
         string:
@@ -188,7 +188,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
     response:
       body:
         string:
@@ -215,7 +215,7 @@ interactions:
         Content-Type:
           - application/json
       method: DELETE
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
     response:
       body:
         string:
@@ -233,7 +233,7 @@ interactions:
         Content-Type:
           - application/json
       method: DELETE
-      uri: https://global-prd-api.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
     response:
       body:
         string:

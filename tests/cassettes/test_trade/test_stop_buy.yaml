@@ -7,7 +7,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/user
+      uri: https://api2.prd.hellostake.com/api/user
     response:
       body:
         string:
@@ -32,7 +32,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/user
+      url: https://api2.prd.hellostake.com/api/user
   - request:
       body: null
       headers:
@@ -41,7 +41,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=AMD&page=1&max=1
+      uri: https://api2.prd.hellostake.com/api/products/searchProduct?symbol=AMD&page=1&max=1
     response:
       body:
         string:
@@ -70,7 +70,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/products/searchProduct?symbol=AMD&page=1&max=1
+      url: https://api2.prd.hellostake.com/api/products/searchProduct?symbol=AMD&page=1&max=1
   - request:
       body: null
       headers:
@@ -79,7 +79,7 @@ interactions:
         Content-Type:
           - application/json
       method: POST
-      uri: https://global-prd-api.hellostake.com/api/purchaseorders/v2/quickBuy
+      uri: https://api2.prd.hellostake.com/api/purchaseorders/v2/quickBuy
     response:
       body:
         string:
@@ -97,7 +97,7 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/purchaseorders/v2/quickBuy
+      url: https://api2.prd.hellostake.com/api/purchaseorders/v2/quickBuy
   - request:
       body: null
       headers:
@@ -106,7 +106,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://global-prd-api.hellostake.com/api/users/accounts/transactions
+      uri: https://api2.prd.hellostake.com/api/users/accounts/transactions
     response:
       body:
         string:
@@ -179,5 +179,5 @@ interactions:
       status:
         code: 200
         message: OK
-      url: https://global-prd-api.hellostake.com/api/users/accounts/transactions
+      url: https://api2.prd.hellostake.com/api/users/accounts/transactions
 version: 1
