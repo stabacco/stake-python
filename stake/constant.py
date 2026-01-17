@@ -103,59 +103,63 @@ NYSE = NYSEUrl()
 class ASXUrl(BaseModel):
     """Contains all the visited stake urls for the ASX."""
 
-    ASX_STAKE_URL: str = "https://api2.prd.hellostake.com/api/asx/"
+    ASX_STAKE_URL: str = "https://api2.prd.hellostake.com/"
     brokerage: str = urljoin(
         ASX_STAKE_URL,
-        "orders/brokerage?orderAmount={orderAmount}",
+        "api/asx/orders/brokerage?orderAmount={orderAmount}",
         allow_fragments=True,
     )
-    cash_available: str = urljoin(ASX_STAKE_URL, "cash", allow_fragments=True)
+    cash_available: str = urljoin(ASX_STAKE_URL, "api/asx/cash", allow_fragments=True)
     cancel_order: str = urljoin(
-        ASX_STAKE_URL, "orders/{orderId}/cancel", allow_fragments=True
+        ASX_STAKE_URL, "api/asx/orders/{orderId}/cancel", allow_fragments=True
     )
     equity_positions: str = urljoin(
-        ASX_STAKE_URL, "instrument/equityPositions", allow_fragments=True
+        ASX_STAKE_URL, "api/asx/instrument/equityPositions", allow_fragments=True
     )
     market_status: str = urljoin(
-        ASX_STAKE_URL, "instrument/quoteTwo/ASX", allow_fragments=True
+        ASX_STAKE_URL, "api/asx/instrument/quoteTwo/ASX", allow_fragments=True
     )
 
-    orders: str = urljoin(ASX_STAKE_URL, "orders", allow_fragments=True)
+    orders: str = urljoin(ASX_STAKE_URL, "api/asx/orders", allow_fragments=True)
 
     products_suggestions: str = urljoin(
         ASX_STAKE_URL,
-        "instrument/search?searchKey={keyword}",
+        "api/asx/instrument/search?searchKey={keyword}",
         allow_fragments=True,
     )
 
     symbol: str = urljoin(
         ASX_STAKE_URL,
-        "instrument/singleQuote/{symbol}",
+        "api/asx/instrument/singleQuote/{symbol}",
         allow_fragments=True,
     )
 
     trade_activity: str = urljoin(
-        ASX_STAKE_URL, "orders/tradeActivity", allow_fragments=True
+        ASX_STAKE_URL, "api/asx/orders/tradeActivity", allow_fragments=True
     )
     watchlists: str = urljoin(
-        ASX_STAKE_URL, "instrument/v2/watchlists", allow_fragments=True
+        ASX_STAKE_URL, "api/asx/instrument/v2/watchlists", allow_fragments=True
     )
     create_watchlist: str = urljoin(
-        ASX_STAKE_URL, "instrument/v2/watchlist", allow_fragments=True
+        ASX_STAKE_URL, "api/asx/instrument/v2/watchlist", allow_fragments=True
     )
     read_watchlist: str = urljoin(
-        ASX_STAKE_URL, "instrument/v2/watchlist/{watchlist_id}", allow_fragments=True
+        ASX_STAKE_URL,
+        "api/asx/instrument/v2/watchlist/{watchlist_id}",
+        allow_fragments=True,
     )
     update_watchlist: str = urljoin(
         ASX_STAKE_URL,
-        "instrument/v2/watchlist/{watchlist_id}/items",
+        "api/asx/instrument/v2/watchlist/{watchlist_id}/items",
         allow_fragments=True,
     )
     instrument_from_symbol: str = urljoin(
-        ASX_STAKE_URL, "instrument/view/{symbol}", allow_fragments=True
+        ASX_STAKE_URL, "api/asx/instrument/view/{symbol}", allow_fragments=True
     )
-    transactions: str = urljoin(ASX_STAKE_URL, "transactions", allow_fragments=True)
-    users: str = "https://api2.prd.hellostake.com/api/user"
+    transactions: str = urljoin(
+        ASX_STAKE_URL, "api/asx/transactions", allow_fragments=True
+    )
+    users: str = urljoin(ASX_STAKE_URL, "api/user", allow_fragments=True)
 
 
 ASX = ASXUrl()
