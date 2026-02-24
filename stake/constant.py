@@ -119,6 +119,16 @@ class ASXUrl(BaseModel):
     market_status: str = urljoin(
         ASX_STAKE_URL, "api/asx/instrument/quoteTwo/ASX", allow_fragments=True
     )
+    aggregated_depth: str = urljoin(
+        ASX_STAKE_URL,
+        "api/asx/instrument/aggregatedDepth/{symbol}?type=EQUITY",
+        allow_fragments=True,
+    )
+    course_of_sales: str = urljoin(
+        ASX_STAKE_URL,
+        "api/asx/instrument/courseOfSales/{symbol}",
+        allow_fragments=True,
+    )
 
     orders: str = urljoin(ASX_STAKE_URL, "api/asx/orders", allow_fragments=True)
 

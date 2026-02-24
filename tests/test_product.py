@@ -75,3 +75,27 @@ async def test_search_products(
 
     product = await tracing_client.products.product_from_instrument(search_results[0])
     assert product
+
+
+@pytest.mark.vcr()
+@pytest.mark.asyncio
+async def test_asx_product_depth(tracing_client: StakeClient):
+    tracing_client.set_exchange(constant.ASX)
+
+    depth = await tracing_client.products.depth("ORG")
+
+    assert depth.ticker == "ORG"
+    assert depth.buy_orders
+    assert depth.sell_orders
+
+
+@pytest.mark.vcr()
+@pytest.mark.asyncio
+async def test_asx_product_course_of_sales(tracing_client: StakeClient):
+    tracing_client.set_exchange(constant.ASX)
+
+    sales = await tracing_client.products.course_of_sales("ORG")
+
+    assert sales.ticker == "ORG"
+    assert sales.total_trades
+    assert sales.course_of_sales

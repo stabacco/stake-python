@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Any, List, Optional
 
 from pydantic import BaseModel, ConfigDict
 
@@ -41,6 +41,23 @@ class Product(BaseModel):
     points_change: Optional[float] = None
     percentage_change: Optional[float] = None
     out_of_market_price: Optional[float] = None
+
+    # Aggregated depth fields
+    id: Optional[str] = None
+    ticker: Optional[str] = None
+    total_buy_count: Optional[int] = None
+    total_sell_count: Optional[int] = None
+    total_buy_volume: Optional[int] = None
+    total_sell_volume: Optional[int] = None
+    buy_orders: Optional[List[dict[str, Any]]] = None
+    sell_orders: Optional[List[dict[str, Any]]] = None
+
+    # Course of sales fields
+    total_volume: Optional[int] = None
+    total_trades: Optional[int] = None
+    total_value: Optional[float] = None
+    course_of_sales: Optional[List[dict[str, Any]]] = None
+
     model_config = ConfigDict(alias_generator=camelcase)
 
 
@@ -55,6 +72,18 @@ class ProductsClient(BaseClient):
             self._client.exchange.symbol.format(symbol=symbol)
         )
 
+        return Product(**data)
+
+    async def depth(self, symbol: str) -> Product:
+        data = await self._client.get(
+            self._client.exchange.aggregated_depth.format(symbol=symbol)
+        )
+        return Product(**data)
+
+    async def course_of_sales(self, symbol: str) -> Product:
+        data = await self._client.get(
+            self._client.exchange.course_of_sales.format(symbol=symbol)
+        )
         return Product(**data)
 
     async def search(self, request: ProductSearchByName) -> List[Instrument]:
