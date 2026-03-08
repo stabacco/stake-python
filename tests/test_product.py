@@ -85,8 +85,20 @@ async def test_asx_product_depth(tracing_client: StakeClient):
     depth = await tracing_client.products.depth("ORG")
 
     assert depth.ticker == "ORG"
+    assert isinstance(depth.total_buy_count, int)
+    assert isinstance(depth.total_sell_count, int)
+    assert isinstance(depth.total_buy_volume, int)
+    assert isinstance(depth.total_sell_volume, int)
     assert depth.buy_orders
     assert depth.sell_orders
+
+    buy_order = depth.buy_orders[0]
+    assert isinstance(buy_order.price, float)
+    assert isinstance(buy_order.volume, int)
+    assert isinstance(buy_order.number_of_orders, int)
+    assert buy_order.orders
+    assert isinstance(buy_order.orders[0].exchange, str)
+    assert isinstance(buy_order.orders[0].undisclosed, bool)
 
 
 @pytest.mark.vcr()
@@ -97,5 +109,16 @@ async def test_asx_product_course_of_sales(tracing_client: StakeClient):
     sales = await tracing_client.products.course_of_sales("ORG")
 
     assert sales.ticker == "ORG"
-    assert sales.total_trades
+    assert isinstance(sales.total_volume, int)
+    assert isinstance(sales.total_trades, int)
+    assert isinstance(sales.total_value, float)
     assert sales.course_of_sales
+
+    sale = sales.course_of_sales[0]
+    assert isinstance(sale.id, str)
+    assert isinstance(sale.instrument_code_id, str)
+    assert isinstance(sale.exchange_market, str)
+    assert isinstance(sale.price, float)
+    assert isinstance(sale.volume, int)
+    assert isinstance(sale.value, float)
+    assert isinstance(sale.trade_time_millis, int)

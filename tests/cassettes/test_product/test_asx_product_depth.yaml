@@ -23,7 +23,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://api2.prd.hellostake.com/api/asx/instrument/aggregatedDepth/ORG
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/aggregatedDepth/ORG?type=EQUITY
     response:
       body:
         string: '{"id":"ORG#depth","ticker":"ORG","totalBuyCount":2,"totalSellCount":2,"totalBuyVolume":17227,"totalSellVolume":34912,"buyOrders":[{"id":"buy-12.06","price":12.06,"volume":15461,"numberOfOrders":1,"value":186459.66,"orders":[{"id":"buy-1","exchange":"ASX","volume":15461,"value":186459.66,"undisclosed":false}]},{"id":"buy-12.05","price":12.05,"volume":1766,"numberOfOrders":1,"value":21280.3,"orders":[{"id":"buy-2","exchange":"ASX","volume":1766,"value":21280.3,"undisclosed":false}]}],"sellOrders":[{"id":"sell-12.08","price":12.08,"volume":514,"numberOfOrders":1,"value":6209.12,"orders":[{"id":"sell-1","exchange":"ASX","volume":514,"value":6209.12,"undisclosed":false}]},{"id":"sell-12.10","price":12.1,"volume":34398,"numberOfOrders":3,"value":416215.8,"orders":[{"id":"sell-2","exchange":"ASX","volume":18500,"value":223850.0,"undisclosed":false}]}]}'
