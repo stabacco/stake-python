@@ -32,6 +32,7 @@ pytest-coverage = "^0.0"
 pytest-mock = "^3.3.0"
 faker = "^4.14.0"
 coverage-badge = "^1.0.1"
+setuptools = ">=69.0.0"
 pytest-recording = "^0.13.4"
 
 

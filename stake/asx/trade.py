@@ -39,13 +39,10 @@ class GenericTradeRequest(BaseModel):
     model_config = ConfigDict(alias_generator=camelcase, populate_by_name=True)
 
     @model_validator(mode="after")
-    @classmethod
-    def symbol_or_instrument_type(
-        cls, value: "GenericTradeRequest"
-    ) -> "GenericTradeRequest":
-        if value.symbol is None and value.instrument_code is None:
+    def symbol_or_instrument_type(self) -> "GenericTradeRequest":
+        if self.symbol is None and self.instrument_code is None:
             raise ValueError("Either specify symbol or instrument_code")
-        return value
+        return self
 
 
 class LimitBuyRequest(GenericTradeRequest):
