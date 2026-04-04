@@ -34,7 +34,7 @@ def main() -> int:
         )
         return 2
     xml_path, out_path = sys.argv[1], sys.argv[2]
-    root = ET.parse(xml_path).getroot()
+    root = defusedxml.etree.ElementTree.parse(xml_path).getroot()
     line_rate = float(root.attrib.get("line-rate", "0"))
     pct = line_rate * 100
     color = _color(pct)
