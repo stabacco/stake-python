@@ -63,6 +63,7 @@ async def test_get_product(
 @pytest.mark.parametrize(
     "exchange, keyword", ((constant.ASX, "CBA"), (constant.NYSE, "MSFT"))
 )
+@pytest.mark.vcr()
 @pytest.mark.asyncio
 async def test_search_products(
     tracing_client: StakeClient, exchange: BaseModel, keyword: str

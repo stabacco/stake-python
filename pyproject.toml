@@ -31,7 +31,6 @@ pre-commit = "^4.2.0"
 pytest-coverage = "^0.0"
 pytest-mock = "^3.3.0"
 faker = "^4.14.0"
-coverage-badge = "^1.0.1"
 pytest-recording = "^0.13.4"
 
 
