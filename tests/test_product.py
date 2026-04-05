@@ -81,6 +81,7 @@ async def test_search_products(
 @pytest.mark.asyncio
 async def test_asx_product_depth(tracing_client: StakeClient):
     tracing_client.set_exchange(constant.ASX)
+    assert isinstance(tracing_client.products, asx.product.ProductsClient)
 
     depth = await tracing_client.products.depth("ORG")
 
@@ -105,6 +106,7 @@ async def test_asx_product_depth(tracing_client: StakeClient):
 @pytest.mark.asyncio
 async def test_asx_product_course_of_sales(tracing_client: StakeClient):
     tracing_client.set_exchange(constant.ASX)
+    assert isinstance(tracing_client.products, asx.product.ProductsClient)
 
     sales = await tracing_client.products.course_of_sales("ORG")
 
