@@ -1,0 +1,34 @@
+interactions:
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://api2.prd.hellostake.com/api/user
+    response:
+      body:
+        string: '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified": true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf", "username": "michael29", "emailAddress": "reevesmegan@gilmore-wright.biz", "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber": "z0-0593879b", "macAccountNumber": "d9-0481457G", "status": null, "macStatus": "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist": null, "firstName": "Rita", "middleName": null, "lastName": "Jones", "phoneNumber": "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2023-10-01", "createdDate": 1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId": null, "referralCode": "W2-6612029X", "referredByCode": null, "regionIdentifier": "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics": null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus": null, "userProfile": {"residentialAddress": null, "postalAddress": null}, "ledgerBalance": 0.0, "fxSpeed": "Regular", "dateOfBirth": null, "upToDateDetails2021": "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired": null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled": false}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+  - request:
+      body: null
+      headers:
+        Accept:
+          - application/json
+        Content-Type:
+          - application/json
+      method: GET
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/aggregatedDepth/ORG?type=EQUITY
+    response:
+      body:
+        string: '{"id":"ORG#depth","ticker":"ORG","totalBuyCount":2,"totalSellCount":2,"totalBuyVolume":17227,"totalSellVolume":34912,"buyOrders":[{"id":"buy-12.06","price":12.06,"volume":15461,"numberOfOrders":1,"value":186459.66,"orders":[{"id":"buy-1","exchange":"ASX","volume":15461,"value":186459.66,"undisclosed":false}]},{"id":"buy-12.05","price":12.05,"volume":1766,"numberOfOrders":1,"value":21280.3,"orders":[{"id":"buy-2","exchange":"ASX","volume":1766,"value":21280.3,"undisclosed":false}]}],"sellOrders":[{"id":"sell-12.08","price":12.08,"volume":514,"numberOfOrders":1,"value":6209.12,"orders":[{"id":"sell-1","exchange":"ASX","volume":514,"value":6209.12,"undisclosed":false}]},{"id":"sell-12.10","price":12.1,"volume":34398,"numberOfOrders":3,"value":416215.8,"orders":[{"id":"sell-2","exchange":"ASX","volume":18500,"value":223850.0,"undisclosed":false}]}]}'
+      headers: {}
+      status:
+        code: 200
+        message: OK
+version: 1

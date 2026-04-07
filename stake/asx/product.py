@@ -44,6 +44,60 @@ class Product(BaseModel):
     model_config = ConfigDict(alias_generator=camelcase)
 
 
+class DepthOrder(BaseModel):
+    id: Optional[str] = None
+    exchange: Optional[str] = None
+    volume: Optional[int] = None
+    value: Optional[float] = None
+    undisclosed: Optional[bool] = None
+    model_config = ConfigDict(alias_generator=camelcase)
+
+
+class DepthLevel(BaseModel):
+    id: Optional[str] = None
+    price: Optional[float] = None
+    volume: Optional[int] = None
+    number_of_orders: Optional[int] = None
+    value: Optional[float] = None
+    orders: Optional[List[DepthOrder]] = None
+    model_config = ConfigDict(alias_generator=camelcase)
+
+
+class ProductAggregatedDepth(BaseModel):
+    id: Optional[str] = None
+    ticker: Optional[str] = None
+    total_buy_count: Optional[int] = None
+    total_sell_count: Optional[int] = None
+    total_buy_volume: Optional[int] = None
+    total_sell_volume: Optional[int] = None
+    buy_orders: Optional[List[DepthLevel]] = None
+    sell_orders: Optional[List[DepthLevel]] = None
+    model_config = ConfigDict(alias_generator=camelcase)
+
+
+class CourseOfSale(BaseModel):
+    id: Optional[str] = None
+    instrument_code_id: Optional[str] = None
+    exchange_market: Optional[str] = None
+    price: Optional[float] = None
+    volume: Optional[int] = None
+    value: Optional[float] = None
+    trade_time_millis: Optional[int] = None
+    cancelled_time_millis: Optional[int] = None
+    buy_order_number: Optional[str] = None
+    sell_order_number: Optional[str] = None
+    model_config = ConfigDict(alias_generator=camelcase)
+
+
+class ProductCourseOfSales(BaseModel):
+    ticker: Optional[str] = None
+    total_volume: Optional[int] = None
+    total_trades: Optional[int] = None
+    total_value: Optional[float] = None
+    course_of_sales: Optional[List[CourseOfSale]] = None
+    model_config = ConfigDict(alias_generator=camelcase)
+
+
 class ProductsClient(BaseClient):
     async def get(self, symbol: str) -> Optional[Product]:
         """Given a symbol it will return the matching product.
@@ -56,6 +110,18 @@ class ProductsClient(BaseClient):
         )
 
         return Product(**data)
+
+    async def depth(self, symbol: str) -> ProductAggregatedDepth:
+        data = await self._client.get(
+            self._client.exchange.aggregated_depth.format(symbol=symbol)
+        )
+        return ProductAggregatedDepth(**data)
+
+    async def course_of_sales(self, symbol: str) -> ProductCourseOfSales:
+        data = await self._client.get(
+            self._client.exchange.course_of_sales.format(symbol=symbol)
+        )
+        return ProductCourseOfSales(**data)
 
     async def search(self, request: ProductSearchByName) -> List[Instrument]:
         products = await self._client.get(
