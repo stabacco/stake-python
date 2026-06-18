@@ -32,6 +32,7 @@ pytest-coverage = "^0.0"
 pytest-mock = "^3.3.0"
 faker = "^4.14.0"
 pytest-recording = "^0.13.4"
+types-pyyaml = "^6.0.12.20260518"
 
 
 [tool.isort]

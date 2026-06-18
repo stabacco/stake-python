@@ -10,24 +10,7 @@ interactions:
       uri: https://api2.prd.hellostake.com/api/user
     response:
       body:
-        string:
-          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
-          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
-          "username": "michael29", "emailAddress": "reevesmegan@gilmore-wright.biz",
-          "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
-          "z0-0593879b", "macAccountNumber": "d9-0481457G", "status": null, "macStatus":
-          "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
-          null, "firstName": "Rita", "middleName": null, "lastName": "Jones", "phoneNumber":
-          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2023-10-01", "createdDate":
-          1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
-          null, "referralCode": "W2-6612029X", "referredByCode": null, "regionIdentifier":
-          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
-          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
-          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
-          "ledgerBalance": 0.0, "fxSpeed": "Instant", "dateOfBirth": null, "upToDateDetails2021":
-          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
-          null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
-          false}'
+        string: '{"canTradeOnUnsettledFunds":false,"cpfValue":null,"emailVerified":true,"hasFunded":true,"hasTraded":true,"userId":"7c9bbfae-0000-47b7-0000-0e66d868c2cf","username":"annaduran","emailAddress":"steven91@williams-holloway.com","dw_AccountId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","dw_AccountNumber":"Z5-3001375g","macAccountNumber":"Z5-3001375g","status":null,"macStatus":"BASIC_USER","dwStatus":null,"truliooStatus":"APPROVED","truliooStatusWithWatchlist":null,"firstName":"Kevin","middleName":null,"lastName":"Horn","phoneNumber":"518-247-0640","signUpPhase":0,"ackSignedWhen":"2020-02-19","createdDate":1574303699770,"stakeApprovedDate":null,"accountType":"INDIVIDUAL","masterAccountId":null,"referralCode":"Z5-3001375g","referredByCode":null,"regionIdentifier":"AUS","assetSummary":null,"fundingStatistics":null,"tradingStatistics":null,"w8File":[],"rewardJourneyTimestamp":null,"rewardJourneyStatus":null,"userProfile":{"residentialAddress":null,"postalAddress":null},"ledgerBalance":0.0,"fxSpeed":"Instant","dateOfBirth":null,"upToDateDetails2021":"NO_REQUIREMENTS","stakeKycStatus":"KYC_APPROVED","awxMigrationDocsRequired":null,"documentsStatus":"NO_ACTION","accountStatus":"OPEN","mfaenabled":false}'
       headers: {}
       status:
         code: 200
@@ -44,27 +27,12 @@ interactions:
     response:
       body:
         string:
-          '{"instruments": [{"name": "Microsoft Corporation", "symbol": "MSFT",
-          "encodedName": "microsoft-corporation-msft", "instrumentId": "e234cc98-cd08-4b04-a388-fe5c822beea6",
-          "stakeInstrumentId": "e3769c0b-456d-49dd-bec5-7a750c146d11", "imageUrl": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/msft.png",
-          "exchange": "NSQ"}, {"name": "DIREXION DAILY MSFT BEAR 1X", "symbol": "MSFD",
-          "encodedName": "direxion-daily-msft-bear-1x-msfd", "instrumentId": "001b5a31-32fb-401d-82b5-f2dc3ec98fae",
-          "stakeInstrumentId": "83bc732b-cc03-4baa-9451-00e21d6cd9ef", "imageUrl": "https://drivewealth.imgix.net/symbols/msfd_1666599112.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
-          "exchange": "NMQ"}, {"name": "GraniteShares 2x Long MSFT Daily ETF", "symbol":
-          "MSFL", "encodedName": "graniteshares-2x-long-msft-daily-etf-msfl", "instrumentId":
-          "18998b7b-e440-48e5-8cc0-556d5ad5a991", "stakeInstrumentId": "d22172a0-fdf1-4aad-a796-8850c835023b",
-          "imageUrl": "https://drivewealth.imgix.net/symbols/msfl_1714794745.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
-          "exchange": "NMQ"}, {"name": "ROUNDHILL MSFT WEEKLYPAY ETF", "symbol": "MSFW",
-          "encodedName": "roundhill-msft-weeklypay-etf-msfw", "instrumentId": "36001204-bb72-4db4-b0ba-9b9c602c9729",
-          "stakeInstrumentId": "5a04cb5e-28d9-4e0c-9fa2-0c1c83a8f221", "imageUrl": "https://drivewealth.imgix.net/symbols/msfw_1753257703.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
-          "exchange": "BTQ"}, {"name": "YieldMax MSFT Option Income Strategy ETF", "symbol":
-          "MSFO", "encodedName": "yieldmax-msft-option-income-strategy-etf-msfo", "instrumentId":
-          "634c3949-de0a-467b-baa7-fb60c993ed19", "stakeInstrumentId": "645ee7ea-0434-4d96-a7af-d279f84de86d",
-          "imageUrl": "https://drivewealth.imgix.net/symbols/msfo_1697073212.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
-          "exchange": "PCQ"}, {"name": "DIREXION DAILY MSFT BULL 1.5", "symbol": "MSFU",
-          "encodedName": "direxion-daily-msft-bull-15-msfu", "instrumentId": "838e1162-c850-484c-b3b9-3054749b5e39",
-          "stakeInstrumentId": "01e9d902-9593-495b-b7f5-6074c83940ca", "imageUrl": "https://drivewealth.imgix.net/symbols/msfu_1666599113.png?fit=fillmax&w=125&h=125&bg=FFFFFF",
-          "exchange": "NMQ"}], "instrumentTags": []}'
+          '{"instruments":[{"name":"Microsoft Corporation","symbol":"MSFT","encodedName":"microsoft-corporation-msft","instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","stakeInstrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","imageUrl":"https://d3an3cesqmrf1x.cloudfront.net/images/symbols/msft.png","exchange":"NSQ"},{"name":"DIREXION
+          DAILY MSFT BEAR 1X","symbol":"MSFD","encodedName":"direxion-daily-msft-bear-1x-msfd","instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","stakeInstrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","imageUrl":"https://drivewealth.imgix.net/symbols/msfd_1666599112.png?fit=fillmax&w=125&h=125&bg=FFFFFF","exchange":"NMQ"},{"name":"GraniteShares
+          2x Long MSFT Daily ETF","symbol":"MSFL","encodedName":"graniteshares-2x-long-msft-daily-etf-msfl","instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","stakeInstrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","imageUrl":"https://drivewealth.imgix.net/symbols/msfl_1714794745.png?fit=fillmax&w=125&h=125&bg=FFFFFF","exchange":"NMQ"},{"name":"ROUNDHILL
+          MSFT WEEKLYPAY ETF","symbol":"MSFW","encodedName":"roundhill-msft-weeklypay-etf-msfw","instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","stakeInstrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","imageUrl":"https://drivewealth.imgix.net/symbols/msfw_1753257703.png?fit=fillmax&w=125&h=125&bg=FFFFFF","exchange":"BTQ"},{"name":"YieldMax
+          MSFT Option Income Strategy ETF","symbol":"MSFO","encodedName":"yieldmax-msft-option-income-strategy-etf-msfo","instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","stakeInstrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","imageUrl":"https://drivewealth.imgix.net/symbols/msfo_1697073212.png?fit=fillmax&w=125&h=125&bg=FFFFFF","exchange":"PCQ"},{"name":"DIREXION
+          DAILY MSFT BULL 1.5","symbol":"MSFU","encodedName":"direxion-daily-msft-bull-15-msfu","instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","stakeInstrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","imageUrl":"https://drivewealth.imgix.net/symbols/msfu_1666599113.png?fit=fillmax&w=125&h=125&bg=FFFFFF","exchange":"NMQ"}],"instrumentTags":[]}'
       headers: {}
       status:
         code: 200
@@ -81,31 +49,22 @@ interactions:
     response:
       body:
         string:
-          '{"products": [{"id": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "stakeInstrumentId":
-          "e3769c0b-456d-49dd-bec5-7a750c146d11", "instrumentTypeID": null, "symbol":
-          "MSFT", "description": "Microsoft Corporation is a technology company. The
-          Company develops, licenses, and supports a range of software products, services
-          and devices. The Company''s segments include Productivity and Business Processes,
-          Intelligent Cloud and More Personal Computing. The Company''s products include
-          operating systems; cross-device productivity applications; server applications;
-          business solution applications; desktop and server management tools; software
-          development tools; video games, and training and certification of computer
-          system integrators and developers. It also designs, manufactures, and sells
-          devices, including personal computers (PCs), tablets, gaming and entertainment
-          consoles, phones, other intelligent devices, and related accessories, that
-          integrate with its cloud-based offerings. It offers an array of services,
-          including cloud-based solutions that provide customers with software, services,
-          platforms, and content, and it provides solution support and consulting services.",
-          "category": "Stock", "currencyID": "USD", "urlImage": "https://d3an3cesqmrf1x.cloudfront.net/images/symbols/msft.png",
-          "sector": "Technology", "name": "Microsoft Corporation", "prePostMarketDailyReturn":
-          -0.06, "prePostMarketDailyReturnPercentage": -0.02, "dailyReturn": 4.09, "dailyReturnPercentage":
-          1.11, "lastTraded": 373.46, "monthlyReturn": 0.0, "yearlyReturnPercentage":
-          46.75, "yearlyReturnValue": 74.48, "popularity": 1717.0, "watched": 35555,
-          "news": 0, "bought": 157339, "viewed": 129200, "productType": "Instrument",
-          "exchange": "NSQ", "status": "ACTIVE", "type": "EQUITY", "encodedName": "microsoft-corporation-msft",
-          "period": "YEAR RETURN", "extendedHoursNotionalStatus": "ACTIVE", "inceptionDate":
-          511056000000, "marketCap": 3162416042769, "instrumentTags": [], "childInstruments":
-          []}]}'
+          '{"products":[{"id":"1cf93550-8eb4-4c32-a229-826cf8c1be59","stakeInstrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","instrumentTypeID":null,"symbol":"MSFT","description":"Microsoft
+          Corporation is a technology company. The Company develops, licenses, and supports
+          a range of software products, services and devices. The Company''s segments
+          include Productivity and Business Processes, Intelligent Cloud and More Personal
+          Computing. The Company''s products include operating systems; cross-device
+          productivity applications; server applications; business solution applications;
+          desktop and server management tools; software development tools; video games,
+          and training and certification of computer system integrators and developers.
+          It also designs, manufactures, and sells devices, including personal computers
+          (PCs), tablets, gaming and entertainment consoles, phones, other intelligent
+          devices, and related accessories, that integrate with its cloud-based offerings.
+          It offers an array of services, including cloud-based solutions that provide
+          customers with software, services, platforms, and content, and it provides
+          solution support and consulting services.","category":"Stock","currencyID":"USD","urlImage":"https://d3an3cesqmrf1x.cloudfront.net/images/symbols/msft.png","sector":"Technology","name":"Microsoft
+          Corporation","prePostMarketDailyReturn":-0.06,"prePostMarketDailyReturnPercentage":-0.02,"dailyReturn":4.09,"dailyReturnPercentage":1.11,"lastTraded":373.46,"monthlyReturn":0.0,"yearlyReturnPercentage":46.75,"yearlyReturnValue":74.48,"popularity":1717.0,"watched":35555,"news":0,"bought":157339,"viewed":129200,"productType":"Instrument","exchange":"NSQ","status":"ACTIVE","type":"EQUITY","encodedName":"microsoft-corporation-msft","period":"YEAR
+          RETURN","extendedHoursNotionalStatus":"ACTIVE","inceptionDate":511056000000,"marketCap":3162416042769,"instrumentTags":[],"childInstruments":[]}]}'
       headers: {}
       status:
         code: 200

@@ -10,24 +10,7 @@ interactions:
       uri: https://api2.prd.hellostake.com/api/user
     response:
       body:
-        string:
-          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
-          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
-          "username": "michael29", "emailAddress": "reevesmegan@gilmore-wright.biz",
-          "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
-          "z0-0593879b", "macAccountNumber": "d9-0481457G", "status": null, "macStatus":
-          "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
-          null, "firstName": "Rita", "middleName": null, "lastName": "Jones", "phoneNumber":
-          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2023-10-01", "createdDate":
-          1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
-          null, "referralCode": "W2-6612029X", "referredByCode": null, "regionIdentifier":
-          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
-          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
-          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
-          "ledgerBalance": 0.0, "fxSpeed": "Instant", "dateOfBirth": null, "upToDateDetails2021":
-          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
-          null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
-          false}'
+        string: '{"canTradeOnUnsettledFunds":false,"cpfValue":null,"emailVerified":true,"hasFunded":true,"hasTraded":true,"userId":"7c9bbfae-0000-47b7-0000-0e66d868c2cf","username":"annaduran","emailAddress":"steven91@williams-holloway.com","dw_AccountId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","dw_AccountNumber":"Z5-3001375g","macAccountNumber":"Z5-3001375g","status":null,"macStatus":"BASIC_USER","dwStatus":null,"truliooStatus":"APPROVED","truliooStatusWithWatchlist":null,"firstName":"Kevin","middleName":null,"lastName":"Horn","phoneNumber":"518-247-0640","signUpPhase":0,"ackSignedWhen":"2020-02-19","createdDate":1574303699770,"stakeApprovedDate":null,"accountType":"INDIVIDUAL","masterAccountId":null,"referralCode":"Z5-3001375g","referredByCode":null,"regionIdentifier":"AUS","assetSummary":null,"fundingStatistics":null,"tradingStatistics":null,"w8File":[],"rewardJourneyTimestamp":null,"rewardJourneyStatus":null,"userProfile":{"residentialAddress":null,"postalAddress":null},"ledgerBalance":0.0,"fxSpeed":"Instant","dateOfBirth":null,"upToDateDetails2021":"NO_REQUIREMENTS","stakeKycStatus":"KYC_APPROVED","awxMigrationDocsRequired":null,"documentsStatus":"NO_ACTION","accountStatus":"OPEN","mfaenabled":false}'
       headers: {}
       status:
         code: 200
@@ -44,31 +27,15 @@ interactions:
     response:
       body:
         string:
-          '{"instruments": [{"instrumentId": "CBA.XAU", "symbol": "CBA", "name":
-          "Commonwealth Bank of Australia", "type": "EQUITY", "recentAnnouncement":
-          false, "sensitive": false, "gfdOnly": false, "marketCap": "289.29B", "exchange":
-          null, "score": 0}, {"instrumentId": "CBAPI.XAU", "symbol": "CBAPI", "name":
-          "Commonwealth Bank of Australia", "type": "INTEREST_RATE", "recentAnnouncement":
-          false, "sensitive": false, "gfdOnly": false, "marketCap": "289.29B", "exchange":
-          null, "score": 2}, {"instrumentId": "CBAPJ.XAU", "symbol": "CBAPJ", "name":
-          "Commonwealth Bank of Australia", "type": "INTEREST_RATE", "recentAnnouncement":
-          false, "sensitive": false, "gfdOnly": false, "marketCap": "289.29B", "exchange":
-          null, "score": 2}, {"instrumentId": "CBAPK.XAU", "symbol": "CBAPK", "name":
-          "Commonwealth Bank of Australia", "type": "INTEREST_RATE", "recentAnnouncement":
-          false, "sensitive": false, "gfdOnly": false, "marketCap": "289.29B", "exchange":
-          null, "score": 2}, {"instrumentId": "CBAPL.XAU", "symbol": "CBAPL", "name":
-          "Commonwealth Bank of Australia", "type": "INTEREST_RATE", "recentAnnouncement":
-          false, "sensitive": false, "gfdOnly": false, "marketCap": "289.29B", "exchange":
-          null, "score": 2}, {"instrumentId": "CBAPM.XAU", "symbol": "CBAPM", "name":
-          "Commonwealth Bank of Australia", "type": "INTEREST_RATE", "recentAnnouncement":
-          false, "sensitive": false, "gfdOnly": false, "marketCap": "289.29B", "exchange":
-          null, "score": 2}, {"instrumentId": "CB8.XAU", "symbol": "CB8", "name": "CBA
-          Toress Basket [CB8]", "type": "EQUITY", "recentAnnouncement": false, "sensitive":
-          false, "gfdOnly": false, "marketCap": "289.29B", "exchange": null, "score":
-          120}, {"instrumentId": "IHCB.XAU", "symbol": "IHCB", "name": "iShares Core
-          Global Corporate Bond (AUD Hedged) ETF", "type": "ETF", "recentAnnouncement":
-          false, "sensitive": false, "gfdOnly": false, "marketCap": "266M", "exchange":
-          null, "score": 122}], "instrumentTags": []}'
+          '{"instruments":[{"instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","symbol":"CBA","name":"Commonwealth
+          Bank of Australia","type":"EQUITY","recentAnnouncement":false,"sensitive":false,"gfdOnly":false,"marketCap":"289.29B","exchange":null,"score":0},{"instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","symbol":"CBAPI","name":"Commonwealth
+          Bank of Australia","type":"INTEREST_RATE","recentAnnouncement":false,"sensitive":false,"gfdOnly":false,"marketCap":"289.29B","exchange":null,"score":2},{"instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","symbol":"CBAPJ","name":"Commonwealth
+          Bank of Australia","type":"INTEREST_RATE","recentAnnouncement":false,"sensitive":false,"gfdOnly":false,"marketCap":"289.29B","exchange":null,"score":2},{"instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","symbol":"CBAPK","name":"Commonwealth
+          Bank of Australia","type":"INTEREST_RATE","recentAnnouncement":false,"sensitive":false,"gfdOnly":false,"marketCap":"289.29B","exchange":null,"score":2},{"instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","symbol":"CBAPL","name":"Commonwealth
+          Bank of Australia","type":"INTEREST_RATE","recentAnnouncement":false,"sensitive":false,"gfdOnly":false,"marketCap":"289.29B","exchange":null,"score":2},{"instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","symbol":"CBAPM","name":"Commonwealth
+          Bank of Australia","type":"INTEREST_RATE","recentAnnouncement":false,"sensitive":false,"gfdOnly":false,"marketCap":"289.29B","exchange":null,"score":2},{"instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","symbol":"CB8","name":"CBA
+          Toress Basket [CB8]","type":"EQUITY","recentAnnouncement":false,"sensitive":false,"gfdOnly":false,"marketCap":"289.29B","exchange":null,"score":120},{"instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","symbol":"IHCB","name":"iShares
+          Core Global Corporate Bond (AUD Hedged) ETF","type":"ETF","recentAnnouncement":false,"sensitive":false,"gfdOnly":false,"marketCap":"266M","exchange":null,"score":122}],"instrumentTags":[]}'
       headers: {}
       status:
         code: 200
@@ -84,13 +51,7 @@ interactions:
       uri: https://api2.prd.hellostake.com/api/asx/instrument/singleQuote/CBA
     response:
       body:
-        string:
-          '{"marketStatus": "CLOSED", "lastTradedExchange": "ASX", "symbol": "CBA",
-          "lastTradedTimestamp": 1775107195, "lastTrade": "172.8000", "bid": "172.8000",
-          "ask": "172.8100", "priorClose": "171.9000", "open": "171.7000", "high": "174.2200",
-          "low": "171.3500", "pointsChange": "0.9000", "percentageChange": "0.52", "outOfMarketPrice":
-          "172.8000", "outOfMarketQuantity": "784637", "outOfMarketSurplus": "187003",
-          "volume": 1927460}'
+        string: '{"marketStatus":"CLOSED","lastTradedExchange":"ASX","symbol":"CBA","lastTradedTimestamp":1775107195,"lastTrade":"172.8000","bid":"172.8000","ask":"172.8100","priorClose":"171.9000","open":"171.7000","high":"174.2200","low":"171.3500","pointsChange":"0.9000","percentageChange":"0.52","outOfMarketPrice":"172.8000","outOfMarketQuantity":"784637","outOfMarketSurplus":"187003","volume":1927460}'
       headers: {}
       status:
         code: 200

@@ -8,7 +8,7 @@ from pydantic import BaseModel
 from stake import asx, constant
 from stake.client import HttpClient, StakeClient
 from stake.constant import NYSE
-from stake.product import Product
+from stake.product import Product, ProductsClient
 
 
 @pytest.mark.parametrize("exchange", (constant.NYSE, constant.ASX))
@@ -43,6 +43,60 @@ async def test_product_serializer():
             Product(**serialized_product["products"][0])
             for serialized_product in results
         ]
+
+
+@pytest.mark.asyncio
+async def test_get_us_product_adds_quote_bid_and_ask():
+    class Client:
+        exchange = constant.NYSE
+
+        async def get(self, url):
+            return {
+                "products": [
+                    {
+                        "id": "16bf66e3-94f5-4357-88d0-48e2a44f44bf",
+                        "symbol": "SE",
+                        "description": "Sea Limited",
+                        "urlImage": "https://example.com/se.png",
+                        "name": "Sea Limited",
+                        "dailyReturn": 1.75,
+                        "dailyReturnPercentage": 2.01,
+                        "lastTraded": 89.02,
+                        "monthlyReturn": 0,
+                        "popularity": 1,
+                        "watched": 1,
+                        "news": 0,
+                        "bought": 1,
+                        "viewed": 1,
+                        "productType": "Instrument",
+                        "encodedName": "sea-limited-se",
+                        "period": "YEAR RETURN",
+                        "instrumentTags": [],
+                        "childInstruments": [],
+                    }
+                ]
+            }
+
+        async def post(self, url, payload):
+            assert url == constant.NYSE.quotes
+            assert payload == {"symbols": ["SE"]}
+            return [
+                {
+                    "symbol": "SE",
+                    "bid": 88.5,
+                    "ask": 90,
+                    "lastTrade": 89.02,
+                    "marketStatus": "POSTMARKET",
+                }
+            ]
+
+    client = Client()
+    product = await ProductsClient(client).get("SE")
+    assert product
+    assert product.bid == 88.5
+    assert product.ask == 90
+    assert product.last_trade == 89.02
+    assert product.market_status == "POSTMARKET"
 
 
 @pytest.mark.parametrize(
