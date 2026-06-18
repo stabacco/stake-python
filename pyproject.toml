@@ -32,11 +32,12 @@ pytest-coverage = "^0.0"
 pytest-mock = "^3.3.0"
 faker = "^4.14.0"
 pytest-recording = "^0.13.4"
+types-pyyaml = "^6.0.12.20260518"
 
 
 [tool.isort]
 profile = "black"
-known_third_party = ["aiohttp", "dotenv", "inflection", "pydantic", "pytest", "pytest_asyncio", "single_version"]
+known_third_party = ["aiohttp", "dotenv", "faker", "inflection", "pydantic", "pytest", "pytest_asyncio", "single_version"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
