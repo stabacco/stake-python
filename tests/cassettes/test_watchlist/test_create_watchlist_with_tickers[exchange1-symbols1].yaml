@@ -10,24 +10,7 @@ interactions:
       uri: https://api2.prd.hellostake.com/api/user
     response:
       body:
-        string:
-          '{"canTradeOnUnsettledFunds": false, "cpfValue": null, "emailVerified":
-          true, "hasFunded": true, "hasTraded": true, "userId": "7c9bbfae-0000-47b7-0000-0e66d868c2cf",
-          "username": "michael29", "emailAddress": "reevesmegan@gilmore-wright.biz",
-          "dw_AccountId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "dw_AccountNumber":
-          "z0-0593879b", "macAccountNumber": "d9-0481457G", "status": null, "macStatus":
-          "BASIC_USER", "dwStatus": null, "truliooStatus": "APPROVED", "truliooStatusWithWatchlist":
-          null, "firstName": "Rita", "middleName": null, "lastName": "Jones", "phoneNumber":
-          "(640)242-4270x965", "signUpPhase": 0, "ackSignedWhen": "2023-10-01", "createdDate":
-          1574303699770, "stakeApprovedDate": null, "accountType": "INDIVIDUAL", "masterAccountId":
-          null, "referralCode": "W2-6612029X", "referredByCode": null, "regionIdentifier":
-          "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
-          null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
-          null, "userProfile": {"residentialAddress": null, "postalAddress": null},
-          "ledgerBalance": 0.0, "fxSpeed": "Instant", "dateOfBirth": null, "upToDateDetails2021":
-          "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
-          null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
-          false}'
+        string: '{"canTradeOnUnsettledFunds":false,"cpfValue":null,"emailVerified":true,"hasFunded":true,"hasTraded":true,"userId":"7c9bbfae-0000-47b7-0000-0e66d868c2cf","username":"annaduran","emailAddress":"steven91@williams-holloway.com","dw_AccountId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","dw_AccountNumber":"Z5-3001375g","macAccountNumber":"Z5-3001375g","status":null,"macStatus":"BASIC_USER","dwStatus":null,"truliooStatus":"APPROVED","truliooStatusWithWatchlist":null,"firstName":"Kevin","middleName":null,"lastName":"Horn","phoneNumber":"518-247-0640","signUpPhase":0,"ackSignedWhen":"2020-02-19","createdDate":1574303699770,"stakeApprovedDate":null,"accountType":"INDIVIDUAL","masterAccountId":null,"referralCode":"Z5-3001375g","referredByCode":null,"regionIdentifier":"AUS","assetSummary":null,"fundingStatistics":null,"tradingStatistics":null,"w8File":[],"rewardJourneyTimestamp":null,"rewardJourneyStatus":null,"userProfile":{"residentialAddress":null,"postalAddress":null},"ledgerBalance":0.0,"fxSpeed":"Instant","dateOfBirth":null,"upToDateDetails2021":"NO_REQUIREMENTS","stakeKycStatus":"KYC_APPROVED","awxMigrationDocsRequired":null,"documentsStatus":"NO_ACTION","accountStatus":"OPEN","mfaenabled":false}'
       headers: {}
       status:
         code: 200
@@ -43,21 +26,7 @@ interactions:
       uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlists
     response:
       body:
-        string:
-          '{"generated": false, "watchlists": [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "Minervini-2026-05-12", "count": 17, "timeCreated": "2026-05-12T12:46:15.919905"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-13",
-          "count": 17, "timeCreated": "2026-05-13T11:32:38.08642"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-17", "count":
-          13, "timeCreated": "2026-05-17T08:12:09.349327"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "Minervini-2026-05-20", "count": 12, "timeCreated": "2026-05-20T11:07:35.458586"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-21",
-          "count": 10, "timeCreated": "2026-05-21T06:42:08.526234"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-28", "count":
-          17, "timeCreated": "2026-05-28T13:08:23.501706"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "Minervini-2026-06-04", "count": 17, "timeCreated": "2026-06-04T11:30:01.564825"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-06-05",
-          "count": 15, "timeCreated": "2026-06-05T12:18:25.286463"}]}'
+        string: '{"generated":false,"watchlists":[{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-12","count":17,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-13","count":17,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-17","count":13,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-20","count":12,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-21","count":10,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-28","count":17,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-06-04","count":17,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-06-05","count":15,"timeCreated":"2020-01-01T00:00:00.000Z"}]}'
       headers: {}
       status:
         code: 200
@@ -79,23 +48,7 @@ interactions:
       uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist
     response:
       body:
-        string:
-          '{"newWatchlistId": "42a36690-ceda-4095-bd82-682d75f263c2", "watchlists":
-          [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-12",
-          "count": 17, "timeCreated": "2026-05-12T12:46:15.919905"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-13", "count":
-          17, "timeCreated": "2026-05-13T11:32:38.08642"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "Minervini-2026-05-17", "count": 13, "timeCreated": "2026-05-17T08:12:09.349327"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-20",
-          "count": 12, "timeCreated": "2026-05-20T11:07:35.458586"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-21", "count":
-          10, "timeCreated": "2026-05-21T06:42:08.526234"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "Minervini-2026-05-28", "count": 17, "timeCreated": "2026-05-28T13:08:23.501706"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-06-04",
-          "count": 17, "timeCreated": "2026-06-04T11:30:01.564825"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-06-05", "count":
-          15, "timeCreated": "2026-06-05T12:18:25.286463"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test_watchlist__ASXUrl", "count": 0, "timeCreated": "2026-06-18T12:16:38.808328"}]}'
+        string: '{"newWatchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","watchlists":[{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-12","count":17,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-13","count":17,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-17","count":13,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-20","count":12,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-21","count":10,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-28","count":17,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-06-04","count":17,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-06-05","count":15,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"test_watchlist__ASXUrl","count":0,"timeCreated":"2020-01-01T00:00:00.000Z"}]}'
       headers: {}
       status:
         code: 201
@@ -108,12 +61,10 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/42a36690-ceda-4095-bd82-682d75f263c2
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
     response:
       body:
-        string:
-          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
-          "count": 0, "instruments": []}'
+        string: '{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"test_watchlist__ASXUrl","count":0,"instruments":[]}'
       headers: {}
       status:
         code: 200
@@ -131,20 +82,15 @@ interactions:
         Content-Type:
           - application/json
       method: POST
-      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/42a36690-ceda-4095-bd82-682d75f263c2/items
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
     response:
       body:
         string:
-          '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
-          "count": 4, "instruments": [{"instrumentId": "OOO.XAU", "name": "Betashares
-          Crude Oil Index Currency Hdg Cmplx ETF", "symbol": "OOO", "recentAnnouncement":
-          false, "sensitive": false, "stakeInstrumentId": "44b3d5f1-e1cc-4dd7-98d0-ccdb42444852"},
-          {"instrumentId": "BHP.XAU", "name": "BHP Group", "symbol": "BHP", "recentAnnouncement":
-          true, "sensitive": false, "stakeInstrumentId": "3ae2466b-17e8-41f0-a173-a58af26c4f8d"},
-          {"instrumentId": "WDS.XAU", "name": "Woodside Energy Group", "symbol": "WDS",
-          "recentAnnouncement": false, "sensitive": false, "stakeInstrumentId": "cb8980b9-ad6b-4ab0-b59a-d7701878709a"},
-          {"instrumentId": "COL.XAU", "name": "Coles Group", "symbol": "COL", "recentAnnouncement":
-          false, "sensitive": false, "stakeInstrumentId": "b9727249-77ab-4d6f-b779-c7538358d02c"}]}'
+          '{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"test_watchlist__ASXUrl","count":4,"instruments":[{"instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Betashares
+          Crude Oil Index Currency Hdg Cmplx ETF","symbol":"OOO","recentAnnouncement":false,"sensitive":false,"stakeInstrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59"},{"instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"BHP
+          Group","symbol":"BHP","recentAnnouncement":true,"sensitive":false,"stakeInstrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59"},{"instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Woodside
+          Energy Group","symbol":"WDS","recentAnnouncement":false,"sensitive":false,"stakeInstrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59"},{"instrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Coles
+          Group","symbol":"COL","recentAnnouncement":false,"sensitive":false,"stakeInstrumentId":"1cf93550-8eb4-4c32-a229-826cf8c1be59"}]}'
       headers: {}
       status:
         code: 201
@@ -157,24 +103,10 @@ interactions:
         Content-Type:
           - application/json
       method: DELETE
-      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/42a36690-ceda-4095-bd82-682d75f263c2
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
     response:
       body:
-        string:
-          '[{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-12",
-          "count": 17, "timeCreated": "2026-05-12T12:46:15.919905"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-13", "count":
-          17, "timeCreated": "2026-05-13T11:32:38.08642"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "Minervini-2026-05-17", "count": 13, "timeCreated": "2026-05-17T08:12:09.349327"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-20",
-          "count": 12, "timeCreated": "2026-05-20T11:07:35.458586"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-21", "count":
-          10, "timeCreated": "2026-05-21T06:42:08.526234"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "Minervini-2026-05-28", "count": 17, "timeCreated": "2026-05-28T13:08:23.501706"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-06-04",
-          "count": 17, "timeCreated": "2026-06-04T11:30:01.564825"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-06-05", "count":
-          15, "timeCreated": "2026-06-05T12:18:25.286463"}]'
+        string: '[{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-12","count":17,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-13","count":17,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-17","count":13,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-20","count":12,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-21","count":10,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-05-28","count":17,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-06-04","count":17,"timeCreated":"2020-01-01T00:00:00.000Z"},{"watchlistId":"1cf93550-8eb4-4c32-a229-826cf8c1be59","name":"Minervini-2026-06-05","count":15,"timeCreated":"2020-01-01T00:00:00.000Z"}]'
       headers: {}
       status:
         code: 200

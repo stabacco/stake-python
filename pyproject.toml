@@ -36,7 +36,7 @@ pytest-recording = "^0.13.4"
 
 [tool.isort]
 profile = "black"
-known_third_party = ["aiohttp", "dotenv", "faker", "inflection", "pydantic", "pytest", "pytest_asyncio", "single_version"]
+known_third_party = ["aiohttp", "dotenv", "inflection", "pydantic", "pytest", "pytest_asyncio", "single_version"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
