@@ -10,6 +10,7 @@ class NYSEUrl(BaseModel):
     """Contains all the visited stake urls for the NYSE."""
 
     STAKE_URL: str = "https://api2.prd.hellostake.com/"
+    STAKE_OVER_URL: str = "https://api.prd.hellostake.com/"
     account_balance: str = urljoin(
         STAKE_URL, "api/cma/getAccountBalance", allow_fragments=True
     )
@@ -47,7 +48,7 @@ class NYSEUrl(BaseModel):
         STAKE_URL, "api/purchaseorders/v2/quickBuy", allow_fragments=True
     )
     quotes: str = urljoin(
-        STAKE_URL, "api/quotes/marketData/{symbols}", allow_fragments=True
+        STAKE_OVER_URL, "us/pricing/quotes/marketData", allow_fragments=True
     )
     rate: str = urljoin(STAKE_URL, "api/wallet/rate", allow_fragments=True)
     ratings: str = urljoin(
@@ -78,16 +79,18 @@ class NYSEUrl(BaseModel):
     users: str = urljoin(STAKE_URL, "api/user", allow_fragments=True)
 
     watchlists: str = urljoin(
-        STAKE_URL, "us/instrument/watchlists", allow_fragments=True
+        STAKE_OVER_URL, "us/instrument/watchlists", allow_fragments=True
     )
     create_watchlist: str = urljoin(
-        STAKE_URL, "us/instrument/watchlist", allow_fragments=True
+        STAKE_OVER_URL, "us/instrument/watchlist", allow_fragments=True
     )
     read_watchlist: str = urljoin(
-        STAKE_URL, "us/instrument/watchlist/{watchlist_id}", allow_fragments=True
+        STAKE_OVER_URL, "us/instrument/watchlist/{watchlist_id}", allow_fragments=True
     )
     update_watchlist: str = urljoin(
-        STAKE_URL, "us/instrument/watchlist/{watchlist_id}/items", allow_fragments=True
+        STAKE_OVER_URL,
+        "us/instrument/watchlist/{watchlist_id}/items",
+        allow_fragments=True,
     )
 
     statement: str = urljoin(

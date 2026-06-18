@@ -24,7 +24,7 @@ interactions:
           "AUS", "assetSummary": null, "fundingStatistics": null, "tradingStatistics":
           null, "w8File": [], "rewardJourneyTimestamp": null, "rewardJourneyStatus":
           null, "userProfile": {"residentialAddress": null, "postalAddress": null},
-          "ledgerBalance": 0.0, "fxSpeed": "Regular", "dateOfBirth": null, "upToDateDetails2021":
+          "ledgerBalance": 0.0, "fxSpeed": "Instant", "dateOfBirth": null, "upToDateDetails2021":
           "NO_REQUIREMENTS", "stakeKycStatus": "KYC_APPROVED", "awxMigrationDocsRequired":
           null, "documentsStatus": "NO_ACTION", "accountStatus": "OPEN", "mfaenabled":
           false}'
@@ -45,27 +45,27 @@ interactions:
       body:
         string:
           '{"generated": false, "watchlists": [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test-2025-08-05", "count": 13, "timeCreated": "2025-08-05T07:20:15.861472"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-06",
-          "count": 14, "timeCreated": "2025-08-06T11:14:12.301944"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-09", "count":
-          15, "timeCreated": "2025-08-09T00:40:14.987686"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test-2025-08-11", "count": 15, "timeCreated": "2025-08-11T10:47:31.306034"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-13",
-          "count": 14, "timeCreated": "2025-08-13T06:34:29.643625"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-21", "count":
-          16, "timeCreated": "2025-08-21T01:40:59.486169"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test-2025-08-22", "count": 16, "timeCreated": "2025-08-22T05:00:05.327484"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-23",
-          "count": 14, "timeCreated": "2025-08-22T21:55:05.81269"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-26", "count":
-          16, "timeCreated": "2025-08-26T02:52:58.934391"}]}'
+          "name": "Minervini-2026-05-12", "count": 17, "timeCreated": "2026-05-12T12:46:15.919905"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-13",
+          "count": 17, "timeCreated": "2026-05-13T11:32:38.08642"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-17", "count":
+          13, "timeCreated": "2026-05-17T08:12:09.349327"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "Minervini-2026-05-20", "count": 12, "timeCreated": "2026-05-20T11:07:35.458586"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-21",
+          "count": 10, "timeCreated": "2026-05-21T06:42:08.526234"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-28", "count":
+          17, "timeCreated": "2026-05-28T13:08:23.501706"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "Minervini-2026-06-04", "count": 17, "timeCreated": "2026-06-04T11:30:01.564825"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-06-05",
+          "count": 15, "timeCreated": "2026-06-05T12:18:25.286463"}]}'
       headers: {}
       status:
         code: 200
         message: OK
   - request:
-      body: null
+      body:
+        name: test_watchlist__ASXUrl
+        tickers: null
       headers:
         Accept:
           - application/json
@@ -76,24 +76,22 @@ interactions:
     response:
       body:
         string:
-          '{"newWatchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "watchlists":
-          [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-05",
-          "count": 13, "timeCreated": "2025-08-05T07:20:15.861472"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-06", "count":
-          14, "timeCreated": "2025-08-06T11:14:12.301944"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test-2025-08-09", "count": 15, "timeCreated": "2025-08-09T00:40:14.987686"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-11",
-          "count": 15, "timeCreated": "2025-08-11T10:47:31.306034"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-13", "count":
-          14, "timeCreated": "2025-08-13T06:34:29.643625"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test-2025-08-21", "count": 16, "timeCreated": "2025-08-21T01:40:59.486169"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-22",
-          "count": 16, "timeCreated": "2025-08-22T05:00:05.327484"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-23", "count":
-          14, "timeCreated": "2025-08-22T21:55:05.81269"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test-2025-08-26", "count": 16, "timeCreated": "2025-08-26T02:52:58.934391"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
-          "count": 0, "timeCreated": "2025-09-01T13:05:47.428516"}]}'
+          '{"newWatchlistId": "42387285-8599-4295-b4bb-0878e5e6a962", "watchlists":
+          [{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-12",
+          "count": 17, "timeCreated": "2026-05-12T12:46:15.919905"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-13", "count":
+          17, "timeCreated": "2026-05-13T11:32:38.08642"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "Minervini-2026-05-17", "count": 13, "timeCreated": "2026-05-17T08:12:09.349327"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-20",
+          "count": 12, "timeCreated": "2026-05-20T11:07:35.458586"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-21", "count":
+          10, "timeCreated": "2026-05-21T06:42:08.526234"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "Minervini-2026-05-28", "count": 17, "timeCreated": "2026-05-28T13:08:23.501706"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-06-04",
+          "count": 17, "timeCreated": "2026-06-04T11:30:01.564825"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-06-05", "count":
+          15, "timeCreated": "2026-06-05T12:18:25.286463"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "test_watchlist__ASXUrl", "count": 0, "timeCreated": "2026-06-18T12:16:34.679654"}]}'
       headers: {}
       status:
         code: 201
@@ -106,7 +104,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/42387285-8599-4295-b4bb-0878e5e6a962
     response:
       body:
         string:
@@ -124,7 +122,7 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/42387285-8599-4295-b4bb-0878e5e6a962
     response:
       body:
         string:
@@ -135,24 +133,29 @@ interactions:
         code: 200
         message: OK
   - request:
-      body: null
+      body:
+        tickers:
+          - COL
+          - WDS
+          - BHP
       headers:
         Accept:
           - application/json
         Content-Type:
           - application/json
       method: POST
-      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/42387285-8599-4295-b4bb-0878e5e6a962/items
     response:
       body:
         string:
           '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
-          "count": 3, "instruments": [{"instrumentId": "BHP.XAU", "name": "BHP Group
-          Limited", "symbol": "BHP", "recentAnnouncement": false, "sensitive": false},
-          {"instrumentId": "WDS.XAU", "name": "Woodside Energy Group Ltd", "symbol":
-          "WDS", "recentAnnouncement": false, "sensitive": false}, {"instrumentId":
-          "COL.XAU", "name": "Coles Group Limited", "symbol": "COL", "recentAnnouncement":
-          true, "sensitive": false}]}'
+          "count": 3, "instruments": [{"instrumentId": "BHP.XAU", "name": "BHP Group",
+          "symbol": "BHP", "recentAnnouncement": true, "sensitive": false, "stakeInstrumentId":
+          "3ae2466b-17e8-41f0-a173-a58af26c4f8d"}, {"instrumentId": "WDS.XAU", "name":
+          "Woodside Energy Group", "symbol": "WDS", "recentAnnouncement": false, "sensitive":
+          false, "stakeInstrumentId": "cb8980b9-ad6b-4ab0-b59a-d7701878709a"}, {"instrumentId":
+          "COL.XAU", "name": "Coles Group", "symbol": "COL", "recentAnnouncement": false,
+          "sensitive": false, "stakeInstrumentId": "b9727249-77ab-4d6f-b779-c7538358d02c"}]}'
       headers: {}
       status:
         code: 201
@@ -165,17 +168,18 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/42387285-8599-4295-b4bb-0878e5e6a962
     response:
       body:
         string:
           '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
-          "count": 3, "instruments": [{"instrumentId": "BHP.XAU", "name": "BHP Group
-          Limited", "symbol": "BHP", "recentAnnouncement": false, "sensitive": false},
-          {"instrumentId": "WDS.XAU", "name": "Woodside Energy Group Ltd", "symbol":
-          "WDS", "recentAnnouncement": false, "sensitive": false}, {"instrumentId":
-          "COL.XAU", "name": "Coles Group Limited", "symbol": "COL", "recentAnnouncement":
-          true, "sensitive": false}]}'
+          "count": 3, "instruments": [{"instrumentId": "BHP.XAU", "name": "BHP Group",
+          "symbol": "BHP", "recentAnnouncement": true, "sensitive": false, "stakeInstrumentId":
+          "3ae2466b-17e8-41f0-a173-a58af26c4f8d"}, {"instrumentId": "WDS.XAU", "name":
+          "Woodside Energy Group", "symbol": "WDS", "recentAnnouncement": false, "sensitive":
+          false, "stakeInstrumentId": "cb8980b9-ad6b-4ab0-b59a-d7701878709a"}, {"instrumentId":
+          "COL.XAU", "name": "Coles Group", "symbol": "COL", "recentAnnouncement": false,
+          "sensitive": false, "stakeInstrumentId": "b9727249-77ab-4d6f-b779-c7538358d02c"}]}'
       headers: {}
       status:
         code: 200
@@ -188,17 +192,18 @@ interactions:
         Content-Type:
           - application/json
       method: GET
-      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/42387285-8599-4295-b4bb-0878e5e6a962
     response:
       body:
         string:
           '{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test_watchlist__ASXUrl",
-          "count": 3, "instruments": [{"instrumentId": "BHP.XAU", "name": "BHP Group
-          Limited", "symbol": "BHP", "recentAnnouncement": false, "sensitive": false},
-          {"instrumentId": "WDS.XAU", "name": "Woodside Energy Group Ltd", "symbol":
-          "WDS", "recentAnnouncement": false, "sensitive": false}, {"instrumentId":
-          "COL.XAU", "name": "Coles Group Limited", "symbol": "COL", "recentAnnouncement":
-          true, "sensitive": false}]}'
+          "count": 3, "instruments": [{"instrumentId": "BHP.XAU", "name": "BHP Group",
+          "symbol": "BHP", "recentAnnouncement": true, "sensitive": false, "stakeInstrumentId":
+          "3ae2466b-17e8-41f0-a173-a58af26c4f8d"}, {"instrumentId": "WDS.XAU", "name":
+          "Woodside Energy Group", "symbol": "WDS", "recentAnnouncement": false, "sensitive":
+          false, "stakeInstrumentId": "cb8980b9-ad6b-4ab0-b59a-d7701878709a"}, {"instrumentId":
+          "COL.XAU", "name": "Coles Group", "symbol": "COL", "recentAnnouncement": false,
+          "sensitive": false, "stakeInstrumentId": "b9727249-77ab-4d6f-b779-c7538358d02c"}]}'
       headers: {}
       status:
         code: 200
@@ -215,7 +220,7 @@ interactions:
         Content-Type:
           - application/json
       method: DELETE
-      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59/items
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/42387285-8599-4295-b4bb-0878e5e6a962/items
     response:
       body:
         string:
@@ -233,25 +238,24 @@ interactions:
         Content-Type:
           - application/json
       method: DELETE
-      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/1cf93550-8eb4-4c32-a229-826cf8c1be59
+      uri: https://api2.prd.hellostake.com/api/asx/instrument/v2/watchlist/42387285-8599-4295-b4bb-0878e5e6a962
     response:
       body:
         string:
-          '[{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-05",
-          "count": 13, "timeCreated": "2025-08-05T07:20:15.861472"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-06", "count":
-          14, "timeCreated": "2025-08-06T11:14:12.301944"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test-2025-08-09", "count": 15, "timeCreated": "2025-08-09T00:40:14.987686"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-11",
-          "count": 15, "timeCreated": "2025-08-11T10:47:31.306034"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-13", "count":
-          14, "timeCreated": "2025-08-13T06:34:29.643625"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test-2025-08-21", "count": 16, "timeCreated": "2025-08-21T01:40:59.486169"},
-          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-22",
-          "count": 16, "timeCreated": "2025-08-22T05:00:05.327484"}, {"watchlistId":
-          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "test-2025-08-23", "count":
-          14, "timeCreated": "2025-08-22T21:55:05.81269"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
-          "name": "test-2025-08-26", "count": 16, "timeCreated": "2025-08-26T02:52:58.934391"}]'
+          '[{"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-12",
+          "count": 17, "timeCreated": "2026-05-12T12:46:15.919905"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-13", "count":
+          17, "timeCreated": "2026-05-13T11:32:38.08642"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "Minervini-2026-05-17", "count": 13, "timeCreated": "2026-05-17T08:12:09.349327"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-20",
+          "count": 12, "timeCreated": "2026-05-20T11:07:35.458586"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-05-21", "count":
+          10, "timeCreated": "2026-05-21T06:42:08.526234"}, {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59",
+          "name": "Minervini-2026-05-28", "count": 17, "timeCreated": "2026-05-28T13:08:23.501706"},
+          {"watchlistId": "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-06-04",
+          "count": 17, "timeCreated": "2026-06-04T11:30:01.564825"}, {"watchlistId":
+          "1cf93550-8eb4-4c32-a229-826cf8c1be59", "name": "Minervini-2026-06-05", "count":
+          15, "timeCreated": "2026-06-05T12:18:25.286463"}]'
       headers: {}
       status:
         code: 200
