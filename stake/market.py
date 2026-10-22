@@ -28,4 +28,4 @@ class MarketClient(BaseClient):
 
     async def is_open(self) -> bool:
         status = await self.get()
-        return status.status.current == "open"
+        return status.status.current.lower() == "open"

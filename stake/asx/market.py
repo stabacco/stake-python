@@ -31,4 +31,6 @@ class MarketClient(BaseClient):
 
     async def is_open(self) -> bool:
         status = await self.get()
-        return status.status.current == "open"
+        current = status.status.current.lower()
+        # ASX returns "ACTIVE" when market is open, "CLOSED" when closed
+        return current in ("open", "active")
