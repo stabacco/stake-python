@@ -46,11 +46,18 @@ class CashAvailable(BaseModel):
     cash_balance: float
     cash_settlement: List[Optional[CashSettlement]]
     dw_cash_available_for_withdrawal: float
+    #: Trading capacity: the balance plus deposits Stake has accepted but not yet
+    #: settled. Distinct from the withdrawal figures above, and the number the
+    #: Stake app shows as buying power. Optional so that responses without the key
+    #: keep parsing.
+    liquid_cash: Optional[float] = None
     pending_orders_amount: float
     pending_poli_amount: float
     pending_withdrawals: float
     reserved_cash: float
-    model_config = ConfigDict(alias_generator=camelcase)
+    #: extra="allow" keeps any field the provider adds next time observable via
+    #: model_extra, instead of dropping it silently.
+    model_config = ConfigDict(alias_generator=camelcase, extra="allow")
 
 
 class FundsInFlight(BaseModel):
